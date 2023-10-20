@@ -97,7 +97,7 @@ class _BankDepositDeliveryMethodScreenState
           elevation: 0,
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
-          actions: [],
+          actions: const [],
           systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
@@ -177,9 +177,10 @@ class _BankDepositDeliveryMethodScreenState
                         color: MyColors.whiteColor,
                         border:
                             Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
-                        boxShadow: [
-                          const BoxShadow(
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(12.0)),
+                        boxShadow: const [
+                          BoxShadow(
                             color: MyColors.color_linecolor,
                             offset: Offset(0.0, 1.0), //(x,y)
                             blurRadius: 2.0,
@@ -189,7 +190,7 @@ class _BankDepositDeliveryMethodScreenState
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                           Row(
+                          const Row(
                             children: [
                               // SvgPicture.asset("s_asset/images/flag2.svg",width: 24,height: 24,),
                               //wSizedBox1,
@@ -283,7 +284,8 @@ class _BankDepositDeliveryMethodScreenState
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         //scrollDirection: Axis.vertical,
                         physics: const NeverScrollableScrollPhysics(),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           childAspectRatio: 1 / 0.73,
                           crossAxisSpacing: 1.1,
@@ -447,9 +449,10 @@ class _BankDepositDeliveryMethodScreenState
                                 MobileMoneyNumberKeyboardScreen()));
                   },
                   child: Container(
-                      padding:
-                          const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-                      margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 10),
+                      margin: const EdgeInsets.symmetric(
+                          vertical: 8, horizontal: 5),
                       child: CustomSelectBankList(
                         title: MyString.Company_name,
                         img: "s_asset/images/companyimg.png",
@@ -492,8 +495,10 @@ class _BankDepositDeliveryMethodScreenState
                           builder: (context) => CashPickUpSelectLocation()));
                 },
                 child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
-                    margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 4, horizontal: 10),
+                    margin:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
                     child: CustomSelectBankList(
                       title: MyString.Company_name,
                       img: "s_asset/images/store.png",

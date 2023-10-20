@@ -412,10 +412,10 @@ class _SelectOperatorScreenState extends State<SelectOperatorScreen> {
                         child: Card(
                           shape: selectedIndex == index
                               ? new RoundedRectangleBorder(
-                              side: new BorderSide(color: MyColors.lightblueColor, width: 1),
+                              side: const BorderSide(color: MyColors.lightblueColor, width: 1),
                               borderRadius: BorderRadius.circular(8))
                               : new RoundedRectangleBorder(
-                              side: new BorderSide(color: MyColors.whiteColor, width: 1),
+                              side: const BorderSide(color: MyColors.whiteColor, width: 1),
                               borderRadius: BorderRadius.circular(8)),
                           margin: const EdgeInsets.all(8),
                           child: Container(
@@ -429,7 +429,7 @@ class _SelectOperatorScreenState extends State<SelectOperatorScreen> {
                               children: [
                                 // Image.asset("s_asset/images/companyimg.png"),
                                 // hSizedBox1,
-                                Text(item.mobileOperatorOperator ?? '',textAlign:TextAlign.center,style: TextStyle(color: MyColors.color_text,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 12,fontWeight: FontWeight.w400),)
+                                Text(item.mobileOperatorOperator ?? '',textAlign:TextAlign.center,style: const TextStyle(color: MyColors.color_text,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 12,fontWeight: FontWeight.w400),)
                               ],
                             ),
                           ),
@@ -526,7 +526,7 @@ class _SelectOperatorScreenState extends State<SelectOperatorScreen> {
             isMobileMoney: p!.getString("select_payment_method_status").toString() == "Mobile" ? true : false,
             isCashPick: p!.getString("select_payment_method_status").toString() == "Cash" ? true : false,
           ):
-              AddRecipientInfoScreen(
+              const AddRecipientInfoScreen(
             isMfsMobileMoney: true,
           ),
         ),

@@ -100,7 +100,7 @@ class _Setting_homeState extends State<Setting_home> {
 
 
   onnavigate(){
-    Timer(Duration(microseconds: 100), () {
+    Timer(const Duration(microseconds: 100), () {
       getprofiledata();
     });
   }
@@ -116,8 +116,8 @@ class _Setting_homeState extends State<Setting_home> {
     setState(() {
       load = false;
     });
-    isSwitched_pin = userlist.length>0?userlist[0].isPinEnabled.toString()=="1"?true:false:false;
-    isSwitched_faceId = userlist.length>0?userlist[0].is_face_enabled.toString()=="1"?true:false:false;
+    isSwitched_pin = userlist.isNotEmpty?userlist[0].isPinEnabled.toString()=="1"?true:false:false;
+    isSwitched_faceId = userlist.isNotEmpty?userlist[0].is_face_enabled.toString()=="1"?true:false:false;
     setState(() {
     });
   }
@@ -133,12 +133,12 @@ class _Setting_homeState extends State<Setting_home> {
         child: Scaffold(
           backgroundColor: MyColors.whiteColor,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(0),
+            preferredSize: const Size.fromHeight(0),
             child: AppBar(
               elevation: 0,
               automaticallyImplyLeading: false,
               backgroundColor: MyColors.light_primarycolor2,
-              systemOverlayStyle: SystemUiOverlayStyle(
+              systemOverlayStyle: const SystemUiOverlayStyle(
                 // Status bar color
                 statusBarColor: MyColors.light_primarycolor2,
                 statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -166,25 +166,25 @@ class _Setting_homeState extends State<Setting_home> {
 
                     ),*/
                     Container(
-                      margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                       child: CircleAvatar(
                           radius: 45,
                           backgroundColor: Colors.white30,
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(200.0),
-                            child: userlist.length>0?FadeInImage(
+                            child: userlist.isNotEmpty?FadeInImage(
                               height: 156,width: 149,
                               fit: BoxFit.fill,
                               image: NetworkImage(
                                 userlist[0].profileImage.toString(),),
-                              placeholder: AssetImage(
+                              placeholder: const AssetImage(
                                   "a_assets/logo/progress_image.png"),
                               placeholderFit: BoxFit.scaleDown,
                               imageErrorBuilder:
                                   (context, error, stackTrace) {
                                 return Container(
                                     color: MyColors.divider_color,
-                                    alignment:Alignment.center,child: Text(userlist[0].name == null || userlist[0].name.toString().isEmpty?"":userlist[0].name.toString()[0].toUpperCase(),style: TextStyle(
+                                    alignment:Alignment.center,child: Text(userlist[0].name == null || userlist[0].name.toString().isEmpty?"":userlist[0].name.toString()[0].toUpperCase(),style: const TextStyle(
                                     color: MyColors.shedule_color,
                                     fontSize: 30,
                                     fontWeight: FontWeight.w700,
@@ -196,10 +196,10 @@ class _Setting_homeState extends State<Setting_home> {
                     ),
                     hSizedBox1,
                     Container(
-                      margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
                       child: Text(
-                        userlist.length > 0 ? "${userlist[0].name == null || userlist[0].name.toString().isEmpty? "": userlist[0].name}" : "",
-                        style: TextStyle(
+                        userlist.isNotEmpty ? "${userlist[0].name == null || userlist[0].name.toString().isEmpty? "": userlist[0].name}" : "",
+                        style: const TextStyle(
                             color: MyColors.whiteColor,
                             // fontWeight: FontWeight.w600,
                             fontSize: 14,
@@ -208,10 +208,10 @@ class _Setting_homeState extends State<Setting_home> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
                       child: Text(
-                       userlist.length > 0 ? "(${userlist[0].countryCode == null || userlist[0].countryCode.toString().isEmpty? "": userlist[0].countryCode})"+" ${userlist[0].mobileNumber == null || userlist[0].mobileNumber.toString().isEmpty? "": userlist[0].mobileNumber}": "",
-                        style: TextStyle(
+                       userlist.isNotEmpty ? "(${userlist[0].countryCode == null || userlist[0].countryCode.toString().isEmpty? "": userlist[0].countryCode})"+" ${userlist[0].mobileNumber == null || userlist[0].mobileNumber.toString().isEmpty? "": userlist[0].mobileNumber}": "",
+                        style: const TextStyle(
                             color: MyColors.greycolor,
                             //   fontWeight: FontWeight.w300,
                             fontSize: 12,
@@ -220,10 +220,10 @@ class _Setting_homeState extends State<Setting_home> {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
                       child: Text(
-                        userlist.length > 0 ? ("#"+userlist[0].unique_id.toString()):"",
-                        style: TextStyle(
+                        userlist.isNotEmpty ? ("#"+userlist[0].unique_id.toString()):"",
+                        style: const TextStyle(
                             color: MyColors.whiteColor,
                             //fontWeight: FontWeight.w400,
                             fontSize: 12,
@@ -235,25 +235,25 @@ class _Setting_homeState extends State<Setting_home> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.fromLTRB(0, 200, 0, 0),
+                margin: const EdgeInsets.fromLTRB(0, 200, 0, 0),
                 // height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width,
                 child: Card(
                   color: MyColors.whiteColor,
                   margin: EdgeInsets.zero,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft:Radius.circular(30)),
                   ),
                   child: load?Container(
                     color: Colors.black.withOpacity(0.00),
-                    child: Center(
+                    child: const Center(
                         child: GFLoader(
                             type: GFLoaderType.custom,
                             child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
                             ))
                     ),
                   ):Container(
-                    margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    margin: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                     child: SingleChildScrollView(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -266,7 +266,7 @@ class _Setting_homeState extends State<Setting_home> {
                                   CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  child: Text(
+                                  child: const Text(
                                 //    userlist.length > 0 ? "(${userlist[0]. == null || userlist[0].countryCode.toString().isEmpty? "124-335-547": userlist[0].countryCode})"+" ${userlist[0].mobileNumber == null || userlist[0].mobileNumber.toString().isEmpty? "124-335-547": userlist[0].mobileNumber}": "(+61) 124-335-547",
 
                                     "General",
@@ -280,13 +280,13 @@ class _Setting_homeState extends State<Setting_home> {
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Setting_Account_setting()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const Setting_Account_setting()));
                                     //Navigator.of(context).push(MaterialPageRoute(builder: (BuildContext context) => Setting_Account_setting()));
                                   },
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -296,9 +296,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           height: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Account Settings",
                                             style: TextStyle(
                                                 color:
@@ -325,7 +325,7 @@ class _Setting_homeState extends State<Setting_home> {
                                     ):*/
                                     pushNewScreen(
                                       context,
-                                      screen: Setting_Verification(),
+                                      screen: const Setting_Verification(),
                                       withNavBar: false,
                                     );
                                    /* :  pushNewScreen(
@@ -338,7 +338,7 @@ class _Setting_homeState extends State<Setting_home> {
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -348,9 +348,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           height: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Verification",
                                             style: TextStyle(
                                                 color:
@@ -375,7 +375,7 @@ class _Setting_homeState extends State<Setting_home> {
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -385,9 +385,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           height: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               16, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Manage Payment Method",
                                             style: TextStyle(
                                                 color:
@@ -407,14 +407,14 @@ class _Setting_homeState extends State<Setting_home> {
                                   onTap: () {
                                     pushNewScreen(
                                       context,
-                                      screen: NotificationScreen(),
+                                      screen: const NotificationScreen(),
                                       withNavBar: false,
                                     );
                                   },
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -424,9 +424,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           height: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Notifications",
                                             style: TextStyle(
                                                 color:
@@ -453,7 +453,7 @@ class _Setting_homeState extends State<Setting_home> {
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -463,9 +463,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           height: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Language",
                                             style: TextStyle(
                                                 color:
@@ -477,11 +477,11 @@ class _Setting_homeState extends State<Setting_home> {
                                                     "s_asset/font/raleway/raleway_bold.ttf"),
                                           ),
                                         ),
-                                        Spacer(),
+                                        const Spacer(),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               10, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "(English US)",
                                             style: TextStyle(
                                                 color: MyColors.greycolor,
@@ -500,14 +500,14 @@ class _Setting_homeState extends State<Setting_home> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                            margin: const EdgeInsets.fromLTRB(0, 30, 0, 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment:
                                   CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  child: Text(
+                                  child: const Text(
                                     "Security",
                                     style: TextStyle(
                                         color: MyColors.color_3F84E5,
@@ -521,14 +521,14 @@ class _Setting_homeState extends State<Setting_home> {
                                   onTap: (){
                                     pushNewScreen(
                                       context,
-                                      screen: SettingChangePasswordScreen(),
+                                      screen: const SettingChangePasswordScreen(),
                                       withNavBar: false,
                                     );
                                   },
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -538,9 +538,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           height: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Change Password",
                                             style: TextStyle(
                                                 color: MyColors.color_text,
@@ -557,7 +557,7 @@ class _Setting_homeState extends State<Setting_home> {
                                 Container(
                                   height: 50,
                                   margin:
-                                      EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                      const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   child: Row(
                                     children: [
                                       SvgPicture.asset(
@@ -571,8 +571,8 @@ class _Setting_homeState extends State<Setting_home> {
                                          // pincodeShowbottomsheet(context);
                                         },
                                         child: Container(
-                                          margin: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                                          child: Text(
+                                          margin: const EdgeInsets.fromLTRB(24, 0, 0, 0),
+                                          child: const Text(
                                             "Enable PinCode",
                                             style: TextStyle(
                                                 color:
@@ -585,7 +585,7 @@ class _Setting_homeState extends State<Setting_home> {
                                           ),
                                         ),
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       Transform.scale(
                                         scale: 0.8,
                                         child: CupertinoSwitch(
@@ -651,7 +651,7 @@ class _Setting_homeState extends State<Setting_home> {
                                 Container(
                                   height: 50,
                                   margin:
-                                      EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                      const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   child: Row(
                                     children: [
                                       SvgPicture.asset(
@@ -661,9 +661,9 @@ class _Setting_homeState extends State<Setting_home> {
                                         height: 20,
                                       ),
                                       Container(
-                                        margin: EdgeInsets.fromLTRB(
+                                        margin: const EdgeInsets.fromLTRB(
                                             20, 0, 0, 0),
-                                        child: Text(
+                                        child: const Text(
                                           "Enable Face ID or Touch ID",
                                           style: TextStyle(
                                             color: MyColors.color_text,
@@ -674,7 +674,7 @@ class _Setting_homeState extends State<Setting_home> {
                                           ),
                                         ),
                                       ),
-                                      Spacer(),
+                                      const Spacer(),
                                       Transform.scale(
                                         scale: 0.8,
                                         child: CupertinoSwitch(
@@ -740,14 +740,14 @@ class _Setting_homeState extends State<Setting_home> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                            margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment:
                                   CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  child: Text(
+                                  child: const Text(
                                     "More",
                                     style: TextStyle(
                                         color: MyColors.color_3F84E5,
@@ -760,14 +760,14 @@ class _Setting_homeState extends State<Setting_home> {
                                   onTap: (){
                                     pushNewScreen(
                                       context,
-                                      screen: ReferSendMoneyScreen(),
+                                      screen: const ReferSendMoneyScreen(),
                                       withNavBar: false,
                                     );
                                   },
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -777,9 +777,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           height: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Refer friends",
                                             style: TextStyle(
                                               color: MyColors.color_text,
@@ -796,14 +796,14 @@ class _Setting_homeState extends State<Setting_home> {
                                   onTap: (){
                                     pushNewScreen(
                                       context,
-                                      screen: HelpCenterScreen(),
+                                      screen: const HelpCenterScreen(),
                                       withNavBar: false,
                                     );
                                   },
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -813,9 +813,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           height: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Help center",
                                             style: TextStyle(
                                                 color: MyColors.color_text,
@@ -833,14 +833,14 @@ class _Setting_homeState extends State<Setting_home> {
                                   onTap: (){
                                     pushNewScreen(
                                       context,
-                                      screen: LegalResourcesScreen(),
+                                      screen: const LegalResourcesScreen(),
                                       withNavBar: false,
                                     );
                                   },
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -849,9 +849,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           width: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "Legal",
                                             style: TextStyle(
                                                 color: MyColors.color_text,
@@ -869,14 +869,14 @@ class _Setting_homeState extends State<Setting_home> {
                                   onTap: (){
                                     pushNewScreen(
                                       context,
-                                      screen: AboutUsScreen(),
+                                      screen: const AboutUsScreen(),
                                       withNavBar: false,
                                     );
                                   },
                                   child: Container(
                                     height: 50,
                                     margin:
-                                        EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                        const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                     child: Row(
                                       children: [
                                         SvgPicture.asset(
@@ -885,9 +885,9 @@ class _Setting_homeState extends State<Setting_home> {
                                           width: 20,
                                         ),
                                         Container(
-                                          margin: EdgeInsets.fromLTRB(
+                                          margin: const EdgeInsets.fromLTRB(
                                               20, 0, 0, 0),
-                                          child: Text(
+                                          child: const Text(
                                             "FAQs",
                                             style: TextStyle(
                                                 color: MyColors.color_text,
@@ -917,7 +917,7 @@ class _Setting_homeState extends State<Setting_home> {
                             },
                             child: Container(
                               height: 50,
-                              margin: EdgeInsets.fromLTRB(00, 0, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(00, 0, 0, 0),
                               child: Row(
                                 children: [
                                   SvgPicture.asset(
@@ -925,8 +925,8 @@ class _Setting_homeState extends State<Setting_home> {
                                       width: 20),
                                   Container(
                                     margin:
-                                        EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                    child: Text(
+                                        const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                                    child: const Text(
                                       "Logout",
                                       style: TextStyle(
                                           color: MyColors.color_ED5565,
@@ -957,7 +957,7 @@ class _Setting_homeState extends State<Setting_home> {
                 child: Container(
                   height: MediaQuery.of(context).size.height,
                   color: Colors.black.withOpacity(0.30),
-                  padding: EdgeInsets.symmetric(horizontal: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
                   child: Center(
                     child: loagoutbody(),
                   ),
@@ -980,7 +980,7 @@ class _Setting_homeState extends State<Setting_home> {
   loagoutbody(){
     return Center(
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 25,horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 25,horizontal: 20),
         decoration: BoxDecoration(
             color: MyColors.whiteColor,
             borderRadius: BorderRadius.circular(20)
@@ -991,10 +991,10 @@ class _Setting_homeState extends State<Setting_home> {
             Container(
 
                 alignment: Alignment.topLeft,
-                child: Text('Are You sure you want to logout?',style: TextStyle(color: MyColors.blackColor,fontWeight: FontWeight.w600,fontSize: 16),)),
+                child: const Text('Are You sure you want to logout?',style: TextStyle(color: MyColors.blackColor,fontWeight: FontWeight.w600,fontSize: 16),)),
 
             Container(
-              padding: EdgeInsets.only(top: 30,right: 20),
+              padding: const EdgeInsets.only(top: 30,right: 20),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -1011,7 +1011,7 @@ class _Setting_homeState extends State<Setting_home> {
                         print("jkgjkdf${islogout}");
                       });
                     }, // passing false
-                    child: Text('No'),
+                    child: const Text('No'),
                   ) ,
                   wSizedBox2,
             TextButton(
@@ -1024,7 +1024,7 @@ class _Setting_homeState extends State<Setting_home> {
 
                       logout();
                     }, // passing true
-                    child: Text('Yes'),
+                    child: const Text('Yes'),
                   ),
                 ],
               ),
@@ -1040,20 +1040,20 @@ class _Setting_homeState extends State<Setting_home> {
         context: context,
         builder: (_) {
           return AlertDialog(
-            title: Text('Wanna Exit?'),
+            title: const Text('Wanna Exit?'),
             actions: [
               TextButton(
                 onPressed: (){
                   Navigator.pop(context);
                 }, // passing false
-                child: Text('No'),
+                child: const Text('No'),
               ),
               TextButton(
                 onPressed: () {
 
                   logout();
                 }, // passing true
-                child: Text('Yes'),
+                child: const Text('Yes'),
               ),
             ],
           );
@@ -1081,7 +1081,7 @@ class _Setting_homeState extends State<Setting_home> {
     return showModalBottomSheet<void>(
       isScrollControlled: true,
       backgroundColor: MyColors.whiteColor,
-      shape:  RoundedRectangleBorder( // <-- SEE HERE
+      shape:  const RoundedRectangleBorder( // <-- SEE HERE
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(30.0),topRight: Radius.circular(30.0)
         ),
@@ -1163,7 +1163,7 @@ class _Setting_homeState extends State<Setting_home> {
     ):
       pushNewScreen(
         context,
-        screen: ManagePaymentMethodScreen(isMfs: false),
+        screen: const ManagePaymentMethodScreen(isMfs: false),
         withNavBar: false,
       );
 
@@ -1171,7 +1171,7 @@ class _Setting_homeState extends State<Setting_home> {
       CustomLoader.ProgressloadingDialog6(context, false);
       pushNewScreen(
         context,
-        screen: ManagePaymentMethodScreen(isMfs: false),
+        screen: const ManagePaymentMethodScreen(isMfs: false),
         withNavBar: false,
       );
     }

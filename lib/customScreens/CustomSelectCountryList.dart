@@ -5,8 +5,10 @@ import 'package:moneytos/constance/myColors/mycolor.dart';
 import 'package:moneytos/constance/sizedbox/sizedBox.dart';
 
 class CustomSelectCountryList extends StatelessWidget {
-  String title,img;
-  CustomSelectCountryList({Key? key,this.title="",required this.img}) : super(key: key);
+  String title, img;
+
+  CustomSelectCountryList({Key? key, this.title = "", required this.img})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,22 +16,33 @@ class CustomSelectCountryList extends StatelessWidget {
       // padding: EdgeInsets.symmetric(horizontal: 10,vertical: 0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: MyColors.blackColor.withOpacity(0.20),width: 0.5),
+        border: Border.all(
+            color: MyColors.blackColor.withOpacity(0.20), width: 0.5),
       ),
       child: Column(
-       // mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
-          SizedBox(height: 10,),
-          CircledFlag(flag: img, radius: 15,),
-
-          Text(title,textAlign: TextAlign.center,style: TextStyle(color: MyColors.color_text,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 16,fontWeight: FontWeight.w400,overflow: TextOverflow.ellipsis),)
+          const SizedBox(
+            height: 10,
+          ),
+          CircledFlag(
+            flag: img,
+            radius: 15,
+          ),
+          Text(
+            title,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+                color: MyColors.color_text,
+                fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+                overflow: TextOverflow.ellipsis),
+          )
         ],
       ),
     );
   }
-
-
 }
 
 class CircledFlag extends StatelessWidget {
@@ -48,7 +61,7 @@ class CircledFlag extends StatelessWidget {
       clipper: _FlagClipper(radius),
       child: Text(
         flag,
-        style: TextStyle(fontSize:2* radius),
+        style: TextStyle(fontSize: 2 * radius),
       ),
     );
   }
@@ -72,5 +85,3 @@ class _FlagClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
-
-

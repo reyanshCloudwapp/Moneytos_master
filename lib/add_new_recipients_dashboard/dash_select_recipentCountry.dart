@@ -80,23 +80,23 @@ class _DashSelectRecipentCountryScreenState extends State<DashSelectRecipentCoun
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
           flexibleSpace: Container(
-            padding: EdgeInsets.only(left: 20,top: 60,right: 20),
+            padding: const EdgeInsets.only(left: 20,top: 60,right: 20),
             child: Column(
               children: [
 
                 Container(
-                  child: Text(MyString.Select_Recipient_Country,style: TextStyle(color: MyColors.color_text,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
+                  child: const Text(MyString.Select_Recipient_Country,style: TextStyle(color: MyColors.color_text,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
                 ),
                 hSizedBox4,
                 Container(
-                    padding: EdgeInsets.only(left: 5,right: 5),
+                    padding: const EdgeInsets.only(left: 5,right: 5),
                   //  padding:  EdgeInsets.symmetric(horizontal: 20.0),
                     child: searchCountry()
                   //CustomTextFields(controller: searchController, focus: searchFocus, textInputAction: TextInputAction.done, keyboardtype: TextInputType.text,border_color: MyColors.whiteColor.withOpacity(0.05),hinttext: MyString.search_bank,),
@@ -104,7 +104,7 @@ class _DashSelectRecipentCountryScreenState extends State<DashSelectRecipentCoun
               ],
             ),
           ),
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -126,7 +126,7 @@ class _DashSelectRecipentCountryScreenState extends State<DashSelectRecipentCoun
           height: 100,
           color: MyColors.whiteColor,
           padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width / 2.7,vertical:25 ),
-           margin: EdgeInsets.only(bottom:20 ),
+           margin: const EdgeInsets.only(bottom:20 ),
           child:  CustomButton(
             btnname: MyString.cancel,
             textcolor: MyColors.lightblueColor,
@@ -137,7 +137,7 @@ class _DashSelectRecipentCountryScreenState extends State<DashSelectRecipentCoun
       ),
       body:
       Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -146,10 +146,10 @@ class _DashSelectRecipentCountryScreenState extends State<DashSelectRecipentCoun
               Utility.shrimmerCountryGridLoader(80,150):
               GridView(
                 shrinkWrap: true,
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 scrollDirection: Axis.vertical,
-                physics: NeverScrollableScrollPhysics(),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                physics: const NeverScrollableScrollPhysics(),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 1/0.50 ,
                   crossAxisSpacing: 1.0,
@@ -177,8 +177,8 @@ class _DashSelectRecipentCountryScreenState extends State<DashSelectRecipentCoun
 
                       },
                       child: Container(
-                          padding: EdgeInsets.symmetric(vertical:0,horizontal:5),
-                          margin: EdgeInsets.symmetric(vertical:5,horizontal: 5),
+                          padding: const EdgeInsets.symmetric(vertical:0,horizontal:5),
+                          margin: const EdgeInsets.symmetric(vertical:5,horizontal: 5),
                           child: CustomSelectCountryList(title: selectCountryList[index].name.toString(),img: selectCountryList[index].emoji.toString(),)),
                     ),
                   );
@@ -212,13 +212,13 @@ class _DashSelectRecipentCountryScreenState extends State<DashSelectRecipentCoun
         cursorColor:MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          enabledBorder:  OutlineInputBorder(
+          enabledBorder:  const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
 

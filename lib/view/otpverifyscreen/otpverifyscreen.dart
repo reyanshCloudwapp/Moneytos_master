@@ -170,7 +170,7 @@ final _otpFocus = FocusNode();
   }
 
   void starttimer(){
-    timer = Timer.periodic(Duration(seconds: 1,), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1,), (_) {
       if (secondsRemaining != 0) {
         setState(() {
 
@@ -203,12 +203,12 @@ final _otpFocus = FocusNode();
       return Scaffold(
         backgroundColor: MyColors.whiteColor,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(190),
+          preferredSize: const Size.fromHeight(190),
           child: AppBar(
             elevation: 0,
             automaticallyImplyLeading: false,
             backgroundColor: MyColors.light_primarycolor2,
-            systemOverlayStyle: SystemUiOverlayStyle(
+            systemOverlayStyle: const SystemUiOverlayStyle(
               // Status bar color
               statusBarColor: MyColors.color_03153B,
 
@@ -217,9 +217,9 @@ final _otpFocus = FocusNode();
               statusBarBrightness: Brightness.dark, // For iOS (dark icons)
             ),
             flexibleSpace: Container(
-              padding: EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 30),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("s_asset/images/bgimage.png",),
                     fit: BoxFit.cover
@@ -229,7 +229,7 @@ final _otpFocus = FocusNode();
                 children: [
                   Container(
                     alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.only(top: 20,left: 20),
+                    margin: const EdgeInsets.only(top: 20,left: 20),
                     child: GestureDetector(
                         onTap: (){
                           Navigator.pop(context);
@@ -238,7 +238,7 @@ final _otpFocus = FocusNode();
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.only(top: 50.0,left: 0.0),
+                      margin: const EdgeInsets.only(top: 50.0,left: 0.0),
                       child: Align(
                           alignment: Alignment.center,
                           child: SvgPicture.asset('a_assets/images/logo.svg',fit: BoxFit.cover,))),
@@ -254,7 +254,7 @@ final _otpFocus = FocusNode();
             children: [
               Container(
                 height: size.height * 0.3,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   //color: MyColors.primaryColor,
                     image: DecorationImage(
                         image: AssetImage("s_asset/images/bgimage.png",),
@@ -267,7 +267,7 @@ final _otpFocus = FocusNode();
               Container(
 
                 // color: MyColors.whiteColor,
-                margin: EdgeInsets.only(top: 20.0),
+                margin: const EdgeInsets.only(top: 20.0),
                 height: size.height * 0.8,
                 width: MediaQuery.of(context).size.width,
                 child: Material(
@@ -276,19 +276,19 @@ final _otpFocus = FocusNode();
                     borderRadius: BorderRadius.circular(20.0),
                   ),
                   child: Container(
-                    margin: EdgeInsets.only(top: 50.0,left: 20.0,right: 20.0),
+                    margin: const EdgeInsets.only(top: 50.0,left: 20.0,right: 20.0),
                     child: SingleChildScrollView(
                       child: Column(
 
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Align(
+                          const Align(
                               alignment: Alignment.center,
                               child: Text("Verify",style: TextStyle(fontSize: 26,fontWeight: FontWeight.w600,color: MyColors.blackColor,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)),
 
                           Padding(
-                            padding:  EdgeInsets.only(top:22.0),
+                            padding:  const EdgeInsets.only(top:22.0),
                             child:
                             Align(
                                 alignment: Alignment.center,
@@ -296,7 +296,7 @@ final _otpFocus = FocusNode();
                           ),
 
                           Padding(
-                            padding:  EdgeInsets.only(top:40.0,left: 20.0,right: 0.0),
+                            padding:  const EdgeInsets.only(top:40.0,left: 20.0,right: 0.0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.start,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -393,7 +393,7 @@ final _otpFocus = FocusNode();
 
 
                                 Padding(
-                                  padding:  EdgeInsets.only(top:30,left: 18.0,right: 18.0),
+                                  padding:  const EdgeInsets.only(top:30,left: 18.0,right: 18.0),
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
@@ -406,19 +406,19 @@ final _otpFocus = FocusNode();
                                           _resendCode();
                                         },
 
-                                          child: Text("Resend", style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold,color: MyColors.lightblueColor,),)),
+                                          child: const Text("Resend", style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold,color: MyColors.lightblueColor,),)),
                                     ],
                                   ),
                                 ),
 
 
                              Padding(
-                                  padding:  EdgeInsets.only(top:80.0),
+                                  padding:  const EdgeInsets.only(top:80.0),
                                   child: Align(
 
                                     alignment: Alignment.center,
                                     child:   ElevatedButton(
-                                      child: Text('Submit'),
+                                      child: const Text('Submit'),
                                       onPressed: () {
                                        if(otp.length < 4){
                                          // Fluttertoast.showToast(msg: "Please enter valid otp");
@@ -431,12 +431,12 @@ final _otpFocus = FocusNode();
                                       },
                                       style: ElevatedButton.styleFrom(
                                           primary: MyColors.lightblueColor,
-                                          padding: EdgeInsets.symmetric(horizontal: 50, vertical: 17),
+                                          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 17),
 
-                                          shape: RoundedRectangleBorder(
+                                          shape: const RoundedRectangleBorder(
                                               borderRadius: BorderRadius.all(Radius.circular(16.0))
                                           ),
-                                          textStyle: TextStyle(
+                                          textStyle: const TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.bold)),
                                     ),

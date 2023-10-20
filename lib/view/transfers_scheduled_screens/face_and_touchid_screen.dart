@@ -159,7 +159,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
 
     if (sharedPreferences.get("BankdetailResponse").toString() != "null") {
       Timer(
-        Duration(seconds: 1),
+        const Duration(seconds: 1),
         () {
           var response = sharedPreferences.get("BankdetailResponse").toString();
           Map<String, dynamic> jsonResponse = convert.jsonDecode(response);
@@ -324,7 +324,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: MyColors.lightblueColor,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
           statusBarColor: MyColors.lightblueColor,
 
@@ -347,7 +347,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
           ///title
           Container(
             alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               MyString.verification1,
               style: TextStyle(
                   color: MyColors.whiteColor,
@@ -382,7 +382,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
                 ///title
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.using_touch_id,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -413,7 +413,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
                 ///title
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.using_face_id,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -449,9 +449,9 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
                 transferbottomsheet(context);
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 alignment: Alignment.center,
-                child: Text(
+                child: const Text(
                   MyString.or_using_pin_code,
                   style: TextStyle(
                       color: MyColors.whiteColor,
@@ -478,7 +478,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
           ///title
           Container(
             alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               MyString.verification1,
               style: TextStyle(
                   color: MyColors.whiteColor,
@@ -519,7 +519,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
                 ///title
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.using_face_id,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -557,9 +557,9 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
                 transferbottomsheet(context);
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 alignment: Alignment.center,
-                child: Text(
+                child: const Text(
                   MyString.or_using_pin_code,
                   style: TextStyle(
                       color: MyColors.whiteColor,

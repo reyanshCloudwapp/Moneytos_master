@@ -172,8 +172,8 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void initMessaging() async {
-  var androiInit = AndroidInitializationSettings("@mipmap/ic_launcher");
-  var iosInit = IOSInitializationSettings();
+  var androiInit = const AndroidInitializationSettings("@mipmap/ic_launcher");
+  var iosInit = const IOSInitializationSettings();
   var initSetting = InitializationSettings(android: androiInit, iOS: iosInit);
   fltNotification = FlutterLocalNotificationsPlugin();
   fltNotification!.initialize(initSetting);
@@ -236,7 +236,7 @@ void main() async {
     // const MyApp(),
     ChangeNotifierProvider(
       create: (context) => CountdownTimerState(context),
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }
@@ -258,9 +258,9 @@ class _MyAppState extends State<MyApp> {
     getDocumentApi();
     setState(() {});
     var initializationSettingsAndroid =
-        new AndroidInitializationSettings('ic_launcher');
+        const AndroidInitializationSettings('ic_launcher');
     var initialzationSettingsAndroid =
-        AndroidInitializationSettings('@mipmap/ic_launcher');
+        const AndroidInitializationSettings('@mipmap/ic_launcher');
     var initializationSettings =
         InitializationSettings(android: initialzationSettingsAndroid);
     flutterLocalNotificationsPlugin.initialize(initializationSettings);
@@ -323,7 +323,7 @@ class _MyAppState extends State<MyApp> {
           theme: ThemeData(
             // primarySwatch: Colors.blue,
             brightness: Brightness.light,
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
               // backwardsCompatibility: false, // 1
               systemOverlayStyle: SystemUiOverlayStyle.light, // 2
             ),
@@ -334,10 +334,10 @@ class _MyAppState extends State<MyApp> {
           ),
           builder: (context, widget) {
             return ScrollConfiguration(
-                behavior: ScrollBehaviorModified(), child: widget!);
+                behavior: const ScrollBehaviorModified(), child: widget!);
           },
           home: initScreen == 0 || initScreen == null
-              ? OnBoardingPage()
+              ? const OnBoardingPage()
               : islogin == true
                   ? DashboardScreen()
                   : LoginScreenPage(),
@@ -583,9 +583,9 @@ void showLoader(BuildContext context) {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10), color: Colors.red),
                 child: new IconButton(
-                    icon: new Text(
+                    icon: const Text(
                       "Done",
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w600,
                           fontSize: 15),
@@ -594,7 +594,7 @@ void showLoader(BuildContext context) {
                       Navigator.pop(context);
                     }),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 30,
               )
             ],

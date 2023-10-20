@@ -140,9 +140,9 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(50),
         child: AppBar(
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark,
@@ -153,8 +153,8 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
           title: Container(
-              margin: EdgeInsets.only(top: 20),
-              child: Text(
+              margin: const EdgeInsets.only(top: 20),
+              child: const Text(
                 MyString.bank_account_number,
                 style: TextStyle(
                     color: MyColors.blackColor,
@@ -165,7 +165,7 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
         ),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         color: MyColors.whiteColor,
         height: 80,
         child: Row(
@@ -234,151 +234,149 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
               hSizedBox5,
               ListView.builder(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   padding: EdgeInsets.zero,
                   itemCount: fieldsetlistAccount.length,
                   itemBuilder: (context, int index) {
-                    return Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                              margin:
-                                  EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 20.0),
-                              alignment: Alignment.topLeft,
-                              child: Text(
-                                fieldsetlistAccount[index]
-                                    .fieldSetName
-                                    .toString(),
-                                style: TextStyle(
-                                    color: MyColors.color_text,
-                                    fontSize: 14,
-                                    fontFamily:
-                                        "s_asset/font/raleway/raleway_semibold.ttf",
-                                    fontWeight: FontWeight.w600),
-                              )),
-                          ListView.builder(
-                              shrinkWrap: true,
-                              physics: NeverScrollableScrollPhysics(),
-                              padding: EdgeInsets.zero,
-                              itemCount:
-                                  fieldsetlistAccount[index].fields!.length,
-                              itemBuilder: (context, int i) {
-                                return Column(
-                                  children: [
-                                    fieldsetlistAccount[index]
-                                                .fields![i]
-                                                .fieldId ==
-                                            "BANK_ACCOUNT_NUMBER"
-                                        ? Container(
-                                            width: double.infinity,
-                                            margin: EdgeInsets.fromLTRB(
-                                                20.0, 0.0, 20.0, 0.0),
-                                            decoration: BoxDecoration(
-                                              color: MyColors.color_93B9EE
-                                                  .withOpacity(0.1),
-                                              border: Border.all(
-                                                  color: MyColors
-                                                      .color_gray_transparent),
-                                              borderRadius: BorderRadius.all(
-                                                  Radius.circular(12.0)),
-                                            ),
-                                            child: TextFormField(
-                                              controller:
-                                                  bankAccNumberController,
-                                              inputFormatters: [
-                                                LengthLimitingTextInputFormatter(18),
-                                              ],
-                                              textInputAction:
-                                                  TextInputAction.next,
-                                              onTap: () {
-                                                print("hvfh");
-                                                // AddRecipientFieldModel addmodel =   AddRecipientFieldModel(id:fieldsetlist[index].fields![i].fieldId.toString(),type:fieldsetlist[index].fields![i].fieldType.toString(),value :firstnameController.text);
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                            margin:
+                                const EdgeInsets.fromLTRB(25.0, 10.0, 25.0, 20.0),
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              fieldsetlistAccount[index]
+                                  .fieldSetName
+                                  .toString(),
+                              style: const TextStyle(
+                                  color: MyColors.color_text,
+                                  fontSize: 14,
+                                  fontFamily:
+                                      "s_asset/font/raleway/raleway_semibold.ttf",
+                                  fontWeight: FontWeight.w600),
+                            )),
+                        ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            padding: EdgeInsets.zero,
+                            itemCount:
+                                fieldsetlistAccount[index].fields!.length,
+                            itemBuilder: (context, int i) {
+                              return Column(
+                                children: [
+                                  fieldsetlistAccount[index]
+                                              .fields![i]
+                                              .fieldId ==
+                                          "BANK_ACCOUNT_NUMBER"
+                                      ? Container(
+                                          width: double.infinity,
+                                          margin: const EdgeInsets.fromLTRB(
+                                              20.0, 0.0, 20.0, 0.0),
+                                          decoration: BoxDecoration(
+                                            color: MyColors.color_93B9EE
+                                                .withOpacity(0.1),
+                                            border: Border.all(
+                                                color: MyColors
+                                                    .color_gray_transparent),
+                                            borderRadius: const BorderRadius.all(
+                                                Radius.circular(12.0)),
+                                          ),
+                                          child: TextFormField(
+                                            controller:
+                                                bankAccNumberController,
+                                            inputFormatters: [
+                                              LengthLimitingTextInputFormatter(18),
+                                            ],
+                                            textInputAction:
+                                                TextInputAction.next,
+                                            onTap: () {
+                                              print("hvfh");
+                                              // AddRecipientFieldModel addmodel =   AddRecipientFieldModel(id:fieldsetlist[index].fields![i].fieldId.toString(),type:fieldsetlist[index].fields![i].fieldType.toString(),value :firstnameController.text);
 
-                                                //  addfieldlist.add(addmodel);
-                                                //  print("json..${json.encode(addfieldlist)}");
-                                                setState(() {});
-                                              },
-                                              onChanged: (String value) {
-                                                bankAccountNum =
-                                                    bankAccNumberController
-                                                        .text;
+                                              //  addfieldlist.add(addmodel);
+                                              //  print("json..${json.encode(addfieldlist)}");
+                                              setState(() {});
+                                            },
+                                            onChanged: (String value) {
+                                              bankAccountNum =
+                                                  bankAccNumberController
+                                                      .text;
 
-                                                fieldsetlistAccount[index]
-                                                        .fields![i]
-                                                        .valueAcc =
-                                                    value.toString();
-                                                print("bankAccountNum>>>>>>>>" +
-                                                    bankAccountNum.toString());
-                                                setState(() {});
-                                              },
-                                              style: TextStyle(
-                                                  color: MyColors.blackColor,
+                                              fieldsetlistAccount[index]
+                                                      .fields![i]
+                                                      .valueAcc =
+                                                  value.toString();
+                                              print("bankAccountNum>>>>>>>>" +
+                                                  bankAccountNum.toString());
+                                              setState(() {});
+                                            },
+                                            style: const TextStyle(
+                                                color: MyColors.blackColor,
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w400,
+                                                fontFamily:
+                                                    "a_assets/font/poppins_regular.ttf"),
+                                            decoration: InputDecoration(
+                                              hintText:
+                                                  // fieldsetlistAccount[index]
+                                                  //     .fields![i]
+                                                  //     .placeholderText,
+                                              "Account Number",
+                                              hintStyle: TextStyle(
+                                                  color: MyColors.color_text
+                                                      .withOpacity(0.4),
                                                   fontSize: 12,
-                                                  fontWeight: FontWeight.w400,
                                                   fontFamily:
-                                                      "a_assets/font/poppins_regular.ttf"),
-                                              decoration: InputDecoration(
-                                                hintText:
-                                                    // fieldsetlistAccount[index]
-                                                    //     .fields![i]
-                                                    //     .placeholderText,
-                                                "Account Number",
-                                                hintStyle: TextStyle(
-                                                    color: MyColors.color_text
-                                                        .withOpacity(0.4),
-                                                    fontSize: 12,
-                                                    fontFamily:
-                                                        "s_asset/font/raleway/raleway_medium.ttf",
-                                                    fontWeight:
-                                                        FontWeight.w500),
+                                                      "s_asset/font/raleway/raleway_medium.ttf",
+                                                  fontWeight:
+                                                      FontWeight.w500),
 
-                                                border: InputBorder.none,
+                                              border: InputBorder.none,
 
-                                                // fillColor: MyColors.color_gray_transparent,
-                                                contentPadding:
-                                                    EdgeInsets.symmetric(
-                                                        horizontal: 16,
-                                                        vertical: 12),
-                                              ),
-                                              keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
+                                              // fillColor: MyColors.color_gray_transparent,
+                                              contentPadding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 16,
+                                                      vertical: 12),
                                             ),
-                                          )
-                                        : Container(),
-                                    fieldsetlistAccount[index]
-                                                .fields![i]
-                                                .fieldId ==
-                                            "BANK"
-                                        ? Container(
-                                            child: dropd(
-                                                fieldsetlistAccount[index]
-                                                    .fields![i]
-                                                    .placeholderText
-                                                    .toString(),
-                                                fieldsetlistAccount[index],
-                                                i),
-                                          )
-                                        : Container(),
-                                    fieldsetlistAccount[index]
-                                                .fields![i]
-                                                .fieldId ==
-                                            "BANK_ACCOUNT_TYPE"
-                                        ? Container(
-                                            child: addressstatedropd(
-                                                fieldsetlistAccount[index]
-                                                    .fields![i]
-                                                    .placeholderText
-                                                    .toString(),
-                                                fieldsetlistAccount[index],
-                                                i),
-                                          )
-                                        : Container(),
-                                    hSizedBox4,
-                                  ],
-                                );
-                              }),
-                        ],
-                      ),
+                                            keyboardType: const TextInputType.numberWithOptions(signed: true,decimal: false),
+                                          ),
+                                        )
+                                      : Container(),
+                                  fieldsetlistAccount[index]
+                                              .fields![i]
+                                              .fieldId ==
+                                          "BANK"
+                                      ? Container(
+                                          child: dropd(
+                                              fieldsetlistAccount[index]
+                                                  .fields![i]
+                                                  .placeholderText
+                                                  .toString(),
+                                              fieldsetlistAccount[index],
+                                              i),
+                                        )
+                                      : Container(),
+                                  fieldsetlistAccount[index]
+                                              .fields![i]
+                                              .fieldId ==
+                                          "BANK_ACCOUNT_TYPE"
+                                      ? Container(
+                                          child: addressstatedropd(
+                                              fieldsetlistAccount[index]
+                                                  .fields![i]
+                                                  .placeholderText
+                                                  .toString(),
+                                              fieldsetlistAccount[index],
+                                              i),
+                                        )
+                                      : Container(),
+                                  hSizedBox4,
+                                ],
+                              );
+                            }),
+                      ],
                     );
                   }),
 
@@ -417,16 +415,16 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
         cursorColor: MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           hintText: MyString.iban_code,
           suffixIcon: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: SvgPicture.asset(
               "a_assets/icons/paste.svg",
               height: 15,
@@ -452,9 +450,9 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
       color: MyColors.whiteColor,
       //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
       child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.only(left: 10,right: 10),
           decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
             ],
@@ -470,11 +468,11 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
             //color: Colors.deepPurple.shade300,
             borderRadius: BorderRadius.circular(10),
           ),
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
+          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
           child: Center(
               child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.whiteColor,
                 fontSize: 17,
                 fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
@@ -547,7 +545,7 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
                   BankAccountOptionsModel optionmodel =
                       BankAccountOptionsModel.fromJson(element);
                   optionBanklist.add(optionmodel);
-                  slect_bank_type = optionBanklist.length > 0 ?   optionBanklist[0].id.toString() : "" ;
+                  slect_bank_type = optionBanklist.isNotEmpty ?   optionBanklist[0].id.toString() : "" ;
                   print("optionmodel ${slect_bank_type}");
                 });
               }
@@ -671,16 +669,16 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
 
   dropd(String name, BankAccountNumberFieldSetsModel model, int index) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 16),
       // height: 55,
       width: double.infinity,
-      margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+      margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
       decoration: BoxDecoration(
         color: MyColors.color_93B9EE.withOpacity(0.1),
         border: Border.all(color: MyColors.color_gray_transparent),
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
       ),
-      child:Text(widget.bank_name,style: TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),)
+      child:Text(widget.bank_name,style: const TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),)
 
       /*DropdownButtonHideUnderline(
         child: StatefulBuilder(
@@ -725,14 +723,14 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
   addressstatedropd(
       String name, BankAccountNumberFieldSetsModel model, int index) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       height: 55,
       width: double.infinity,
-      margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+      margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
       decoration: BoxDecoration(
         color: MyColors.color_93B9EE.withOpacity(0.1),
         border: Border.all(color: MyColors.color_gray_transparent),
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
       ),
       child: DropdownButtonHideUnderline(
         child: StatefulBuilder(
@@ -742,15 +740,15 @@ class _DashBankAccountNumberState extends State<DashBankAccountNumber> {
               child: DropdownButton(
                 isExpanded: true,
                 value: selectedCategory2,
-                style: TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),
+                style: const TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),
                 items: optionBanklist.map((BankAccountOptionsModel model) {
                   return new DropdownMenuItem<String>(
                       value: model.id.toString(),
                       child: new Text(model.name.toString()));
                 }).toList(),
                 hint: Text(
-                  "${optionBanklist.length > 0 ? optionBanklist[0].name.toString() : ""}",
-                  style: TextStyle(
+                  optionBanklist.isNotEmpty ? optionBanklist[0].name.toString() : "",
+                  style: const TextStyle(
                       color: MyColors.blackColor,
                       fontSize: 13,
                       fontWeight: FontWeight.w600),
@@ -833,7 +831,7 @@ Custombtn(String text, double height, double width, BuildContext context) {
     //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
     child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
           ],
@@ -849,11 +847,11 @@ Custombtn(String text, double height, double width, BuildContext context) {
           //color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
         child: Center(
             child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               color: MyColors.lightblueColor,
               fontSize: 17,
               fontWeight: FontWeight.w600),

@@ -76,12 +76,12 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.light_primarycolor2,
             statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -89,14 +89,14 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
           ),
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only( left: 25,top: 25),
+            padding: const EdgeInsets.only( left: 25,top: 25),
             child: Row(
 
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only( top: 5),
+                  padding: const EdgeInsets.only( top: 5),
                   child: InkWell(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -111,8 +111,8 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                 // wSizedBox3,
                 Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.fromLTRB(10, 5, 0, 0),
-                  child: Text(
+                  margin: const EdgeInsets.fromLTRB(10, 5, 0, 0),
+                  child: const Text(
                     MyString.select_payment_method,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -191,7 +191,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
           ),
 
           Container(
-            margin: EdgeInsets.only(top: 0),
+            margin: const EdgeInsets.only(top: 0),
             width: double.infinity,
             decoration: BoxDecoration(
               color: MyColors.whiteColor,
@@ -280,14 +280,14 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                             });
                           },
                           child: Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   horizontal: 5, vertical: 10),
 
                               child: Container(
-                                  margin: EdgeInsets.symmetric(
+                                  margin: const EdgeInsets.symmetric(
                                       vertical: 8, horizontal: 5),
                                   decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                                       border: Border.all(color: SelectedMethod==1?MyColors.color_93B9EE:MyColors.whiteColor,
                                           width: 2)
                                   ),
@@ -300,7 +300,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                                         BorderRadius.circular(10),
                                       ),
                                       child: Container(
-                                        padding: EdgeInsets.symmetric(
+                                        padding: const EdgeInsets.symmetric(
                                             vertical: 15, horizontal: 30),
                                         child: Column(
                                           children: [
@@ -346,8 +346,8 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                       children: [
                         ListView.builder(
                             itemCount: viewdebitcardlist.length,
-                            physics: NeverScrollableScrollPhysics(),
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            physics: const NeverScrollableScrollPhysics(),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             shrinkWrap: true,
                             itemBuilder: (context ,int index){
                           return
@@ -366,7 +366,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                               });
                             },
                             child: Container(
-                              margin: EdgeInsets.only(top:14),
+                              margin: const EdgeInsets.only(top:14),
                               child: Customcard2(viewdebitcardlist[index]["name"],viewdebitcardlist[index]["last4"],MyColors.blackColor,viewdebitcardlist[index]["sec_code"],viewdebitcardlist[index]["routing_number"],viewdebitcardlist[index]["id"].toString(),index),
                             ),
                           ):Container();
@@ -388,7 +388,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                             alignment: Alignment.center,
                             height: 50,
                             width: double.infinity,
-                            margin: EdgeInsets.symmetric(horizontal: 22,),
+                            margin: const EdgeInsets.symmetric(horizontal: 22,),
 
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(colors: [
@@ -407,7 +407,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                                 wSizedBox2,
                                 Container(
                                     alignment: Alignment.center,
-                                    child: Text(
+                                    child: const Text(
                                       "Link New Bank",
                                       style: TextStyle(
                                           color: MyColors.whiteColor,
@@ -437,8 +437,8 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                          children: [
                            ListView.builder(
                             itemCount: viewdebitcardlist.length,
-                            physics: NeverScrollableScrollPhysics(),
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            physics: const NeverScrollableScrollPhysics(),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             shrinkWrap: true,
                             itemBuilder: (context ,int index){
                     return viewdebitcardlist[index]["payment_method_type"]=="card"?
@@ -455,7 +455,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                         });
                       },
                       child: Container(
-                       margin: EdgeInsets.only(top:14),
+                       margin: const EdgeInsets.only(top:14),
                               child: Customcard3(viewdebitcardlist[index]["id"].toString(),viewdebitcardlist[index]["avs_address"],viewdebitcardlist[index]["avs_zip"],viewdebitcardlist[index]["name"],MyColors.blackColor,viewdebitcardlist[index]["last4"],viewdebitcardlist[index]["expiry_month"]!=null?viewdebitcardlist[index]["expiry_month"].toString():"",viewdebitcardlist[index]["expiry_year"]!=null?viewdebitcardlist[index]["expiry_year"].toString():"",viewdebitcardlist[index]["card_type"]!=null?viewdebitcardlist[index]["card_type"].toString():"",index),
                       ),
                     ):Container();
@@ -479,7 +479,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
 
                       height: 50,
                       width: double.infinity,
-                      margin: EdgeInsets.symmetric(horizontal: 20,),
+                      margin: const EdgeInsets.symmetric(horizontal: 20,),
 
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(colors: [
@@ -498,7 +498,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                                 wSizedBox2,
                                 Container(
                                     alignment: Alignment.center,
-                                    child: Text(
+                                    child: const Text(
                                       "Add New Card",
                                       style: TextStyle(
                                           color: MyColors.whiteColor,
@@ -527,8 +527,8 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                          children: [
                            ListView.builder(
                             itemCount: 2,
-                            physics: NeverScrollableScrollPhysics(),
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            physics: const NeverScrollableScrollPhysics(),
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
                             shrinkWrap: true,
                             itemBuilder: (context ,int index){
                     return GestureDetector(
@@ -539,7 +539,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                         });
                       },
                       child: Container(
-                        margin:EdgeInsets.only(top:14),
+                        margin:const EdgeInsets.only(top:14),
                               child: Customcard4("","Vodafone",MyColors.blackColor,"Number - 5117",index),
                       ),
                     );
@@ -553,7 +553,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                             print("hbdhjbdf");
                             pushNewScreen(
                               context,
-                              screen: SelectServiceProviderScreen(isMfs: false),
+                              screen: const SelectServiceProviderScreen(isMfs: false),
                               withNavBar: false,
                             );
                     },
@@ -562,7 +562,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
 
                             height: 50,
                             width: double.infinity,
-                            margin: EdgeInsets.symmetric(horizontal: 20,),
+                            margin: const EdgeInsets.symmetric(horizontal: 20,),
                             decoration: BoxDecoration(
                                 gradient: LinearGradient(colors: [
                                   MyColors.lightblueColor.withOpacity(0.80),
@@ -580,7 +580,7 @@ class _ManageSelectPaymentMethodScreenState extends State<ManageSelectPaymentMet
                                 wSizedBox2,
                                 Container(
                                     alignment: Alignment.center,
-                                    child: Text(
+                                    child: const Text(
                                       "New Mobile Money",
                                       style: TextStyle(
                                           color: MyColors.whiteColor,
@@ -621,7 +621,7 @@ return Container(
 
   decoration: BoxDecoration(
     border: Border.all(color: selectedItemTab==index?MyColors.color_3F84E5:MyColors.whiteColor,width: 2),
-    borderRadius: BorderRadius.all(Radius.circular(12))
+    borderRadius: const BorderRadius.all(Radius.circular(12))
   ),
   child: Material(
 
@@ -634,7 +634,7 @@ return Container(
       BorderRadius.circular(10),
     ),
     child:  Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
           vertical: 20, horizontal: 30),
       child:  Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -724,9 +724,9 @@ return Container(
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+        contentPadding: const EdgeInsets.only(top: 10.0),
         content: Container(
           width: 300.0,
           child: SingleChildScrollView(
@@ -738,19 +738,19 @@ return Container(
 
 
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
 
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
 
 
 
 
-                        Text(
+                        const Text(
                           "Are you sure, you want to Delete?",
                           style: TextStyle(
                               fontSize: 16,
@@ -760,7 +760,7 @@ return Container(
                         ),
 
 
-                        SizedBox(height: 40,),
+                        const SizedBox(height: 40,),
 
                         Row(
                           children: [
@@ -768,7 +768,7 @@ return Container(
                               flex:1,
                               child: ElevatedButton(
                                 style: ButtonStyle(
-                                    padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                    padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -786,7 +786,7 @@ return Container(
                                 // shape: RoundedRectangleBorder(
                                 //     borderRadius: BorderRadius.circular(10.0)),
                                 // color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "No",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -796,12 +796,12 @@ return Container(
                                 ),
                               ),
                             ),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             Expanded(
                               flex:1,
                               child: ElevatedButton(
                                 style: ButtonStyle(
-                                    padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                    padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -822,7 +822,7 @@ return Container(
                                 // shape: RoundedRectangleBorder(
                                 //     borderRadius: BorderRadius.circular(10.0)),
                                 // color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "Yes",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -835,7 +835,7 @@ return Container(
                           ],
                         ),
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                       ],
                     ),
                   ),),
@@ -909,7 +909,7 @@ return Container(
 
       decoration: BoxDecoration(
           border: Border.all(color: selectedItemTab==index?MyColors.color_3F84E5:MyColors.whiteColor,width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(12))
+          borderRadius: const BorderRadius.all(Radius.circular(12))
       ),
       child: Material(
         elevation: 16,
@@ -920,7 +920,7 @@ return Container(
           BorderRadius.circular(10),
         ),
         child:  Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               vertical: 20, horizontal: 30),
           child:  Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -935,47 +935,45 @@ return Container(
                 children: [
                   cardType == "MasterCard"?
                   SvgPicture.asset("s_asset/images/carda.svg"):
-                  Container(margin:EdgeInsets.only(bottom: 5),child: SvgPicture.asset("s_asset/images/ic_visa.svg",height: 20,width: 24,)),
+                  Container(margin:const EdgeInsets.only(bottom: 5),child: SvgPicture.asset("s_asset/images/ic_visa.svg",height: 20,width: 24,)),
 
                   wSizedBox1,
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          child: Text(
-                            title,
-                            style: TextStyle(
-                                color: color,
-                                fontWeight: FontWeight.w700,
-                                fontFamily:
-                                "s_asset/font/raleway/raleway_bold.ttf",
-                                fontSize: 16),
-                          ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                              color: color,
+                              fontWeight: FontWeight.w700,
+                              fontFamily:
+                              "s_asset/font/raleway/raleway_bold.ttf",
+                              fontSize: 16),
                         ),
-                        hSizedBox1,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                            //  alignment: Alignment.topLeft,
-                              child: Text(
-                                "**** "+CardNumber,
-                                style: TextStyle(
-                                    color: color,
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily:
-                                    "s_asset/font/raleway/raleway_medium.ttf",
-                                    fontSize: 12),
-                              ),
-
+                      ),
+                      hSizedBox1,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                          //  alignment: Alignment.topLeft,
+                            child: Text(
+                              "**** "+CardNumber,
+                              style: TextStyle(
+                                  color: color,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily:
+                                  "s_asset/font/raleway/raleway_medium.ttf",
+                                  fontSize: 12),
                             ),
 
-                          ],
-                        )
-                      ],
-                    ),
+                          ),
+
+                        ],
+                      )
+                    ],
                   ),
                 ],
               ),
@@ -1002,7 +1000,7 @@ return Container(
                   hSizedBox4,
                   Container(
 
-                    margin: EdgeInsets.only(left: 20),
+                    margin: const EdgeInsets.only(left: 20),
                     child: Text(
                       Month+"/"+Year,
                       style: TextStyle(
@@ -1029,7 +1027,7 @@ return Container(
 
       decoration: BoxDecoration(
           border: Border.all(color: selectedItemTab==index?MyColors.color_3F84E5:MyColors.whiteColor,width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(12))
+          borderRadius: const BorderRadius.all(Radius.circular(12))
       ),
       child: Material(
         elevation: 16,
@@ -1040,7 +1038,7 @@ return Container(
           BorderRadius.circular(10),
         ),
         child:  Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               vertical: 20, horizontal: 30),
           child:  Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

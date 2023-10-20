@@ -36,8 +36,8 @@ class _CashPickupSelectStoreState extends State<CashPickupSelectStore> {
          elevation: 0,
          backgroundColor: MyColors.whiteColor,
          centerTitle: true,
-         actions: [],
-         title: Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
+         actions: const [],
+         title: const Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
        ),
 
 
@@ -66,13 +66,13 @@ class _CashPickupSelectStoreState extends State<CashPickupSelectStore> {
              Container(
 
                  width:350,
-                 margin:  EdgeInsets.fromLTRB(12.0, 26.0, 0.0, 0.0),
-                 padding: EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
+                 margin:  const EdgeInsets.fromLTRB(12.0, 26.0, 0.0, 0.0),
+                 padding: const EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
                  decoration: BoxDecoration(
                    color: MyColors.whiteColor,
                    border: Border.all(color: MyColors.color_gray_transparent),
-                   borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                   boxShadow: [
+                   borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                   boxShadow: const [
                      BoxShadow(
                        color: MyColors.color_gray_transparent,
                        offset: Offset(0.0, 1.0), //(x,y)
@@ -89,7 +89,7 @@ class _CashPickupSelectStoreState extends State<CashPickupSelectStore> {
                        children: [
                          SvgPicture.asset("s_asset/images/flag2.svg",width: 24,height: 24,),
                          wSizedBox1,
-                         Text(MyString.country_name,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
+                         const Text(MyString.country_name,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
                        ],
                      ),
                      SvgPicture.asset("a_assets/icons/clear_red.svg"),
@@ -100,13 +100,13 @@ class _CashPickupSelectStoreState extends State<CashPickupSelectStore> {
              Container(
 
                  width:350,
-                 margin:  EdgeInsets.fromLTRB(12.0, 16.0, 0.0, 0.0),
-                 padding: EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
+                 margin:  const EdgeInsets.fromLTRB(12.0, 16.0, 0.0, 0.0),
+                 padding: const EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
                  decoration: BoxDecoration(
                    color: MyColors.whiteColor,
                    border: Border.all(color: MyColors.color_gray_transparent),
-                   borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                   boxShadow: [
+                   borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                   boxShadow: const [
                      BoxShadow(
                        color: MyColors.color_gray_transparent,
                        offset: Offset(0.0, 1.0), //(x,y)
@@ -117,7 +117,7 @@ class _CashPickupSelectStoreState extends State<CashPickupSelectStore> {
                  child: Row(
                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                    children: [
-                     Row(
+                     const Row(
                        children: [
                          // SvgPicture.asset("s_asset/images/flag2.svg",width: 24,height: 24,),
                          //wSizedBox1,
@@ -134,21 +134,21 @@ class _CashPickupSelectStoreState extends State<CashPickupSelectStore> {
                children: [
                  hSizedBox2,
                  Container(
-                     margin: EdgeInsets.only(top: 16,bottom: 20),
+                     margin: const EdgeInsets.only(top: 16,bottom: 20),
                      alignment: Alignment.center,
-                     child: Text("Select Store",style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"))),
+                     child: const Text("Select Store",style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"))),
                  hSizedBox2,
                  Padding(
-                     padding:  EdgeInsets.symmetric(horizontal: 20.0),
+                     padding:  const EdgeInsets.symmetric(horizontal: 20.0),
                      child: searchStore()
                    //CustomTextFields(controller: searchController, focus: searchFocus, textInputAction: TextInputAction.done, keyboardtype: TextInputType.text,border_color: MyColors.whiteColor.withOpacity(0.05),hinttext: MyString.search_bank,),
                  ),
                  GridView(
                    shrinkWrap: true,
-                   padding: EdgeInsets.symmetric(horizontal: 10),
+                   padding: const EdgeInsets.symmetric(horizontal: 10),
                    scrollDirection: Axis.vertical,
-                   physics: NeverScrollableScrollPhysics(),
-                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                   physics: const NeverScrollableScrollPhysics(),
+                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                      crossAxisCount: 2,
                      childAspectRatio: 1/0.74 ,
                      crossAxisSpacing: 1.1,
@@ -160,8 +160,8 @@ class _CashPickupSelectStoreState extends State<CashPickupSelectStore> {
                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CashPickUpSelectLocation()));
                        },
                        child: Container(
-                           padding: EdgeInsets.symmetric(vertical:4,horizontal: 10),
-                           margin: EdgeInsets.symmetric(vertical:8,horizontal: 5),
+                           padding: const EdgeInsets.symmetric(vertical:4,horizontal: 10),
+                           margin: const EdgeInsets.symmetric(vertical:8,horizontal: 5),
                            child: CustomSelectBankList(title: MyString.Company_name,img:"s_asset/images/store.png",)),
                      );
                    }).toList(),
@@ -195,13 +195,13 @@ class _CashPickupSelectStoreState extends State<CashPickupSelectStore> {
          cursorColor:MyColors.primaryColor,
          decoration: InputDecoration(
            fillColor: MyColors.blueColor.withOpacity(0.40),
-           border: OutlineInputBorder(
+           border: const OutlineInputBorder(
                borderSide: BorderSide(color: MyColors.whiteColor)
            ),
-           enabledBorder:  OutlineInputBorder(
+           enabledBorder:  const OutlineInputBorder(
                borderSide: BorderSide(color: MyColors.whiteColor)
            ),
-           focusedBorder: OutlineInputBorder(
+           focusedBorder: const OutlineInputBorder(
                borderSide: BorderSide(color: MyColors.whiteColor)
            ),
 

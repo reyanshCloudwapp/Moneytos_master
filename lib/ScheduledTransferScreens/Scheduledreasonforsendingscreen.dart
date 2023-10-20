@@ -59,7 +59,7 @@ class _ScheduledReasonforSendingScreenState extends State<ScheduledReasonforSend
   }
 
   onnavigate(){
-    Timer(Duration(seconds: 0), () {
+    Timer(const Duration(seconds: 0), () {
       reasonforsendingApi();
     });
   }
@@ -77,13 +77,13 @@ class _ScheduledReasonforSendingScreenState extends State<ScheduledReasonforSend
           data: mediaQueryData.copyWith(textScaleFactor: 1.0),
           child: Scaffold(
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(60),
+              preferredSize: const Size.fromHeight(60),
               child: AppBar(
                 elevation: 0,
                 automaticallyImplyLeading: false,
                 flexibleSpace: Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.only(top: 45,left: 20,right: 20),
+                  padding: const EdgeInsets.only(top: 45,left: 20,right: 20),
                   child:       Container(
                   //  margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
                     child:Row(
@@ -101,7 +101,7 @@ class _ScheduledReasonforSendingScreenState extends State<ScheduledReasonforSend
                           child: Center(
                             child: Container(
                              // margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                              child:  Text(
+                              child:  const Text(
                                 MyString.Reason_for_Sending,
                                 style: TextStyle(
                                     color: MyColors.whiteColor,
@@ -120,7 +120,7 @@ class _ScheduledReasonforSendingScreenState extends State<ScheduledReasonforSend
                   ),
                 ),
                 backgroundColor: MyColors.color_03153B,
-                systemOverlayStyle: SystemUiOverlayStyle(
+                systemOverlayStyle: const SystemUiOverlayStyle(
                   // Status bar color
                   statusBarColor: MyColors.color_03153B,
                   statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -151,21 +151,21 @@ class _ScheduledReasonforSendingScreenState extends State<ScheduledReasonforSend
                   Container(color: MyColors.color_03153B,height: 300,width: MediaQuery.of(context).size.width,),
                   Container(
 
-                    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     child: Card(
                       color: MyColors.whiteColor,
                       margin: EdgeInsets.zero,
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                       ),
                       child:GridView(
                         shrinkWrap: true,
-                        padding: EdgeInsets.symmetric(horizontal: 10,vertical: 40),
+                        padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 40),
                         scrollDirection: Axis.vertical,
                         // physics: NeverScrollableScrollPhysics(),
-                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           childAspectRatio: 1/0.41 ,
                           crossAxisSpacing: 1.1,
@@ -183,14 +183,14 @@ class _ScheduledReasonforSendingScreenState extends State<ScheduledReasonforSend
                               },
                               child:  Container(
 
-                                  margin: EdgeInsets.only(left: 8,top: 12,right: 8),
+                                  margin: const EdgeInsets.only(left: 8,top: 12,right: 8),
 
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                                    borderRadius: const BorderRadius.all(Radius.circular(12)),
                                     border: Border.all(color: MyColors.color_text.withOpacity(0.2),width: 1.0),
                                   ),
-                                  padding: EdgeInsets.symmetric(horizontal: 15,vertical: 0.0),
-                                  child:Center(child: Text(url.name.toString(),textAlign: TextAlign.center,style: TextStyle(color: MyColors.color_text,fontSize: 13,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500),))
+                                  padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 0.0),
+                                  child:Center(child: Text(url.name.toString(),textAlign: TextAlign.center,style: const TextStyle(color: MyColors.color_text,fontSize: 13,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500),))
                               )
                           );
                         }).toList(),
@@ -202,7 +202,7 @@ class _ScheduledReasonforSendingScreenState extends State<ScheduledReasonforSend
                   load == true ? Container(
                     height: MediaQuery.of(context).size.height,
                     color: Colors.white,
-                    child: Center(
+                    child: const Center(
                         child: GFLoader(
                             type: GFLoaderType.custom,
                             child: Image(image: AssetImage("a_assets/logo/progress_image.png"),

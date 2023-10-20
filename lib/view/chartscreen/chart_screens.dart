@@ -54,7 +54,7 @@ class _ChartScreenState extends State<ChartScreen> {
   final _controller = PageController(initialPage: 0);
   final _duration = const Duration(milliseconds: 300);
   final _curve = Curves.easeInOutCubic;
-  final List<Color> gredient = [Color(0xc2003b73),Color(0xc20fe1c2)];
+  final List<Color> gredient = [const Color(0xc2003b73),const Color(0xc20fe1c2)];
 
 
   prefData() async {
@@ -104,12 +104,12 @@ class _ChartScreenState extends State<ChartScreen> {
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(445),
+        preferredSize: const Size.fromHeight(445),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.whiteColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
 
@@ -118,13 +118,13 @@ class _ChartScreenState extends State<ChartScreen> {
             statusBarBrightness: Brightness.light, // For iOS (dark icons)
           ),
           flexibleSpace: Container(
-            margin: EdgeInsets.only(top: 50),
+            margin: const EdgeInsets.only(top: 50),
             // padding: EdgeInsets.all(10),
             child: Column(children: [
               // hSizedBox3,
               // hSizedBox1,
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 22),
+                padding: const EdgeInsets.symmetric(horizontal: 22),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -135,7 +135,7 @@ class _ChartScreenState extends State<ChartScreen> {
                         Container(
                           //padding: EdgeInsets.symmetric(horizontal: 20),
                           alignment: Alignment.topLeft,
-                          child: Text(MyString.total_transferred,style: TextStyle(color: MyColors.blackColor,fontSize: 16,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/Montserrat-Medium.otf"),),
+                          child: const Text(MyString.total_transferred,style: TextStyle(color: MyColors.blackColor,fontSize: 16,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/Montserrat-Medium.otf"),),
                         ),
                         hSizedBox1,
                         Container(
@@ -146,12 +146,12 @@ class _ChartScreenState extends State<ChartScreen> {
                               Container(
 
                                 alignment: Alignment.topLeft,
-                                child: Text(chartdatalist.length > 0 ? double.parse(chartdatalist[0].totalSendAmount.toString()).toStringAsFixed(2): "",style: TextStyle(color: MyColors.blackColor,fontSize: 33,fontFamily: "s_asset/font/montserrat/Montserrat-ExtraBold.otf",fontWeight: FontWeight.w700),),
+                                child: Text(chartdatalist.isNotEmpty ? double.parse(chartdatalist[0].totalSendAmount.toString()).toStringAsFixed(2): "",style: const TextStyle(color: MyColors.blackColor,fontSize: 33,fontFamily: "s_asset/font/montserrat/Montserrat-ExtraBold.otf",fontWeight: FontWeight.w700),),
                               ),
                               wSizedBox,
                               Container(
                                 alignment: Alignment.topLeft,
-                                child: Text(MyString.usd,style: TextStyle(fontWeight:FontWeight.w600,color: MyColors.blackColor,fontSize: 18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",),),
+                                child: const Text(MyString.usd,style: TextStyle(fontWeight:FontWeight.w600,color: MyColors.blackColor,fontSize: 18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",),),
                               ),
                             ],
                           ),
@@ -184,7 +184,7 @@ class _ChartScreenState extends State<ChartScreen> {
                     colors: [MyColors.lightblueColor.withOpacity(0.01),MyColors.lightblueColor.withOpacity(0.04)],
                   ),
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 18),
+                padding: const EdgeInsets.symmetric(horizontal: 18),
                 height: size.height * 0.4,
                 width: double.infinity,
                 child: AspectRatio(
@@ -238,15 +238,15 @@ class _ChartScreenState extends State<ChartScreen> {
       ),
       body: _enabled==true?Utility.shrimmerVerticalListLoader(100, MediaQuery.of(context).size.width):ListView.builder(
 
-          itemCount:chartdatalist.length > 0? chartdatalist[0].recipientData!.length: chartRecipientDatlist.length,
+          itemCount:chartdatalist.isNotEmpty? chartdatalist[0].recipientData!.length: chartRecipientDatlist.length,
           // physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context,int index){
             return Container(
-                padding: EdgeInsets.symmetric(horizontal: 20,vertical: 8),
-                child:chartdatalist.length > 0?
-                CustomChartCardList(recipient_name: chartdatalist[0].recipientData![index].recipientName.toString(),img:chartdatalist[0].recipientData![index].profileImage.toString(),amount:chartdatalist[0].recipientData![index].totalSendAmount.toString(),totalamount:  chartdatalist.length > 0 ? chartdatalist[0].totalSendAmount.toString(): "")
+                padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 8),
+                child:chartdatalist.isNotEmpty?
+                CustomChartCardList(recipient_name: chartdatalist[0].recipientData![index].recipientName.toString(),img:chartdatalist[0].recipientData![index].profileImage.toString(),amount:chartdatalist[0].recipientData![index].totalSendAmount.toString(),totalamount:  chartdatalist.isNotEmpty ? chartdatalist[0].totalSendAmount.toString(): "")
                     : Container(
-                  child: Text("No Recipient"),
+                  child: const Text("No Recipient"),
                 )
             );
           })
@@ -416,11 +416,11 @@ class _ChartScreenState extends State<ChartScreen> {
               document_status == "Blank"?
               Container():
               Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: const EdgeInsets.only(top: 20),
                 child: Text(
                   "Verification status : ${document_status}",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
                       fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
@@ -428,11 +428,11 @@ class _ChartScreenState extends State<ChartScreen> {
               ),
 
 
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
               actual_status == "expired"|| actual_status =="Rejected" || actual_status =="declined"?
               Column(children: [
-                Text(
+                const Text(
                   "Please re upload verification.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -442,11 +442,11 @@ class _ChartScreenState extends State<ChartScreen> {
                 ),
 
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
                 ElevatedButton(
                   style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                       foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -468,7 +468,7 @@ class _ChartScreenState extends State<ChartScreen> {
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(10.0)),
                   // color: MyColors.darkbtncolor,
-                  child: Text(
+                  child: const Text(
                     "If you want to update verification Click Here"
                     ,
                     textAlign: TextAlign.center,
@@ -480,7 +480,7 @@ class _ChartScreenState extends State<ChartScreen> {
                   ),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
               ],
               ):Container(),
 
@@ -494,7 +494,7 @@ class _ChartScreenState extends State<ChartScreen> {
 
                 ElevatedButton(
                   style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                       foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -516,7 +516,7 @@ class _ChartScreenState extends State<ChartScreen> {
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(10.0)),
                   // color: MyColors.darkbtncolor,
-                  child: Text(
+                  child: const Text(
                     "Verify Your Account"
                     ,
                     textAlign: TextAlign.center,
@@ -528,7 +528,7 @@ class _ChartScreenState extends State<ChartScreen> {
                   ),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
               ],
               ):Container(),
 
@@ -536,7 +536,7 @@ class _ChartScreenState extends State<ChartScreen> {
 
               document_status == "Incomplete"?
               Column(children: [
-                Text(
+                const Text(
                   "Your Verification is incomplete , Please re upload verification.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -545,12 +545,12 @@ class _ChartScreenState extends State<ChartScreen> {
                       fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
 
                 ElevatedButton(
                   style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                       foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -572,7 +572,7 @@ class _ChartScreenState extends State<ChartScreen> {
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(10.0)),
                   // color: MyColors.darkbtncolor,
-                  child: Text(
+                  child: const Text(
                     "If you want to update verification Click Here"
                     ,
                     textAlign: TextAlign.center,
@@ -584,7 +584,7 @@ class _ChartScreenState extends State<ChartScreen> {
                   ),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
               ],
               ):Container(),
 
@@ -592,7 +592,7 @@ class _ChartScreenState extends State<ChartScreen> {
 
 
               document_status == "pending"?
-              Column(children: [
+              const Column(children: [
                 Text(
                   "We will notify you as soon as you’re approved.",
                   textAlign: TextAlign.center,
@@ -698,7 +698,7 @@ class _ChartScreenState extends State<ChartScreen> {
 
   FlBorderData get borderData => FlBorderData(
     show: true,
-    border:  Border(
+    border:  const Border(
       bottom: BorderSide(color: Colors.transparent),
       left: BorderSide(color: Colors.transparent),
       right: BorderSide(color: Colors.transparent),
@@ -713,7 +713,7 @@ class _ChartScreenState extends State<ChartScreen> {
 
   LineChartBarData get lineChartBarData2_2 => LineChartBarData(
     isCurved: true,
-    gradient: LinearGradient(
+    gradient: const LinearGradient(
       colors: [MyColors.lightblueColor,MyColors.lightblueColor],
     ),
     barWidth: 4,
@@ -732,7 +732,7 @@ class _ChartScreenState extends State<ChartScreen> {
       ),
     ),
     spots:
-    chartdatalist.length > 0?
+    chartdatalist.isNotEmpty?
     List.generate(txnGraphDatalist.length, (index) => FlSpot(double.parse(txnGraphDatalist[index].month.toString()), double.parse(txnGraphDatalist[index].totalSendAmount.toString()))).toList()
    // chartdatalist[0].txnGraphData!.map((pointt) => FlSpot(double.parse(pointt.month.toString()), double.parse(pointt.totalSendAmount.toString()))).toList():
   /*  List<TxnGraphDataModel> spots =
@@ -745,18 +745,18 @@ class _ChartScreenState extends State<ChartScreen> {
       return   FlSpot(double.parse(txnGraphDatalist[index].totalSendAmount.toString()), double.parse(txnGraphDatalist[index].totalSendAmount.toString()));
     }).toList(),*/
     : [
-      FlSpot(1, 0),
-      FlSpot(2, 0),
-      FlSpot(3, 0),
-      FlSpot(4, 0),
-      FlSpot(5, 0),
-      FlSpot(6, 0),
-      FlSpot(7, 0),
-      FlSpot(8, 0),
-      FlSpot(9, 0),
-      FlSpot(10, 0),
-      FlSpot(11, 0),
-      FlSpot(12, 0),
+      const FlSpot(1, 0),
+      const FlSpot(2, 0),
+      const FlSpot(3, 0),
+      const FlSpot(4, 0),
+      const FlSpot(5, 0),
+      const FlSpot(6, 0),
+      const FlSpot(7, 0),
+      const FlSpot(8, 0),
+      const FlSpot(9, 0),
+      const FlSpot(10, 0),
+      const FlSpot(11, 0),
+      const FlSpot(12, 0),
     ],
   );
 

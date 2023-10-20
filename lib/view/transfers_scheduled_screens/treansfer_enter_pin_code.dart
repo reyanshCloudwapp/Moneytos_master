@@ -67,7 +67,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
   // }
 
   backSpace(){
-    if(pinEntered.length > 0){
+    if(pinEntered.isNotEmpty){
       pinEntered = pinEntered.substring(0,pinEntered.length -1);
       alert = "";
       print("pinentered..${pinEntered}");
@@ -88,9 +88,9 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
 
             /// Setup New Pin Code
             Container(
-              padding: EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20),
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 MyString.enetr_pin_code,
                 style: TextStyle(
                     color: MyColors.blackColor,
@@ -119,14 +119,14 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
 
             hSizedBox4,
             Padding(
-              padding: EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 30),
               child: Row(
 
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
                     CupertinoIcons.circle_fill,
-                    color: pinEntered.length >= 1?MyColors.lightblueColor:  MyColors.lightblueColor.withOpacity(0.30),
+                    color: pinEntered.isNotEmpty?MyColors.lightblueColor:  MyColors.lightblueColor.withOpacity(0.30),
                     size: 9,
                   ),
                   wSizedBox1,
@@ -173,7 +173,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
             hSizedBox3,
             //numberButton(1),
             Padding(
-              padding: EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 10),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -219,7 +219,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only( top: 15),
+                    padding: const EdgeInsets.only( top: 15),
                     child: InkWell(
                       onTap: () {
                         backSpace();
@@ -237,7 +237,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
                     ),
                   ),
 
-                  Padding(padding: EdgeInsets.only( top: 15),child:Container(
+                  Padding(padding: const EdgeInsets.only( top: 15),child:Container(
                     width: 50,
                     child:  numberButton(0),
                   )),
@@ -251,7 +251,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
 
                       pushNewScreen(
                         context,
-                        screen: SettingForgotPinCodeScreen(),
+                        screen: const SettingForgotPinCodeScreen(),
                         withNavBar: false,
                       );
 
@@ -259,8 +259,8 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
                     child: Container(
                       // height: 20,
                       alignment: Alignment.bottomCenter,
-                      padding: EdgeInsets.only( top: 22),
-                      child: Text("Forgot!",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
+                      padding: const EdgeInsets.only( top: 22),
+                      child: const Text("Forgot!",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
                     ),
                   )
                       : Container(width: 50,)
@@ -281,7 +281,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
                   // );
                 },
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 20),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
                   height: 50,
                   width: double.infinity,
                   decoration: BoxDecoration(
@@ -303,7 +303,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
                       SvgPicture.asset("a_assets/icons/exclametary_icon.svg"),
                       wSizedBox1,
                       Container(
-                        child: Text("the pin you entered is wrong",style: TextStyle(color: MyColors.whiteColor,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontSize: 14,fontWeight: FontWeight.w600),),
+                        child: const Text("the pin you entered is wrong",style: TextStyle(color: MyColors.whiteColor,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontSize: 14,fontWeight: FontWeight.w600),),
                       )
                     ],
                   ),
@@ -343,7 +343,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
           height: 50,
           child: Text(
             item.toString(),
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.blackColor,
                 fontWeight: FontWeight.w800,
                 fontSize: 20,

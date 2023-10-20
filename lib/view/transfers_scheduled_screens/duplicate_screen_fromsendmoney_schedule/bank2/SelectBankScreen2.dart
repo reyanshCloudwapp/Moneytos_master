@@ -44,7 +44,7 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
         child: Scaffold(
           backgroundColor: MyColors.whiteColor,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(200),
+            preferredSize: const Size.fromHeight(200),
             child: AppBar(
               elevation: 0,
               automaticallyImplyLeading: false,
@@ -54,7 +54,7 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
                   children: [
                     Container(
                       color: MyColors.color_03153B,
-                      padding: EdgeInsets.only(top: 60,left: 22,right: 22),
+                      padding: const EdgeInsets.only(top: 60,left: 22,right: 22),
                       child: Column(
                         children: [
                           Row(
@@ -72,7 +72,7 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
                               Center(
                                 child: Container(
                                   //   margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                                  child:  Text(
+                                  child:  const Text(
                                     MyString.select_bank,
                                     style: TextStyle(
                                         color: MyColors.whiteColor,
@@ -97,8 +97,8 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
                     Container(
                       color:MyColors.color_03153B,
                       child: Container(
-                          padding: EdgeInsets.only(top: 45,left: 22,right: 22),
-                          decoration: BoxDecoration(
+                          padding: const EdgeInsets.only(top: 45,left: 22,right: 22),
+                          decoration: const BoxDecoration(
                             color: MyColors.whiteColor,
                             borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                           ),
@@ -125,7 +125,7 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
           bottomSheet: Container(
             color: MyColors.whiteColor,
             height: 80,
-            margin: EdgeInsets.only(bottom: 40),
+            margin: const EdgeInsets.only(bottom: 40),
 
             alignment: Alignment.center,
             child: GestureDetector(
@@ -134,7 +134,7 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
                 //   Navigator.push(context, MaterialPageRoute(builder: (_) => BankAccountNumber() ));
               },
               child: Container(
-                margin: EdgeInsets.only(bottom: 15.0,top: 15),
+                margin: const EdgeInsets.only(bottom: 15.0,top: 15),
                 height: 50,
                 width: 100,
 
@@ -161,20 +161,20 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
                 child: Card(
                   color: MyColors.whiteColor,
                   margin: EdgeInsets.zero,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                   ),
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
                         Padding(
-                          padding:  EdgeInsets.only(bottom: 80.0),
+                          padding:  const EdgeInsets.only(bottom: 80.0),
                           child: GridView(
                             shrinkWrap: true,
-                            padding: EdgeInsets.only(left: 10,right: 10),
+                            padding: const EdgeInsets.only(left: 10,right: 10),
                             scrollDirection: Axis.vertical,
-                            physics: NeverScrollableScrollPhysics(),
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            physics: const NeverScrollableScrollPhysics(),
+                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
                               childAspectRatio: 1/0.6 ,
                               crossAxisSpacing: 1.1,
@@ -186,8 +186,8 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
                                   Navigator.push(context, MaterialPageRoute(builder: (context)=>BankDetaislScreen2()));
                                 },
                                 child: Container(
-                                    padding: EdgeInsets.symmetric(vertical:1,horizontal: 10),
-                                    margin: EdgeInsets.symmetric(vertical:6,horizontal: 5),
+                                    padding: const EdgeInsets.symmetric(vertical:1,horizontal: 10),
+                                    margin: const EdgeInsets.symmetric(vertical:6,horizontal: 5),
                                     child: CustomSelectBankList(title: MyString.bank_name,img: "a_assets/images/onboarding_img/logo.png",)),
                               );
                             }).toList(),
@@ -228,13 +228,13 @@ class _SelectBankScreen2State extends State<SelectBankScreen2> {
         cursorColor:MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          enabledBorder:  OutlineInputBorder(
+          enabledBorder:  const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
 

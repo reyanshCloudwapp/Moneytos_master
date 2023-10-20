@@ -84,14 +84,14 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
         child: Scaffold(
             backgroundColor: MyColors.light_primarycolor2,
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(60),
+              preferredSize: const Size.fromHeight(60),
               child:   AppBar(
                 elevation: 0,
                 automaticallyImplyLeading: false,
                 backgroundColor: MyColors.light_primarycolor2,
                 flexibleSpace: Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.fromLTRB(23, 35, 20, 0),
+                  padding: const EdgeInsets.fromLTRB(23, 35, 20, 0),
                   child: Row(
 crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,8 +107,8 @@ crossAxisAlignment: CrossAxisAlignment.center,
                           )),
                       Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                        child: Text(
+                        margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                        child: const Text(
                           MyString.help_center,
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -128,7 +128,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
             body: KeyboardActions(
               autoScroll: false,
               config: _buildKeyboardActionsConfig(context),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 child: Stack(children: <Widget>[
               Container(
@@ -137,13 +137,13 @@ crossAxisAlignment: CrossAxisAlignment.center,
                 width: MediaQuery.of(context).size.width,
               ),
                   Container(
-                      margin: EdgeInsets.fromLTRB(0, 22, 0, 0),
+                      margin: const EdgeInsets.fromLTRB(0, 22, 0, 0),
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
                       child: Card(
                           color: MyColors.whiteColor,
                           margin: EdgeInsets.zero,
-                          shape: RoundedRectangleBorder(
+                          shape: const RoundedRectangleBorder(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(30),
                                 topRight: Radius.circular(30)),
@@ -153,10 +153,10 @@ crossAxisAlignment: CrossAxisAlignment.center,
                               hSizedBox3,
                               Container(
                                 alignment: Alignment.center,
-                                padding: EdgeInsets.symmetric(horizontal: 20),
+                                padding: const EdgeInsets.symmetric(horizontal: 20),
                                 //width: size.width * 0.7,
                                 //margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                                child: Text(
+                                child: const Text(
                                   MyString.contact_our_global_support_team,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -194,7 +194,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
                                 decoration: BoxDecoration(
                                     color: MyColors.lightblueColor.withOpacity(0.03),
                                     borderRadius: BorderRadius.circular(8)),
-                                margin: EdgeInsets.only(left: 18.0,top: 30),
+                                margin: const EdgeInsets.only(left: 18.0,top: 30),
                                 child: Row(
                                   children: [
 
@@ -206,7 +206,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
                                       initialSelection: 'CA',
                                       // favorite: ['+91','IN'],
                                       showCountryOnly: false,
-                                      textStyle: TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 16),
+                                      textStyle: const TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 16),
                                       showOnlyCountryWhenClosed: false,
                                       alignLeft: false,
                                       showFlag: false,
@@ -267,7 +267,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
 
                                 },
                                 child: Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                     horizontal: 20,
                                   ),
                                   child: CustomButton2(
@@ -352,7 +352,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
       TextInputType textInputType,
       TextInputAction textInputAction) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: MyColors.lightblueColor.withOpacity(0.03),
           borderRadius: BorderRadius.circular(8)),
@@ -361,7 +361,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
         controller: controller,
         focusNode: focusNode,
         textInputAction: textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -372,9 +372,9 @@ crossAxisAlignment: CrossAxisAlignment.center,
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -399,7 +399,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
       TextInputType textInputType,
       TextInputAction textInputAction) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: MyColors.lightblueColor.withOpacity(0.03),
           borderRadius: BorderRadius.circular(8)),
@@ -409,7 +409,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
         focusNode: focusNode,
         maxLines: 6,
         textInputAction: textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -420,9 +420,9 @@ crossAxisAlignment: CrossAxisAlignment.center,
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -476,7 +476,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
 
   textphonefield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 0),
+      margin: const EdgeInsets.symmetric(horizontal: 0),
       decoration: BoxDecoration(
           color: MyColors.lightblueColor.withOpacity(0.03),
           borderRadius: BorderRadius.circular(8)),
@@ -487,7 +487,7 @@ crossAxisAlignment: CrossAxisAlignment.center,
         focusNode:  focusNode,
         textInputAction:textInputAction,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -498,9 +498,9 @@ crossAxisAlignment: CrossAxisAlignment.center,
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),

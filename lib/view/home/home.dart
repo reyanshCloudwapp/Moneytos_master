@@ -107,8 +107,6 @@ class _HomeScreenState extends State<HomeScreen> {
     getPermissionStatus();
   }
 
-
-
   Future<void> commonsettingApi(BuildContext context) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
@@ -197,6 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   int notificationCount = 0;
+
   void mainNotitification() async {
     WidgetsFlutterBinding.ensureInitialized();
     await Firebase.initializeApp();
@@ -224,8 +223,9 @@ class _HomeScreenState extends State<HomeScreen> {
           systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
-            statusBarIconBrightness: Brightness.light, // For Android (dark icons)
-            statusBarBrightness: Brightness.light,  // For iOS (dark icons)
+            statusBarIconBrightness: Brightness.light,
+            // For Android (dark icons)
+            statusBarBrightness: Brightness.light, // For iOS (dark icons)
           ),
           /*  actions: [
             Container(
@@ -317,12 +317,11 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                             )
-                          :
-                      Container(
+                          : Container(
                               alignment: Alignment.centerRight,
                               child: InkWell(
                                 onTap: () {
-                                  notificationCount=0;
+                                  notificationCount = 0;
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -338,7 +337,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     children: [
                                       Positioned(
                                         bottom: 0,
-                                          left: 0,
+                                        left: 0,
                                         child: Container(
                                           alignment: Alignment.center,
                                           height: 22,
@@ -347,10 +346,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                               border: Border.all(
                                                 color: MyColors.color_ACCEFE,
                                               ),
-                                              borderRadius: const BorderRadius.all(
-                                                  Radius.circular(3))),
-                                          child:  Text(notificationCount.toString(),
-                                              style: TextStyle(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(3))),
+                                          child: Text(
+                                              notificationCount.toString(),
+                                              style: const TextStyle(
                                                   color: MyColors.color_609DF4,
                                                   fontSize: 12,
                                                   fontWeight: FontWeight.w600,
@@ -359,17 +360,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       Positioned(
-                                        right: 0,
+                                          right: 0,
                                           top: 0,
                                           child: Container(
-                                        width: 8,
-                                        height: 8,
+                                            width: 8,
+                                            height: 8,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                              color: notificationCount>0? Colors.red :Colors.transparent,
-
+                                              color: notificationCount > 0
+                                                  ? Colors.red
+                                                  : Colors.transparent,
                                             ),
-                                      ))
+                                          ))
                                     ],
                                   ),
                                 ),
@@ -401,7 +403,6 @@ class _HomeScreenState extends State<HomeScreen> {
                               // _animationController.forward();
                             },
                             itemBuilder: (BuildContext context, int index) {
-
                               return RichText(
                                 text: TextSpan(
                                   children: <InlineSpan>[
@@ -413,17 +414,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                     const WidgetSpan(
                                       child: SizedBox(
                                         width:
-                                        10.0, // Adjust the width to add space between WidgetSpan and TextSpan
+                                            10.0, // Adjust the width to add space between WidgetSpan and TextSpan
                                       ),
                                     ),
                                     TextSpan(
-                                      text: '1 USD = ${exchangeRateList[index].totalRate.toString()} ${exchangeRateList[index].currency.toString()}',
-                                      style: TextStyle(
+                                      text:
+                                          '1 USD = ${exchangeRateList[index].totalRate.toString()} ${exchangeRateList[index].currency.toString()}',
+                                      style: const TextStyle(
                                           color: MyColors.color_06366F,
                                           fontSize: 20,
                                           fontWeight: FontWeight.w700,
                                           fontFamily:
-                                          "s_asset/font/raleway/raleway_bold.ttf"),
+                                              "s_asset/font/raleway/raleway_bold.ttf"),
                                     ),
                                   ],
                                 ),
@@ -474,35 +476,38 @@ class _HomeScreenState extends State<HomeScreen> {
                                         "s_asset/font/raleway/raleway_extrabold.ttf")),
                             const Spacer(),
                             TextButton(
-                              style: TextButton.styleFrom(
-                                padding: EdgeInsets.zero,
-                                minimumSize: Size.zero,
-                                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                              ),
-                              onPressed: () {
-                                // pushNewScreen(
-                                //   context,
-                                //   screen: const HomeHistoryScreen(),
-                                //   withNavBar: true,
-                                // );
-                                Navigator.of(context, rootNavigator: true)
-                                    .pushAndRemoveUntil(
-                                  MaterialPageRoute(
-                                    builder: (BuildContext context) {
-                                      return  DashboardScreen(currentpage_index:1,);
-                                    },
-                                  ),
-                                      (_) => false,
-                                );
-                              },
-                              child: Text("See all",
-                                style: TextStyle(
-                                    color: MyColors.color_609DF4,
-                                    decoration: TextDecoration.underline,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w600,
-                                    fontFamily:
-                                        "s_asset/font/raleway/raleway_bold.ttf"))),
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                  minimumSize: Size.zero,
+                                  tapTargetSize:
+                                      MaterialTapTargetSize.shrinkWrap,
+                                ),
+                                onPressed: () {
+                                  // pushNewScreen(
+                                  //   context,
+                                  //   screen: const HomeHistoryScreen(),
+                                  //   withNavBar: true,
+                                  // );
+                                  Navigator.of(context, rootNavigator: true)
+                                      .pushAndRemoveUntil(
+                                    MaterialPageRoute(
+                                      builder: (BuildContext context) {
+                                        return DashboardScreen(
+                                          currentpage_index: 1,
+                                        );
+                                      },
+                                    ),
+                                    (_) => false,
+                                  );
+                                },
+                                child: const Text("See all",
+                                    style: TextStyle(
+                                        color: MyColors.color_609DF4,
+                                        decoration: TextDecoration.underline,
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w600,
+                                        fontFamily:
+                                            "s_asset/font/raleway/raleway_bold.ttf"))),
                           ],
                         ),
                       ),
@@ -517,8 +522,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               ? latestTransferResponse
                                       .data!.txnData!.data!.isEmpty
                                   ? Container(
-                        height: 150,
-                        alignment: Alignment.center,
+                                      height: 150,
+                                      alignment: Alignment.center,
                                       margin: const EdgeInsets.only(top: 30),
                                       padding: EdgeInsets.symmetric(
                                         horizontal: size.width / 3,
@@ -538,12 +543,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                           : latesttransferList.length,
                                       itemBuilder: (context, index) {
                                         return InkWell(
-                                          onTap: (){
-                                            transferbottomsheet(latesttransferList[index].readyremitTransferId.toString(),latesttransferList[index]);
+                                          onTap: () {
+                                            transferbottomsheet(
+                                                latesttransferList[index]
+                                                    .readyremitTransferId
+                                                    .toString(),
+                                                latesttransferList[index]);
                                           },
                                           child: Container(
-                                            margin:
-                                                const EdgeInsets.symmetric(vertical: 6),
+                                            margin: const EdgeInsets.symmetric(
+                                                vertical: 6),
                                             decoration: BoxDecoration(
                                               color: MyColors.whiteColor,
                                               borderRadius:
@@ -577,7 +586,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
                                              */
                                             child: Padding(
-                                              padding: const EdgeInsets.symmetric(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
                                                 vertical: 20,
                                                 horizontal: 15,
                                               ),
@@ -601,8 +611,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                                               .profileImage
                                                               .toString(),
                                                         ),
-                                                        placeholder: const AssetImage(
-                                                            "a_assets/logo/progress_image.png"),
+                                                        placeholder:
+                                                            const AssetImage(
+                                                                "a_assets/logo/progress_image.png"),
                                                         placeholderFit:
                                                             BoxFit.scaleDown,
                                                         imageErrorBuilder:
@@ -637,21 +648,26 @@ class _HomeScreenState extends State<HomeScreen> {
                                                                   .color_06366F,
                                                               fontSize: 14,
                                                               fontWeight:
-                                                                  FontWeight.w600,
+                                                                  FontWeight
+                                                                      .w600,
                                                               fontFamily:
                                                                   "s_asset/font/raleway/raleway_bold.ttf"),
                                                         ),
-                                                        const SizedBox(height:2,),
+                                                        const SizedBox(
+                                                          height: 2,
+                                                        ),
                                                         Text(
                                                           latesttransferList[
-                                                          index]
+                                                                  index]
                                                               .newCreatedAt
-                                                              .toString().toLowerCase()
-                                                          ,
+                                                              .toString()
+                                                              .toLowerCase(),
                                                           style: const TextStyle(
                                                               color: MyColors
                                                                   .color_676F85,
-                                                              fontWeight:FontWeight.w500,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
                                                               fontSize: 12,
                                                               fontFamily:
                                                                   "s_asset/font/raleway/raleway_regular.ttf"),
@@ -681,7 +697,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                         height: 4,
                                                       ),
                                                       Text(
-                                                        latesttransferList[index]
+                                                        latesttransferList[
+                                                                index]
                                                             .readyremitStatus
                                                             .toString(),
                                                         style: TextStyle(
@@ -857,8 +874,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 bottom: 0,
                                 child: Container(
                                   decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20)
-                                  ),
+                                      borderRadius: BorderRadius.circular(20)),
                                   clipBehavior: Clip.antiAlias,
                                   child: SvgPicture.asset(
                                     "a_assets/images/send_money_bg.svg",
@@ -965,7 +981,7 @@ class _HomeScreenState extends State<HomeScreen> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     CreateCustomerRequest createCustomerRequest = new CreateCustomerRequest();
 
-    if (userlist.length > 0) {
+    if (userlist.isNotEmpty) {
       createCustomerRequest.identifier = userlist[0].id.toString();
       createCustomerRequest.customerNumber = userlist[0].id.toString();
       createCustomerRequest.firstName = userlist[0].name.toString();
@@ -1061,24 +1077,24 @@ class _HomeScreenState extends State<HomeScreen> {
 
     // CustomLoader.ProgressloadingDialog6(context, false);
 
-    first_name = (userlist.length > 0
+    first_name = (userlist.isNotEmpty
         ? "${userlist[0].name == null || userlist[0].name.toString().isEmpty ? "" : userlist[0].name}"
         : "");
-    is_check = userlist.length > 0
+    is_check = userlist.isNotEmpty
         ? userlist[0].documentStatus.toString() == "Blank"
             ? true
             : false
         : false;
     free_transfer_count =
-        userlist.length > 0 ? userlist[0].free_transation.toString() : "0";
+        userlist.isNotEmpty ? userlist[0].free_transation.toString() : "0";
     doucument_status =
-        userlist.length > 0 ? userlist[0].documentStatus.toString() : "";
+        userlist.isNotEmpty ? userlist[0].documentStatus.toString() : "";
     first_name = first_name.split(" ")[0];
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString("referral_id",
-        userlist.length > 0 ? userlist[0].unique_id.toString() : "0");
+        userlist.isNotEmpty ? userlist[0].unique_id.toString() : "0");
     sharedPreferences.setString("document_status", doucument_status);
-    userlist.length > 0
+    userlist.isNotEmpty
         ? userlist[0].magicpay_customer_id == ""
             ? createcustomersRequest(context)
             : null
@@ -1299,7 +1315,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     : Container(),
                 document_status == "pending"
-                    ? Column(
+                    ? const Column(
                         children: [
                           Text(
                             "We will notify you as soon as you’re approved.",
@@ -1477,7 +1493,7 @@ class _HomeScreenState extends State<HomeScreen> {
       exchangeRateList = homeExchangerateResponse.data!;
       _numberOfPages = exchangeRateList.length;
       _pageController.addListener(_pageListener);
-      _timer = Timer.periodic(Duration(seconds: 3), (timer) {
+      _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
         if (_currentPage < _numberOfPages - 1) {
           _currentPage++;
         } else {
@@ -1486,7 +1502,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
         _pageController.animateToPage(
           _currentPage,
-          duration: Duration(milliseconds: 500),
+          duration: const Duration(milliseconds: 500),
           curve: Curves.easeOut,
         );
       });
@@ -1495,17 +1511,18 @@ class _HomeScreenState extends State<HomeScreen> {
     } else {
       // Utility.ProgressloadingDialog(context, false);
 
-
       setState(() {});
     }
     return;
   }
+
   @override
   void dispose() {
     _timer.cancel();
     _pageController.dispose();
     super.dispose();
   }
+
   void _pageListener() {
     if (_pageController.page == exchangeRateList.length - 1) {
       // When the user scrolls to the last page, jump to the second page to create the illusion of an infinite loop.
@@ -1515,6 +1532,7 @@ class _HomeScreenState extends State<HomeScreen> {
       _pageController.jumpToPage(exchangeRateList.length - 2);
     }
   }
+
   Future<void> scheduleTransferListapi(BuildContext context) async {
     SharedPreferences p = await SharedPreferences.getInstance();
 
@@ -1602,20 +1620,18 @@ class _HomeScreenState extends State<HomeScreen> {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       // CustomLoader.ProgressloadingDialog(context, true);
     } else {
-      Utility.showFlutterToast( jsonResponse['message']);
+      Utility.showFlutterToast(jsonResponse['message']);
       //CustomLoader.ProgressloadingDialog(context, true);
       //  show_custom_toast(msg: "Register Failed");
     }
     return;
   }
 
-  transferbottomsheet(String readyremit_transferId,TxnSubData txnSubData){
+  transferbottomsheet(String readyremit_transferId, TxnSubData txnSubData) {
     return showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30)
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         // anchorPoint: Offset(20.0, 30.0),
         backgroundColor: Colors.transparent,
         builder: (context) {
@@ -1623,13 +1639,23 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.transparent,
               height: MediaQuery.of(context).size.height * 0.76,
               child: Container(
-                  decoration: new BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
-                      borderRadius: new BorderRadius.only(
-                          topLeft: const Radius.circular(30.0), topRight: const Radius.circular(30.0))),
-                  child: TransferBottomsheet(isMfs: false,readyremit_transferId: readyremit_transferId, selected_acc_id: txnSubData.senderSendMethodId.toString(), selected_payment_type: txnSubData.senderSendMethod.toString(), selected_acc_name: txnSubData.recipientName.toString(), selected_last4: txnSubData.senderSendMethodLast4digit.toString(), txnSubData: txnSubData,))
-          );}
-    );
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30.0),
+                          topRight: Radius.circular(30.0))),
+                  child: TransferBottomsheet(
+                    isMfs: false,
+                    readyremit_transferId: readyremit_transferId,
+                    selected_acc_id: txnSubData.senderSendMethodId.toString(),
+                    selected_payment_type:
+                        txnSubData.senderSendMethod.toString(),
+                    selected_acc_name: txnSubData.recipientName.toString(),
+                    selected_last4:
+                        txnSubData.senderSendMethodLast4digit.toString(),
+                    txnSubData: txnSubData,
+                  )));
+        });
   }
 
   Future<void> chkStateStatusByIpApi(

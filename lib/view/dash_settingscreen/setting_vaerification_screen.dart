@@ -46,8 +46,8 @@ class _Setting_VerificationState extends State<Setting_Verification> {
     await Webservices.profileRequest(context, userlist);
     print(userlist.length);
     // passport_type = (userlist.length > 0 ? "${userlist[0].documentStatus == null || userlist[0].documentStatus.toString().isEmpty? "": userlist[0].documentStatus}" : "");
-    actual_status = (userlist.length > 0 ? "${userlist[0].documentStatus == null || userlist[0].documentStatus.toString().isEmpty? "": userlist[0].documentStatus}" : "");
-    document_status = (userlist.length > 0 ? "${userlist[0].documentStatus == null || userlist[0].documentStatus.toString().isEmpty? "": userlist[0].documentStatus}" : "");
+    actual_status = (userlist.isNotEmpty ? "${userlist[0].documentStatus == null || userlist[0].documentStatus.toString().isEmpty? "": userlist[0].documentStatus}" : "");
+    document_status = (userlist.isNotEmpty ? "${userlist[0].documentStatus == null || userlist[0].documentStatus.toString().isEmpty? "": userlist[0].documentStatus}" : "");
     document_status = document_status == "pending"?"Incomplete":document_status=="Complete"?"pending":document_status ;
     setState(() {
 
@@ -72,13 +72,13 @@ class _Setting_VerificationState extends State<Setting_Verification> {
         child: Scaffold(
           backgroundColor: MyColors.light_primarycolor2,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(55),
+            preferredSize: const Size.fromHeight(55),
             child: AppBar(
               elevation: 0,
               automaticallyImplyLeading: false,
               backgroundColor: MyColors.light_primarycolor2,
               flexibleSpace:          Container(
-                padding: EdgeInsets.fromLTRB(22, 30, 20, 0),
+                padding: const EdgeInsets.fromLTRB(22, 30, 20, 0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,8 +99,8 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                         )),
                     Center(
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                        child: Text(
+                        margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                        child: const Text(
                           MyString.verification,
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -130,12 +130,12 @@ class _Setting_VerificationState extends State<Setting_Verification> {
 
 
                 Container(
-                  padding: EdgeInsets.only(left: 20,right: 20),
+                  padding: const EdgeInsets.only(left: 20,right: 20),
                   width: MediaQuery.of(context).size.width,
                   color: MyColors.whiteColor,
                   child: Column(children: [
 
-                    SizedBox(height: 100,),
+                    const SizedBox(height: 100,),
                     actual_status == "Approved"?
                     Container(
                         alignment: Alignment.center,
@@ -150,11 +150,11 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                     document_status == "Blank"?
                     Container():
                     Container(
-                      margin: EdgeInsets.only(top: 20),
+                      margin: const EdgeInsets.only(top: 20),
                       child: Text(
                         "Verification status : ${document_status}",
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w700,
                             fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
@@ -162,11 +162,11 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                     ),
 
 
-                    SizedBox(height: 20,),
+                    const SizedBox(height: 20,),
 
                     actual_status == "expired"|| actual_status =="Rejected" ||actual_status =="declined"?
                         Column(children: [
-                          Text(
+                          const Text(
                             "Please re upload verification.",
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -176,11 +176,11 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                           ),
 
 
-                          SizedBox(height: 20,),
+                          const SizedBox(height: 20,),
 
                           ElevatedButton(
                             style: ButtonStyle(
-                                padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                 foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                     RoundedRectangleBorder(
@@ -202,7 +202,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                             // shape: RoundedRectangleBorder(
                             //     borderRadius: BorderRadius.circular(10.0)),
                             // color: MyColors.darkbtncolor,
-                            child: Text(
+                            child: const Text(
                               "If you want to update verification Click Here"
                               ,
                               textAlign: TextAlign.center,
@@ -214,7 +214,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                             ),
                           ),
 
-                          SizedBox(height: 20,),
+                          const SizedBox(height: 20,),
                         ],
                         ):Container(),
 
@@ -228,7 +228,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
 
                       ElevatedButton(
                         style: ButtonStyle(
-                            padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                            padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                             foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
@@ -250,7 +250,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                         // shape: RoundedRectangleBorder(
                         //     borderRadius: BorderRadius.circular(10.0)),
                         // color: MyColors.darkbtncolor,
-                        child: Text(
+                        child: const Text(
                           "Verify Your Account"
                           ,
                           textAlign: TextAlign.center,
@@ -262,7 +262,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                         ),
                       ),
 
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                     ],
                     ):Container(),
 
@@ -270,7 +270,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
 
                     document_status == "Incomplete"?
                     Column(children: [
-                      Text(
+                      const Text(
                         "Your Verification is incomplete , Please re upload verification.",
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -279,12 +279,12 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                             fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
                       ),
 
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
 
 
                       ElevatedButton(
                         style: ButtonStyle(
-                            padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                            padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                             foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
@@ -306,7 +306,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                         // shape: RoundedRectangleBorder(
                         //     borderRadius: BorderRadius.circular(10.0)),
                         // color: MyColors.darkbtncolor,
-                        child: Text(
+                        child: const Text(
                           "If you want to update verification Click Here"
                           ,
                           textAlign: TextAlign.center,
@@ -318,7 +318,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
                         ),
                       ),
 
-                      SizedBox(height: 20,),
+                      const SizedBox(height: 20,),
                     ],
                     ):Container(),
 
@@ -326,7 +326,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
 
 
                     document_status == "Pending"?
-                    Column(children: [
+                    const Column(children: [
                       Text(
                         "We will notify you as soon as you’re approved.",
                         textAlign: TextAlign.center,
@@ -353,7 +353,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
               loader == true?  Container(
                 child: Container(
                   color: Colors.white,
-                  child: Card(
+                  child: const Card(
                     color: MyColors.whiteColor,
                     margin: EdgeInsets.zero,
                     shape: RoundedRectangleBorder(

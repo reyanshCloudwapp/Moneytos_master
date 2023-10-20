@@ -27,28 +27,32 @@ import '../view/transfers_scheduled_screens/transfers_scheduled_screen.dart';
 class EditSheduledTransferScreen extends StatefulWidget {
   String schedule_id;
   Function Oncallback;
-  EditSheduledTransferScreen({Key? key,required this.schedule_id,required this.Oncallback}) : super(key: key);
+
+  EditSheduledTransferScreen(
+      {Key? key, required this.schedule_id, required this.Oncallback})
+      : super(key: key);
 
   @override
-  State<EditSheduledTransferScreen> createState() => _EditSheduledTransferScreenState();
+  State<EditSheduledTransferScreen> createState() =>
+      _EditSheduledTransferScreenState();
 }
 
-class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen> {
+class _EditSheduledTransferScreenState
+    extends State<EditSheduledTransferScreen> {
   String statustext = MyString.once;
-
 
   DateTime _currentDate = DateTime.now();
   DateTime _currentDate2 = DateTime.now();
   String _currentMonth = DateFormat.yMMM().format(DateTime.now());
   DateTime _targetDateTime = DateTime.now();
   String Selected_Date = "";
-  String start_date = "Start Date",end_date = "End Date";
-  String selected_start_date = "",selected_end_date="";
+  String start_date = "Start Date", end_date = "End Date";
+  String selected_start_date = "", selected_end_date = "";
   DateTime _currentStartDate = DateTime.now();
   DateTime _currentStartDate2 = DateTime.now();
   String _currentStartMonth = DateFormat.yMMM().format(DateTime.now());
   DateTime _targetStartDateTime = DateTime.now();
-  String is_date_select="start_date";
+  String is_date_select = "start_date";
 
   DateTime _currentEndDate = DateTime.now();
   DateTime _currentEndDate2 = DateTime.now();
@@ -62,9 +66,9 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
   static Widget _eventIcon = new Container(
     decoration: new BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(1000)),
+        borderRadius: const BorderRadius.all(Radius.circular(1000)),
         border: Border.all(color: Colors.blue, width: 2.0)),
-    child: new Icon(
+    child: const Icon(
       Icons.person,
       color: Colors.amber,
     ),
@@ -78,7 +82,7 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
           title: 'Event 1',
           icon: _eventIcon,
           dot: Container(
-            margin: EdgeInsets.symmetric(horizontal: 1.0),
+            margin: const EdgeInsets.symmetric(horizontal: 1.0),
             color: Colors.red,
             height: 5.0,
             width: 5.0,
@@ -136,64 +140,58 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
     super.initState();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-
-
 
     _calendarCarouselNoHeader = CalendarCarousel<Event>(
       //todayBorderColor: Colors.green,
       onDayPressed: (DateTime date, List<Event> events) {
         this.setState(() => _currentDate2 = date);
         events.forEach((event) => print(event.title));
-        Selected_Date = Utility.DatefomatToScheduleDate(_currentDate2.toString());
+        Selected_Date =
+            Utility.DatefomatToScheduleDate(_currentDate2.toString());
       },
-     // daysHaveCircularBorder: true,
+      // daysHaveCircularBorder: true,
       showOnlyCurrentMonthDate: false,
-      weekendTextStyle: TextStyle(
+      weekendTextStyle: const TextStyle(
         color: Colors.black,
       ),
       selectedDayButtonColor: MyColors.color_1F4287,
 
-
-
-
-    //  thisMonthDayBorderColor: Colors.grey,
+      //  thisMonthDayBorderColor: Colors.grey,
       weekFormat: false,
       weekDayFormat: WeekdayFormat.short,
 //      firstDayOfWeek: 4,
       markedDatesMap: _markedDateMap,
-      weekdayTextStyle:TextStyle(color: MyColors.greycolor) ,
+      weekdayTextStyle: const TextStyle(color: MyColors.greycolor),
       height: 420.0,
-      selectedDateTime: Selected_Date.isEmpty?null:_currentDate2,
+      selectedDateTime: Selected_Date.isEmpty ? null : _currentDate2,
       targetDateTime: _targetDateTime,
 
-      customGridViewPhysics: NeverScrollableScrollPhysics(),
+      customGridViewPhysics: const NeverScrollableScrollPhysics(),
       markedDateCustomShapeBorder:
-      CircleBorder(side: BorderSide(color: MyColors.primaryColor)),
-      markedDateCustomTextStyle: TextStyle(
+          const CircleBorder(side: BorderSide(color: MyColors.primaryColor)),
+      markedDateCustomTextStyle: const TextStyle(
         fontSize: 18,
         color: Colors.blue,
       ),
       showHeader: false,
-      todayTextStyle: TextStyle(
+      todayTextStyle: const TextStyle(
         color: Colors.black,
       ),
 
       todayButtonColor: MyColors.whiteColor,
-      selectedDayTextStyle: TextStyle(
+      selectedDayTextStyle: const TextStyle(
         color: Colors.white,
       ),
-      minSelectedDate: _currentDate.add(Duration(days: -1)),
-      maxSelectedDate: _currentDate.add(Duration(days: 360)),
-      prevDaysTextStyle: TextStyle(
+      minSelectedDate: _currentDate.add(const Duration(days: -1)),
+      maxSelectedDate: _currentDate.add(const Duration(days: 360)),
+      prevDaysTextStyle: const TextStyle(
         fontSize: 16,
         color: Colors.black38,
       ),
-      inactiveDaysTextStyle: TextStyle(
+      inactiveDaysTextStyle: const TextStyle(
         color: Colors.black38,
         fontSize: 16,
       ),
@@ -212,52 +210,51 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
       onDayPressed: (DateTime date, List<Event> events) {
         this.setState(() => _currentStartDate2 = date);
         events.forEach((event) => print(event.title));
-        start_date = Utility.DatefomatToTimezoneDate(_currentStartDate2.toString());
-        selected_start_date = Utility.DatefomatToScheduleDate(_currentStartDate2.toString());
+        start_date =
+            Utility.DatefomatToTimezoneDate(_currentStartDate2.toString());
+        selected_start_date =
+            Utility.DatefomatToScheduleDate(_currentStartDate2.toString());
       },
-     // daysHaveCircularBorder: true,
+      // daysHaveCircularBorder: true,
       showOnlyCurrentMonthDate: false,
-      weekendTextStyle: TextStyle(
+      weekendTextStyle: const TextStyle(
         color: Colors.black,
       ),
       selectedDayButtonColor: MyColors.color_1F4287,
 
-
-
-
-    //  thisMonthDayBorderColor: Colors.grey,
+      //  thisMonthDayBorderColor: Colors.grey,
       weekFormat: false,
       weekDayFormat: WeekdayFormat.short,
 //      firstDayOfWeek: 4,
       markedDatesMap: _markedDateMap,
-      weekdayTextStyle:TextStyle(color: MyColors.greycolor) ,
+      weekdayTextStyle: const TextStyle(color: MyColors.greycolor),
       height: 420.0,
-      selectedDateTime: selected_start_date.isEmpty?null:_currentStartDate2,
+      selectedDateTime: selected_start_date.isEmpty ? null : _currentStartDate2,
       targetDateTime: _targetStartDateTime,
 
-      customGridViewPhysics: NeverScrollableScrollPhysics(),
+      customGridViewPhysics: const NeverScrollableScrollPhysics(),
       markedDateCustomShapeBorder:
-      CircleBorder(side: BorderSide(color: MyColors.primaryColor)),
-      markedDateCustomTextStyle: TextStyle(
+          const CircleBorder(side: BorderSide(color: MyColors.primaryColor)),
+      markedDateCustomTextStyle: const TextStyle(
         fontSize: 18,
         color: Colors.blue,
       ),
       showHeader: false,
-      todayTextStyle: TextStyle(
+      todayTextStyle: const TextStyle(
         color: Colors.black,
       ),
 
       todayButtonColor: MyColors.whiteColor,
-      selectedDayTextStyle: TextStyle(
+      selectedDayTextStyle: const TextStyle(
         color: Colors.white,
       ),
-      minSelectedDate: _currentStartDate.add(Duration(days: -1)),
-      maxSelectedDate: _currentStartDate.add(Duration(days: 360)),
-      prevDaysTextStyle: TextStyle(
+      minSelectedDate: _currentStartDate.add(const Duration(days: -1)),
+      maxSelectedDate: _currentStartDate.add(const Duration(days: 360)),
+      prevDaysTextStyle: const TextStyle(
         fontSize: 16,
         color: Colors.black38,
       ),
-      inactiveDaysTextStyle: TextStyle(
+      inactiveDaysTextStyle: const TextStyle(
         color: Colors.black38,
         fontSize: 16,
       ),
@@ -279,51 +276,49 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
         this.setState(() => _currentEndDate2 = date);
         events.forEach((event) => print(event.title));
         end_date = Utility.DatefomatToTimezoneDate(_currentEndDate2.toString());
-        selected_end_date = Utility.DatefomatToScheduleDate(_currentEndDate2.toString());
+        selected_end_date =
+            Utility.DatefomatToScheduleDate(_currentEndDate2.toString());
       },
-     // daysHaveCircularBorder: true,
+      // daysHaveCircularBorder: true,
       showOnlyCurrentMonthDate: false,
-      weekendTextStyle: TextStyle(
+      weekendTextStyle: const TextStyle(
         color: Colors.black,
       ),
       selectedDayButtonColor: MyColors.color_1F4287,
 
-
-
-
-    //  thisMonthDayBorderColor: Colors.grey,
+      //  thisMonthDayBorderColor: Colors.grey,
       weekFormat: false,
       weekDayFormat: WeekdayFormat.short,
 //      firstDayOfWeek: 4,
       markedDatesMap: _markedDateMap,
-      weekdayTextStyle:TextStyle(color: MyColors.greycolor) ,
+      weekdayTextStyle: const TextStyle(color: MyColors.greycolor),
       height: 420.0,
-      selectedDateTime: selected_end_date.isEmpty?null:_currentEndDate2,
+      selectedDateTime: selected_end_date.isEmpty ? null : _currentEndDate2,
       targetDateTime: _targetEndDateTime,
 
-      customGridViewPhysics: NeverScrollableScrollPhysics(),
+      customGridViewPhysics: const NeverScrollableScrollPhysics(),
       markedDateCustomShapeBorder:
-      CircleBorder(side: BorderSide(color: MyColors.primaryColor)),
-      markedDateCustomTextStyle: TextStyle(
+          const CircleBorder(side: BorderSide(color: MyColors.primaryColor)),
+      markedDateCustomTextStyle: const TextStyle(
         fontSize: 18,
         color: Colors.blue,
       ),
       showHeader: false,
-      todayTextStyle: TextStyle(
+      todayTextStyle: const TextStyle(
         color: Colors.black,
       ),
 
       todayButtonColor: MyColors.whiteColor,
-      selectedDayTextStyle: TextStyle(
+      selectedDayTextStyle: const TextStyle(
         color: Colors.white,
       ),
-      minSelectedDate: _currentEndDate.add(Duration(days: -1)),
-      maxSelectedDate: _currentEndDate.add(Duration(days: 360)),
-      prevDaysTextStyle: TextStyle(
+      minSelectedDate: _currentEndDate.add(const Duration(days: -1)),
+      maxSelectedDate: _currentEndDate.add(const Duration(days: 360)),
+      prevDaysTextStyle: const TextStyle(
         fontSize: 16,
         color: Colors.black38,
       ),
-      inactiveDaysTextStyle: TextStyle(
+      inactiveDaysTextStyle: const TextStyle(
         color: Colors.black38,
         fontSize: 16,
       ),
@@ -338,48 +333,44 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
       },
     );
 
-
-
     return Scaffold(
       backgroundColor: MyColors.light_primarycolor2,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(65),
+        preferredSize: const Size.fromHeight(65),
         child: AppBar(
           backgroundColor: MyColors.light_primarycolor2,
           elevation: 0,
           centerTitle: true,
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only( left: 25,top: 35),
+            padding: const EdgeInsets.only(left: 25, top: 35),
             child: SingleChildScrollView(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.only( top: 5),
+                    padding: const EdgeInsets.only(top: 5),
                     child: InkWell(
                         onTap: () {
                           Navigator.of(context).pop();
                         },
-                        child: SvgPicture.asset(
-                          "s_asset/images/leftarrow.svg",
-                            height: 32,
-                            width: 32
-                        )),
+                        child: SvgPicture.asset("s_asset/images/leftarrow.svg",
+                            height: 32, width: 32)),
                   ),
                   Container(
                     alignment: Alignment.center,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Text(
+                        const Text(
                           MyString.scheduled_Transfer,
                           style: TextStyle(
                               color: MyColors.whiteColor,
                               fontWeight: FontWeight.w800,
                               fontSize: 26,
-                              fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf"),
+                              fontFamily:
+                                  "s_asset/font/raleway/raleway_extrabold.ttf"),
                         ),
                         //   SizedBox(height: 3,),
 
@@ -390,7 +381,8 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                               color: MyColors.whiteColor.withOpacity(0.90),
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
-                              fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),
+                              fontFamily:
+                                  "s_asset/font/raleway/raleway_medium.ttf"),
                         ),
                       ],
                     ),
@@ -403,28 +395,26 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
             ),
           ),
           automaticallyImplyLeading: false,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.light_primarycolor2,
 
             // Status bar brightness (optional)
-            statusBarIconBrightness: Brightness.light, // For Android (dark icons)
+            statusBarIconBrightness: Brightness.light,
+            // For Android (dark icons)
             statusBarBrightness: Brightness.dark, // For iOS (dark icons)
           ),
         ),
       ),
-
-
       bottomSheet: Container(
           height: 150,
           color: MyColors.whiteColor,
           width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 38,horizontal: 20),
-          child:  GestureDetector(
-            onTap:(){
-
-              if(statustext==MyString.once){
-                setDatePrefences(Selected_Date,"");
+          padding: const EdgeInsets.symmetric(vertical: 38, horizontal: 20),
+          child: GestureDetector(
+            onTap: () {
+              if (statustext == MyString.once) {
+                setDatePrefences(Selected_Date, "");
                 // Selected_Date == ""?Fluttertoast.showToast(msg: "Select Date"):
                 // pushNewScreen(
                 //   context,
@@ -432,33 +422,31 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                 //   // screen: TransferSelectRecipientScreen2(),
                 //   withNavBar: false,
                 // );
-              }else{
-                setDatePrefences(selected_start_date,selected_end_date);
-                if(selected_start_date.isEmpty){
-                  Utility.showFlutterToast( "Select Start Date");
-                }else if(selected_end_date.isEmpty){
-                  Utility.showFlutterToast( "Select End Date");
-                }else{
-                  if(_currentStartDate2.isAfter(_currentEndDate2)){
-                    Utility.showFlutterToast( "End date cannot be lower than start date.");
-                  }else{
+              } else {
+                setDatePrefences(selected_start_date, selected_end_date);
+                if (selected_start_date.isEmpty) {
+                  Utility.showFlutterToast("Select Start Date");
+                } else if (selected_end_date.isEmpty) {
+                  Utility.showFlutterToast("Select End Date");
+                } else {
+                  if (_currentStartDate2.isAfter(_currentEndDate2)) {
+                    Utility.showFlutterToast(
+                        "End date cannot be lower than start date.");
+                  } else {
                     // pushNewScreen(
                     //   context,
                     //   screen: ScheduleSelectRecipientScreen(),
                     //   // screen: TransferSelectRecipientScreen2(),
                     //   withNavBar: false,
                     // );
-
                   }
-
                 }
-
               }
-
             },
             child: Container(
-                width:80,
-                padding: EdgeInsets.symmetric(vertical: 12,horizontal: 20),
+                width: 80,
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                 child: Material(
                     shadowColor: MyColors.lightblueColor.withOpacity(0.05),
                     shape: RoundedRectangleBorder(
@@ -473,26 +461,29 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                           end: Alignment.bottomCenter,
                           //  stops: [0.0, 1.0],
                           colors: [
-
                             MyColors.color_3F84E5.withOpacity(0.90),
                             MyColors.color_3F84E5,
-
                           ],
                         ),
                         //    border: Border.all(color: bordercolor,width: 1.4)
                       ),
-                      child: Row(
+                      child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(MyString.save,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize: 18,fontWeight: FontWeight.w700,letterSpacing: 0.7 ),),
+                          Text(
+                            MyString.save,
+                            style: TextStyle(
+                                fontFamily:
+                                    "s_asset/font/raleway/raleway_bold.ttf",
+                                color: MyColors.whiteColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0.7),
+                          ),
                         ],
                       ),
-                    )
-                )
-            ),
-          )
-      ),
-
+                    ))),
+          )),
       body: SafeArea(
         child: Stack(
           children: [
@@ -503,7 +494,7 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
             Container(
               height: size.height,
               width: double.infinity,
-              margin: EdgeInsets.only(top: 20),
+              margin: const EdgeInsets.only(top: 20),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: MyColors.whiteColor),
@@ -512,123 +503,167 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                   children: [
                     hSizedBox3,
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Text(
                         MyString.all_shedule,
                         style: TextStyle(
                             color: MyColors.yellow,
                             fontWeight: FontWeight.w500,
                             letterSpacing: 0.6,
                             fontSize: 11,
-                            fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),
+                            fontFamily:
+                                "s_asset/font/raleway/raleway_medium.ttf"),
                       ),
                     ),
-
                     hSizedBox3,
                     Container(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 statustext = MyString.once;
-                                setState(() {
-                                });
+                                setState(() {});
                               },
-                              child: customtextcard(MyString.once, statustext == MyString.once ? MyColors.lightblueColor : MyColors.whiteColor,statustext == MyString.once ? MyColors.lightblueColor :MyColors.blackColor)
-                          ),
+                              child: customtextcard(
+                                  MyString.once,
+                                  statustext == MyString.once
+                                      ? MyColors.lightblueColor
+                                      : MyColors.whiteColor,
+                                  statustext == MyString.once
+                                      ? MyColors.lightblueColor
+                                      : MyColors.blackColor)),
                           wSizedBox1,
                           GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 statustext = MyString.daily;
-                                setState(() {
-                                });
+                                setState(() {});
                               },
-                              child: customtextcard(MyString.daily, statustext == MyString.daily ? MyColors.lightblueColor : MyColors.whiteColor,statustext == MyString.daily ? MyColors.lightblueColor :MyColors.blackColor)
-                          ),
+                              child: customtextcard(
+                                  MyString.daily,
+                                  statustext == MyString.daily
+                                      ? MyColors.lightblueColor
+                                      : MyColors.whiteColor,
+                                  statustext == MyString.daily
+                                      ? MyColors.lightblueColor
+                                      : MyColors.blackColor)),
                           wSizedBox1,
                           GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 statustext = MyString.weekly;
-                                setState(() {
-                                });
+                                setState(() {});
                               },
-                              child: customtextcard(MyString.weekly, statustext == MyString.weekly ? MyColors.lightblueColor : MyColors.whiteColor,statustext == MyString.weekly ? MyColors.lightblueColor :MyColors.blackColor)
-                          ),
+                              child: customtextcard(
+                                  MyString.weekly,
+                                  statustext == MyString.weekly
+                                      ? MyColors.lightblueColor
+                                      : MyColors.whiteColor,
+                                  statustext == MyString.weekly
+                                      ? MyColors.lightblueColor
+                                      : MyColors.blackColor)),
                           wSizedBox1,
                           GestureDetector(
-                              onTap: (){
+                              onTap: () {
                                 statustext = MyString.monthly;
-                                setState(() {
-                                });
+                                setState(() {});
                               },
-                              child: customtextcard(MyString.monthly, statustext == MyString.monthly ? MyColors.lightblueColor : MyColors.whiteColor,statustext == MyString.monthly ? MyColors.lightblueColor :MyColors.blackColor)
-                          ),
+                              child: customtextcard(
+                                  MyString.monthly,
+                                  statustext == MyString.monthly
+                                      ? MyColors.lightblueColor
+                                      : MyColors.whiteColor,
+                                  statustext == MyString.monthly
+                                      ? MyColors.lightblueColor
+                                      : MyColors.blackColor)),
                         ],
                       ),
                     ),
                     hSizedBox1,
                     Visibility(
-                      visible: statustext == MyString.once?false:true,
-                      child: Row(children: [
-                        Expanded(child: GestureDetector(
-                            onTap: (){
-                              is_date_select = "start_date";
-                              setState(() {
-                              });
-                            },
-                            child: Container(
-                              margin: EdgeInsets.all(10),
-                              child: Material(
-                                elevation: 0,
-                                color: MyColors.accent_F3F3F3,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)
-                                ),
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      border: Border.all(color: is_date_select == "start_date" ? MyColors.lightblueColor : MyColors.accent_F3F3F3)
+                      visible: statustext == MyString.once ? false : true,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                is_date_select = "start_date";
+                                setState(() {});
+                              },
+                              child: Container(
+                                margin: const EdgeInsets.all(10),
+                                child: Material(
+                                  elevation: 0,
+                                  color: MyColors.accent_F3F3F3,
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8)),
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 15, horizontal: 20),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        border: Border.all(
+                                            color:
+                                                is_date_select == "start_date"
+                                                    ? MyColors.lightblueColor
+                                                    : MyColors.accent_F3F3F3)),
+                                    child: Text(
+                                      start_date,
+                                      style: const TextStyle(
+                                          fontSize: 11,
+                                          fontFamily:
+                                              "s_asset/font/raleway/raleway_semibold.ttf",
+                                          fontWeight: FontWeight.w600,
+                                          color: MyColors.blackColor),
+                                    ),
                                   ),
-                                  child: Text(start_date,style: TextStyle(fontSize: 11,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600,color: MyColors.blackColor),),
                                 ),
                               ),
                             ),
-                        ),),
-
-                        Expanded(child: GestureDetector(
-                            onTap: (){
-                              is_date_select = "end_date";
-                              setState(() {
-                              });
-                            },
-                            child: Container(
-                              margin: EdgeInsets.all(10),
-                              child: Material(
-                                elevation: 0,
-                                color: MyColors.accent_F3F3F3,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)
-                                ),
+                          ),
+                          Expanded(
+                            child: GestureDetector(
+                                onTap: () {
+                                  is_date_select = "end_date";
+                                  setState(() {});
+                                },
                                 child: Container(
-                                  alignment: Alignment.center,
-                                  padding: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      border: Border.all(color: is_date_select == "end_date" ? MyColors.lightblueColor : MyColors.accent_F3F3F3)
+                                  margin: const EdgeInsets.all(10),
+                                  child: Material(
+                                    elevation: 0,
+                                    color: MyColors.accent_F3F3F3,
+                                    shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8)),
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      padding: const EdgeInsets.symmetric(
+                                          vertical: 15, horizontal: 20),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(8),
+                                          border: Border.all(
+                                              color: is_date_select ==
+                                                      "end_date"
+                                                  ? MyColors.lightblueColor
+                                                  : MyColors.accent_F3F3F3)),
+                                      child: Text(
+                                        end_date,
+                                        style: const TextStyle(
+                                            fontSize: 11,
+                                            fontFamily:
+                                                "s_asset/font/raleway/raleway_semibold.ttf",
+                                            fontWeight: FontWeight.w600,
+                                            color: MyColors.blackColor),
+                                      ),
+                                    ),
                                   ),
-                                  child: Text(end_date,style: TextStyle(fontSize: 11,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600,color: MyColors.blackColor),),
-                                ),
-                              ),
-                            )
-                        ),)
-
-                      ],),
+                                )),
+                          )
+                        ],
+                      ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(
+                      margin: const EdgeInsets.only(
                         top: 10.0,
                         bottom: 16.0,
                         left: 22.0,
@@ -638,60 +673,76 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Container(
-                            margin:EdgeInsets.only(left: 16),
+                            margin: const EdgeInsets.only(left: 16),
                             child: Text(
-                              statustext==MyString.once?_currentMonth:is_date_select == "start_date"?_currentStartMonth:_currentEndMonth,
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18.0,
-                                fontFamily: "s_asset/font/raleway/raleway_bold.ttf"
-                              ),
+                              statustext == MyString.once
+                                  ? _currentMonth
+                                  : is_date_select == "start_date"
+                                      ? _currentStartMonth
+                                      : _currentEndMonth,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18.0,
+                                  fontFamily:
+                                      "s_asset/font/raleway/raleway_bold.ttf"),
                             ),
                           ),
                           Row(
                             children: [
                               TextButton(
-
-                                child: SvgPicture.asset("s_asset/images/prev.svg"),
+                                child:
+                                    SvgPicture.asset("s_asset/images/prev.svg"),
                                 onPressed: () {
                                   setState(() {
-                                    if(statustext==MyString.once){
+                                    if (statustext == MyString.once) {
                                       _targetDateTime = DateTime(
-                                          _targetDateTime.year, _targetDateTime.month - 1);
-                                      _currentMonth = DateFormat.yMMM().format(_targetDateTime);
-                                    }else{
-                                      if(is_date_select == "start_date"){
+                                          _targetDateTime.year,
+                                          _targetDateTime.month - 1);
+                                      _currentMonth = DateFormat.yMMM()
+                                          .format(_targetDateTime);
+                                    } else {
+                                      if (is_date_select == "start_date") {
                                         _targetStartDateTime = DateTime(
-                                            _targetStartDateTime.year, _targetStartDateTime.month - 1);
-                                        _currentStartMonth = DateFormat.yMMM().format(_targetStartDateTime);
-                                      }else{
+                                            _targetStartDateTime.year,
+                                            _targetStartDateTime.month - 1);
+                                        _currentStartMonth = DateFormat.yMMM()
+                                            .format(_targetStartDateTime);
+                                      } else {
                                         _targetEndDateTime = DateTime(
-                                            _targetEndDateTime.year, _targetEndDateTime.month - 1);
-                                        _currentEndMonth = DateFormat.yMMM().format(_targetEndDateTime);
+                                            _targetEndDateTime.year,
+                                            _targetEndDateTime.month - 1);
+                                        _currentEndMonth = DateFormat.yMMM()
+                                            .format(_targetEndDateTime);
                                       }
                                     }
-
-
                                   });
                                 },
                               ),
                               TextButton(
-                                child: SvgPicture.asset("s_asset/images/next.svg",),
+                                child: SvgPicture.asset(
+                                  "s_asset/images/next.svg",
+                                ),
                                 onPressed: () {
                                   setState(() {
-                                    if(statustext==MyString.once){
+                                    if (statustext == MyString.once) {
                                       _targetDateTime = DateTime(
-                                          _targetDateTime.year, _targetDateTime.month + 1);
-                                      _currentMonth = DateFormat.yMMM().format(_targetDateTime);
-                                    }else{
-                                      if(is_date_select == "start_date"){
+                                          _targetDateTime.year,
+                                          _targetDateTime.month + 1);
+                                      _currentMonth = DateFormat.yMMM()
+                                          .format(_targetDateTime);
+                                    } else {
+                                      if (is_date_select == "start_date") {
                                         _targetStartDateTime = DateTime(
-                                            _targetStartDateTime.year, _targetStartDateTime.month + 1);
-                                        _currentStartMonth = DateFormat.yMMM().format(_targetStartDateTime);
-                                      }else{
+                                            _targetStartDateTime.year,
+                                            _targetStartDateTime.month + 1);
+                                        _currentStartMonth = DateFormat.yMMM()
+                                            .format(_targetStartDateTime);
+                                      } else {
                                         _targetEndDateTime = DateTime(
-                                            _targetEndDateTime.year, _targetEndDateTime.month + 1);
-                                        _currentEndMonth = DateFormat.yMMM().format(_targetEndDateTime);
+                                            _targetEndDateTime.year,
+                                            _targetEndDateTime.month + 1);
+                                        _currentEndMonth = DateFormat.yMMM()
+                                            .format(_targetEndDateTime);
                                       }
                                     }
 
@@ -701,31 +752,30 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                               )
                             ],
                           ),
-
                         ],
                       ),
                     ),
                     Visibility(
-                      visible: statustext == MyString.once?true:false,
+                      visible: statustext == MyString.once ? true : false,
                       child: Container(
-                        margin: EdgeInsets.symmetric(horizontal: 22.0),
+                        margin: const EdgeInsets.symmetric(horizontal: 22.0),
                         child: _calendarCarouselNoHeader,
                       ),
                     ),
-
                     Visibility(
-                      visible: statustext != MyString.once?true:false,
-                      child: is_date_select == "start_date"?
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 22.0),
-                        child: _calendarCarouselStartDate,
-                      ):
-                      Container(
-                        margin: EdgeInsets.symmetric(horizontal: 22.0),
-                        child: _calendarCarouselEndDate,
-                      ),
+                      visible: statustext != MyString.once ? true : false,
+                      child: is_date_select == "start_date"
+                          ? Container(
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 22.0),
+                              child: _calendarCarouselStartDate,
+                            )
+                          : Container(
+                              margin:
+                                  const EdgeInsets.symmetric(horizontal: 22.0),
+                              child: _calendarCarouselEndDate,
+                            ),
                     ),
-
                   ],
                 ),
               ),
@@ -735,8 +785,6 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
       ),
     );
   }
-
-
 
   CustomCardList(String title) {
     return Container(
@@ -748,7 +796,7 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
               borderRadius: BorderRadius.circular(8),
             ),
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -761,11 +809,16 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                         CircleAvatar(
                           radius: 30,
                           backgroundColor:
-                          MyColors.lightblueColor.withOpacity(0.10),
+                              MyColors.lightblueColor.withOpacity(0.10),
                           child: Center(
-                              child:ClipRRect(
+                              child: ClipRRect(
                                   borderRadius: BorderRadius.circular(150),
-                                  child: Image.asset("a_assets/logo/female_profile.jpg",fit: BoxFit.cover,height: 100,width: 100,))),
+                                  child: Image.asset(
+                                    "a_assets/logo/female_profile.jpg",
+                                    fit: BoxFit.cover,
+                                    height: 100,
+                                    width: 100,
+                                  ))),
                         ),
                         wSizedBox1,
                         Container(
@@ -773,12 +826,12 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                child: Text(
+                                child: const Text(
                                   MyString.recipient_name,
                                   style: TextStyle(
                                       fontSize: 12,
                                       fontFamily:
-                                      "s_asset/font/raleway/raleway_medium.ttf",
+                                          "s_asset/font/raleway/raleway_medium.ttf",
                                       fontWeight: FontWeight.w500,
                                       color: MyColors.blackColor),
                                 ),
@@ -793,7 +846,7 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                                         style: TextStyle(
                                             fontSize: 12,
                                             fontFamily:
-                                            "s_asset/font/raleway/raleway_medium.ttf",
+                                                "s_asset/font/raleway/raleway_medium.ttf",
                                             color: MyColors.blackColor
                                                 .withOpacity(0.50),
                                             fontWeight: FontWeight.w500),
@@ -815,16 +868,16 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Container(
-                                  child: Row(
+                                  child: const Row(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "1,473",
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontFamily:
-                                            "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
+                                                "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
                                             fontWeight: FontWeight.w800,
                                             letterSpacing: 0.2,
                                             color: MyColors.color_3F84E5),
@@ -835,7 +888,7 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
                                         style: TextStyle(
                                             fontSize: 10,
                                             fontFamily:
-                                            "s_asset/font/raleway/raleway_bold.ttf",
+                                                "s_asset/font/raleway/raleway_bold.ttf",
                                             fontWeight: FontWeight.w600,
                                             color: MyColors.lightblueColor),
                                       ),
@@ -853,31 +906,35 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
             )));
   }
 
-  customtextcard(String title,Color color,Color textcolor){
+  customtextcard(String title, Color color, Color textcolor) {
     return Container(
       child: Material(
         elevation: 1,
         color: MyColors.whiteColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8)
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: Container(
           alignment: Alignment.center,
-          padding: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-            border: Border.all(color: color)
+              border: Border.all(color: color)),
+          child: Text(
+            title,
+            style: TextStyle(
+                fontSize: 11,
+                fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",
+                fontWeight: FontWeight.w600,
+                color: textcolor),
           ),
-          child: Text(title,style: TextStyle(fontSize: 11,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600,color: textcolor),),
         ),
       ),
     );
   }
 
-  setDatePrefences(String SelectedStartDate,String SelectedEndDate)async{
-    print("SelectedStartDate>>> "+SelectedStartDate);
-    print("SelectedEndDate>>> "+SelectedEndDate);
-    print("Selectedstatus>>> "+statustext);
+  setDatePrefences(String SelectedStartDate, String SelectedEndDate) async {
+    print("SelectedStartDate>>> " + SelectedStartDate);
+    print("SelectedEndDate>>> " + SelectedEndDate);
+    print("Selectedstatus>>> " + statustext);
     SharedPreferences pre = await SharedPreferences.getInstance();
     pre.setString("ScheduleStartDate", SelectedStartDate);
     pre.setString("ScheduleEndDate", SelectedEndDate);
@@ -885,7 +942,8 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
     editScheduleapi(context, SelectedStartDate, statustext, SelectedEndDate);
   }
 
-  Future <void> editScheduleapi(BuildContext context,String schedule_date,String schedule_type,String schedule_exp_date) async {
+  Future<void> editScheduleapi(BuildContext context, String schedule_date,
+      String schedule_type, String schedule_exp_date) async {
     CustomLoader.ProgressloadingDialog6(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
@@ -901,12 +959,11 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
     var response = await http.post(Uri.parse(Apiservices.editScheduleapi),
         body: convert.jsonEncode(request),
         headers: {
-          "X-AUTHTOKEN":"${sharedPreferences.getString("auth")}",
+          "X-AUTHTOKEN": "${sharedPreferences.getString("auth")}",
           "X-USERID": "${sharedPreferences.getString("userid")}",
           "content-type": "application/json",
           "accept": "application/json",
         });
-
 
     Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
 
@@ -919,16 +976,13 @@ class _EditSheduledTransferScreenState extends State<EditSheduledTransferScreen>
       this.widget.Oncallback();
       // Navigator.push(context, MaterialPageRoute(builder: (_) => TransferSheduledScreen()));
 
-
       setState(() {});
     } else {
       CustomLoader.ProgressloadingDialog6(context, false);
-      Utility.showFlutterToast( jsonResponse['message']);
+      Utility.showFlutterToast(jsonResponse['message']);
       setState(() {});
     }
 
     return;
-
   }
-
 }

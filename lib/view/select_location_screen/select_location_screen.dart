@@ -23,7 +23,11 @@ import '../home/s_home/sendmoneyquatationfromNewRecipient/sendmoneyquatationfrom
 
 class SelectLocationScreen extends StatefulWidget {
   final bool? isAlreadyRecipient;
-  SelectLocationScreen({super.key, this.isAlreadyRecipient=false,});
+
+  SelectLocationScreen({
+    super.key,
+    this.isAlreadyRecipient = false,
+  });
 
   @override
   State<SelectLocationScreen> createState() => _SelectLocationScreenState();
@@ -263,52 +267,14 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
         padding:
             const EdgeInsets.only(top: 20, left: 20, right: 20, bottom: 30),
         color: MyColors.whiteColor,
-        child: Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.white,
-                            offset: Offset(0, 4),
-                            blurRadius: 5.0)
-                      ],
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        //  stops: [0.0, 1.0],
-                        colors: [
-                          MyColors.lightblueColor.withOpacity(0.10),
-                          MyColors.lightblueColor.withOpacity(0.10),
-                        ],
-                      ),
-                      //color: Colors.deepPurple.shade300,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    padding: const EdgeInsets.only(
-                        left: 28, right: 28, bottom: 0, top: 0),
-                    margin: const EdgeInsets.only(
-                        left: 20, right: 20, bottom: 0, top: 0.0),
-                    child: const Center(
-                        child: Text(
-                      MyString.back,
-                      style: TextStyle(
-                          color: MyColors.lightblueColor,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
-                    ))),
-              ),
-              wSizedBox3,
-              GestureDetector(
-                onTap: () => onNextTap(context),
-                child: Container(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
                   decoration: BoxDecoration(
                     boxShadow: const [
                       BoxShadow(
@@ -316,13 +282,13 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
                           offset: Offset(0, 4),
                           blurRadius: 5.0)
                     ],
-                    gradient: const LinearGradient(
+                    gradient: LinearGradient(
                       begin: Alignment.center,
                       end: Alignment.bottomCenter,
                       //  stops: [0.0, 1.0],
                       colors: [
-                        MyColors.lightblueColor,
-                        MyColors.lightblueColor,
+                        MyColors.lightblueColor.withOpacity(0.10),
+                        MyColors.lightblueColor.withOpacity(0.10),
                       ],
                     ),
                     //color: Colors.deepPurple.shade300,
@@ -333,19 +299,55 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
                   margin: const EdgeInsets.only(
                       left: 20, right: 20, bottom: 0, top: 0.0),
                   child: const Center(
-                    child: Text(
-                      MyString.next,
-                      style: TextStyle(
-                          color: MyColors.whiteColor,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 18,
-                          fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
-                    ),
+                      child: Text(
+                    MyString.back,
+                    style: TextStyle(
+                        color: MyColors.lightblueColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
+                  ))),
+            ),
+            wSizedBox3,
+            GestureDetector(
+              onTap: () => onNextTap(context),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: const [
+                    BoxShadow(
+                        color: Colors.white,
+                        offset: Offset(0, 4),
+                        blurRadius: 5.0)
+                  ],
+                  gradient: const LinearGradient(
+                    begin: Alignment.center,
+                    end: Alignment.bottomCenter,
+                    //  stops: [0.0, 1.0],
+                    colors: [
+                      MyColors.lightblueColor,
+                      MyColors.lightblueColor,
+                    ],
+                  ),
+                  //color: Colors.deepPurple.shade300,
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                padding: const EdgeInsets.only(
+                    left: 28, right: 28, bottom: 0, top: 0),
+                margin: const EdgeInsets.only(
+                    left: 20, right: 20, bottom: 0, top: 0.0),
+                child: const Center(
+                  child: Text(
+                    MyString.next,
+                    style: TextStyle(
+                        color: MyColors.whiteColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 18,
+                        fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
       body: KeyboardActions(
@@ -400,25 +402,43 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
                         },
                         child: Card(
                           shape: selectedIndex == index
-                              ? new RoundedRectangleBorder(
-                              side: new BorderSide(color: MyColors.lightblueColor, width: 1),
-                              borderRadius: BorderRadius.circular(8))
-                              : new RoundedRectangleBorder(
-                              side: new BorderSide(color: MyColors.whiteColor, width: 1),
-                              borderRadius: BorderRadius.circular(8)),
+                              ? RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                      color: MyColors.lightblueColor, width: 1),
+                                  borderRadius: BorderRadius.circular(8))
+                              : RoundedRectangleBorder(
+                                  side: const BorderSide(
+                                      color: MyColors.whiteColor, width: 1),
+                                  borderRadius: BorderRadius.circular(8)),
                           margin: const EdgeInsets.all(8),
                           child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 20),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: MyColors.blackColor.withOpacity(0.20),width: 0.5),
+                              border: Border.all(
+                                  color: MyColors.blackColor.withOpacity(0.20),
+                                  width: 0.5),
                             ),
                             child: Row(
                               children: [
                                 // Image.asset("s_asset/images/companyimg.png"),
-                                Icon(Icons.my_location,color: MyColors.primaryColor,size: 30,),
+                                const Icon(
+                                  Icons.my_location,
+                                  color: MyColors.primaryColor,
+                                  size: 30,
+                                ),
                                 wSizedBox1,
-                                Expanded(child: Text(item.address ?? '',style: TextStyle(color: MyColors.color_text,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 12,fontWeight: FontWeight.w400),))
+                                Expanded(
+                                    child: Text(
+                                  item.address ?? '',
+                                  style: const TextStyle(
+                                      color: MyColors.color_text,
+                                      fontFamily:
+                                          "s_asset/font/raleway/raleway_medium.ttf",
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400),
+                                ))
                               ],
                             ),
                           ),
@@ -454,7 +474,8 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
     ]);
 
     var response = await http.get(
-      Uri.parse(AllApiService.pickuplocationsbycountryiso3URL + "?country_iso3=${iso3}"),
+      Uri.parse(AllApiService.pickuplocationsbycountryiso3URL +
+          "?country_iso3=${iso3}"),
       // body: convert.jsonEncode(request),
       headers: {
         "X-CLIENT": AllApiService.x_client,
@@ -465,38 +486,37 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
 
     if (jsonResponse['status'] == true) {
       LocationResponse locationResponse =
-      await LocationResponse.fromJson(jsonResponse);
+          await LocationResponse.fromJson(jsonResponse);
       locationList = locationResponse.data!.locationdata!;
-    }else{
-      Utility.showFlutterToast( jsonResponse['message']);
+    } else {
+      Utility.showFlutterToast(jsonResponse['message']);
     }
     load = false;
     setState(() {});
     return;
   }
 
-
   onNextTap(BuildContext context) async {
     if (selectedIndex < 0) {
-      Utility.showFlutterToast( "Please select mobile operator");
+      Utility.showFlutterToast("Please select mobile operator");
     } else {
       SharedPreferences sharedPreferences =
-      await SharedPreferences.getInstance();
+          await SharedPreferences.getInstance();
       sharedPreferences.setString("mfs_mobile_operator_name",
           locationList[selectedIndex].address.toString());
-      sharedPreferences.setString("recipientReceiveBankNameOrOperatorName", locationList[selectedIndex].agentName.toString());
-      sharedPreferences.setString("juba_NominatedCode", locationList[selectedIndex].agentCode.toString());
+      sharedPreferences.setString("recipientReceiveBankNameOrOperatorName",
+          locationList[selectedIndex].agentName.toString());
+      sharedPreferences.setString("juba_NominatedCode",
+          locationList[selectedIndex].agentCode.toString());
 
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) =>
-          (widget.isAlreadyRecipient ?? false)?
-          SendMoneyQuotationFromNewRecipient(
-            isAlreadyRecipient: true,
-          ):
-          SendMoneyQuotationFromNewRecipient(
-          ),
+          builder: (context) => (widget.isAlreadyRecipient ?? false)
+              ? const SendMoneyQuotationFromNewRecipient(
+                  isAlreadyRecipient: true,
+                )
+              : const SendMoneyQuotationFromNewRecipient(),
         ),
       );
     }

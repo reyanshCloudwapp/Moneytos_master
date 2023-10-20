@@ -120,11 +120,11 @@ getPrefences()async{
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: const Size.fromHeight(0),
         child: AppBar(
           elevation: 0,
           backgroundColor: MyColors.whiteColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -135,7 +135,7 @@ getPrefences()async{
 
       bottomNavigationBar: Container(
         height: 100,
-        padding: EdgeInsets.only(top: 20,left: 20,right: 20,bottom: 30),
+        padding: const EdgeInsets.only(top: 20,left: 20,right: 20,bottom: 30),
         color: MyColors.whiteColor,
         child:Container(
 
@@ -151,7 +151,7 @@ getPrefences()async{
                 },
                 child: Container(
                     decoration: BoxDecoration(
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                       ],
@@ -167,9 +167,9 @@ getPrefences()async{
                       //color: Colors.deepPurple.shade300,
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    padding:  EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
-                    margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
-                    child: Center(child: Text(MyString.back,style: TextStyle(color: MyColors.lightblueColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
+                    padding:  const EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
+                    margin: const EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
+                    child: const Center(child: Text(MyString.back,style: TextStyle(color: MyColors.lightblueColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
                 ),
               ),
               wSizedBox3,
@@ -200,11 +200,11 @@ getPrefences()async{
                 },
                 child: Container(
                     decoration: BoxDecoration(
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                       ],
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                         begin: Alignment.center,
                         end: Alignment.bottomCenter,
                         //  stops: [0.0, 1.0],
@@ -216,9 +216,9 @@ getPrefences()async{
                       //color: Colors.deepPurple.shade300,
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    padding:  EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
-                    margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
-                    child: Center(child: Text(MyString.Add,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
+                    padding:  const EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
+                    margin: const EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
+                    child: const Center(child: Text(MyString.Add,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
                 ),
               ),
             ],
@@ -237,9 +237,9 @@ getPrefences()async{
                     hSizedBox4,
 
                     Container(
-                        margin: EdgeInsets.only(top: 0.0,bottom: 30,),
+                        margin: const EdgeInsets.only(top: 0.0,bottom: 30,),
                         alignment: Alignment.center,
-                        child: Text(MyString.Add_Recipient_Mobile_Info,style: TextStyle(color: MyColors.color_text,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600 ),)),
+                        child: const Text(MyString.Add_Recipient_Mobile_Info,style: TextStyle(color: MyColors.color_text,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600 ),)),
                     hSizedBox,
 
 
@@ -247,17 +247,17 @@ getPrefences()async{
                       children: [
                         Container(
                           width:60,
-                          margin:  EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 0.0),
+                          margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 0.0),
                           decoration: BoxDecoration(
                             color: MyColors.color_93B9EE.withOpacity(0.1),
                             border: Border.all(color: MyColors.color_gray_transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                            borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                           ),
                           child: TextFormField(
                             enabled: false,
                             controller: TextEditingController(text: p?.getString("phonecode").toString()),
                             textInputAction: TextInputAction.done,
-                            style: TextStyle(
+                            style: const TextStyle(
 
                                 color:MyColors.blackColor,
                                 fontSize: 12,
@@ -274,7 +274,7 @@ getPrefences()async{
 
 
                               // fillColor: MyColors.color_gray_transparent,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                             ),
@@ -290,18 +290,18 @@ getPrefences()async{
                         Expanded(
                           child: Container(
                             width:double.infinity,
-                            margin:  EdgeInsets.fromLTRB(5.0, 0.0, 20.0, 0.0),
+                            margin:  const EdgeInsets.fromLTRB(5.0, 0.0, 20.0, 0.0),
                             decoration: BoxDecoration(
                               color: MyColors.color_93B9EE.withOpacity(0.1),
                               border: Border.all(color: MyColors.color_gray_transparent),
-                              borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                              borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                             ),
                             child: TextFormField(
                               controller: mobileNumberController,
                               textInputAction: TextInputAction.done,
                               maxLength: p?.getString("partnerPaymentMethod").toString()=="mfs" || p?.getString("partnerPaymentMethod").toString()=="juba" ?null:phone_max_val,
                               focusNode: mobileFocusNode,
-                              style: TextStyle(
+                              style: const TextStyle(
 
                                   color:MyColors.blackColor,
                                   fontSize: 12,
@@ -318,7 +318,7 @@ getPrefences()async{
 
 
                                 // fillColor: MyColors.color_gray_transparent,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                               ),
@@ -339,17 +339,17 @@ getPrefences()async{
                     p?.getString("partnerPaymentMethod").toString()=="juba"?
                     Container(
                       width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                      margin:  const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
                       decoration: BoxDecoration(
                         color: MyColors.color_93B9EE.withOpacity(0.1),
                         border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                       ),
                       child: TextFormField(
                         controller: beneficiaryWalletTitleController,
                         textInputAction: TextInputAction.done,
                         focusNode: titleFocusNode,
-                        style: TextStyle(
+                        style: const TextStyle(
 
                             color:MyColors.blackColor,
                             fontSize: 12,
@@ -366,7 +366,7 @@ getPrefences()async{
 
 
                           // fillColor: MyColors.color_gray_transparent,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                         ),

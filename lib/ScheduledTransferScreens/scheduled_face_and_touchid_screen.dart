@@ -143,7 +143,7 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
     print("total_amount>>>> "+total_amount);
     if(sharedPreferences.get("BankdetailResponse").toString()!="null"){
       Timer(
-          Duration(seconds: 1),
+          const Duration(seconds: 1),
               () {
 
             var response = sharedPreferences.get("BankdetailResponse").toString();
@@ -316,7 +316,7 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: MyColors.lightblueColor,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
           statusBarColor: MyColors.lightblueColor,
 
@@ -339,7 +339,7 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
           ///title
           Container(
             alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               MyString.verification1,
               style: TextStyle(
                   color: MyColors.whiteColor,
@@ -374,7 +374,7 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
                 ///title
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.using_touch_id,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -408,7 +408,7 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
                 ///title
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.using_face_id,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -445,9 +445,9 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
                 transferbottomsheet(context);
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 alignment: Alignment.center,
-                child: Text(
+                child: const Text(
                   MyString.or_using_pin_code,
                   style: TextStyle(
                       color: MyColors.whiteColor,
@@ -473,7 +473,7 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
           ///title
           Container(
             alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               MyString.verification1,
               style: TextStyle(
                   color: MyColors.whiteColor,
@@ -516,7 +516,7 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
                 ///title
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.using_face_id,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -555,9 +555,9 @@ class _ScheduledFaceAndTouchScreenState extends State<ScheduledFaceAndTouchScree
                 transferbottomsheet(context);
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 alignment: Alignment.center,
-                child: Text(
+                child: const Text(
                   MyString.or_using_pin_code,
                   style: TextStyle(
                       color: MyColors.whiteColor,

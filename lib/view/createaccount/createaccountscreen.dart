@@ -216,12 +216,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(190),
+        preferredSize: const Size.fromHeight(190),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
 
@@ -231,9 +231,9 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             statusBarBrightness: Brightness.dark, // For iOS (dark icons)
           ),
           flexibleSpace: Container(
-            padding: EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.only(top: 30),
             alignment: Alignment.center,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage("s_asset/images/bgimage.png",),
                   fit: BoxFit.cover
@@ -242,7 +242,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             child: Column(
               children: [
                 Container(
-                    margin: EdgeInsets.only(top: 50.0, left: 0.0),
+                    margin: const EdgeInsets.only(top: 50.0, left: 0.0),
                     child: Align(
                         alignment: Alignment.center,
                         child: SvgPicture.asset(
@@ -259,7 +259,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
           children: [
             Container(
               height: size.height * 0.3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 //color: MyColors.primaryColor,
                   image: DecorationImage(
                       image: AssetImage("s_asset/images/bgimage.png",),
@@ -269,7 +269,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             ),
             // Image.asset('assets/images/map.png',fit: BoxFit.cover,),
             Container(
-                margin: EdgeInsets.only(top: 100.0, left: 0.0),
+                margin: const EdgeInsets.only(top: 100.0, left: 0.0),
 
                 child: Align(
                     alignment: Alignment.center,
@@ -279,7 +279,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
             Container(
 
               // color: MyColors.whiteColor,
-              margin: EdgeInsets.only(top: 0.0),
+              margin: const EdgeInsets.only(top: 0.0),
               height: size.height * 0.8,
               width: MediaQuery
                   .of(context)
@@ -291,14 +291,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
+                  margin: const EdgeInsets.only(top: 50.0, left: 20.0, right: 20.0),
                   child: SingleChildScrollView(
                     child: Column(
 
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Align(
+                        const Align(
                             alignment: Alignment.center,
                             child: Text("Create Account", style: TextStyle(
                                 fontSize: 26,
@@ -319,7 +319,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                       .of(context)
                                       .size
                                       .width,
-                                  margin: EdgeInsets.fromLTRB(20.0, 50.0, 16.0, 0.0),
+                                  margin: const EdgeInsets.fromLTRB(20.0, 50.0, 16.0, 0.0),
 
                                   decoration: BoxDecoration(
                                       color: countryfillcolor,
@@ -384,13 +384,13 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
                                         setState(() {});
                                       },
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: MyColors.blackColor,
                                           fontSize: 12,
                                           fontFamily: "s_asset/font/raleway/raleway_medium.ttf"
 
                                       ),
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         hintText: 'Country',
                                         border: InputBorder.none,
                                         fillColor: MyColors.whiteColor,
@@ -410,14 +410,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 iscountry == true
                                     ? Container(
                                   width:  MediaQuery.of(context).size.width * 0.74,
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                     // left: 25,
                                     // right: 15,
                                       top: 10),
                                   alignment: Alignment.topLeft,
                                   child: Text(
                                     countryerror.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: MyColors.red,
                                         fontWeight:
                                         FontWeight.w600,
@@ -439,7 +439,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                       .of(context)
                                       .size
                                       .width,
-                                  margin: EdgeInsets.fromLTRB(20.0, 20.0, 16.0, 0.0),
+                                  margin: const EdgeInsets.fromLTRB(20.0, 20.0, 16.0, 0.0),
                                   decoration: BoxDecoration(
                                       color: cityfillcolor,
                                       border: Border.all(
@@ -480,13 +480,13 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                         //is_phoneborder = false;
                                         setState(() {});
                                       },
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           color: MyColors.blackColor,
                                           fontSize: 12,
                                           fontFamily: "s_asset/font/raleway/raleway_medium.ttf"
 
                                       ),
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         hintText: 'State',
                                         border: InputBorder.none,
                                         fillColor: MyColors.whiteColor,
@@ -507,14 +507,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 iscity == true
                                     ? Container(
                                   width:  MediaQuery.of(context).size.width * 0.74,
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                     // left: 25,
                                     // right: 15,
                                       top: 10),
                                   alignment: Alignment.topLeft,
                                   child: Text(
                                     cityerror.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: MyColors.red,
                                         fontWeight:
                                         FontWeight.w600,
@@ -581,7 +581,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                       border: Border.all(color: mobilebordercolor,
                                       ),
                                       borderRadius: BorderRadius.circular(15)),
-                                  margin: EdgeInsets.only(
+                                  margin: const EdgeInsets.only(
                                       left: 18.0, top: 20, right: 18),
                                   child: Row(
                                     children: [
@@ -594,7 +594,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                         initialSelection: 'CA',
                                         // favorite: ['+91','IN'],
                                         showCountryOnly: false,
-                                        textStyle: TextStyle(
+                                        textStyle: const TextStyle(
                                             color: MyColors.primaryColor,
                                             fontWeight: FontWeight.w300),
                                         showOnlyCountryWhenClosed: false,
@@ -639,14 +639,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                             emailfillcolor = MyColors.lightblueColor.withOpacity(0.03);
                                             setState(() {});
                                           },
-                                          style: TextStyle(
+                                          style: const TextStyle(
 
                                               color: MyColors.blackColor,
                                               fontSize: 12,
                                               fontFamily: "s_asset/font/raleway/raleway_medium.ttf"
 
                                           ),
-                                          decoration: InputDecoration(
+                                          decoration: const InputDecoration(
                                               hintText: 'Phone Number',
                                               border: InputBorder.none,
                                               fillColor: MyColors.whiteColor,
@@ -671,14 +671,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                 ismobile == true
                                     ? Container(
                                   width:  MediaQuery.of(context).size.width * 0.74,
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                     //left: 20,
                                     // right: 15,
                                       top: 10),
                                   alignment: Alignment.topLeft,
                                   child: Text(
                                     mobileerror.toString(),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: MyColors.red,
                                         fontWeight:
                                         FontWeight.w600,
@@ -691,12 +691,12 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: 60.0),
+                              padding: const EdgeInsets.only(top: 60.0),
                               child: Align(
 
                                 alignment: Alignment.center,
                                 child:  ElevatedButton(
-                                  child: Text('Create Account'),
+                                  child: const Text('Create Account'),
                                   onPressed: () {
                                     mobileno_focus.unfocus();
                                     country_focus.unfocus();
@@ -804,14 +804,14 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                                   },
                                   style: ElevatedButton.styleFrom(
                                       primary: MyColors.lightblueColor,
-                                      padding: EdgeInsets.symmetric(
+                                      padding: const EdgeInsets.symmetric(
                                           horizontal: 50, vertical: 20),
 
-                                      shape: RoundedRectangleBorder(
+                                      shape: const RoundedRectangleBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(16.0))
                                       ),
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                         fontSize: 18,
                                         fontFamily: "s_asset/font/raleway/raleway_bold.ttf",
                                       )),
@@ -876,7 +876,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
 
           });
         },
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -888,7 +888,7 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
           focusedBorder: InputBorder.none,
           errorBorder: InputBorder.none,
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
               fontSize: 12,
@@ -2629,7 +2629,7 @@ class _CustomStateBottomSheetState extends State<CustomStateBottomSheet> {
       isload==true?
 
             Container(
-              child: GFLoader(
+              child: const GFLoader(
                   type: GFLoaderType.custom,
                   child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
                   )),
@@ -2658,7 +2658,7 @@ class _CustomStateBottomSheetState extends State<CustomStateBottomSheet> {
           }
       ):
       Container(
-        child: Text("No State Found"),
+        child: const Text("No State Found"),
       ),
     );
   }

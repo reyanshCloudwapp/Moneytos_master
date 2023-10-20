@@ -50,14 +50,14 @@ class _ManagePaymentMethodScreenState extends State<ManagePaymentMethodScreen> {
         child: Scaffold(
           backgroundColor: MyColors.light_primarycolor2,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(55),
+            preferredSize: const Size.fromHeight(55),
             child: AppBar(
               elevation: 0,
               automaticallyImplyLeading: false,
               backgroundColor: MyColors.light_primarycolor2,
               flexibleSpace: Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.fromLTRB(22, 30, 22, 0),
+                padding: const EdgeInsets.fromLTRB(22, 30, 22, 0),
                 child: Row(
 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -72,7 +72,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         )),
                     Container(
                       // margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                      child: Text(
+                      child: const Text(
                         MyString.manage_payment_method,
                         style: TextStyle(
                             color: MyColors.whiteColor,
@@ -138,14 +138,14 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   ),
                 ),*/
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   child: Card(
                     elevation: 0,
                     color: MyColors.whiteColor,
                     margin: EdgeInsets.zero,
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30)),
                     ),
                     child: SingleChildScrollView(
@@ -164,8 +164,8 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           hSizedBox1,
                           Container(
                             width: size.width * 0.6,
-                            margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                            child: Text(
+                            margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                            child: const Text(
                               "There's no Payment method linked yet before to pay by it",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -187,7 +187,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
                             },
                             child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 20,vertical: 30),
+                              padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
                               margin: EdgeInsets.symmetric(horizontal:size.width /6.7,vertical: 20),
                               width: double.infinity,
                               decoration: BoxDecoration(
@@ -213,22 +213,20 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     ),
                                     height: 30,
                                     width: 30,
-                                    child:Center(child: Icon(CupertinoIcons.add,color: MyColors.lightblueColor,))
+                                    child:const Center(child: Icon(CupertinoIcons.add,color: MyColors.lightblueColor,))
                                    /* SvgPicture.asset(
                                       "a_assets/icons/bold_plus.svg",
                                     ),*/
                                   ),
                                   hSizedBox1,
-                                  Container(
-                                    child: Text(
-                                      MyString.link_new_method,
-                                      style: TextStyle(
-                                          color: MyColors.whiteColor,
-                                          fontSize: 18,
-                                          fontWeight: FontWeight.w700,
-                                          fontFamily:
-                                              "s_asset/font/maven/mavenpro_bold.ttf"),
-                                    ),
+                                  const Text(
+                                    MyString.link_new_method,
+                                    style: TextStyle(
+                                        color: MyColors.whiteColor,
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w700,
+                                        fontFamily:
+                                            "s_asset/font/maven/mavenpro_bold.ttf"),
                                   )
                                 ],
                               ),
@@ -251,14 +249,14 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
   }
   search() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: MyColors.lightblueColor.withOpacity(0.03),
           borderRadius: BorderRadius.circular(8)),
       width: MediaQuery.of(context).size.width,
       child: TextField(
         textInputAction: TextInputAction.next,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -269,9 +267,9 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -303,7 +301,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     : MyColors.whiteColor)),
         color: MyColors.whiteColor,
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 5, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(9),
               border: Border.all(
@@ -363,7 +361,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
           hSizedBox1,
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.blackColor,
                 fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",
                 fontSize: 14,
@@ -388,7 +386,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(100),
             ),
-            child: FrontImageScreen());
+            child: const FrontImageScreen());
       },
     );
   }

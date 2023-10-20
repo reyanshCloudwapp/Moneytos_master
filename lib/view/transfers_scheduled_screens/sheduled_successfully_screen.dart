@@ -66,7 +66,7 @@ class _SheduledSuccessfullyScreenState extends State<SheduledSuccessfullyScreen>
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.whiteColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
 
@@ -76,7 +76,7 @@ class _SheduledSuccessfullyScreenState extends State<SheduledSuccessfullyScreen>
           ),
         ),
         body: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 20.0),
+          padding:  const EdgeInsets.symmetric(horizontal: 20.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -96,7 +96,7 @@ class _SheduledSuccessfullyScreenState extends State<SheduledSuccessfullyScreen>
                       alignment: Alignment.center,
                       child: Text(
                         widget.amount,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 20,
                             fontWeight: FontWeight.w800,
@@ -105,9 +105,9 @@ class _SheduledSuccessfullyScreenState extends State<SheduledSuccessfullyScreen>
                     ),
                     wSizedBox,
                     Container(
-                      padding: EdgeInsets.only(bottom: 3),
+                      padding: const EdgeInsets.only(bottom: 3),
                       alignment: Alignment.center,
-                      child: Text(
+                      child: const Text(
                         MyString.usd,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -124,7 +124,7 @@ class _SheduledSuccessfullyScreenState extends State<SheduledSuccessfullyScreen>
 
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.sheduled_successfully,
                     style: TextStyle(
                         color: MyColors.greenColor2,
@@ -170,7 +170,7 @@ class _SheduledSuccessfullyScreenState extends State<SheduledSuccessfullyScreen>
                 hSizedBox2,
                 GestureDetector(
                   onTap: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (_) => TransferSheduledScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (_) => const TransferSheduledScreen()));
                   },
                   child: Container(
                     width: 250,

@@ -203,7 +203,7 @@ class _SendMoneyQuotationFromNewRecipientState
             elevation: 0,
             backgroundColor: MyColors.whiteColor,
             centerTitle: true,
-            actions: [],
+            actions: const [],
             systemOverlayStyle: const SystemUiOverlayStyle(
               // Status bar color
               statusBarColor: MyColors.whiteColor,
@@ -667,7 +667,7 @@ class _SendMoneyQuotationFromNewRecipientState
                             Row(
                               children: [
                                 //  SvgPicture.asset("s_asset/images/flag2.svg"),
-                                (desticountry_isoCode3 == "NGA"&& select_payment_method_status == "Bank")|| (desticountry_isoCode3 == "SOM") || (desticountry_isoCode3 == "ETH") ?     Container(margin: EdgeInsets.only(right: 5), child: SvgPicture.asset("s_asset/images/flag1.svg"))   :    CircledFlag(
+                                (desticountry_isoCode3 == "NGA"&& select_payment_method_status == "Bank")|| (desticountry_isoCode3 == "SOM") || (desticountry_isoCode3 == "ETH") ?     Container(margin: const EdgeInsets.only(right: 5), child: SvgPicture.asset("s_asset/images/flag1.svg"))   :    CircledFlag(
                                   flag: countryFlag,
                                   radius: 9,
                                 ),
@@ -700,7 +700,7 @@ class _SendMoneyQuotationFromNewRecipientState
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Row(
+                        const Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -844,11 +844,11 @@ class _SendMoneyQuotationFromNewRecipientState
                                           // SelectDeliveryAddMethodScreen(ismfsAndalready: true,)
                                               :
                                       (widget.isMobileMoney ?? false)?
-                                      AddRecipientInfoScreen(isMfsMobileMoney: true,):
+                                      const AddRecipientInfoScreen(isMfsMobileMoney: true,):
                                       (widget.isCashPick ?? false)?
                                       SelectLocationScreen():
 
-                                          AddRecipientInfoScreen()));
+                                          const AddRecipientInfoScreen()));
                             } else {
                               print("document status Blank>>>>>> ");
                               if (double.parse(sendAmount) <= 200) {
@@ -859,10 +859,10 @@ class _SendMoneyQuotationFromNewRecipientState
                                         (widget.isAlreadyRecipient ?? false)
                                             ?ReasonforSendingScreen(status: "reason_for_sending",):
                                         (widget.isMobileMoney ?? false)?
-                                        AddRecipientInfoScreen(isMfsMobileMoney: true,):
+                                        const AddRecipientInfoScreen(isMfsMobileMoney: true,):
                                         (widget.isCashPick ?? false)?
                                         SelectLocationScreen():
-                                            AddRecipientInfoScreen()));
+                                            const AddRecipientInfoScreen()));
                               } else {
                                 Utility.showFlutterToast(
                                         "Please verify your account first to transfer amount more than \$200");

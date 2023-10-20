@@ -6,32 +6,29 @@ import 'package:moneytos/constance/myStrings/myString.dart';
 
 import '../../constance/sizedbox/sizedBox.dart';
 
-
 class SettingAccountVerifiedDialogScreen extends StatefulWidget {
   SettingAccountVerifiedDialogScreen({Key? key}) : super(key: key);
 
   @override
-  State<SettingAccountVerifiedDialogScreen> createState() => _SettingAccountVerifiedDialogScreenState();
+  State<SettingAccountVerifiedDialogScreen> createState() =>
+      _SettingAccountVerifiedDialogScreenState();
 }
 
-class _SettingAccountVerifiedDialogScreenState extends State<SettingAccountVerifiedDialogScreen> {
+class _SettingAccountVerifiedDialogScreenState
+    extends State<SettingAccountVerifiedDialogScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SingleChildScrollView(
         child: Column(
           children: [
             hSizedBox5,
-
             Container(
                 alignment: Alignment.center,
-                child: SvgPicture.asset("a_assets/logo/verified_img.svg")
-            ),
-
+                child: SvgPicture.asset("a_assets/logo/verified_img.svg")),
             hSizedBox5,
-
             Container(
               alignment: Alignment.center,
               child: Text(
@@ -43,11 +40,9 @@ class _SettingAccountVerifiedDialogScreenState extends State<SettingAccountVerif
                     fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
               ),
             ),
-
             hSizedBox1,
-
             Container(
-              padding: EdgeInsets.symmetric(horizontal: size.width /10),
+              padding: EdgeInsets.symmetric(horizontal: size.width / 10),
               alignment: Alignment.center,
               child: Text(
                 MyString.account_verified_des,
@@ -60,16 +55,12 @@ class _SettingAccountVerifiedDialogScreenState extends State<SettingAccountVerif
                     fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),
               ),
             ),
-
             hSizedBox2,
             hSizedBox2,
-
             Container(
                 alignment: Alignment.center,
-                child: SvgPicture.asset("a_assets/logo/passport.svg")
-            ),
+                child: SvgPicture.asset("a_assets/logo/passport.svg")),
             hSizedBox,
-
             Container(
               alignment: Alignment.center,
               child: Text(
@@ -81,18 +72,16 @@ class _SettingAccountVerifiedDialogScreenState extends State<SettingAccountVerif
                     fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),
               ),
             ),
-
             hSizedBox3
-
           ],
         ),
       ),
     );
   }
 
-  Cameracard( String img) {
+  Cameracard(String img) {
     return Container(
-      height:  110,
+      height: 110,
       //  padding: EdgeInsets.symmetric(vertical: 30),
       width: double.infinity,
       decoration: BoxDecoration(

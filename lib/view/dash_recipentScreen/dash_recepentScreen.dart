@@ -94,7 +94,7 @@ class _RecipentScreenState extends State<RecipentScreen> {
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.whiteColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -215,7 +215,7 @@ class _RecipentScreenState extends State<RecipentScreen> {
                           fillColor: MyColors.whiteColor,
                           contentPadding: const EdgeInsets.all(15),
 
-                            hintStyle: TextStyle(
+                            hintStyle: const TextStyle(
                                 color: MyColors.color_93999C,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600,
@@ -316,7 +316,7 @@ class _RecipentScreenState extends State<RecipentScreen> {
                                     },
                                     child: Container(
                                       width: 48,
-                                      margin: EdgeInsets.only(right: 5),
+                                      margin: const EdgeInsets.only(right: 5),
                                       decoration: BoxDecoration(
                                           color: MyColors.blackColor
                                               .withOpacity(0.10),
@@ -1069,7 +1069,7 @@ class _RecipentScreenState extends State<RecipentScreen> {
                       )
                     : Container(),
                 document_status == "pending"
-                    ?  Column(
+                    ?  const Column(
                         children: [
                           Text(
                             "We will notify you as soon as you’re approved.",

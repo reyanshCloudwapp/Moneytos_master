@@ -92,13 +92,13 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
         child: Scaffold(
             backgroundColor: MyColors.light_primarycolor2,
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(50),
+              preferredSize: const Size.fromHeight(50),
               child:   AppBar(
                 automaticallyImplyLeading: false,
                 elevation: 0,
                 backgroundColor: MyColors.light_primarycolor2,
                 flexibleSpace: Container(
-                  padding: EdgeInsets.fromLTRB(22, 35, 20, 0),
+                  padding: const EdgeInsets.fromLTRB(22, 35, 20, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -115,7 +115,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
                       //  wSizedBox,
                       Container(
                         alignment: Alignment.center,
-                        child: Text(
+                        child: const Text(
                           MyString.refe_friend,
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -143,7 +143,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
                       width: MediaQuery.of(context).size.width,
                     ),
                     Container(
-                        margin: EdgeInsets.fromLTRB(0, 22, 0, 0),
+                        margin: const EdgeInsets.fromLTRB(0, 22, 0, 0),
                         height: MediaQuery.of(context).size.height,
                         width: MediaQuery.of(context).size.width,
                         child: Card(
@@ -154,7 +154,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
                               borderRadius: BorderRadius.circular(30),
                             ),
                             child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
                               child: SingleChildScrollView(
                                 child: Column(
                                     children: [
@@ -177,11 +177,11 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
                                       // hSizedBox1,
                                       Container(
                                         width: size.width * 0.6,
-                                        margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
+                                        margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
                                         child: Text(
                                           "Your Referral code : "+referral_id,
                                           textAlign: TextAlign.center,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: MyColors.blackColor,
                                               fontWeight: FontWeight.w700,
                                               fontSize: 16,
@@ -201,7 +201,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
                                         decoration: BoxDecoration(
                                             color: MyColors.lightblueColor.withOpacity(0.03),
                                             borderRadius: BorderRadius.circular(8)),
-                                        margin: EdgeInsets.only(left: 18.0,top: 0,right: 20),
+                                        margin: const EdgeInsets.only(left: 18.0,top: 0,right: 20),
                                         child: Row(
                                           children: [
 
@@ -213,7 +213,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
                                               initialSelection: 'CA',
                                               // favorite: ['+91','IN'],
                                               showCountryOnly: false,
-                                              textStyle: TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 16),
+                                              textStyle: const TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 16),
                                               showOnlyCountryWhenClosed: false,
                                               alignLeft: false,
                                               showFlag: false,
@@ -266,7 +266,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
 
                                         },
                                         child: Container(
-                                          padding: EdgeInsets.symmetric(horizontal: 20, ),
+                                          padding: const EdgeInsets.symmetric(horizontal: 20, ),
                                           child: CustomButton2(btnname: MyString.refer_new_friend,bg_color: MyColors.lightblueColor,bordercolor: MyColors.lightblueColor,height: 60,),
                                         ),
                                       ),
@@ -277,7 +277,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
 
                                       Container(
                                         alignment: Alignment.center,
-                                        child: Text(
+                                        child: const Text(
                                           MyString.or,
                                           style: TextStyle(
                                               color: MyColors.light_primarycolor2,
@@ -289,7 +289,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
                                       ),
                                       hSizedBox2,
 
-                                      Text(
+                                      const Text(
                                         "Invite your friends\nEarn upto 3 free transactions",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
@@ -314,7 +314,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
 
                                         },
                                         child: Container(
-                                          padding: EdgeInsets.symmetric(horizontal: 20, ),
+                                          padding: const EdgeInsets.symmetric(horizontal: 20, ),
                                           child: CustomButton2(btnname: "Share",bg_color: MyColors.lightblueColor,bordercolor: MyColors.lightblueColor,height: 60,),
                                         ),
                                       ),
@@ -356,14 +356,14 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
                   decoration: new BoxDecoration(
                       color: Colors.white,
                       borderRadius: new BorderRadius.circular(30)),
-                  child: ReferSendMoneyScreen())
+                  child: const ReferSendMoneyScreen())
           );}
     );
   }
 
   textfield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: MyColors.lightblueColor.withOpacity(0.03),
           borderRadius: BorderRadius.circular(8)),
@@ -372,7 +372,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
         controller:controller ,
         focusNode:  focusNode,
         textInputAction:textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -383,9 +383,9 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -405,7 +405,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
 
   textphonefield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 0),
+      margin: const EdgeInsets.symmetric(horizontal: 0),
       decoration: BoxDecoration(
           color: MyColors.lightblueColor.withOpacity(0.03),
           borderRadius: BorderRadius.circular(8)),
@@ -416,7 +416,7 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
         focusNode:  focusNode,
         textInputAction:textInputAction,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -427,9 +427,9 @@ class _ReferAFriendScreenState extends State<ReferAFriendScreen> {
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),

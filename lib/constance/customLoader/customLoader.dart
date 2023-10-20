@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class CustomLoader{
 
  static gfloader(){
-    return GFLoader(
+    return const GFLoader(
         type: GFLoaderType.custom,
         child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
         ));
@@ -19,7 +19,7 @@ class CustomLoader{
          builder: (BuildContext context) {
            return Container(
              color: Colors.black.withOpacity(0.00),
-             child: Center(
+             child: const Center(
                child: GFLoader(
                    type: GFLoaderType.custom,
                    child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
@@ -41,7 +41,7 @@ class CustomLoader{
          builder: (BuildContext context) {
            return Container(
              color: Colors.black.withOpacity(0.00),
-             child: Center(
+             child: const Center(
                  child: GFLoader(
                      type: GFLoaderType.custom,
                      child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
@@ -57,7 +57,7 @@ class CustomLoader{
  static ProgressloadingDialog4(BuildContext context) {
    return Container(
      color: Colors.white.withOpacity(0.30),
-     child: Center(
+     child: const Center(
          child: GFLoader(
              type: GFLoaderType.custom,
              child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
@@ -71,7 +71,7 @@ class CustomLoader{
    if(status) {
     return  Container(
        color: Colors.white.withOpacity(0.30),
-       child: Center(
+       child: const Center(
            child: GFLoader(
                type: GFLoaderType.custom,
                child: Image(
@@ -93,7 +93,7 @@ class CustomLoader{
          builder: (BuildContext context) {
            return Container(
              color: Colors.black.withOpacity(0.00),
-             child: Center(
+             child: const Center(
                  child: GFLoader(
                      type: GFLoaderType.custom,
                      child: Image(image: AssetImage("a_assets/logo/progress_image.png"),

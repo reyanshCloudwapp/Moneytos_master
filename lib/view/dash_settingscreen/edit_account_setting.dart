@@ -144,16 +144,16 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
             height: 150,
             child: Wrap(children: [
               ListTile(
-                leading: Icon(Icons.camera_alt),
-                title: Text('camera'),
+                leading: const Icon(Icons.camera_alt),
+                title: const Text('camera'),
                 onTap: () {
                   Navigator.pop(context);
                   getfrontCameraImage(ImageSource.camera);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.photo_album),
-                title: Text('gallery'),
+                leading: const Icon(Icons.photo_album),
+                title: const Text('gallery'),
                 onTap: () {
                   Navigator.pop(context);
                   getfrontCameraImage(ImageSource.gallery);
@@ -266,14 +266,14 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
         child: Scaffold(
             backgroundColor: MyColors.light_primarycolor2,
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(60),
+              preferredSize: const Size.fromHeight(60),
               child:   AppBar(
                 elevation: 0,
                 automaticallyImplyLeading: false,
                 backgroundColor: MyColors.light_primarycolor2,
                 flexibleSpace: Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.fromLTRB(23, 30, 20, 0),
+                  padding: const EdgeInsets.fromLTRB(23, 30, 20, 0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -289,7 +289,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                           )),
                       Container(
                         // margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                        child: Text(
+                        child: const Text(
                           MyString.account_setting,
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -313,7 +313,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
             ),
             bottomSheet: Container(
               color: MyColors.whiteColor,
-              padding: EdgeInsets.only(top: 10,bottom: 40,left: 25,right: 25),
+              padding: const EdgeInsets.only(top: 10,bottom: 40,left: 25,right: 25),
               height: 120,
               child:   Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -404,7 +404,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                       SingleChildScrollView(
                         // physics: FixedExtentScrollPhysics(),
                         child: Container(
-                            margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                            margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                           //  padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
                           //   height: MediaQuery.of(context).size.height,
                             width: MediaQuery.of(context).size.width,
@@ -416,15 +416,15 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                   borderRadius: BorderRadius.circular(30),
                                 ),
                                 child: Container(
-                                  padding: EdgeInsets.fromLTRB(20, 10, 20, 0),
+                                  padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
                                   child: Column(
                                       children: [
                                         hSizedBox2,
 
                                         Container(
                                           width: size.width * 0.6,
-                                          margin: EdgeInsets.fromLTRB(20, 5, 20, 0),
-                                          child: Text(
+                                          margin: const EdgeInsets.fromLTRB(20, 5, 20, 0),
+                                          child: const Text(
                                             MyString.edit_profile_info,
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
@@ -446,9 +446,9 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                               height: 100,
 
                                               width: 100,
-                                              margin: EdgeInsets.only(top: 0.0),
+                                              margin: const EdgeInsets.only(top: 0.0),
                                               alignment: Alignment.center,
-                                              decoration: BoxDecoration(
+                                              decoration: const BoxDecoration(
                                                   image: DecorationImage(
                                                       image: AssetImage("s_asset/images/circleprof.png",)
                                                   )
@@ -470,7 +470,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                                     fit: BoxFit.fill,
                                                     image: NetworkImage(
                                                       widget.accountSettingResponse.data!.userData!.profileImage.toString(),),
-                                                    placeholder: AssetImage(
+                                                    placeholder: const AssetImage(
                                                         "s_asset/images/userplaceholder.png"),
                                                     placeholderFit: BoxFit.scaleDown,
                                                     imageErrorBuilder:
@@ -504,7 +504,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                               .of(context)
                                               .size
                                               .width,
-                                          margin: EdgeInsets.symmetric(horizontal: 20),
+                                          margin: const EdgeInsets.symmetric(horizontal: 20),
                                           decoration: BoxDecoration(
                                               color: MyColors.primaryColor.withOpacity(0.01),
                                               borderRadius: BorderRadius.circular(8)),
@@ -526,13 +526,13 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
 
                                                 setState(() {});
                                               },
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: MyColors.blackColor,
                                                   fontSize: 12,
                                                   fontFamily: "s_asset/font/raleway/raleway_medium.ttf"
 
                                               ),
-                                              decoration: InputDecoration(
+                                              decoration: const InputDecoration(
                                                 hintText: 'Country',
                                                 border: InputBorder.none,
                                                 fillColor: MyColors.whiteColor,
@@ -557,7 +557,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                               .of(context)
                                               .size
                                               .width,
-                                          margin: EdgeInsets.symmetric(horizontal: 20),
+                                          margin: const EdgeInsets.symmetric(horizontal: 20),
                                           decoration: BoxDecoration(
                                               color: MyColors.primaryColor.withOpacity(0.01),
                                               borderRadius: BorderRadius.circular(8)),
@@ -580,13 +580,13 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                                 //is_phoneborder = false;
                                                 setState(() {});
                                               },
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: MyColors.blackColor,
                                                   fontSize: 12,
                                                   fontFamily: "s_asset/font/raleway/raleway_medium.ttf"
 
                                               ),
-                                              decoration: InputDecoration(
+                                              decoration: const InputDecoration(
                                                 hintText: 'State',
                                                 border: InputBorder.none,
                                                 fillColor: MyColors.whiteColor,
@@ -612,7 +612,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                           },
                                           child: Container(
                                             height: 45,
-                                            margin: EdgeInsets.symmetric(horizontal: 20),
+                                            margin: const EdgeInsets.symmetric(horizontal: 20),
                                             decoration: BoxDecoration(
                                                 color: MyColors.primaryColor.withOpacity(0.01),
                                                 borderRadius: BorderRadius.circular(8)),
@@ -622,7 +622,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                               focusNode: dobFocusNode,
                                               controller:birthController ,
                                               textInputAction: TextInputAction.next,
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   color: MyColors.blackColor,
                                                   fontSize: 14,
                                                   fontWeight: FontWeight.w400,
@@ -633,9 +633,9 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
                                                 enabledBorder: InputBorder.none,
                                                 focusedBorder: OutlineInputBorder(
                                                     borderRadius: BorderRadius.circular(15),
-                                                    borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+                                                    borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
                                                 fillColor: MyColors.whiteColor,
-                                                contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                                                contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                                                 hintStyle: TextStyle(
                                                     color: MyColors.blackColor.withOpacity(0.50),
@@ -711,7 +711,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
   textphonefield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
       height: 45,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: MyColors.primaryColor.withOpacity(0.01),
           borderRadius: BorderRadius.circular(8)),
@@ -722,7 +722,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
         maxLength: 10,
         textInputAction: textInputAction,
         inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -733,10 +733,10 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
           counterText: '',
-          contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -758,7 +758,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
   textfield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
       height: 45,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: MyColors.primaryColor.withOpacity(0.01),
           borderRadius: BorderRadius.circular(8)),
@@ -767,7 +767,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
         focusNode: focusNode,
         controller:controller ,
         textInputAction: textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -778,9 +778,9 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -802,7 +802,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
   unitedtextfield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
       height: 45,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: MyColors.primaryColor.withOpacity(0.01),
           borderRadius: BorderRadius.circular(8)),
@@ -811,7 +811,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
         focusNode: focusNode,
         controller:controller ,
         textInputAction: textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -820,14 +820,14 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
           hintText: hinttext,
           border: InputBorder.none,
           prefixIcon:   Container(
-              padding: EdgeInsets.symmetric(vertical: 15),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               child: SvgPicture.asset("s_asset/images/flag1.svg")),
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(12),
+          contentPadding: const EdgeInsets.all(12),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -889,7 +889,7 @@ class _CustomStateBottomSheetState extends State<CustomStateBottomSheet> {
       isload==true?
 
       Container(
-        child: GFLoader(
+        child: const GFLoader(
             type: GFLoaderType.custom,
             child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
             )),
@@ -918,7 +918,7 @@ class _CustomStateBottomSheetState extends State<CustomStateBottomSheet> {
           }
       ):
       Container(
-        child: Text("No State Found"),
+        child: const Text("No State Found"),
       ),
     );
   }
@@ -1009,7 +1009,7 @@ class _CustomCountryBottomSheetState extends State<CustomCountryBottomSheet> {
       isload==true?
 
       Container(
-        child: GFLoader(
+        child: const GFLoader(
             type: GFLoaderType.custom,
             child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
             )),
@@ -1042,7 +1042,7 @@ class _CustomCountryBottomSheetState extends State<CustomCountryBottomSheet> {
           }
       ):
       Container(
-        child: Text("No State Found"),
+        child: const Text("No State Found"),
       ),
     );
   }

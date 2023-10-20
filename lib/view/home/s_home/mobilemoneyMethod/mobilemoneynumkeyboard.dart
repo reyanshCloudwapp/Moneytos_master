@@ -41,7 +41,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
   }
 
   backSpace(){
-    if(pinEntered.length > 0){
+    if(pinEntered.isNotEmpty){
       pinEntered = pinEntered.substring(0,pinEntered.length -1);
       alert = "";
       print("pinentered..${pinEntered}");
@@ -67,13 +67,13 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
         elevation: 0,
         backgroundColor: MyColors.whiteColor,
         centerTitle: true,
-        actions: [],
-        title: Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
+        actions: const [],
+        title: const Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
       ),
 
 
       bottomSheet:   Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         color: MyColors.whiteColor,
         height: 80,
         child: Row(
@@ -106,13 +106,13 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
             Container(
 
                 width:350,
-                margin:  EdgeInsets.fromLTRB(12.0, 26.0, 0.0, 0.0),
-                padding: EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
+                margin:  const EdgeInsets.fromLTRB(12.0, 26.0, 0.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
                 decoration: BoxDecoration(
                   color: MyColors.whiteColor,
                   border: Border.all(color: MyColors.color_gray_transparent),
-                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                  boxShadow: [
+                  borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                  boxShadow: const [
                     BoxShadow(
                       color: MyColors.color_gray_transparent,
                       offset: Offset(0.0, 1.0), //(x,y)
@@ -129,7 +129,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
                       children: [
                         SvgPicture.asset("s_asset/images/flag2.svg",width: 24,height: 24,),
                         wSizedBox1,
-                        Text(MyString.country_name,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
+                        const Text(MyString.country_name,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
                       ],
                     ),
                     SvgPicture.asset("a_assets/icons/clear_red.svg"),
@@ -140,13 +140,13 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
             Container(
 
                 width:350,
-                margin:  EdgeInsets.fromLTRB(12.0, 16.0, 0.0, 0.0),
-                padding: EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
+                margin:  const EdgeInsets.fromLTRB(12.0, 16.0, 0.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
                 decoration: BoxDecoration(
                   color: MyColors.whiteColor,
                   border: Border.all(color: MyColors.color_gray_transparent),
-                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                  boxShadow: [
+                  borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                  boxShadow: const [
                     BoxShadow(
                       color: MyColors.color_gray_transparent,
                       offset: Offset(0.0, 1.0), //(x,y)
@@ -157,7 +157,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         // SvgPicture.asset("s_asset/images/flag2.svg",width: 24,height: 24,),
                         //wSizedBox1,
@@ -174,9 +174,9 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
               children: [
                 hSizedBox2,
                 Container(
-                    margin: EdgeInsets.only(top: 16,bottom: 20),
+                    margin: const EdgeInsets.only(top: 16,bottom: 20),
                     alignment: Alignment.center,
-                    child: Text(MyString.Mobile_Money_Number,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"))),
+                    child: const Text(MyString.Mobile_Money_Number,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"))),
                 hSizedBox4,
                 IBAN(),
                 is_keyboard == true ?  keyboardNum()
@@ -198,7 +198,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
 
   IBAN(){
     return Container(
-      margin: EdgeInsets.only(left: 22,right: 22),
+      margin: const EdgeInsets.only(left: 22,right: 22),
       height: 48,
       decoration: BoxDecoration(
           color: MyColors.blueColor.withOpacity(0.02),
@@ -219,19 +219,19 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
         cursorColor:MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          enabledBorder:  OutlineInputBorder(
+          enabledBorder:  const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           hintText: "12xx-xxx-xxx-xx",
           suffixIcon: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: SvgPicture.asset("a_assets/icons/paste.svg",height: 15,),
           ),
           hintStyle: TextStyle(color: MyColors.blackColor.withOpacity(0.30),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500),
@@ -248,13 +248,13 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
 
         /// number ui
         Padding(
-          padding: EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: firstlist.map((e) {
               return Container(
-                  padding: EdgeInsets.symmetric( vertical: 10),
+                  padding: const EdgeInsets.symmetric( vertical: 10),
                   child: numberButton(e));
             }).toList(),
           ),
@@ -268,7 +268,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: secondlist.map((e) {
             return Container(
-                padding: EdgeInsets.symmetric( vertical: 10),
+                padding: const EdgeInsets.symmetric( vertical: 10),
                 child: numberButton(e));
           }).toList(),
         ),
@@ -281,7 +281,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: thirdlist.map((e) {
             return Container(
-                padding: EdgeInsets.symmetric( vertical: 15),
+                padding: const EdgeInsets.symmetric( vertical: 15),
                 child: numberButton(e));
           }).toList(),
         ),
@@ -294,7 +294,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: EdgeInsets.only( top: 15),
+                padding: const EdgeInsets.only( top: 15),
                 child: InkWell(
                   onTap: () {
                     backSpace();
@@ -312,7 +312,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
                 ),
               ),
 
-              Padding(padding: EdgeInsets.only( top: 17),child:Container(
+              Padding(padding: const EdgeInsets.only( top: 17),child:Container(
                 width: 50,
                 child:  numberButton(0),
               )),
@@ -326,8 +326,8 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
                 child: Container(
                   // height: 20,
                   alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.only( top: 22),
-                  child: Text(".",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
+                  padding: const EdgeInsets.only( top: 22),
+                  child: const Text(".",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
                 ),
               )
                   : Container()
@@ -356,7 +356,7 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
           height: 30,
           child: Text(
             item.toString(),
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.blackColor,
                 fontWeight: FontWeight.w800,
                 fontSize: 20,
@@ -375,9 +375,9 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
       color: MyColors.whiteColor,
       //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
       child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.only(left: 10,right: 10),
           decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
             ],
@@ -393,8 +393,8 @@ class _MobileMoneyNumberKeyboardScreenState extends State<MobileMoneyNumberKeybo
             //color: Colors.deepPurple.shade300,
             borderRadius: BorderRadius.circular(10),
           ),
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 22),
-          child: Center(child: Text(text,style: TextStyle(color: MyColors.whiteColor,fontWeight: FontWeight.w700,fontSize: 18,fontFamily: "s_asset/font/raleway/Bold.ttf"),))),
+          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 22),
+          child: Center(child: Text(text,style: const TextStyle(color: MyColors.whiteColor,fontWeight: FontWeight.w700,fontSize: 18,fontFamily: "s_asset/font/raleway/Bold.ttf"),))),
     );
   }
 }
@@ -406,7 +406,7 @@ Custombtn(String text,double height,double width, BuildContext context) {
     //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
     child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
           ],
@@ -422,7 +422,7 @@ Custombtn(String text,double height,double width, BuildContext context) {
           //color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
-        child: Center(child: Text(text,style: TextStyle(color: MyColors.lightblueColor,fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w600),))),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
+        child: Center(child: Text(text,style: const TextStyle(color: MyColors.lightblueColor,fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w600),))),
   );
 }

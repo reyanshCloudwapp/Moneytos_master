@@ -80,8 +80,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
             //     borderRadius: BorderRadius.circular(20),
             //     color: MyColors.whiteColor),
               child: pw.Container(
-                padding: pw.EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                margin: pw.EdgeInsets.symmetric(horizontal: 0, vertical: 3),
+                padding: const pw.EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                margin: const pw.EdgeInsets.symmetric(horizontal: 0, vertical: 3),
                 // decoration: BoxDecoration(
                 //     borderRadius: BorderRadius.circular(10),
                 //     color: MyColors.lightblueColor.withOpacity(0.06)),
@@ -93,12 +93,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                         pw.ClipRRect(
                           // borderRadius: pw.BorderRadius.circular(200),
                           child: pw.Container(
-                              padding: pw.EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+                              padding: const pw.EdgeInsets.symmetric(horizontal: 20, vertical: 18),
                               // color: PdfColors.grey,
-                  decoration: pw.BoxDecoration(
+                  decoration: const pw.BoxDecoration(
                       shape: pw.BoxShape.circle,
                       color: PdfColors.blue),
-                              alignment:pw.Alignment.center,child: pw.Text(first_name.toString()[0].toUpperCase(),style: pw.TextStyle(
+                              alignment:pw.Alignment.center,child: pw.Text(first_name.toString()[0].toUpperCase(),style: const pw.TextStyle(
                             color: PdfColors.white,
                             fontSize: 14,
                             // fontFamily:
@@ -116,7 +116,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                                 alignment: pw.Alignment.topLeft,
                                 child: pw.Text(
                                   "${first_name} ${last_name}",
-                                  style: pw.TextStyle(
+                                  style: const pw.TextStyle(
                                     // color: MyColors.blackColor,
                                     fontSize: 14,
                                     // fontFamily:
@@ -249,8 +249,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     pw.Container(
                       width: double.infinity,
-                      padding: pw.EdgeInsets.symmetric(horizontal: 0, vertical: 20),
-                      margin: pw.EdgeInsets.symmetric(horizontal: 0, vertical: 3),
+                      padding: const pw.EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                      margin: const pw.EdgeInsets.symmetric(horizontal: 0, vertical: 3),
                       // decoration: BoxDecoration(
                       //     borderRadius: BorderRadius.circular(10),
                       //     color: MyColors.lightblueColor.withOpacity(0.06)),
@@ -371,7 +371,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
 
           pw.Container(
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -407,7 +407,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           ///
           pw.Container(
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -495,7 +495,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           ///
           pw.Container(
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -533,7 +533,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           ///
           pw.Container(
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -570,7 +570,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           ///
           pw.Container(
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -624,7 +624,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           ///
           pw.Container(
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -690,7 +690,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           ///
           pw.Container(
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Row(
               crossAxisAlignment: pw.CrossAxisAlignment.start,
               mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
@@ -787,7 +787,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           /// alert strings................
 
           pw.Container(
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(
                 "Times may vary but we estimate the recipient will receive funds 2 business days, Some receiving financial institutions may charge additional fees; foreign taxes may apply\nToll Free No: (855) 411-237\n\nMoneytos may earn revenue from the conversion of USD to other countries.",
                 // style: TextStyle(
@@ -803,7 +803,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.consumer_fraud_alert,
                 // style: TextStyle(
                 //     fontSize: 16,
@@ -816,7 +816,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           pw.SizedBox(height: 10),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.consumer_fraud_alert_des,
                 // style: TextStyle(
                 //     fontSize: 12,
@@ -829,7 +829,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.consumer_fraud_alert_des1,
                 // style: TextStyle(
                 //     fontSize: 12,
@@ -846,7 +846,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.minnesota_dept_of_commerce,
                 // style: TextStyle(
                 //     fontSize: 16,
@@ -859,7 +859,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           pw.SizedBox(height: 10),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.minnesota_dept_of_commerce_des1,
                 // style: TextStyle(
                 //     fontSize: 12,
@@ -875,7 +875,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw. Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.minnesota_dept_of_commerce_des2,
                 // style: TextStyle(
                 //     fontSize: 12,
@@ -891,7 +891,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.minnesota_dept_of_commerce_des3,
                 // style: TextStyle(
                 //     fontSize: 12,
@@ -908,7 +908,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.minnesota_dept_of_commerce_des4,
                 // style: TextStyle(
                 //     fontSize: 12,
@@ -924,7 +924,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.minnesota_dept_of_commerce_des5,
                 // style: TextStyle(
                 //     fontSize: 12,
@@ -940,7 +940,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.minnesota_dept_of_commerce_des6,
                 // style: TextStyle(
                 //     fontSize: 12,
@@ -957,7 +957,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.minnesota_dept_of_commerce_des7,
                 // style: pw.TextStyle(
                 //     fontSize: 12,
@@ -974,16 +974,16 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.consumer_Financial_Protection_Bureau,
-                style: pw.TextStyle(
+                style: const pw.TextStyle(
                     fontSize: 16,
                     letterSpacing: 0.7)),
           ),
           pw.SizedBox(height: 10),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(
                 MyString.consumer_finencial_legal_des,
                 // style: TextStyle(
@@ -998,7 +998,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(
                 MyString.consumer_Financial_Protection_Bureau_des1,
                 // style: TextStyle(
@@ -1019,7 +1019,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(MyString.Moneytos_llc,
                 // style: TextStyle(
                 //     fontSize: 16,
@@ -1032,7 +1032,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           // hSizedBox1,
           pw. Container(
             alignment:pw. Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(
                 MyString.Moneytos_llc_des1,
                 // style: TextStyle(
@@ -1049,7 +1049,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(
                 MyString.phone_not_available,
                 // style: TextStyle(
@@ -1066,7 +1066,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           ),
           pw.Container(
             alignment: pw.Alignment.topLeft,
-            padding: pw.EdgeInsets.symmetric(horizontal: 20),
+            padding: const pw.EdgeInsets.symmetric(horizontal: 20),
             child: pw.Text(
                 MyString.Moneytos_llc_des2,
                 // style: TextStyle(
@@ -1140,12 +1140,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.primaryColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.primaryColor,
             statusBarIconBrightness: Brightness.light,
@@ -1155,7 +1155,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           flexibleSpace: Container(
             // color: MyColors.whiteColor,
             //  margin: EdgeInsets.only(top: 30),
-            padding: EdgeInsets.only(top: 50, left: 20, right: 20),
+            padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -1163,11 +1163,11 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Icon(
+                    child: const Icon(
                       CupertinoIcons.clear,
                       color: MyColors.whiteColor,
                     )),
-                Text(
+                const Text(
                   "Receipt",
                   style: TextStyle(
                       color: MyColors.whiteColor,
@@ -1197,7 +1197,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     // });
                     mainpdfave();
                   },
-                  child: Text(
+                  child: const Text(
                     "Download",
                     style: TextStyle(
                         color: MyColors.lightblueColor,
@@ -1215,7 +1215,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
       body: is_load?Container(
         height: size.width,
         width: size.height,
-        child: Center(
+        child: const Center(
             child:GFLoader(
                 type: GFLoaderType.custom,
                 child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
@@ -1227,7 +1227,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
           children: [
             Container(
               height: size.height * 0.3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -1252,14 +1252,14 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     hSizedBox3,
 
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                             alignment: Alignment.topLeft,
-                            child: Text(
+                            child: const Text(
                               MyString.transaction_detail,
                               style: TextStyle(
                                   color: MyColors.blackColor,
@@ -1288,7 +1288,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     ///
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1309,7 +1309,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                             children: [
                               Container(
                                 alignment: Alignment.topLeft,
-                                child: Text(
+                                child: const Text(
                                   "01.00",
                                   style: TextStyle(
                                       color: MyColors.lightblueColor,
@@ -1322,7 +1322,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               wSizedBox,
                               Container(
                                 alignment: Alignment.topLeft,
-                                child: Text(
+                                child: const Text(
                                   MyString.usd,
                                   style: TextStyle(
                                       color: MyColors.blackColor,
@@ -1341,7 +1341,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   "${exchange_rate}",
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: MyColors.lightblueColor,
                                       fontSize: 14,
                                       fontFamily:
@@ -1354,7 +1354,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   currency_code,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: MyColors.blackColor,
                                       fontSize: 9,
                                       fontFamily:
@@ -1373,7 +1373,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     ///
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1394,7 +1394,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               created_at==""?"":"${created_at}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   letterSpacing: 0.5,
                                   color: MyColors.blackColor,
                                   fontSize: 12,
@@ -1412,7 +1412,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     ///
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1433,7 +1433,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                             alignment: Alignment.topLeft,
                             child: Text(
                               mtin_number,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   letterSpacing: 0.5,
                                   color: MyColors.blackColor,
                                   fontSize: 12,
@@ -1449,7 +1449,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     ///
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1472,7 +1472,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                                 alignment: Alignment.topLeft,
                                 child: Text(
                                   double.parse(you_send).toStringAsFixed(2),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: MyColors.blackColor,
                                       fontSize: 14,
                                       fontFamily:
@@ -1483,7 +1483,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               wSizedBox,
                               Container(
                                 alignment: Alignment.topLeft,
-                                child: Text(
+                                child: const Text(
                                   MyString.usd,
                                   style: TextStyle(
                                       color: MyColors.blackColor,
@@ -1503,7 +1503,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     ///
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1527,7 +1527,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                                 child: Text(
                                   // widget.fees,
                                   fees,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: MyColors.blackColor,
                                       fontSize: 14,
                                       fontFamily:
@@ -1538,7 +1538,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               wSizedBox,
                               Container(
                                 alignment: Alignment.topLeft,
-                                child: Text(
+                                child: const Text(
                                   MyString.usd,
                                   style: TextStyle(
                                       color: MyColors.blackColor,
@@ -1556,12 +1556,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     hSizedBox3,
 
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       height: 0.5,
                       child: DottedBorder(
-                        color: Color(0xffE9EDF2),
+                        color: const Color(0xffE9EDF2),
                         strokeWidth: 0.5,
-                        dashPattern: [8, 4],
+                        dashPattern: const [8, 4],
                         child: Container(),
                       ),
                     ),
@@ -1569,7 +1569,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     ///
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1591,7 +1591,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               alignment: Alignment.topLeft,
                               child: Text(
                                 "${total_amount}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: MyColors.blackColor,
                                     fontSize: 20,
                                     fontFamily:
@@ -1602,7 +1602,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                             wSizedBox,
                             Container(
                               alignment: Alignment.topLeft,
-                              child: Text(
+                              child: const Text(
                                 MyString.usd,
                                 style: TextStyle(
                                     color: MyColors.blackColor,
@@ -1666,8 +1666,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     /// alert strings................
 
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Text(
                           "Times may vary but we estimate the recipient will receive funds 2 business days, Some receiving financial institutions may charge additional fees; foreign taxes may apply\nToll Free No: (855) 411-237\n\nMoneytos may earn revenue from the conversion of USD to other countries.",
                           style: TextStyle(
                               fontSize: 12,
@@ -1681,8 +1681,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(MyString.consumer_fraud_alert,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Text(MyString.consumer_fraud_alert,
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -1693,7 +1693,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     hSizedBox1,
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.consumer_fraud_alert_des,
                           style: TextStyle(
                               fontSize: 12,
@@ -1705,7 +1705,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.consumer_fraud_alert_des1,
                           style: TextStyle(
                               fontSize: 12,
@@ -1721,8 +1721,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(MyString.minnesota_dept_of_commerce,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Text(MyString.minnesota_dept_of_commerce,
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -1733,7 +1733,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     hSizedBox1,
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.minnesota_dept_of_commerce_des1,
                           style: TextStyle(
                               fontSize: 12,
@@ -1743,12 +1743,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               color: MyColors.blackColor.withOpacity(0.70),
                               letterSpacing: 0.7)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.minnesota_dept_of_commerce_des2,
                           style: TextStyle(
                               fontSize: 12,
@@ -1758,12 +1758,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               color: MyColors.blackColor.withOpacity(0.70),
                               letterSpacing: 0.7)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.minnesota_dept_of_commerce_des3,
                           style: TextStyle(
                               fontSize: 12,
@@ -1774,12 +1774,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               letterSpacing: 0.7)),
                     ),
 
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.minnesota_dept_of_commerce_des4,
                           style: TextStyle(
                               fontSize: 12,
@@ -1789,12 +1789,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               color: MyColors.lightblueColor.withOpacity(0.70),
                               letterSpacing: 0.7)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.minnesota_dept_of_commerce_des5,
                           style: TextStyle(
                               fontSize: 12,
@@ -1804,12 +1804,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               color: MyColors.blackColor.withOpacity(0.70),
                               letterSpacing: 0.7)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.minnesota_dept_of_commerce_des6,
                           style: TextStyle(
                               fontSize: 12,
@@ -1820,12 +1820,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               letterSpacing: 0.7)),
                     ),
 
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(MyString.minnesota_dept_of_commerce_des7,
                           style: TextStyle(
                               fontSize: 12,
@@ -1841,8 +1841,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(MyString.consumer_Financial_Protection_Bureau,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Text(MyString.consumer_Financial_Protection_Bureau,
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -1853,7 +1853,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     hSizedBox1,
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                           MyString.consumer_finencial_legal_des,
                           style: TextStyle(
@@ -1867,7 +1867,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                           MyString.consumer_Financial_Protection_Bureau_des1,
                           style: TextStyle(
@@ -1887,8 +1887,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
-                      child: Text(MyString.Moneytos_llc,
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: const Text(MyString.Moneytos_llc,
                           style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -1899,7 +1899,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     hSizedBox1,
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                           MyString.Moneytos_llc_des1,
                           style: TextStyle(
@@ -1910,12 +1910,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               color: MyColors.blackColor.withOpacity(0.70),
                               letterSpacing: 0.7)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                           MyString.phone_not_available,
                           style: TextStyle(
@@ -1926,12 +1926,12 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                               color: MyColors.lightblueColor.withOpacity(0.70),
                               letterSpacing: 0.7)),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Container(
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Text(
                           MyString.Moneytos_llc_des2,
                           style: TextStyle(
@@ -1973,13 +1973,13 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
 
   stepprogressbar() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SingleChildScrollView(
         //scrollDirection: Axis.horizontal,
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 11),
+              padding: const EdgeInsets.symmetric(horizontal: 11),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -2010,7 +2010,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                       borderRadius: BorderRadius.circular(100),
                       color: MyColors.yellow,
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Icon(
                         CupertinoIcons.checkmark_alt,
                         color: MyColors.whiteColor,
@@ -2047,7 +2047,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
                     color: MyColors.lightblueColor.withOpacity(0.20),
@@ -2062,7 +2062,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
                     color: MyColors.yellow.withOpacity(0.20),
@@ -2077,7 +2077,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(50),
                     color: MyColors.greenColor.withOpacity(0.20),
@@ -2102,8 +2102,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
   /// usercard...
   usercard() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: MyColors.lightblueColor.withOpacity(0.06)),
@@ -2122,14 +2122,14 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                     fit: BoxFit.fill,
                     image: NetworkImage(
                       rec_image,),
-                    placeholder: AssetImage(
+                    placeholder: const AssetImage(
                         "a_assets/logo/progress_image.png"),
                     placeholderFit: BoxFit.scaleDown,
                     imageErrorBuilder:
                         (context, error, stackTrace) {
                       return Container(
                           color: MyColors.divider_color,
-                          alignment:Alignment.center,child: Text(first_name.toString()[0].toUpperCase(),style: TextStyle(
+                          alignment:Alignment.center,child: Text(first_name.toString()[0].toUpperCase(),style: const TextStyle(
                           color: MyColors.shedule_color,
                           fontSize: 18,
                           fontWeight: FontWeight.w700,
@@ -2148,7 +2148,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "${first_name} ${last_name}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 14,
                             fontFamily:
@@ -2207,7 +2207,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             "${double.parse(will_recieve).toStringAsFixed(2)}",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontFamily:
@@ -2222,7 +2222,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             currency_code,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 8,
                                 fontFamily:
@@ -2261,7 +2261,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             widget.transfer_reason,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontFamily:
@@ -2286,8 +2286,8 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
   deliveryMethid() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: MyColors.lightblueColor.withOpacity(0.06)),
@@ -2321,7 +2321,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         delivery_method,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             fontFamily:
@@ -2364,7 +2364,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         bank_name,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
                             fontFamily:
@@ -2377,7 +2377,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         account_number,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
                             fontFamily:
@@ -2558,7 +2558,7 @@ class _DownloadReceiptScreenState extends State<DownloadReceiptScreen> {
       context: context,
       builder: (context) => Scaffold(
         appBar: AppBar(
-          title: Text("Captured widget screenshot"),
+          title: const Text("Captured widget screenshot"),
         ),
         body: Center(
             child: capturedImage != null

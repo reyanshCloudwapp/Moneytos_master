@@ -27,7 +27,7 @@ class _SelectStoreScreenState extends State<SelectStoreScreen> {
         elevation: 0,
         backgroundColor: MyColors.whiteColor,
         centerTitle: true,
-        title: Text(MyString.Select_Store,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
+        title: const Text(MyString.Select_Store,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
       ),
 
       bottomSheet: GestureDetector(
@@ -53,16 +53,16 @@ class _SelectStoreScreenState extends State<SelectStoreScreen> {
           children: [
             hSizedBox2,
             Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 20.0),
+                padding:  const EdgeInsets.symmetric(horizontal: 20.0),
                 child: searchStore()
               //CustomTextFields(controller: searchController, focus: searchFocus, textInputAction: TextInputAction.done, keyboardtype: TextInputType.text,border_color: MyColors.whiteColor.withOpacity(0.05),hinttext: MyString.search_bank,),
             ),
             GridView(
               shrinkWrap: true,
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               scrollDirection: Axis.vertical,
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1/0.74 ,
                 crossAxisSpacing: 1.1,
@@ -70,8 +70,8 @@ class _SelectStoreScreenState extends State<SelectStoreScreen> {
               ),
               children:CustomList.countrylist.map((String url) {
                 return Container(
-                    padding: EdgeInsets.symmetric(vertical:4,horizontal: 10),
-                    margin: EdgeInsets.symmetric(vertical:8,horizontal: 5),
+                    padding: const EdgeInsets.symmetric(vertical:4,horizontal: 10),
+                    margin: const EdgeInsets.symmetric(vertical:8,horizontal: 5),
                     child: CustomSelectBankList(title: MyString.Company_name,img:"s_asset/images/store.png",));
               }).toList(),
             ),
@@ -97,13 +97,13 @@ class _SelectStoreScreenState extends State<SelectStoreScreen> {
         cursorColor:MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          enabledBorder:  OutlineInputBorder(
+          enabledBorder:  const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
 

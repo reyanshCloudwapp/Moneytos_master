@@ -154,7 +154,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
     print("select_payment_method_status>>>> " + sharedPreferences.getString("select_payment_method_status").toString());
 
     if (sharedPreferences.get("BankdetailResponse").toString() != "null") {
-      Timer(Duration(seconds: 1), () {
+      Timer(const Duration(seconds: 1), () {
         var response = sharedPreferences.get("BankdetailResponse").toString();
         Map<String, dynamic> jsonResponse = convert.jsonDecode(response);
 
@@ -211,7 +211,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           backgroundColor: MyColors.color_03153B,
           elevation: 0,
@@ -219,13 +219,13 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
 
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only(left: 25, top: 27),
+            padding: const EdgeInsets.only(left: 25, top: 27),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.only(top: 5),
                   child: InkWell(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -236,9 +236,9 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                 // wSizedBox3,
                 // wSizedBox3,
                 Container(
-                  padding: EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.only(top: 5),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.review_and_confirm,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -257,7 +257,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
           automaticallyImplyLeading: false,
 
           //backgroundColor: MyColors.primaryColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
             statusBarIconBrightness:
@@ -275,8 +275,8 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
             ),
             Container(
               height: size.height,
-              margin: EdgeInsets.only(top: 0),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(top: 0),
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20)),
@@ -433,7 +433,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                       },
                       child: Container(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 60, vertical: 30),
+                            const EdgeInsets.symmetric(horizontal: 60, vertical: 30),
                         child: CustomButton2(
                           btnname: "Transfer Now",
                           bordercolor: MyColors.lightblueColor,
@@ -454,7 +454,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
   /// usercard...
   usercard() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
       child: Material(
           elevation: 10,
           shadowColor: MyColors.lightblueColor.withOpacity(0.12),
@@ -465,7 +465,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: MyColors.whiteColor),
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
               children: [
                 /// top
@@ -485,7 +485,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                             u_profile_img,
                           ),
                           placeholder:
-                              AssetImage("a_assets/logo/progress_image.png"),
+                              const AssetImage("a_assets/logo/progress_image.png"),
                           placeholderFit: BoxFit.scaleDown,
                           imageErrorBuilder: (context, error, stackTrace) {
                             return Text(
@@ -512,7 +512,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                                   fit: BoxFit.contain,
                                   child: Text(
                                     "${u_first_name} ${u_last_name}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: MyColors.blackColor,
                                         fontSize: 14,
                                         fontFamily:
@@ -559,7 +559,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
   /// deleviry method
   deliveryMethid() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       child: Material(
         elevation: 10,
         shadowColor: MyColors.lightblueColor.withOpacity(0.10),
@@ -568,7 +568,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
         ),
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: MyColors.whiteColor),
@@ -610,7 +610,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                                 // widget.selected_payment_type == "check"
                                 //     ? "Bank Account"
                                 //     : widget.selected_payment_type,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                     fontFamily:
@@ -650,7 +650,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                               child: Text(
                                 double.parse(recipient_recieve_amount)
                                     .toStringAsFixed(2),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w800,
                                     fontFamily:
@@ -663,7 +663,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                               alignment: Alignment.topLeft,
                               child: Text(
                                 dstCurrencyIso3Code == "NGN" && select_payment_method_status == "Bank" ? "USD":     dstCurrencyIso3Code,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 8,
                                     fontWeight: FontWeight.w600,
                                     fontFamily:
@@ -697,7 +697,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                               alignment: Alignment.topLeft,
                               child: Text(
                                 BankName,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
                                     fontFamily:
@@ -714,7 +714,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                                     : "****" +
                                         BankAccNumber.substring(
                                             BankAccNumber.length - 4),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w500,
                                     fontFamily:
@@ -749,7 +749,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
   /// bank Card
   bankcard() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
       child: Material(
         elevation: 10,
         shadowColor: MyColors.lightblueColor.withOpacity(0.10),
@@ -758,7 +758,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
         ),
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: MyColors.whiteColor),
@@ -786,7 +786,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           widget.selected_acc_name.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               fontFamily:
@@ -799,7 +799,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           "****" + widget.selected_last4.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
                               fontFamily:
@@ -823,10 +823,10 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
   ///exchangeRate
   exchangeRatecard() {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: MyColors.whiteColor,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
           ///
@@ -836,7 +836,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
-                  margin: EdgeInsets.only(top: 14.0),
+                  margin: const EdgeInsets.only(top: 14.0),
                   alignment: Alignment.topLeft,
                   child: Text(
                     MyString.exchange_rate,
@@ -1019,7 +1019,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         monyetosfee,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 14,
                             fontFamily:
@@ -1030,7 +1030,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                     wSizedBox,
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.usd,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -1090,9 +1090,9 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
           Container(
             height: 0.5,
             child: DottedBorder(
-              color: Color(0xffE9EDF2),
+              color: const Color(0xffE9EDF2),
               strokeWidth: 0.5,
-              dashPattern: [8, 4],
+              dashPattern: const [8, 4],
               child: Container(),
             ),
           ),
@@ -1120,7 +1120,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                     alignment: Alignment.topLeft,
                     child: Text(
                       total_amount,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: MyColors.blackColor,
                           fontSize: 20,
                           fontFamily:
@@ -1131,7 +1131,7 @@ class _GotoreviewScreenState extends State<GotoreviewScreen> {
                   wSizedBox,
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       MyString.usd,
                       style: TextStyle(
                           color: MyColors.blackColor,

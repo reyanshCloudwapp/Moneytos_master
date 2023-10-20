@@ -22,15 +22,15 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
     return Scaffold(
       backgroundColor:MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(55),
+        preferredSize: const Size.fromHeight(55),
         child: AppBar(
           backgroundColor: MyColors.whiteColor,
           elevation: 0,
           centerTitle: true,
           title:    Container(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               MyString.edit_recipient,
               style: TextStyle(
                   fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",
@@ -40,7 +40,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
             ),
           ),
           automaticallyImplyLeading: false,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -103,7 +103,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
 
             /// country name
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: MyColors.whiteColor,
                 // border: Border.all(color: MyColors.lightblueColor),
                 borderRadius: BorderRadius.all(Radius.circular(20.0)),
@@ -115,11 +115,11 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
                   hSizedBox4,
                   Container(
                     width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     child: TextField(
                       // controller: FullName,
                       textInputAction: TextInputAction.next,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color:MyColors.blackColor,
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
@@ -130,7 +130,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
                         hintText: MyString.country_name,
                         border: InputBorder.none,
                         fillColor: MyColors.whiteColor,
-                        contentPadding: EdgeInsets.all(22),
+                        contentPadding: const EdgeInsets.all(22),
                         suffixIcon: Padding(
                           padding: const EdgeInsets.all(12.0),
                           child: SvgPicture.asset(
@@ -147,7 +147,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
                             width: 20,
                           ),
                         ),
-                        hintStyle:  TextStyle(
+                        hintStyle:  const TextStyle(
                             color:MyColors.blackColor,
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
@@ -175,12 +175,12 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
             /// city name
 
             Container(
-             margin: EdgeInsets.symmetric(horizontal: 10),
+             margin: const EdgeInsets.symmetric(horizontal: 10),
               width: MediaQuery.of(context).size.width,
               child: TextField(
                 // controller: FullName,
                 textInputAction: TextInputAction.next,
-                style: TextStyle(
+                style: const TextStyle(
                     color:MyColors.blackColor,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
@@ -191,7 +191,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
                   hintText: MyString.city_name,
                   border: InputBorder.none,
                   fillColor: MyColors.whiteColor,
-                  contentPadding: EdgeInsets.all(22),
+                  contentPadding: const EdgeInsets.all(22),
                   suffixIcon: Padding(
                     padding: const EdgeInsets.all(12.0),
                     child: SvgPicture.asset(
@@ -200,7 +200,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
                       width: 20,
                     ),
                   ),
-                  hintStyle:  TextStyle(
+                  hintStyle:  const TextStyle(
                       color:MyColors.blackColor,
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
@@ -226,14 +226,14 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
             /// First Name and last name
 
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 10),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
                     width: MediaQuery.of(context).size.width * 0.42,
-                    child: TextField(
+                    child: const TextField(
                       // controller: FullName,
                       textInputAction: TextInputAction.next,
                       style: TextStyle(
@@ -268,7 +268,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
 
                   Container(
                     width: MediaQuery.of(context).size.width * 0.42,
-                    child: TextField(
+                    child: const TextField(
                       // controller: FullName,
                       textInputAction: TextInputAction.next,
                       style: TextStyle(
@@ -306,7 +306,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
 
             /// mobile number
             Container(
-              margin: EdgeInsets.only(left: 18.0,top: 30),
+              margin: const EdgeInsets.only(left: 18.0,top: 30),
               child: Row(
                 children: [
 
@@ -318,7 +318,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
                     initialSelection: 'CA',
                     // favorite: ['+91','IN'],
                     showCountryOnly: false,
-                    textStyle: TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 16),
+                    textStyle: const TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontSize: 16),
                     showOnlyCountryWhenClosed: false,
                     alignLeft: false,
                     showFlag: false,
@@ -329,7 +329,7 @@ class _EditRecipientScreenState extends State<EditRecipientScreen> {
                     padding: EdgeInsets.zero,
                     alignment: Alignment.centerLeft,
                     width: MediaQuery.of(context).size.width * 0.7,
-                    child: TextField(
+                    child: const TextField(
                       // controller: FullName,
                       textInputAction: TextInputAction.done,
                       style: TextStyle(

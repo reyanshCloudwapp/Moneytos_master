@@ -48,7 +48,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
   }
 
   backSpace(){
-    if(pinEntered.length > 0){
+    if(pinEntered.isNotEmpty){
       pinEntered = pinEntered.substring(0,pinEntered.length -1);
       alert = "";
       print("pinentered..${pinEntered}");
@@ -77,7 +77,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
             elevation: 0,
             centerTitle: true,
             leading: Container(
-              padding: EdgeInsets.only(top: 10, left: 20,right: 10),
+              padding: const EdgeInsets.only(top: 10, left: 20,right: 10),
               child:  InkWell(
                   onTap: (){
                     Navigator.of(context).pop(false);
@@ -86,7 +86,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
                 width: 32,)
               ),
             ),
-            title: Column(
+            title: const Column(
               children: [
                 Text(
                   MyString.Mobile_Money_Number,
@@ -103,7 +103,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
           ),
           backgroundColor: MyColors.whiteColor,
           bottomSheet: Container(
-            margin: EdgeInsets.only(bottom: 30.0),
+            margin: const EdgeInsets.only(bottom: 30.0),
 
             color: MyColors.whiteColor,
             height: 60,
@@ -114,7 +114,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
                 //   Navigator.push(context, MaterialPageRoute(builder: (_) => BankAccountNumber() ));
               },
               child: Container(
-                margin: EdgeInsets.only(bottom: 10.0),
+                margin: const EdgeInsets.only(bottom: 10.0),
                 height: 50,
                 width: 100,
 
@@ -141,13 +141,13 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
                       children: [
 
                         Container(
-                          margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                          margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                           height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width,
                           child: Card(
                             color: MyColors.whiteColor,
                             margin: EdgeInsets.zero,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                             ),
                             child: SingleChildScrollView(
@@ -159,9 +159,9 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
                                     children: [
                                       hSizedBox2,
                                       Container(
-                                          margin: EdgeInsets.only(top: 16,bottom: 20,left: 26,right: 26),
+                                          margin: const EdgeInsets.only(top: 16,bottom: 20,left: 26,right: 26),
                                           alignment: Alignment.center,
-                                          child: Text("a small amount will be deducted and \n refunded again for verified and\n linked your Mobile Money",textAlign: TextAlign.center,style: TextStyle(color: MyColors.color_text,fontSize: 14,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),)),
+                                          child: const Text("a small amount will be deducted and \n refunded again for verified and\n linked your Mobile Money",textAlign: TextAlign.center,style: TextStyle(color: MyColors.color_text,fontSize: 14,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),)),
                                       hSizedBox4,
                                       IBAN(),
                                       is_keyboard == true ?  keyboardNum()
@@ -183,7 +183,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
 
                                           width: 210,
 
-                                          margin: EdgeInsets.symmetric(
+                                          margin: const EdgeInsets.symmetric(
                                             horizontal: 30,),
                                           decoration: BoxDecoration(
                                               gradient: LinearGradient(colors: [
@@ -200,7 +200,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
 
                                           Container(
                                               alignment: Alignment.center,
-                                              child: Text(
+                                              child: const Text(
                                                 "Link Mobile Money ",
                                                 style: TextStyle(
                                                     color: MyColors.whiteColor,
@@ -259,7 +259,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
 
   IBAN(){
     return Container(
-      margin: EdgeInsets.only(left: 22,right: 22),
+      margin: const EdgeInsets.only(left: 22,right: 22),
       height: 48,
       decoration: BoxDecoration(
           color: MyColors.blueColor.withOpacity(0.02),
@@ -280,19 +280,19 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
         cursorColor:MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          enabledBorder:  OutlineInputBorder(
+          enabledBorder:  const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           hintText: "12xx-xxx-xxx-xx",
           suffixIcon: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: SvgPicture.asset("a_assets/icons/paste.svg",height: 15,),
           ),
           hintStyle: TextStyle(color: MyColors.blackColor.withOpacity(0.30),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500),
@@ -308,13 +308,13 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
 
         /// number ui
         Padding(
-          padding: EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 10),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: firstlist.map((e) {
               return Container(
-                  padding: EdgeInsets.symmetric( vertical: 10),
+                  padding: const EdgeInsets.symmetric( vertical: 10),
                   child: numberButton(e));
             }).toList(),
           ),
@@ -328,7 +328,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: secondlist.map((e) {
             return Container(
-                padding: EdgeInsets.symmetric( vertical: 10),
+                padding: const EdgeInsets.symmetric( vertical: 10),
                 child: numberButton(e));
           }).toList(),
         ),
@@ -341,7 +341,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: thirdlist.map((e) {
             return Container(
-                padding: EdgeInsets.symmetric( vertical: 15),
+                padding: const EdgeInsets.symmetric( vertical: 15),
                 child: numberButton(e));
           }).toList(),
         ),
@@ -354,7 +354,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: EdgeInsets.only( top: 15),
+                padding: const EdgeInsets.only( top: 15),
                 child: InkWell(
                   onTap: () {
                     backSpace();
@@ -372,7 +372,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
                 ),
               ),
 
-              Padding(padding: EdgeInsets.only( top: 17),child:Container(
+              Padding(padding: const EdgeInsets.only( top: 17),child:Container(
                 width: 50,
                 child:  numberButton(0),
               )),
@@ -386,8 +386,8 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
                 child: Container(
                   // height: 20,
                   alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.only( top: 22),
-                  child: Text(".",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
+                  padding: const EdgeInsets.only( top: 22),
+                  child: const Text(".",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
                 ),
               )
                   : Container()
@@ -416,7 +416,7 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
           height: 30,
           child: Text(
             item.toString(),
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.blackColor,
                 fontWeight: FontWeight.w800,
                 fontSize: 20,
@@ -434,9 +434,9 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
       color: MyColors.whiteColor,
       //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
       child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.only(left: 10,right: 10),
           decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
             ],
@@ -452,8 +452,8 @@ class _MobileMoneypinServiceProScreen2State extends State<MobileMoneypinServiceP
             //color: Colors.deepPurple.shade300,
             borderRadius: BorderRadius.circular(10),
           ),
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 22),
-          child: Center(child: Text(text,style: TextStyle(color: MyColors.whiteColor,fontWeight: FontWeight.w700,fontSize: 18,fontFamily: "s_asset/font/raleway/Bold.ttf"),))),
+          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 22),
+          child: Center(child: Text(text,style: const TextStyle(color: MyColors.whiteColor,fontWeight: FontWeight.w700,fontSize: 18,fontFamily: "s_asset/font/raleway/Bold.ttf"),))),
     );
   }
 }

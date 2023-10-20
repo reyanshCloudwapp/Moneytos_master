@@ -204,7 +204,7 @@ class _SendAgainMoneyQuatationFromNewRecipientState
             elevation: 0,
             backgroundColor: MyColors.whiteColor,
             centerTitle: true,
-            actions: [],
+            actions: const [],
             systemOverlayStyle: const SystemUiOverlayStyle(
               // Status bar color
               statusBarColor: MyColors.whiteColor,
@@ -712,7 +712,7 @@ class _SendAgainMoneyQuatationFromNewRecipientState
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Row(
+                        const Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

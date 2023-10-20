@@ -238,7 +238,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               stateManagement: false,
               // Default is true.
               hideNavigationBarWhenKeyboardShows: true,
-              padding: NavBarPadding.only(top: 10),
+              padding: const NavBarPadding.only(top: 10),
               onItemSelected: (int index) {
                 setState(() {
                   chkStateStatusByIpApi(context);
@@ -437,7 +437,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: Transform.scale(
               scale: 1.6,
               child: Container(
-                margin: EdgeInsets.only(top: 2),
+                margin: const EdgeInsets.only(top: 2),
                 child: pageindex == 1
                     ? SvgPicture.asset(
                         "a_assets/icons/history_blue_icon.svg",
@@ -467,7 +467,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: Transform.scale(
               scale: 1.6,
               child: Container(
-                margin: EdgeInsets.only(top: 2),
+                margin: const EdgeInsets.only(top: 2),
                 child: pageindex == 2
                     ? SvgPicture.asset("a_assets/icons/recipients_blue_icon.svg",
                         height: 20, width: 20)
@@ -493,7 +493,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: Transform.scale(
               scale: 1.6,
               child: Container(
-                margin: EdgeInsets.only(top: 2),
+                margin: const EdgeInsets.only(top: 2),
                 child: pageindex == 3
                     ? SvgPicture.asset("a_assets/icons/setting_blue_icon.svg",
                         height: 20, width: 20)
@@ -743,7 +743,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       )
                     : Container(),
                 document_status == "pending"
-                    ? Column(
+                    ? const Column(
                         children: [
                           Text(
                             "We will notify you as soon as you’re approved.",
@@ -811,11 +811,11 @@ class _DashboardScreenState extends State<DashboardScreen> {
       p.setString("userid", authuser.id.toString());
       userlist.add(authuser);
       doucument_status =
-          userlist.length > 0 ? userlist[0].documentStatus.toString() : "";
+          userlist.isNotEmpty ? userlist[0].documentStatus.toString() : "";
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       sharedPreferences.setString("referral_id",
-          userlist.length > 0 ? userlist[0].unique_id.toString() : "0");
+          userlist.isNotEmpty ? userlist[0].unique_id.toString() : "0");
       sharedPreferences.setString("document_status", doucument_status);
 
       UserPreferences().saveUser(authuser);
@@ -1095,7 +1095,7 @@ class CustomNavBarWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      decoration: BoxDecoration(color: MyColors.whiteColor, boxShadow: [
+      decoration: const BoxDecoration(color: MyColors.whiteColor, boxShadow: [
         BoxShadow(
             color: Colors.black12,
             // color: MyColors.blackColor.withOpacity(.2),

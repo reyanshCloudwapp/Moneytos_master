@@ -63,7 +63,7 @@ class _SettingForgotPinCodeScreenState extends State<SettingForgotPinCodeScreen>
     });
   }
   void starttimer(){
-    timer = Timer.periodic(Duration(seconds: 1,), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1,), (_) {
       if (secondsRemaining != 0) {
         setState(() {
 
@@ -94,12 +94,12 @@ class _SettingForgotPinCodeScreenState extends State<SettingForgotPinCodeScreen>
         child: Scaffold(
             backgroundColor: MyColors.color_03153B,
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(50),
+              preferredSize: const Size.fromHeight(50),
               child:   AppBar(
                 automaticallyImplyLeading: false,
                 backgroundColor:MyColors.color_03153B,
                 elevation: 0,
-                systemOverlayStyle: SystemUiOverlayStyle(
+                systemOverlayStyle: const SystemUiOverlayStyle(
                   // Status bar color
                   statusBarColor: MyColors.color_03153B,
                   statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -107,7 +107,7 @@ class _SettingForgotPinCodeScreenState extends State<SettingForgotPinCodeScreen>
                 ),
                 flexibleSpace: Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.fromLTRB(23, 30, 20, 0),
+                  padding: const EdgeInsets.fromLTRB(23, 30, 20, 0),
                   child: Row(
 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -126,8 +126,8 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       //  wSizedBox,
                       Container(
                         alignment: Alignment.center,
-                        margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                        child: Text(
+                        margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                        child: const Text(
                           MyString.forgot_pin_code,
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -162,13 +162,13 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
 
                           Container(
-                              margin: EdgeInsets.fromLTRB(0, 20, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
                               height: MediaQuery.of(context).size.height,
                               width: MediaQuery.of(context).size.width,
                               child: Card(
                                   color: MyColors.whiteColor,
                                   margin: EdgeInsets.zero,
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.only(
                                         topLeft: Radius.circular(30),
                                         topRight: Radius.circular(30)),
@@ -178,8 +178,8 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         hSizedBox3,
                                         Container(
                                           alignment: Alignment.center,
-                                          margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                                          child: Text(
+                                          margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                                          child: const Text(
                                             MyString.reset_pin_code,
                                             style: TextStyle(
                                                 color: MyColors.blackColor,
@@ -193,7 +193,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         Container(
                                           padding: EdgeInsets.symmetric(horizontal: size.width/5.8),
                                           alignment: Alignment.center,
-                                          child: Text(
+                                          child: const Text(
                                             MyString.you_have_recived_an_otp,
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
@@ -207,7 +207,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                         ),
                                         hSizedBox2,
                                         Padding(
-                                          padding:  EdgeInsets.only(top:40.0,left: 20.0,right: 0.0),
+                                          padding:  const EdgeInsets.only(top:40.0,left: 20.0,right: 0.0),
                                           child: Column(
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -218,7 +218,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 fieldWidth: 60.0,
                                                 disabledBorderColor:Colors.white,
                                                 cursorColor: MyColors.whiteColor,
-                                                textStyle: TextStyle(color: MyColors.blackColor,fontSize: 26,fontWeight: FontWeight.w500),
+                                                textStyle: const TextStyle(color: MyColors.blackColor,fontSize: 26,fontWeight: FontWeight.w500),
 
 
 
@@ -226,7 +226,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 focusedBorderColor: MyColors.lightblueColor,
                                                 // styles: otpTextStyles,
                                                 showFieldAsBox: true,
-                                                borderRadius: BorderRadius.all(Radius.circular(14)),
+                                                borderRadius: const BorderRadius.all(Radius.circular(14)),
                                                 borderWidth: 0.8,
 
                                                 //runs when a code is typed in
@@ -242,7 +242,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
 
                                               Padding(
-                                                padding:  EdgeInsets.only(top:30,left: 18.0,right: 18.0),
+                                                padding:  const EdgeInsets.only(top:30,left: 18.0,right: 18.0),
                                                 child: Row(
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
@@ -255,30 +255,30 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                           _resendCode();
                                                         },
 
-                                                        child: Text("Resend", style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold,color: MyColors.lightblueColor,),)),
+                                                        child: const Text("Resend", style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold,color: MyColors.lightblueColor,),)),
                                                   ],
                                                 ),
                                               ),
 
 
                                               Padding(
-                                                padding:  EdgeInsets.only(top:80.0),
+                                                padding:  const EdgeInsets.only(top:80.0),
                                                 child: Align(
 
                                                   alignment: Alignment.center,
                                                   child: ElevatedButton(
-                                                    child: Text('Submit'),
+                                                    child: const Text('Submit'),
                                                     onPressed: () {
                                                       confirfationDialog(context);
                                                     },
                                                     style: ElevatedButton.styleFrom(
                                                         primary: MyColors.lightblueColor,
-                                                        padding: EdgeInsets.symmetric(horizontal: 60, vertical: 15),
+                                                        padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
 
-                                                        shape: RoundedRectangleBorder(
+                                                        shape: const RoundedRectangleBorder(
                                                             borderRadius: BorderRadius.all(Radius.circular(16.0))
                                                         ),
-                                                        textStyle: TextStyle(
+                                                        textStyle: const TextStyle(
                                                             fontSize: 18,
                                                             fontWeight: FontWeight.bold)),
                                                   ),
@@ -331,7 +331,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
 
   textfield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: MyColors.lightblueColor.withOpacity(0.03),
           borderRadius: BorderRadius.circular(8)),
@@ -340,7 +340,7 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
         controller:controller ,
         focusNode:  focusNode,
         textInputAction:textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -351,9 +351,9 @@ mainAxisAlignment: MainAxisAlignment.spaceBetween,
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -404,12 +404,12 @@ CustomConfirmationDialog(BuildContext context){
           "a_assets/images/onboarding_img/img1.png",
         ),
         Container(
-          padding: EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 20),
           alignment: Alignment.center,
-          child: Text(MyString.are_you_sure_to_remove,textAlign: TextAlign.center,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
+          child: const Text(MyString.are_you_sure_to_remove,textAlign: TextAlign.center,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
         ),
         Container(
-          padding: EdgeInsets.only(top: 40),
+          padding: const EdgeInsets.only(top: 40),
         //  alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -428,14 +428,14 @@ CustomConfirmationDialog(BuildContext context){
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                           height: 50,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                             //  color: MyColors.ligh
                             //  border: Border.all(color: bordercolor,width: 1.4)
                           ),
-                          child: Center(child: Text(MyString.cancel,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",color:MyColors.lightblueColor,fontSize:14,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
+                          child: const Center(child: Text(MyString.cancel,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",color:MyColors.lightblueColor,fontSize:14,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
                     )
 
                 ),
@@ -459,7 +459,7 @@ CustomConfirmationDialog(BuildContext context){
                               color: MyColors.red
                             //  border: Border.all(color: bordercolor,width: 1.4)
                           ),
-                          child: Center(child: Text(MyString.remove,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
+                          child: const Center(child: Text(MyString.remove,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
                     )
 
                    ),
@@ -505,12 +505,12 @@ CustomSuccesFailedDialog(BuildContext context){
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 20),
+          padding: const EdgeInsets.only(top: 20),
           alignment: Alignment.center,
-          child: Text(MyString.something_want_wrong,textAlign: TextAlign.center,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
+          child: const Text(MyString.something_want_wrong,textAlign: TextAlign.center,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
         ),
         Container(
-          padding: EdgeInsets.only(top: 40),
+          padding: const EdgeInsets.only(top: 40),
           //  alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -530,14 +530,14 @@ CustomSuccesFailedDialog(BuildContext context){
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
                           height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                               color: MyColors.lightblueColor
                             //  border: Border.all(color: bordercolor,width: 1.4)
                           ),
-                          child: Center(child: Text(MyString.ok,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
+                          child: const Center(child: Text(MyString.ok,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
                     )
 
                 ),

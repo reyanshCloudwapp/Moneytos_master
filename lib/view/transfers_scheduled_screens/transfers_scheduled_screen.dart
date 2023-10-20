@@ -72,11 +72,11 @@ class _TransferSheduledScreenState extends State<TransferSheduledScreen> {
       child: Scaffold(
         backgroundColor: MyColors.light_primarycolor2,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(65),
+          preferredSize: const Size.fromHeight(65),
           child: AppBar(
             backgroundColor: MyColors.light_primarycolor2,
             elevation: 0,
-            systemOverlayStyle: SystemUiOverlayStyle(
+            systemOverlayStyle: const SystemUiOverlayStyle(
               // Status bar color
               statusBarColor: MyColors.light_primarycolor2,
               statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -84,7 +84,7 @@ class _TransferSheduledScreenState extends State<TransferSheduledScreen> {
             ),
             centerTitle: true,
             flexibleSpace: Container(
-              padding: EdgeInsets.fromLTRB(23, 40, 20, 0),
+              padding: const EdgeInsets.fromLTRB(23, 40, 20, 0),
               alignment: Alignment.center,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -94,7 +94,7 @@ class _TransferSheduledScreenState extends State<TransferSheduledScreen> {
                   //  margin: EdgeInsets.only(left: 22),
                     // height: 25,
                     // width: 25,
-                    margin: EdgeInsets.only(top: 5),
+                    margin: const EdgeInsets.only(top: 5),
                     child: InkWell(
                         onTap: () {
                           Navigator.of(context).pop();
@@ -108,7 +108,7 @@ class _TransferSheduledScreenState extends State<TransferSheduledScreen> {
                   wSizedBox2,
                   Container(
                     alignment: Alignment.center,
-                    child: Text(
+                    child: const Text(
                       MyString.transfers_scheduled,
                       style: TextStyle(
                           color: MyColors.whiteColor,
@@ -129,7 +129,7 @@ automaticallyImplyLeading: false,
         bottomSheet: Container(
          // color: MyColors.whiteColor,
           height: 140,
-       decoration: BoxDecoration(
+       decoration: const BoxDecoration(
          color: MyColors.whiteColor,
          /*gradient: LinearGradient(
            begin: Alignment.center,
@@ -144,13 +144,13 @@ automaticallyImplyLeading: false,
          ),*/
        ),
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 35,horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 35,horizontal: 20),
         child:  GestureDetector(
             onTap:(){
               doucument_status=="Approved"?
               pushNewScreen(
                 context,
-                screen: SheduledTransferScreen(),
+                screen: const SheduledTransferScreen(),
                 withNavBar: false,
               ):verifyDialog(context, "", doucument_status);
             },
@@ -187,7 +187,7 @@ automaticallyImplyLeading: false,
                             color: MyColors.whiteColor,
                           ),
                           wSizedBox1,
-                          Text(MyString.schedule_New_Transfer,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize: 16,fontWeight: FontWeight.w700,letterSpacing: 0.7 ),),
+                          const Text(MyString.schedule_New_Transfer,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize: 16,fontWeight: FontWeight.w700,letterSpacing: 0.7 ),),
                         ],
                       ),
                     )
@@ -203,8 +203,8 @@ automaticallyImplyLeading: false,
             ),
             Container(
               height: size.height ,
-              margin: EdgeInsets.only(top: 10),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(top: 10),
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                   color: MyColors.whiteColor),
               child:
@@ -217,7 +217,7 @@ automaticallyImplyLeading: false,
                     scheduleTransferResponse.status==true?
                     ListView.builder(
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: scheduledatalist.length,
                         itemBuilder: (context, int index) {
                           return GestureDetector(
@@ -226,7 +226,7 @@ automaticallyImplyLeading: false,
                               transferbottomsheet(scheduledatalist[index]);
                             },
                             child: Container(
-                              padding: EdgeInsets.symmetric(
+                              padding: const EdgeInsets.symmetric(
                                   vertical: 5, horizontal: 15),
                               child:
                                   CustomCardList(scheduledatalist[index]),
@@ -235,7 +235,7 @@ automaticallyImplyLeading: false,
                         }):Container(
                       height: size.height/1.5,
                       alignment: Alignment.center,
-                      child: Text("No Data",style: TextStyle(fontSize: 18),),
+                      child: const Text("No Data",style: TextStyle(fontSize: 18),),
                     ),
                     hSizedBox5,
                     hSizedBox5,
@@ -250,209 +250,208 @@ automaticallyImplyLeading: false,
   }
 
   CustomCardList(ScheduleData scheduleTransfer) {
-    return Container(
-        child: Material(
-            elevation: 30,
-            shadowColor: MyColors.lightblueColor.withOpacity(0.10),
-            color: MyColors.whiteColor,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Container(
-              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-              ),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Material(
+        elevation: 30,
+        shadowColor: MyColors.lightblueColor.withOpacity(0.10),
+        color: MyColors.whiteColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                     /*   CircleAvatar(
-                          radius: 30,
-                          backgroundColor:
-                              MyColors.lightblueColor.withOpacity(0.10),
-                          child: Center(
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(150),
-                                  child: Image.asset("a_assets/logo/female_profile.jpg",fit: BoxFit.cover,height: 100,width: 100,))
-                             *//* Text(
-                            "R",
-                            style: TextStyle(
-                                color: MyColors.lightblueColor,
-                                fontSize: 26,
-                                fontWeight: FontWeight.w600,
-                                fontFamily:
-                                    "s_asset/font/raleway/Raleway-Bold.ttf"),
-                          )*//*
-                          ),
-                        ),*/
-
-                        CircleAvatar(
-                          radius: 25,
-                          backgroundColor: MyColors.divider_color,
+                 /*   CircleAvatar(
+                      radius: 30,
+                      backgroundColor:
+                          MyColors.lightblueColor.withOpacity(0.10),
+                      child: Center(
                           child: ClipRRect(
-                              borderRadius: BorderRadius.circular(100),
-                              child:  FadeInImage(
-                                height: 156,width: 149,
-                                fit: BoxFit.fill,
-                                image: NetworkImage(
-                                  scheduleTransfer.recipientImage.toString(),),
-                                placeholder: AssetImage(
-                                    "a_assets/logo/progress_image.png"),
-                                placeholderFit: BoxFit.scaleDown,
-                                imageErrorBuilder:
-                                    (context, error, stackTrace) {
-                                  return Container(alignment:Alignment.center,child: Text(scheduleTransfer.recipientName.toString()[0].toUpperCase(),style: TextStyle(
-                                      color: MyColors.shedule_color,
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w700,
-                                      fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),));
-                                },
-                              )),
-                        ),
+                              borderRadius: BorderRadius.circular(150),
+                              child: Image.asset("a_assets/logo/female_profile.jpg",fit: BoxFit.cover,height: 100,width: 100,))
+                         *//* Text(
+                        "R",
+                        style: TextStyle(
+                            color: MyColors.lightblueColor,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w600,
+                            fontFamily:
+                                "s_asset/font/raleway/Raleway-Bold.ttf"),
+                      )*//*
+                      ),
+                    ),*/
 
-                        wSizedBox1,
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
-                                  scheduleTransfer.recipientName.toString(),
-                                  style: TextStyle(
-                                      fontSize: 13,
-                                      fontFamily:
-                                          "s_asset/font/raleway/raleway_medium.ttf",
-                                      fontWeight: FontWeight.w500,
-                                      color: MyColors.blackColor),
-                                ),
-                              ),
-                              hSizedBox,
-                              Container(
-                                child: Column(
-                                  children: [
-                                    Container(
-                                      child: Text(
-                                Utility.DatefomatToYYYYMMTOMMDD(scheduleTransfer.scheduleDate.toString()),
-                                        style: TextStyle(
-                                            fontSize: 13,
-                                            fontFamily:
-                                                "s_asset/font/raleway/raleway_medium.ttf",
-                                            color: MyColors.blackColor
-                                                .withOpacity(0.50),
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    )
-                                  ],
-                                ),
-                              ),
-                              hSizedBox1,
-                              Row(children: [
-
-                                Container(
-                                  height: 26,
-                                  width: 26,
-                                  child: CircleAvatar(
-                                    backgroundColor: MyColors.lightblueColor4,
-                                    child: Text(
-                                      scheduleTransfer.paymentDone.toString(),
-                                    style: TextStyle(
-                                        fontSize: 10,
-                                        fontFamily:
-                                        "s_asset/font/raleway/raleway_medium.ttf",
-                                        fontWeight: FontWeight.w500,
-                                        color: MyColors.blackColor),
-                                  ),),
-                                ),
-                                SizedBox(width: 5,),
-                                Text(
-                                  "Payments Done",
-                                  style: TextStyle(
-                                      fontSize: 10,
-                                      fontFamily:
-                                      "s_asset/font/raleway/raleway_medium.ttf",
-                                      fontWeight: FontWeight.w500,
-                                      color: MyColors.blackColor),
-                                )
-                              ],)
-                            ],
-                          ),
-                        ),
-                      ],
+                    CircleAvatar(
+                      radius: 25,
+                      backgroundColor: MyColors.divider_color,
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child:  FadeInImage(
+                            height: 156,width: 149,
+                            fit: BoxFit.fill,
+                            image: NetworkImage(
+                              scheduleTransfer.recipientImage.toString(),),
+                            placeholder: const AssetImage(
+                                "a_assets/logo/progress_image.png"),
+                            placeholderFit: BoxFit.scaleDown,
+                            imageErrorBuilder:
+                                (context, error, stackTrace) {
+                              return Container(alignment:Alignment.center,child: Text(scheduleTransfer.recipientName.toString()[0].toUpperCase(),style: const TextStyle(
+                                  color: MyColors.shedule_color,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),));
+                            },
+                          )),
                     ),
+
+                    wSizedBox1,
                     Container(
                       child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
+                            child: Text(
+                              scheduleTransfer.recipientName.toString(),
+                              style: const TextStyle(
+                                  fontSize: 13,
+                                  fontFamily:
+                                      "s_asset/font/raleway/raleway_medium.ttf",
+                                  fontWeight: FontWeight.w500,
+                                  color: MyColors.blackColor),
+                            ),
+                          ),
+                          hSizedBox,
+                          Container(
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
                                 Container(
-                                  child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        scheduleTransfer.sendAmount.toString(),
-                                        style: TextStyle(
-                                            fontSize: 20,
-                                            fontFamily:
-                                                "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
-                                            fontWeight: FontWeight.w800,
-                                            letterSpacing: 0.2,
-                                            color: MyColors.color_3F84E5),
-                                      ),
-                                      wSizedBox,
-                                      Text(
-                                        scheduleTransfer.sendingCurrency.toString(),
-                                        style: TextStyle(
-                                            fontSize: 10,
-                                            fontFamily:
-                                                "s_asset/font/raleway/raleway_bold.ttf",
-                                            fontWeight: FontWeight.w600,
-                                            color: MyColors.lightblueColor),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                hSizedBox1,
-
-                              Material(
-                                elevation: 30,
-                                shadowColor: MyColors.lightblueColor.withOpacity(0.10),
-                                color: MyColors.lightblueColor4,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-
-                                ),
-                                child: Container(
-                                  width: 50,
-                                  alignment: Alignment.center,
-                                  margin: EdgeInsets.all(7),
                                   child: Text(
-                                    scheduleTransfer.scheduleType.toString(),
+                            Utility.DatefomatToYYYYMMTOMMDD(scheduleTransfer.scheduleDate.toString()),
                                     style: TextStyle(
-                                        fontSize: 10,
+                                        fontSize: 13,
                                         fontFamily:
-                                        "s_asset/font/raleway/raleway_medium.ttf",
-                                        fontWeight: FontWeight.w500,
-                                        color: MyColors.blackColor),
+                                            "s_asset/font/raleway/raleway_medium.ttf",
+                                        color: MyColors.blackColor
+                                            .withOpacity(0.50),
+                                        fontWeight: FontWeight.w500),
                                   ),
-                                ),
-
-                              ),
-
-
+                                )
                               ],
                             ),
-                          )
+                          ),
+                          hSizedBox1,
+                          Row(children: [
+
+                            Container(
+                              height: 26,
+                              width: 26,
+                              child: CircleAvatar(
+                                backgroundColor: MyColors.lightblueColor4,
+                                child: Text(
+                                  scheduleTransfer.paymentDone.toString(),
+                                style: const TextStyle(
+                                    fontSize: 10,
+                                    fontFamily:
+                                    "s_asset/font/raleway/raleway_medium.ttf",
+                                    fontWeight: FontWeight.w500,
+                                    color: MyColors.blackColor),
+                              ),),
+                            ),
+                            const SizedBox(width: 5,),
+                            const Text(
+                              "Payments Done",
+                              style: TextStyle(
+                                  fontSize: 10,
+                                  fontFamily:
+                                  "s_asset/font/raleway/raleway_medium.ttf",
+                                  fontWeight: FontWeight.w500,
+                                  color: MyColors.blackColor),
+                            )
+                          ],)
                         ],
                       ),
                     ),
-                  ]),
-            )));
+                  ],
+                ),
+                Container(
+                  child: Column(
+                    children: [
+                      Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Container(
+                              child: Row(
+                                crossAxisAlignment:
+                                    CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    scheduleTransfer.sendAmount.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 20,
+                                        fontFamily:
+                                            "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
+                                        fontWeight: FontWeight.w800,
+                                        letterSpacing: 0.2,
+                                        color: MyColors.color_3F84E5),
+                                  ),
+                                  wSizedBox,
+                                  Text(
+                                    scheduleTransfer.sendingCurrency.toString(),
+                                    style: const TextStyle(
+                                        fontSize: 10,
+                                        fontFamily:
+                                            "s_asset/font/raleway/raleway_bold.ttf",
+                                        fontWeight: FontWeight.w600,
+                                        color: MyColors.lightblueColor),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            hSizedBox1,
+
+                          Material(
+                            elevation: 30,
+                            shadowColor: MyColors.lightblueColor.withOpacity(0.10),
+                            color: MyColors.lightblueColor4,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+
+                            ),
+                            child: Container(
+                              width: 50,
+                              alignment: Alignment.center,
+                              margin: const EdgeInsets.all(7),
+                              child: Text(
+                                scheduleTransfer.scheduleType.toString(),
+                                style: const TextStyle(
+                                    fontSize: 10,
+                                    fontFamily:
+                                    "s_asset/font/raleway/raleway_medium.ttf",
+                                    fontWeight: FontWeight.w500,
+                                    color: MyColors.blackColor),
+                              ),
+                            ),
+
+                          ),
+
+
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ]),
+        ));
   }
 
   transferbottomsheet(ScheduleData scheduleTransfer){
@@ -466,7 +465,7 @@ automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
         builder: (context) {
           return Container(
-              margin: EdgeInsets.symmetric(horizontal: 6),
+              margin: const EdgeInsets.symmetric(horizontal: 6),
               color: Colors.transparent,
               height: MediaQuery.of(context).size.height * 0.82,
               child: Container(
@@ -542,7 +541,7 @@ automaticallyImplyLeading: false,
     await Webservices.profileRequest(context, userlist);
     print(userlist.length);
 
-    doucument_status = userlist.length > 0 ?userlist[0].documentStatus.toString():"";
+    doucument_status = userlist.isNotEmpty ?userlist[0].documentStatus.toString():"";
     setState(() {
 
     });
@@ -573,11 +572,11 @@ automaticallyImplyLeading: false,
               document_status == "Blank"?
               Container():
               Container(
-                margin: EdgeInsets.only(top: 20),
+                margin: const EdgeInsets.only(top: 20),
                 child: Text(
                   "Verification status : ${document_status}",
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w700,
                       fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
@@ -585,11 +584,11 @@ automaticallyImplyLeading: false,
               ),
 
 
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
               actual_status == "expired"|| actual_status =="Rejected" || actual_status =="declined"?
               Column(children: [
-                Text(
+                const Text(
                   "Please re upload verification.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -599,11 +598,11 @@ automaticallyImplyLeading: false,
                 ),
 
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
                 ElevatedButton(
                   style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                       foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -625,7 +624,7 @@ automaticallyImplyLeading: false,
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(10.0)),
                   // color: MyColors.darkbtncolor,
-                  child: Text(
+                  child: const Text(
                     "If you want to update verification Click Here"
                     ,
                     textAlign: TextAlign.center,
@@ -637,7 +636,7 @@ automaticallyImplyLeading: false,
                   ),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
               ],
               ):Container(),
 
@@ -651,7 +650,7 @@ automaticallyImplyLeading: false,
 
                 ElevatedButton(
                   style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                       foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -673,7 +672,7 @@ automaticallyImplyLeading: false,
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(10.0)),
                   // color: MyColors.darkbtncolor,
-                  child: Text(
+                  child: const Text(
                     "Verify Your Account"
                     ,
                     textAlign: TextAlign.center,
@@ -685,7 +684,7 @@ automaticallyImplyLeading: false,
                   ),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
               ],
               ):Container(),
 
@@ -693,7 +692,7 @@ automaticallyImplyLeading: false,
 
               document_status == "Incomplete"?
               Column(children: [
-                Text(
+                const Text(
                   "Your Verification is incomplete , Please re upload verification.",
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -702,12 +701,12 @@ automaticallyImplyLeading: false,
                       fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
 
 
                 ElevatedButton(
                   style: ButtonStyle(
-                      padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                      padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                       foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
@@ -729,7 +728,7 @@ automaticallyImplyLeading: false,
                   // shape: RoundedRectangleBorder(
                   //     borderRadius: BorderRadius.circular(10.0)),
                   // color: MyColors.darkbtncolor,
-                  child: Text(
+                  child: const Text(
                     "If you want to update verification Click Here"
                     ,
                     textAlign: TextAlign.center,
@@ -741,7 +740,7 @@ automaticallyImplyLeading: false,
                   ),
                 ),
 
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
               ],
               ):Container(),
 
@@ -749,7 +748,7 @@ automaticallyImplyLeading: false,
 
 
               document_status == "pending"?
-              Column(children: [
+              const Column(children: [
                 Text(
                   "We will notify you as soon as you’re approved.",
                   textAlign: TextAlign.center,

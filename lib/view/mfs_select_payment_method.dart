@@ -177,188 +177,216 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
                                   topLeft: Radius.circular(30),
                                   topRight: Radius.circular(30)),
                             ),
-                            child: allowDeliveryMethodTypes==""?Container():Column(
-                              children: [
-                                hSizedBox5,
-
-                                    allowDeliveryMethodTypes.contains("Bank") ?
-                                    
-                                    GestureDetector(
-                                        onTap: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectPaymentMethodScreen(selectedMethodScreen: 0,)));
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>BankDetailsScreen()));
-                                          checkMethod(
-                                            context: context,
-                                            status: "Bank",
-                                          );
-                                        },
-                                        child: Container(
-                                            width: size.width,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(12)),
-                                              border: Border.all(
-                                                  color: MyColors.color_text
-                                                      .withOpacity(0.2),
-                                                  width: 1.0),
-                                            ),
-                                            padding: const EdgeInsets.only(
-                                                left: 0,
-                                                right: 24,
-                                                top: 22,
-                                                bottom: 22),
-                                            margin: const EdgeInsets.symmetric(
-                                                vertical: 10, horizontal: 60),
-                                            child: Container(
-                                              margin: const EdgeInsets.only(
-                                                  left: 40),
-                                              child: Row(
-                                                children: [
-                                                  SvgPicture.asset(
-                                                    "a_assets/icons/bank.svg",
-                                                    height: 36,
-                                                    width: 36,
+                            child: allowDeliveryMethodTypes == ""
+                                ? Container()
+                                : Column(
+                                    children: [
+                                      hSizedBox5,
+                                      allowDeliveryMethodTypes.contains("Bank")
+                                          ? GestureDetector(
+                                              onTap: () {
+                                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectPaymentMethodScreen(selectedMethodScreen: 0,)));
+                                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>BankDetailsScreen()));
+                                                checkMethod(
+                                                  context: context,
+                                                  status: "Bank",
+                                                );
+                                              },
+                                              child: Container(
+                                                  width: size.width,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                12)),
+                                                    border: Border.all(
+                                                        color: MyColors
+                                                            .color_text
+                                                            .withOpacity(0.2),
+                                                        width: 1.0),
                                                   ),
-                                                  const SizedBox(
-                                                    width: 24,
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 0,
+                                                          right: 24,
+                                                          top: 22,
+                                                          bottom: 22),
+                                                  margin: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 10,
+                                                      horizontal: 60),
+                                                  child: Container(
+                                                    margin:
+                                                        const EdgeInsets.only(
+                                                            left: 40),
+                                                    child: Row(
+                                                      children: [
+                                                        SvgPicture.asset(
+                                                          "a_assets/icons/bank.svg",
+                                                          height: 36,
+                                                          width: 36,
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 24,
+                                                        ),
+                                                        const Text(
+                                                          MyString.bank_acount,
+                                                          style: TextStyle(
+                                                              color: MyColors
+                                                                  .color_text,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontFamily:
+                                                                  "s_asset/font/raleway/raleway_medium.ttf"),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )),
+                                            )
+                                          : Container(),
+                                      allowDeliveryMethodTypes
+                                              .contains("Mobile")
+                                          ? GestureDetector(
+                                              onTap: () {
+                                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectServiceProviderScreen()));
+                                                checkMethod(
+                                                    context: context,
+                                                    status: "Mobile");
+                                              },
+                                              child: Container(
+                                                  width: size.width,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                12)),
+                                                    border: Border.all(
+                                                        color: MyColors
+                                                            .color_text
+                                                            .withOpacity(0.2),
+                                                        width: 1.0),
                                                   ),
-                                                  const Text(
-                                                    MyString.bank_acount,
-                                                    style: TextStyle(
-                                                        color:
-                                                            MyColors.color_text,
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontFamily:
-                                                            "s_asset/font/raleway/raleway_medium.ttf"),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 0,
+                                                          right: 24,
+                                                          top: 22,
+                                                          bottom: 22),
+                                                  margin: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 10,
+                                                      horizontal: 60),
+                                                  child: Container(
+                                                    margin:
+                                                        const EdgeInsets.only(
+                                                            left: 40),
+                                                    child: Row(
+                                                      children: [
+                                                        Container(
+                                                            margin:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                              left: 8,
+                                                            ),
+                                                            child: SvgPicture
+                                                                .asset(
+                                                              "s_asset/images/mobilemoney.svg",
+                                                              height: 32,
+                                                              width: 32,
+                                                            )),
+                                                        const SizedBox(
+                                                          width: 24,
+                                                        ),
+                                                        const Text(
+                                                          "Mobile Money",
+                                                          style: TextStyle(
+                                                              color: MyColors
+                                                                  .color_text,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontFamily:
+                                                                  "s_asset/font/raleway/raleway_medium.ttf"),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )),
+                                            )
+                                          : Container(),
+                                      allowDeliveryMethodTypes.contains("Cash")
+                                          ? GestureDetector(
+                                              onTap: () {
+                                                // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectServiceProviderScreen()));
+                                                checkMethod(
+                                                    context: context,
+                                                    status: "Cash");
+                                              },
+                                              child: Container(
+                                                  width: size.width,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        const BorderRadius.all(
+                                                            Radius.circular(
+                                                                12)),
+                                                    border: Border.all(
+                                                        color: MyColors
+                                                            .color_text
+                                                            .withOpacity(0.2),
+                                                        width: 1.0),
                                                   ),
-                                                ],
-                                              ),
-                                            )),
-                                      ):Container(),
-
-                                allowDeliveryMethodTypes.contains("Mobile") ?
-                                GestureDetector(
-                                        onTap: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectServiceProviderScreen()));
-                                          checkMethod(
-                                              context: context,
-                                              status: "Mobile");
-                                        },
-                                        child: Container(
-                                            width: size.width,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(12)),
-                                              border: Border.all(
-                                                  color: MyColors.color_text
-                                                      .withOpacity(0.2),
-                                                  width: 1.0),
-                                            ),
-                                            padding: const EdgeInsets.only(
-                                                left: 0,
-                                                right: 24,
-                                                top: 22,
-                                                bottom: 22),
-                                            margin: const EdgeInsets.symmetric(
-                                                vertical: 10, horizontal: 60),
-                                            child: Container(
-                                              margin: const EdgeInsets.only(
-                                                  left: 40),
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                        left: 8,
-                                                      ),
-                                                      child: SvgPicture.asset(
-                                                        "s_asset/images/mobilemoney.svg",
-                                                        height: 32,
-                                                        width: 32,
-                                                      )),
-                                                  const SizedBox(
-                                                    width: 24,
-                                                  ),
-                                                  const Text(
-                                                    "Mobile Money",
-                                                    style: TextStyle(
-                                                        color:
-                                                            MyColors.color_text,
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontFamily:
-                                                            "s_asset/font/raleway/raleway_medium.ttf"),
-                                                  ),
-                                                ],
-                                              ),
-                                            )),
-                                      ):Container(),
-                                allowDeliveryMethodTypes.contains("Cash") ?
-                                GestureDetector(
-                                        onTap: () {
-                                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectServiceProviderScreen()));
-                                          checkMethod(
-                                              context: context, status: "Cash");
-                                        },
-                                        child: Container(
-                                            width: size.width,
-                                            decoration: BoxDecoration(
-                                              borderRadius:
-                                                  const BorderRadius.all(
-                                                      Radius.circular(12)),
-                                              border: Border.all(
-                                                  color: MyColors.color_text
-                                                      .withOpacity(0.2),
-                                                  width: 1.0),
-                                            ),
-                                            padding: const EdgeInsets.only(
-                                                left: 0,
-                                                right: 24,
-                                                top: 22,
-                                                bottom: 22),
-                                            margin: const EdgeInsets.symmetric(
-                                                vertical: 10, horizontal: 60),
-                                            child: Container(
-                                              margin: const EdgeInsets.only(
-                                                  left: 40),
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                                                      margin:
-                                                          const EdgeInsets.only(
-                                                        left: 8,
-                                                      ),
-                                                      child: SvgPicture.asset(
-                                                        "s_asset/images/cashpickup.svg",
-                                                        height: 32,
-                                                        width: 32,
-                                                      )),
-                                                  const SizedBox(
-                                                    width: 24,
-                                                  ),
-                                                  const Text(
-                                                    MyString.Cash_Pickup,
-                                                    style: TextStyle(
-                                                        color:
-                                                            MyColors.color_text,
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w500,
-                                                        fontFamily:
-                                                            "s_asset/font/raleway/raleway_medium.ttf"),
-                                                  ),
-                                                ],
-                                              ),
-                                            )),
-                                      ):Container()
-                                    ,
-                              ],
-                            ),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 0,
+                                                          right: 24,
+                                                          top: 22,
+                                                          bottom: 22),
+                                                  margin: const EdgeInsets
+                                                          .symmetric(
+                                                      vertical: 10,
+                                                      horizontal: 60),
+                                                  child: Container(
+                                                    margin:
+                                                        const EdgeInsets.only(
+                                                            left: 40),
+                                                    child: Row(
+                                                      children: [
+                                                        Container(
+                                                            margin:
+                                                                const EdgeInsets
+                                                                    .only(
+                                                              left: 8,
+                                                            ),
+                                                            child: SvgPicture
+                                                                .asset(
+                                                              "s_asset/images/cashpickup.svg",
+                                                              height: 32,
+                                                              width: 32,
+                                                            )),
+                                                        const SizedBox(
+                                                          width: 24,
+                                                        ),
+                                                        const Text(
+                                                          MyString.Cash_Pickup,
+                                                          style: TextStyle(
+                                                              color: MyColors
+                                                                  .color_text,
+                                                              fontSize: 14,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontFamily:
+                                                                  "s_asset/font/raleway/raleway_medium.ttf"),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  )),
+                                            )
+                                          : Container(),
+                                    ],
+                                  ),
                           ),
                         )
                       ],
@@ -385,13 +413,10 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
     sharedPreferences.setString("recipientReceiveBankNameOrOperatorName", "");
     sharedPreferences.setString("select_payment_method_status", status);
     bool isMobileMoney = status == 'Mobile';
-    print("partnerpayment method>>>>>>> ${sharedPreferences
-        .getString("partnerPaymentMethod")
-        .toString()}");
+    print(
+        "partnerpayment method>>>>>>> ${sharedPreferences.getString("partnerPaymentMethod").toString()}");
 
     print("selected status   ${status}");
-
-
 
     (widget.recipientdtl ?? false)
         ? Navigator.push(
@@ -438,32 +463,30 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
                       //   isMobileMoney: isMobileMoney,
                       //   isAlreadyRecipient: widget.isAlreadyRecipient,
                       // )
-                  // (sharedPreferences
-                  //                     .getString("partnerPaymentMethod")
-                  //                     .toString() ==
-                  //                 "juba" &&
-                  //             status == "Cash")
-                  //         ? SelectLocationScreen(
-                  //             isAlreadyRecipient: true,
-                  //           )
-                  //         :
-                  NewSelectRecipientHomeDetailScreen(widget.isMfs!)
+                      // (sharedPreferences
+                      //                     .getString("partnerPaymentMethod")
+                      //                     .toString() ==
+                      //                 "juba" &&
+                      //             status == "Cash")
+                      //         ? SelectLocationScreen(
+                      //             isAlreadyRecipient: true,
+                      //           )
+                      //         :
+                      NewSelectRecipientHomeDetailScreen(widget.isMfs!)
                       :
                       // BankAccountNumber():
                       status == "Mobile"
                           ? SelectOperatorScreen()
-                          :
-                      (sharedPreferences
-                          .getString("partnerPaymentMethod")
-                          .toString() ==
-                          "juba" &&
-                          status == "Cash")
-                          ? SelectLocationScreen(
-                      ):
-                      SendMoneyQuotationFromNewRecipient(
-                              isMobileMoney: isMobileMoney,
-                              isCashPick: status == "Cash" ? true : false,
-                            ),
+                          : (sharedPreferences
+                                          .getString("partnerPaymentMethod")
+                                          .toString() ==
+                                      "juba" &&
+                                  status == "Cash")
+                              ? SelectLocationScreen()
+                              : SendMoneyQuotationFromNewRecipient(
+                                  isMobileMoney: isMobileMoney,
+                                  isCashPick: status == "Cash" ? true : false,
+                                ),
                 ),
               );
   }
@@ -487,8 +510,8 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
     // sharedPreferences.setString("receiveAmount","").toString();
     setState(() {});
   }
-  Future<void> countryDetailByIso3Api(
-      BuildContext context) async {
+
+  Future<void> countryDetailByIso3Api(BuildContext context) async {
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
       HttpLogger(logLevel: LogLevel.BODY),
     ]);
@@ -509,12 +532,10 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
     if (response.statusCode == 200) {
       Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
       if (jsonResponse['status'] == true) {
-        allowDeliveryMethodTypes = jsonResponse['data']['allow_delivery_method_types'] ?? '' ;
+        allowDeliveryMethodTypes =
+            jsonResponse['data']['allow_delivery_method_types'] ?? '';
       }
-
-    } else {
-
-    }
+    } else {}
     setState(() {});
   }
 }
@@ -527,8 +548,8 @@ Custombtn(String text, double height, double width, BuildContext context) {
     //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
     child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
-            const BoxShadow(
+          boxShadow: const [
+            BoxShadow(
                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
           ],
           gradient: LinearGradient(

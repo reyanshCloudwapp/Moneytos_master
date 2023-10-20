@@ -95,12 +95,12 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
       child: Scaffold(
         backgroundColor: MyColors.whiteColor,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(5),
+          preferredSize: const Size.fromHeight(5),
           child: AppBar(
             elevation: 0,
             automaticallyImplyLeading: false,
             backgroundColor: MyColors.whiteColor,
-            systemOverlayStyle: SystemUiOverlayStyle(
+            systemOverlayStyle: const SystemUiOverlayStyle(
               // Status bar color
               statusBarColor: MyColors.whiteColor,
               statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -110,7 +110,7 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
           ),
         ),
         body: Padding(
-          padding:  EdgeInsets.symmetric(horizontal: 20.0),
+          padding:  const EdgeInsets.symmetric(horizontal: 20.0),
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -130,7 +130,7 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                       alignment: Alignment.center,
                       child: Text(
                         double.parse(widget.sendAmount).toStringAsFixed(2),
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 20,
                             fontWeight: FontWeight.w800,
@@ -139,9 +139,9 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                     ),
                     wSizedBox,
                     Container(
-                      padding: EdgeInsets.only(bottom: 3),
+                      padding: const EdgeInsets.only(bottom: 3),
                       alignment: Alignment.center,
-                      child: Text(
+                      child: const Text(
                         MyString.usd,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -158,7 +158,7 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
 
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.Send_Successfuly,
                     style: TextStyle(
                         color: MyColors.greenColor2,
@@ -190,19 +190,19 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                     Container(
                       height: 32,
                       width: 32,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: MyColors.primaryColor,
                         shape: BoxShape.circle,
                       ),
                       child: Padding(
-                        padding:  EdgeInsets.all(8.0),
+                        padding:  const EdgeInsets.all(8.0),
                         child: SvgPicture.asset("s_asset/images/tick.svg",height: 16,width: 16,),
                       ),
                     ),
                     Container(
                       height: 1,
                       width: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: MyColors.primaryColor,
                         shape: BoxShape.rectangle,
                       ),
@@ -211,19 +211,19 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                     Container(
                       height: 32,
                       width: 32,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: MyColors.primaryColor,
                         shape: BoxShape.circle,
                       ),
                       child: Padding(
-                        padding:  EdgeInsets.all(8.0),
+                        padding:  const EdgeInsets.all(8.0),
                         child: SvgPicture.asset("s_asset/images/tick.svg",height: 16,width: 16,),
                       ),
                     ),
                     Container(
                       height: 1,
                       width: 100,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: MyColors.color_linecolor,
                         shape: BoxShape.rectangle,
                       ),
@@ -232,7 +232,7 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                     Container(
                       height: 32,
                       width: 32,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: MyColors.color_F3F3F3,
                         shape: BoxShape.circle,
                       ),
@@ -251,20 +251,20 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                       Container(
                         height: 32,
                         width: 100,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: MyColors.color_linecolor,
                             borderRadius: BorderRadius.all(Radius.circular(16))
 
                         ),
                         child: Container(
                           alignment: Alignment.center,
-                            child: Text("On Its Way",textAlign:TextAlign.center,style: TextStyle(fontSize: 10, fontFamily:" s_asset/font/raleway/raleway_bold.ttf",fontWeight:FontWeight.w600,color: MyColors.txtcolor_1F4287 ),)),
+                            child: const Text("On Its Way",textAlign:TextAlign.center,style: TextStyle(fontSize: 10, fontFamily:" s_asset/font/raleway/raleway_bold.ttf",fontWeight:FontWeight.w600,color: MyColors.txtcolor_1F4287 ),)),
                       ),
                       wSizedBox2,
                       Container(
                         height: 32,
                         width: 100,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: MyColors.color_linecolor,
                             borderRadius: BorderRadius.all(Radius.circular(16))
 
@@ -277,7 +277,7 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                       Container(
                         height: 32,
                         width: 100,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: MyColors.color_linecolor,
                             borderRadius: BorderRadius.all(Radius.circular(16))
 
@@ -360,10 +360,10 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                    width: 120,
 
                    // padding: EdgeInsets.symmetric(horizontal: 30,vertical:20 ),
-                    margin: EdgeInsets.symmetric(
+                    margin: const EdgeInsets.symmetric(
                       horizontal: 20,),
                     decoration: BoxDecoration(
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                       ],
@@ -389,7 +389,7 @@ class _SendSuccessfullyTransferScreenState extends State<SendSuccessfullyTransfe
                           wSizedBox1,
                           Container(
                              // alignment: Alignment.center,
-                              child: Text(
+                              child: const Text(
                                 "Receipt",
                                 style: TextStyle(
                                     color: MyColors.color_3F84E5,

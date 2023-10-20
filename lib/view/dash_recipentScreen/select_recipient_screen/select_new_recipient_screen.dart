@@ -284,7 +284,7 @@ class _SelectNewRecipientScreenState extends State<SelectNewRecipientScreen> {
 
                                                         pushNewScreen(
                                                           context,
-                                                          screen: SelectPaymentMethodScreen(
+                                                          screen: const SelectPaymentMethodScreen(
                                                             isAlreadyRecipient: true,
                                                             isMfs: false,
                                                           ),
@@ -352,7 +352,7 @@ class _SelectNewRecipientScreenState extends State<SelectNewRecipientScreen> {
                                                             //
                                                             // )
 
-                                                            SelectPaymentMethodScreen(
+                                                            const SelectPaymentMethodScreen(
                                                               isAlreadyRecipient: true,
                                                             ),
                                                           ),
@@ -409,7 +409,7 @@ class _SelectNewRecipientScreenState extends State<SelectNewRecipientScreen> {
                                                                 //
                                                                 // )
 
-                                                                SelectPaymentMethodScreen(
+                                                                const SelectPaymentMethodScreen(
                                                                   isAlreadyRecipient: true,
                                                                   isMfs: true,
                                                                 ),

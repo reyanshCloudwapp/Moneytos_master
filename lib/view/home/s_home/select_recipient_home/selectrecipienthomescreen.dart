@@ -30,14 +30,14 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
     return Scaffold(
       backgroundColor: MyColors.color_03153B,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(265),
+        preferredSize: const Size.fromHeight(265),
         child: AppBar(
           backgroundColor: MyColors.color_03153B,
           elevation: 0,
           centerTitle: true,
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only(left: 20, top: 65, right: 20),
+            padding: const EdgeInsets.only(left: 20, top: 65, right: 20),
             child: Column(
               children: [
                 /// appbar ui....
@@ -49,8 +49,8 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                       /// Profile image
                       Stack(children: [
                         Container(
-                          margin: EdgeInsets.fromLTRB(0, 16, 0.0, 10.0),
-                          child: CircleAvatar(
+                          margin: const EdgeInsets.fromLTRB(0, 16, 0.0, 10.0),
+                          child: const CircleAvatar(
                             backgroundColor: Colors.white,
                             radius: 40,
                             backgroundImage:
@@ -64,14 +64,14 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                           child: Container(
                             height: 26,
                             width: 26,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 color: MyColors.accent_ED5565_red,
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(10)),
                                 image: DecorationImage(
                                     image: AssetImage(
                                         "s_asset/images/closeimg.png"))),
-                            margin: EdgeInsets.fromLTRB(26, 0, 0.0, 10.0),
+                            margin: const EdgeInsets.fromLTRB(26, 0, 0.0, 10.0),
                           ),
                         ),
                       ]),
@@ -79,17 +79,15 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                       /// recipent name
 
                       hSizedBox1,
-                      Container(
-                          //  margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                          child: Text(
+                      const Text(
                         MyString.recipient_name,
                         style: TextStyle(
-                            color: MyColors.whiteColor,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14,
-                            fontFamily:
-                                "s_asset/font/raleway/raleway_semibold.ttf"),
-                      )),
+                        color: MyColors.whiteColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                        fontFamily:
+                            "s_asset/font/raleway/raleway_semibold.ttf"),
+                      ),
                       hSizedBox,
 
                       Container(
@@ -111,7 +109,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
-                            padding: EdgeInsets.only(top: 0.0, right: 1),
+                            padding: const EdgeInsets.only(top: 0.0, right: 1),
                             child: SvgPicture.asset(
                               "a_assets/icons/au_australia.svg",
                               height: 20,
@@ -120,8 +118,8 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                           ),
                           wSizedBox,
                           Container(
-                              margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                              child: Text(
+                              margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                              child: const Text(
                                 "Sydney, AU",
                                 style: TextStyle(
                                     color: MyColors.whiteColor,
@@ -139,7 +137,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
             ),
           ),
           automaticallyImplyLeading: false,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
             statusBarIconBrightness: Brightness.light,
@@ -157,9 +155,9 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
           ),
           Container(
             height: size.height,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             width: double.infinity,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
                 // borderRadius: BorderRadius.circular(30),
                 borderRadius: BorderRadius.only(
                     topRight: Radius.circular(30.0),
@@ -180,7 +178,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                       // return
                       Container(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                            const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                         child: CustomRecipientOpenedCardList(
                           title: MyString.qnb_ba,
                           icon: "a_assets/icons/edit.svg",
@@ -192,7 +190,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
 
                       Container(
                         padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 10),
+                            const EdgeInsets.symmetric(horizontal: 8, vertical: 10),
                         child: CustomRecipientOpenedCardList(
                           title: "Vodafone",
                           icon: "a_assets/icons/edit.svg",
@@ -218,7 +216,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                         child: Container(
                           alignment: Alignment.center,
                           width: size.width * 0.45,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                               horizontal: 15, vertical: 30),
                           decoration: BoxDecoration(
                               gradient: LinearGradient(colors: [
@@ -235,20 +233,20 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                                   width: 30,
                                   height: 30,
                                   decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [
+                                    gradient: const LinearGradient(colors: [
                                       MyColors.whiteColor,
                                       MyColors.whiteColor
                                     ]),
                                     borderRadius: BorderRadius.circular(5),
                                   ),
-                                  child: Icon(
+                                  child: const Icon(
                                     CupertinoIcons.add,
                                     color: MyColors.lightblueColor,
                                   )),
                               hSizedBox2,
                               Container(
                                   alignment: Alignment.center,
-                                  child: Text(
+                                  child: const Text(
                                     MyString.add_new_method,
                                     style: TextStyle(
                                         color: MyColors.whiteColor,
@@ -274,7 +272,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                     children: [
                       Container(
                           alignment: Alignment.topLeft,
-                          child: Text(
+                          child: const Text(
                             MyString.receive_methods,
                             style: TextStyle(
                                 color: MyColors.color_text_a,
@@ -287,7 +285,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                   ),
 
                   Container(
-                    margin: EdgeInsets.only(top: 12.0),
+                    margin: const EdgeInsets.only(top: 12.0),
                     child: Row(children: [
                       SvgPicture.asset(
                         "a_assets/icons/bank.svg",
@@ -296,7 +294,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                         color: MyColors.blackColor,
                       ),
                       wSizedBox1,
-                      Text(
+                      const Text(
                         MyString.bank_deposite,
                         style: TextStyle(
                             color: MyColors.color_text,
@@ -312,12 +310,12 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
-                        margin: EdgeInsets.only(top: 12.0),
+                        margin: const EdgeInsets.only(top: 12.0),
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 MyString.bank_name,
                                 style: TextStyle(
                                     color: MyColors.color_text_a,
@@ -335,7 +333,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                                     width: 26,
                                   ),
                                   wSizedBox1,
-                                  Text(
+                                  const Text(
                                     "QNB",
                                     style: TextStyle(
                                         color: MyColors.color_text,
@@ -349,8 +347,8 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                             ]),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 0.0),
-                        child: Column(
+                        margin: const EdgeInsets.only(top: 0.0),
+                        child: const Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -379,8 +377,8 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.only(top: 24.0),
-                    child: Column(
+                    margin: const EdgeInsets.only(top: 24.0),
+                    child: const Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -421,7 +419,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                         horizontal: size.width / 4,
                       ),
                       margin:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(colors: [
                             MyColors.lightblueColor.withOpacity(0.90),
@@ -435,7 +433,7 @@ class _SelectRecipientHomeScreenState extends State<SelectRecipientHomeScreen> {
                         children: [
                           Container(
                               alignment: Alignment.center,
-                              child: Text(
+                              child: const Text(
                                 MyString.Next,
                                 style: TextStyle(
                                     color: MyColors.whiteColor,

@@ -58,10 +58,10 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(65),
+        preferredSize: const Size.fromHeight(65),
         child: AppBar(
           backgroundColor: MyColors.light_primarycolor2,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.light_primarycolor2,
             statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -71,13 +71,13 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
           centerTitle: true,
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only( left: 22,top: 30,bottom: 5),
+            padding: const EdgeInsets.only( left: 22,top: 30,bottom: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only( top: 5),
+                  padding: const EdgeInsets.only( top: 5),
                   child: InkWell(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -93,7 +93,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                 // wSizedBox3,
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.notification,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -120,7 +120,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
             color: MyColors.light_primarycolor2,
           ),
           Container(
-            margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
             height: MediaQuery.of(context).size.height,
             width: MediaQuery
                 .of(context)
@@ -130,7 +130,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
               elevation: 0,
               color: MyColors.whiteColor,
               margin: EdgeInsets.zero,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30)),
@@ -188,18 +188,18 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
                     notificationlistResponse.status == true?
                     ListView.builder(
                         shrinkWrap: true,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemCount: notificationlistResponse.data!.notificationData!.length,
                         itemBuilder: (context, int index) {
                           return Container(
-                            padding: EdgeInsets.symmetric(
+                            padding: const EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 15),
                             child: CustomCardList(notificationlistResponse.data!.notificationData![index]),
                           );
                         }):
                     Container(
-                      margin: EdgeInsets.only(top: 50),
-                      child: Text("No Data",style: TextStyle(fontSize: 18),),),
+                      margin: const EdgeInsets.only(top: 50),
+                      child: const Text("No Data",style: TextStyle(fontSize: 18),),),
 
                     hSizedBox5,
                     hSizedBox2,
@@ -246,7 +246,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
     borderRadius: BorderRadius.circular(8),
     ),
     child: Container(
-    padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
     decoration: BoxDecoration(
     borderRadius: BorderRadius.circular(8),
     ),
@@ -269,11 +269,11 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
     child: Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-    Container(
+    SizedBox(
       width: 300,
     child: Text(
       notificationData.title.toString(),
-    style: TextStyle(
+    style: const TextStyle(
     fontSize: 16,
     fontFamily:
     "s_asset/font/raleway/raleway_medium.ttf",
@@ -282,7 +282,7 @@ class _HomeNotificationScreenState extends State<HomeNotificationScreen> {
     ),
     ),
     hSizedBox,
-      Container(
+      SizedBox(
         width: 300,
         child: Text(
           notificationData.description.toString(),

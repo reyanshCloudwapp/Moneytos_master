@@ -27,42 +27,36 @@ import '../constance/customLoader/customLoader.dart';
 import '../s_Api/S_ApiResponse/AccountSettingResponse.dart';
 import '../services/Apiservices.dart';
 
-
-
-class ScheduledSendMoneyQuatationFromNewRecipient extends StatefulWidget{
+class ScheduledSendMoneyQuatationFromNewRecipient extends StatefulWidget {
   @override
-  State<ScheduledSendMoneyQuatationFromNewRecipient> createState() => _ScheduledSendMoneyQuatationFromNewRecipientState();
+  State<ScheduledSendMoneyQuatationFromNewRecipient> createState() =>
+      _ScheduledSendMoneyQuatationFromNewRecipientState();
 }
 
-class _ScheduledSendMoneyQuatationFromNewRecipientState extends State<ScheduledSendMoneyQuatationFromNewRecipient> {
-
+class _ScheduledSendMoneyQuatationFromNewRecipientState
+    extends State<ScheduledSendMoneyQuatationFromNewRecipient> {
   String fixrateAmt = "";
-  String countryName="";
-  String countryFlag="";
-  String auhtToken="";
-  String sendMoney="";
+  String countryName = "";
+  String countryFlag = "";
+  String auhtToken = "";
+  String sendMoney = "";
 
-  String desticountry_isoCode3="";
-  String destcountryCurrency_isoCode3="";
-  String sourceCurrencyIso3Code="USD";
+  String desticountry_isoCode3 = "";
+  String destcountryCurrency_isoCode3 = "";
+  String sourceCurrencyIso3Code = "USD";
 
-  double recieveAmt=0;
-  double exchangeRate=0;
-  double sendAmt=0;
-  double totalCostFee=0;
-  double totalCostFee2=0;
-  String sendAmount="";
-  double recAmountReciever=0;
+  double recieveAmt = 0;
+  double exchangeRate = 0;
+  double sendAmt = 0;
+  double totalCostFee = 0;
+  double totalCostFee2 = 0;
+  String sendAmount = "";
+  double recAmountReciever = 0;
 
-
-
-
-
-  TextEditingController toMoneyController =TextEditingController();
-  TextEditingController fromMoneyController =TextEditingController();
-  SendMoneyQuatationNewRecipResponse sendMoneyQuatationNewRecipResponse = new SendMoneyQuatationNewRecipResponse();
-
-
+  TextEditingController toMoneyController = TextEditingController();
+  TextEditingController fromMoneyController = TextEditingController();
+  SendMoneyQuatationNewRecipResponse sendMoneyQuatationNewRecipResponse =
+      new SendMoneyQuatationNewRecipResponse();
 
   String document_status = "";
   int transfer_fees = 0;
@@ -73,9 +67,9 @@ class _ScheduledSendMoneyQuatationFromNewRecipientState extends State<ScheduledS
   int min_limit = 0;
   int max_limit = 0;
 
-
   final _amountFocus = FocusNode();
   final _toamountFocus = FocusNode();
+
   KeyboardActionsConfig _buildKeyboardActionsConfig(BuildContext context) {
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.ALL,
@@ -99,128 +93,150 @@ class _ScheduledSendMoneyQuatationFromNewRecipientState extends State<ScheduledS
     );
   }
 
-
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
 
-    WidgetsBinding.instance.addPostFrameCallback((_) =>accountSettingApi(context));
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => accountSettingApi(context));
     loadPref();
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   Future<void> loadPref() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    countryName=sharedPreferences.getString("country_Name").toString();
-    countryFlag=sharedPreferences.getString("country_Flag").toString();
-    auhtToken=sharedPreferences.getString("auth_Token").toString();
-    desticountry_isoCode3=sharedPreferences.getString("country_isoCode3").toString();
-    destcountryCurrency_isoCode3=sharedPreferences.getString("country_Currency_isoCode3").toString();
+    countryName = sharedPreferences.getString("country_Name").toString();
+    countryFlag = sharedPreferences.getString("country_Flag").toString();
+    auhtToken = sharedPreferences.getString("auth_Token").toString();
+    desticountry_isoCode3 =
+        sharedPreferences.getString("country_isoCode3").toString();
+    destcountryCurrency_isoCode3 =
+        sharedPreferences.getString("country_Currency_isoCode3").toString();
 
-    print("countryName>>>"+countryName);
-    print("countryFlag>>>"+countryFlag);
+    print("countryName>>>" + countryName);
+    print("countryFlag>>>" + countryFlag);
 
-    print("auhtToken_auhtToken>>>"+auhtToken);
-    print("country_isoCode3>>>"+desticountry_isoCode3);
-    print("countryCurrency_isoCode3>>>"+destcountryCurrency_isoCode3);
-
-
+    print("auhtToken_auhtToken>>>" + auhtToken);
+    print("country_isoCode3>>>" + desticountry_isoCode3);
+    print("countryCurrency_isoCode3>>>" + destcountryCurrency_isoCode3);
 
     //WidgetsBinding.instance.addPostFrameCallback((_) =>sendMoneFromneApi(context));
- //   recieveAmt=sendMoneyQuatationNewRecipResponse.receiveAmount!.value.toString();
+    //   recieveAmt=sendMoneyQuatationNewRecipResponse.receiveAmount!.value.toString();
 
-print("recieveAmt>>>>>>>>"+recieveAmt.toString());
+    print("recieveAmt>>>>>>>>" + recieveAmt.toString());
 
-    feesbuyapi(context,desticountry_isoCode3);
+    feesbuyapi(context, desticountry_isoCode3);
     txnminmaxlimitapi(context, "USD");
 
     defaultDataSet();
-    setState(() {
-
-    });
-
+    setState(() {});
   }
 
-  defaultDataSet(){
+  defaultDataSet() {
     // fromMoneyController.text= "1";
     sendAmt = 1;
     sendAmount = "1";
     var multiply = 1 * 100;
-    setState((){});
+    setState(() {});
     print("multiply....${multiply}");
     sendMoney = multiply.toString();
     print("sendmoney.......£££${sendMoney}");
 
-    WidgetsBinding.instance.addPostFrameCallback((_) =>countryWiseExchangeRateApi(context,sendMoney,destcountryCurrency_isoCode3,desticountry_isoCode3,sourceCurrencyIso3Code));
-
+    WidgetsBinding.instance.addPostFrameCallback((_) =>
+        countryWiseExchangeRateApi(
+            context,
+            sendMoney,
+            destcountryCurrency_isoCode3,
+            desticountry_isoCode3,
+            sourceCurrencyIso3Code));
   }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: MyColors.whiteColor,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(200),
-        child: AppBar(
-          elevation: 0,
-          backgroundColor: MyColors.whiteColor,
-          centerTitle: true,
-          actions: [],
-          systemOverlayStyle: SystemUiOverlayStyle(
-            // Status bar color
-            statusBarColor: MyColors.whiteColor,
-            statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-            statusBarBrightness: Brightness.light, // For iOS (dark icons)
-          ),
-          flexibleSpace: Container(
-            alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 65,left: 26,right: 26),
-            child: Column(
-              children: [
-                Container(
-                  alignment: Alignment.center,
-                  child: Text(MyString.enter_amount,style: TextStyle(color: MyColors.color_text,fontFamily:"s_asset/font/raleway/raleway_semibold.ttf",fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
-                ),
-                hSizedBox4,
-                Container(
-                    width:double.infinity,
-                    height: 50,
-                    // margin:  EdgeInsets.fromLTRB(12.0, 26.0, 0.0, 0.0),
-                    padding: EdgeInsets.fromLTRB(16.0,0, 20.0, 0.0),
-                    decoration: BoxDecoration(
-                      color: MyColors.whiteColor,
-                      //border: Border.all(color: MyColors.color_gray_transparent),
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: MyColors.color_linecolor,
-                          offset: Offset(0.0, 1.0), //(x,y)
-                          blurRadius: 2.0,
-                        ),
-                      ],
+        backgroundColor: MyColors.whiteColor,
+        appBar: PreferredSize(
+          preferredSize: const Size.fromHeight(200),
+          child: AppBar(
+            elevation: 0,
+            backgroundColor: MyColors.whiteColor,
+            centerTitle: true,
+            actions: const [],
+            systemOverlayStyle: const SystemUiOverlayStyle(
+              // Status bar color
+              statusBarColor: MyColors.whiteColor,
+              statusBarIconBrightness: Brightness.dark,
+              // For Android (dark icons)
+              statusBarBrightness: Brightness.light, // For iOS (dark icons)
+            ),
+            flexibleSpace: Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.only(top: 65, left: 26, right: 26),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    child: const Text(
+                      MyString.enter_amount,
+                      style: TextStyle(
+                          color: MyColors.color_text,
+                          fontFamily:
+                              "s_asset/font/raleway/raleway_semibold.ttf",
+                          fontSize: 18,
+                          fontWeight: FontWeight.w600,
+                          letterSpacing: 0.4),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Row(
-                          children: [
-                            //SvgPicture.asset("s_asset/images/flag2.svg",width: 26,height: 26,),
-                            CircledFlag(flag: countryFlag, radius: 13,),
-                            wSizedBox1,
-                            Text(countryName,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_text),),
-                          ],
-                        ),
-                        Container(
-                            width: 50,
-                            child: SvgPicture.asset("a_assets/icons/clear_red.svg")),
-                      ],
-                    )
-                ),
-               //SizedBox2,
-             /*   hSizedBox,
+                  ),
+                  hSizedBox4,
+                  Container(
+                      width: double.infinity,
+                      height: 50,
+                      // margin:  EdgeInsets.fromLTRB(12.0, 26.0, 0.0, 0.0),
+                      padding: const EdgeInsets.fromLTRB(16.0, 0, 20.0, 0.0),
+                      decoration: const BoxDecoration(
+                        color: MyColors.whiteColor,
+                        //border: Border.all(color: MyColors.color_gray_transparent),
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: MyColors.color_linecolor,
+                            offset: Offset(0.0, 1.0), //(x,y)
+                            blurRadius: 2.0,
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              //SvgPicture.asset("s_asset/images/flag2.svg",width: 26,height: 26,),
+                              CircledFlag(
+                                flag: countryFlag,
+                                radius: 13,
+                              ),
+                              wSizedBox1,
+                              Text(
+                                countryName,
+                                style: const TextStyle(
+                                    fontSize: 14,
+                                    fontFamily:
+                                        "s_asset/font/raleway/raleway_medium.ttf",
+                                    fontWeight: FontWeight.w500,
+                                    color: MyColors.color_text),
+                              ),
+                            ],
+                          ),
+                          Container(
+                              width: 50,
+                              child: SvgPicture.asset(
+                                  "a_assets/icons/clear_red.svg")),
+                        ],
+                      )),
+                  //SizedBox2,
+                  /*   hSizedBox,
 
                 Container(
                     height: 50,
@@ -259,470 +275,604 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
                     )
                 ),
 */
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      ),
-      body: KeyboardActions(
-        autoScroll: false,
-        config: _buildKeyboardActionsConfig(context),
-        child: Container(
-              height: size.height,
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
-              width: double.infinity,
+        body: KeyboardActions(
+          autoScroll: false,
+          config: _buildKeyboardActionsConfig(context),
+          child: Container(
+            height: size.height,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            width: double.infinity,
             /*  decoration: BoxDecoration(
                 // borderRadius: BorderRadius.circular(30),
                   borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30),bottomLeft: Radius.circular(5)),
                   color: MyColors.whiteColor),*/
-              child: Container(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      hSizedBox1,
-                      Container(
-                          width:double.infinity,
-                          margin:  EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
-                          padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
-                          decoration: BoxDecoration(
-                            color: MyColors.color_D8E6FA_bac,
-                            border: Border.all(color: MyColors.color_gray_transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                alignment: Alignment.center,
-                                  width:150,
-
-                                  child: TextField(
-                                    controller: fromMoneyController,
-                                   // keyboardType: TextInputType.number,
-                                    textInputAction: TextInputAction.done,
-                                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                                    // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                                    focusNode: _amountFocus,
-
-
-
-                                    onChanged: (String value) async {
-                                      if(value.isEmpty){
-                                        toMoneyController.text = "";
-                                      }else{
-                                        sendAmount= value;
-                                        print("sendAmount>>>"+sendAmount);
-                                        sendAmt = double.parse(sendAmount);
-                                        print("amountEnter"+sendAmt.toString());
-
-
-
-                                        //totalAmountOf=amountEnter*amount;
-                                        //default data set
-
-                                        var multiply = double.parse(fromMoneyController.text) * 100;
-                                        setState((){});
-                                        print("multiply....${multiply}");
-                                        sendMoney = multiply.toString();
-                                        print("sendmoney.......£££${sendMoney}");
-
-                                        // WidgetsBinding.instance.addPostFrameCallback((_) =>countryWiseExchangeRateApi(context,sendMoney,destcountryCurrency_isoCode3,desticountry_isoCode3,sourceCurrencyIso3Code));
-                                        //default dataset
-                                        recieveAmt = double.parse(fixrateAmt)*sendAmt;
-
-                                        recAmountReciever = recieveAmt;
-                                        print("recAmountReciever>>>>>>>" + recAmountReciever.toString());
-
-                                        var amount = double.parse(recAmountReciever.toString());
-
-                                        toMoneyController.text = (amount).toStringAsFixed(2);
-
-                                        print("amount...${toMoneyController.text}");
-
-                                        exchangeRate = double.parse(
-                                            fixrateAmt);
-                                        print("exchangeRate before>>>>" + exchangeRate.toString());
-                                        exchangeRate = double.parse(exchangeRate.toStringAsFixed(2));
-                                        print("exchangeRate>>>>" + exchangeRate.toString());
-
-
-                                        totalCostFee = double.parse(
-                                            fixrateAmt)*sendAmt;
-                                        print("totalCostFee>>>>>>" + totalCostFee.toString());
-                                        // totalCostFee2 = totalCostFee;
-                                        // totalCostFee2 = totalCostFee2 / 100;
-                                        totalCostFee2 = sendAmt+moneytos;
-
-                                        print("totalCostFee2>>>>>>" + totalCostFee2.toString());
-
-                                        SharedPreferences sharedPreferences = await SharedPreferences
-                                            .getInstance();
-                                        sharedPreferences.setString("totalCostFee", totalCostFee2.toString());
-                                        print("totalCostFee2>>>>>>>" + totalCostFee2.toString());
-
-                                        print("dstCurrencyIso3Code"+ destcountryCurrency_isoCode3);
-                                        print("dstCountryIso3Code"+ desticountry_isoCode3);
-                                        print("sourceCurrencyIso3Code"+ sourceCurrencyIso3Code);
-                                        print("sendAmount"+ (sendAmt).toString());
-                                        print("receiveAmount"+ (recAmountReciever).toString());
-                                        sharedPreferences.setString("dstCurrencyIso3Code", destcountryCurrency_isoCode3);
-                                        sharedPreferences.setString("dstCountryIso3Code", desticountry_isoCode3);
-                                        sharedPreferences.setString("sourceCurrencyIso3Code", sourceCurrencyIso3Code);
-                                        sharedPreferences.setString("sendAmount", (sendAmt).toString());
-                                        sharedPreferences.setString("receiveAmount", (recAmountReciever).toString());
-                                        sharedPreferences.setString("exchangerate", exchangeRate.toStringAsFixed(2));
-                                        sharedPreferences.setString("fees", totalCostFee2.toString());
-                                        if(Is_transaction_fees_free == "1"){
-                                          if(sendAmt >= transaction_fees_free_amount_limit){
-                                            send_moneytos = 0;
-                                            sharedPreferences.setString("monyetosfee", "0");
-                                          }else{
-                                            send_moneytos = moneytos;
-                                            sharedPreferences.setString("monyetosfee", moneytos.toString());
-                                          }
-                                        }else{
-                                          send_moneytos = moneytos;
-                                          sharedPreferences.setString("monyetosfee", moneytos.toString());
-                                        }
-
-                                      }
-
-
-                                      setState(() {
-
-                                      });
-
-                                    },
-
-                                    onSubmitted: (_){
-                                      FocusManager.instance.primaryFocus?.unfocus();
-                                    },
-
-
-                                    decoration: InputDecoration(
-                                      border: InputBorder.none,
-                                      // labelText: 'Enter Name',
-                                      hintText: "You send",
-                                      // contentPadding: EdgeInsets.only(bottom: 5),
-                                      hintStyle: TextStyle(fontSize: 25,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
-                                          fontWeight: FontWeight.w800,color: MyColors.color_ffF4287_text.withOpacity(0.20))),
-
-                                    style: TextStyle(fontSize: 25,fontFamily: "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
-                                        fontWeight: FontWeight.w800,color: MyColors.blackColor),),
-                              ),
-                              Row(
-                                children: [
-                                  SvgPicture.asset("s_asset/images/flag1.svg"),
-                                  wSizedBox,
-                                  Text(MyString.usd,style: TextStyle(fontSize: 18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
-                                ],
-                              ),
-                            ],
-                          )
-                      ),
-                      Container(
-                          width:double.infinity,
-                          margin:  EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
-                          padding: EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
-                          decoration: BoxDecoration(
-                            color: MyColors.color_D8E6FA_bac,
-                            border: Border.all(color: MyColors.color_gray_transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-
-                              Container(
-
-                                  width:MediaQuery.of(context).size.width/2,
-                                  child: TextField(
-                                    controller:toMoneyController,
-                                    keyboardType: TextInputType.numberWithOptions(decimal: true),
-                                    focusNode: _toamountFocus,
-                                    maxLines: null,
-                                    onChanged: (String value) async {
-                                      if (value.isEmpty) {
-                                        fromMoneyController.text = "";
-                                      } else {
-
-                                        //default dataset
-                                        // recieveAmt = double.parse(value)/double.parse(fixrateAmt);
-                                        //
-                                        // recAmountReciever = recieveAmt;
-                                        // print("recAmountReciever>>>>>>>" +
-                                        //     recAmountReciever.toString());
-
-                                        var amount =
-                                            double.parse(value)/double.parse(fixrateAmt);
-
-                                        fromMoneyController.text = (amount).toStringAsFixed(2);
-
-                                        print("amount...${toMoneyController.text}");
-
-                                        sendAmount = fromMoneyController.text;
-                                        print("sendAmount>>>" + sendAmount);
-                                        sendAmt = double.parse(sendAmount);
-                                        print("amountEnter" + sendAmt.toString());
-
-                                        recieveAmt = double.parse(value);
-                                        recAmountReciever = recieveAmt;
-                                        print("recAmountReciever>>>>>>>" +
-                                            recAmountReciever.toString());
-                                        //totalAmountOf=amountEnter*amount;
-                                        //default data set
-
-                                        // var multiply =
-                                        //     int.parse(toMoneyController.text) * 100;
-                                        // setState(() {});
-                                        // print("multiply....${multiply}");
-                                        // sendMoney = multiply.toString();
-                                        print("sendmoney.......£££${sendMoney}");
-
-                                        // WidgetsBinding.instance.addPostFrameCallback((_) =>countryWiseExchangeRateApi(context,sendMoney,destcountryCurrency_isoCode3,desticountry_isoCode3,sourceCurrencyIso3Code));
-
-
-                                        exchangeRate = double.parse(fixrateAmt);
-                                        print("exchangeRate before>>>>" +
-                                            exchangeRate.toString());
-                                        exchangeRate =
-                                            double.parse(exchangeRate.toStringAsFixed(2));
-                                        print("exchangeRate>>>>" + exchangeRate.toString());
-
-                                        totalCostFee = double.parse(fixrateAmt) * sendAmt;
-                                        print("totalCostFee>>>>>>" + totalCostFee.toString());
-                                        // totalCostFee2 = totalCostFee;
-                                        // totalCostFee2 = totalCostFee2 / 100;
-                                        totalCostFee2 = sendAmt + moneytos;
-
-                                        print(
-                                            "totalCostFee2>>>>>>" + totalCostFee2.toString());
-
-                                        SharedPreferences sharedPreferences =
-                                        await SharedPreferences.getInstance();
-                                        sharedPreferences.setString(
-                                            "totalCostFee", totalCostFee2.toString());
-                                        print("totalCostFee2>>>>>>>" +
-                                            totalCostFee2.toString());
-
-                                        print("dstCurrencyIso3Code" +
-                                            destcountryCurrency_isoCode3);
-                                        print("dstCountryIso3Code" + desticountry_isoCode3);
-                                        print("sourceCurrencyIso3Code" +
-                                            sourceCurrencyIso3Code);
-                                        print("sendAmount" + (sendAmt).toString());
-                                        print(
-                                            "receiveAmount" + (recAmountReciever).toString());
-                                        sharedPreferences.setString("dstCurrencyIso3Code",
-                                            destcountryCurrency_isoCode3);
-                                        sharedPreferences.setString(
-                                            "dstCountryIso3Code", desticountry_isoCode3);
-                                        sharedPreferences.setString(
-                                            "sourceCurrencyIso3Code", sourceCurrencyIso3Code);
-                                        sharedPreferences.setString(
-                                            "sendAmount", (sendAmt).toString());
-                                        sharedPreferences.setString(
-                                            "receiveAmount", (recAmountReciever).toString());
-                                        sharedPreferences.setString(
-                                            "exchangerate", exchangeRate.toStringAsFixed(2));
-                                        sharedPreferences.setString(
-                                            "fees", totalCostFee2.toString());
-
-                                        if(Is_transaction_fees_free == "1"){
-                                          if(sendAmt >= transaction_fees_free_amount_limit){
-                                            send_moneytos = 0;
-                                            sharedPreferences.setString("monyetosfee", "0");
-                                          }else{
-                                            send_moneytos = moneytos;
-                                            sharedPreferences.setString("monyetosfee", moneytos.toString());
-                                          }
-                                        }else{
-                                          send_moneytos = moneytos;
-                                          sharedPreferences.setString("monyetosfee", moneytos.toString());
-                                        }
-
-                                      }
-
-                                      setState(() {});
-                                    },
-
-                                    onSubmitted: (_) {
-                                      FocusManager.instance.primaryFocus?.unfocus();
-                                    },
-
-                                    decoration: InputDecoration(
-
-                                        border: InputBorder.none,
-                                        // labelText: 'Enter Name',
-                                        //hintText:"Yhesham sqrat gets",
-                                        contentPadding: EdgeInsets.zero,
-                                      hintStyle: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
-                                          fontWeight: FontWeight.w500,color: MyColors.color_ffF4287_text),),
-                                      style: TextStyle(fontSize: 25,fontFamily: "s_asset/font/montserrat/Montserrat-ExtraBold.otf",fontWeight: FontWeight.w800,color: MyColors.blackColor),
-                                  )
-                              ),
-
-                              Row(
-                                children: [
-                                //  SvgPicture.asset("s_asset/images/flag2.svg"),
-                                  CircledFlag(flag: countryFlag, radius: 9,),
-                                  Text(destcountryCurrency_isoCode3,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
-                                /*  wSizedBox,
-                                  SvgPicture.asset("s_asset/images/dropdown.svg",),*/
-                                ],
-                              ),
-                            ],
-                          )
-                      ),
-                      hSizedBox3,
-                      hSizedBox3,
-
-                      Text("Exchange Rate",style: TextStyle(fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_text_a),),
-                      hSizedBox1,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text("01.00",style: TextStyle(color: MyColors.color_text,fontSize:12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w800,),),
-                              Text(" USD",style: TextStyle(color: MyColors.color_text,fontSize:9,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w600, ),)
-                            ],
-                          ),
-                          wSizedBox1,
-                          SvgPicture.asset("s_asset/images/leftrightarrow.svg",height: 10,width: 10,),
-                          wSizedBox1,
-
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(exchangeRate.toStringAsFixed(2)  ,style: TextStyle(color: MyColors.color_text,fontSize:12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w800,),),
-                              SizedBox(width: 2,),
-                              Text(    destcountryCurrency_isoCode3,style: TextStyle(color: MyColors.color_text,fontSize:9,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w600, ),)
-                            ],
-                          ),
-
-
-
-                        ],
-                      ),
-                      hSizedBox3,
-                      Container(
-                        height: 30,
-                        width: 120,
+            child: Container(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    hSizedBox1,
+                    Container(
+                        width: double.infinity,
+                        margin:
+                            const EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
                         decoration: BoxDecoration(
-
                           color: MyColors.color_D8E6FA_bac,
-                          border: Border.all(color: MyColors.color_gray_transparent),
-                          borderRadius: BorderRadius.all(Radius.circular(26.0)),
+                          border: Border.all(
+                              color: MyColors.color_gray_transparent),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10.0)),
                         ),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              alignment: Alignment.center,
+                              width: 150,
+                              child: TextField(
+                                controller: fromMoneyController,
+                                // keyboardType: TextInputType.number,
+                                textInputAction: TextInputAction.done,
+                                keyboardType:
+                                    const TextInputType.numberWithOptions(
+                                        decimal: true),
+                                // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                focusNode: _amountFocus,
+
+                                onChanged: (String value) async {
+                                  if (value.isEmpty) {
+                                    toMoneyController.text = "";
+                                  } else {
+                                    sendAmount = value;
+                                    print("sendAmount>>>" + sendAmount);
+                                    sendAmt = double.parse(sendAmount);
+                                    print("amountEnter" + sendAmt.toString());
+
+                                    //totalAmountOf=amountEnter*amount;
+                                    //default data set
+
+                                    var multiply =
+                                        double.parse(fromMoneyController.text) *
+                                            100;
+                                    setState(() {});
+                                    print("multiply....${multiply}");
+                                    sendMoney = multiply.toString();
+                                    print("sendmoney.......£££${sendMoney}");
+
+                                    // WidgetsBinding.instance.addPostFrameCallback((_) =>countryWiseExchangeRateApi(context,sendMoney,destcountryCurrency_isoCode3,desticountry_isoCode3,sourceCurrencyIso3Code));
+                                    //default dataset
+                                    recieveAmt =
+                                        double.parse(fixrateAmt) * sendAmt;
+
+                                    recAmountReciever = recieveAmt;
+                                    print("recAmountReciever>>>>>>>" +
+                                        recAmountReciever.toString());
+
+                                    var amount = double.parse(
+                                        recAmountReciever.toString());
+
+                                    toMoneyController.text =
+                                        (amount).toStringAsFixed(2);
+
+                                    print("amount...${toMoneyController.text}");
+
+                                    exchangeRate = double.parse(fixrateAmt);
+                                    print("exchangeRate before>>>>" +
+                                        exchangeRate.toString());
+                                    exchangeRate = double.parse(
+                                        exchangeRate.toStringAsFixed(2));
+                                    print("exchangeRate>>>>" +
+                                        exchangeRate.toString());
+
+                                    totalCostFee =
+                                        double.parse(fixrateAmt) * sendAmt;
+                                    print("totalCostFee>>>>>>" +
+                                        totalCostFee.toString());
+                                    // totalCostFee2 = totalCostFee;
+                                    // totalCostFee2 = totalCostFee2 / 100;
+                                    totalCostFee2 = sendAmt + moneytos;
+
+                                    print("totalCostFee2>>>>>>" +
+                                        totalCostFee2.toString());
+
+                                    SharedPreferences sharedPreferences =
+                                        await SharedPreferences.getInstance();
+                                    sharedPreferences.setString("totalCostFee",
+                                        totalCostFee2.toString());
+                                    print("totalCostFee2>>>>>>>" +
+                                        totalCostFee2.toString());
+
+                                    print("dstCurrencyIso3Code" +
+                                        destcountryCurrency_isoCode3);
+                                    print("dstCountryIso3Code" +
+                                        desticountry_isoCode3);
+                                    print("sourceCurrencyIso3Code" +
+                                        sourceCurrencyIso3Code);
+                                    print("sendAmount" + (sendAmt).toString());
+                                    print("receiveAmount" +
+                                        (recAmountReciever).toString());
+                                    sharedPreferences.setString(
+                                        "dstCurrencyIso3Code",
+                                        destcountryCurrency_isoCode3);
+                                    sharedPreferences.setString(
+                                        "dstCountryIso3Code",
+                                        desticountry_isoCode3);
+                                    sharedPreferences.setString(
+                                        "sourceCurrencyIso3Code",
+                                        sourceCurrencyIso3Code);
+                                    sharedPreferences.setString(
+                                        "sendAmount", (sendAmt).toString());
+                                    sharedPreferences.setString("receiveAmount",
+                                        (recAmountReciever).toString());
+                                    sharedPreferences.setString("exchangerate",
+                                        exchangeRate.toStringAsFixed(2));
+                                    sharedPreferences.setString(
+                                        "fees", totalCostFee2.toString());
+                                    if (Is_transaction_fees_free == "1") {
+                                      if (sendAmt >=
+                                          transaction_fees_free_amount_limit) {
+                                        send_moneytos = 0;
+                                        sharedPreferences.setString(
+                                            "monyetosfee", "0");
+                                      } else {
+                                        send_moneytos = moneytos;
+                                        sharedPreferences.setString(
+                                            "monyetosfee", moneytos.toString());
+                                      }
+                                    } else {
+                                      send_moneytos = moneytos;
+                                      sharedPreferences.setString(
+                                          "monyetosfee", moneytos.toString());
+                                    }
+                                  }
+
+                                  setState(() {});
+                                },
+
+                                onSubmitted: (_) {
+                                  FocusManager.instance.primaryFocus?.unfocus();
+                                },
+
+                                decoration: InputDecoration(
+                                    border: InputBorder.none,
+                                    // labelText: 'Enter Name',
+                                    hintText: "You send",
+                                    // contentPadding: EdgeInsets.only(bottom: 5),
+                                    hintStyle: TextStyle(
+                                        fontSize: 25,
+                                        fontFamily:
+                                            "s_asset/font/raleway/raleway_medium.ttf",
+                                        fontWeight: FontWeight.w800,
+                                        color: MyColors.color_ffF4287_text
+                                            .withOpacity(0.20))),
+
+                                style: const TextStyle(
+                                    fontSize: 25,
+                                    fontFamily:
+                                        "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
+                                    fontWeight: FontWeight.w800,
+                                    color: MyColors.blackColor),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                SvgPicture.asset("s_asset/images/flag1.svg"),
+                                wSizedBox,
+                                const Text(
+                                  MyString.usd,
+                                  style: TextStyle(
+                                      fontSize: 18,
+                                      fontFamily:
+                                          "s_asset/font/raleway/raleway_bold.ttf",
+                                      fontWeight: FontWeight.w700,
+                                      color: MyColors.color_text),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )),
+                    Container(
+                        width: double.infinity,
+                        margin:
+                            const EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(16.0, 0.0, 16.0, 0.0),
+                        decoration: BoxDecoration(
+                          color: MyColors.color_D8E6FA_bac,
+                          border: Border.all(
+                              color: MyColors.color_gray_transparent),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(10.0)),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                width: MediaQuery.of(context).size.width / 2,
+                                child: TextField(
+                                  controller: toMoneyController,
+                                  keyboardType:
+                                      const TextInputType.numberWithOptions(
+                                          decimal: true),
+                                  focusNode: _toamountFocus,
+                                  maxLines: null,
+                                  onChanged: (String value) async {
+                                    if (value.isEmpty) {
+                                      fromMoneyController.text = "";
+                                    } else {
+                                      //default dataset
+                                      // recieveAmt = double.parse(value)/double.parse(fixrateAmt);
+                                      //
+                                      // recAmountReciever = recieveAmt;
+                                      // print("recAmountReciever>>>>>>>" +
+                                      //     recAmountReciever.toString());
+
+                                      var amount = double.parse(value) /
+                                          double.parse(fixrateAmt);
+
+                                      fromMoneyController.text =
+                                          (amount).toStringAsFixed(2);
+
+                                      print(
+                                          "amount...${toMoneyController.text}");
+
+                                      sendAmount = fromMoneyController.text;
+                                      print("sendAmount>>>" + sendAmount);
+                                      sendAmt = double.parse(sendAmount);
+                                      print("amountEnter" + sendAmt.toString());
+
+                                      recieveAmt = double.parse(value);
+                                      recAmountReciever = recieveAmt;
+                                      print("recAmountReciever>>>>>>>" +
+                                          recAmountReciever.toString());
+                                      //totalAmountOf=amountEnter*amount;
+                                      //default data set
+
+                                      // var multiply =
+                                      //     int.parse(toMoneyController.text) * 100;
+                                      // setState(() {});
+                                      // print("multiply....${multiply}");
+                                      // sendMoney = multiply.toString();
+                                      print("sendmoney.......£££${sendMoney}");
+
+                                      // WidgetsBinding.instance.addPostFrameCallback((_) =>countryWiseExchangeRateApi(context,sendMoney,destcountryCurrency_isoCode3,desticountry_isoCode3,sourceCurrencyIso3Code));
+
+                                      exchangeRate = double.parse(fixrateAmt);
+                                      print("exchangeRate before>>>>" +
+                                          exchangeRate.toString());
+                                      exchangeRate = double.parse(
+                                          exchangeRate.toStringAsFixed(2));
+                                      print("exchangeRate>>>>" +
+                                          exchangeRate.toString());
+
+                                      totalCostFee =
+                                          double.parse(fixrateAmt) * sendAmt;
+                                      print("totalCostFee>>>>>>" +
+                                          totalCostFee.toString());
+                                      // totalCostFee2 = totalCostFee;
+                                      // totalCostFee2 = totalCostFee2 / 100;
+                                      totalCostFee2 = sendAmt + moneytos;
+
+                                      print("totalCostFee2>>>>>>" +
+                                          totalCostFee2.toString());
+
+                                      SharedPreferences sharedPreferences =
+                                          await SharedPreferences.getInstance();
+                                      sharedPreferences.setString(
+                                          "totalCostFee",
+                                          totalCostFee2.toString());
+                                      print("totalCostFee2>>>>>>>" +
+                                          totalCostFee2.toString());
+
+                                      print("dstCurrencyIso3Code" +
+                                          destcountryCurrency_isoCode3);
+                                      print("dstCountryIso3Code" +
+                                          desticountry_isoCode3);
+                                      print("sourceCurrencyIso3Code" +
+                                          sourceCurrencyIso3Code);
+                                      print(
+                                          "sendAmount" + (sendAmt).toString());
+                                      print("receiveAmount" +
+                                          (recAmountReciever).toString());
+                                      sharedPreferences.setString(
+                                          "dstCurrencyIso3Code",
+                                          destcountryCurrency_isoCode3);
+                                      sharedPreferences.setString(
+                                          "dstCountryIso3Code",
+                                          desticountry_isoCode3);
+                                      sharedPreferences.setString(
+                                          "sourceCurrencyIso3Code",
+                                          sourceCurrencyIso3Code);
+                                      sharedPreferences.setString(
+                                          "sendAmount", (sendAmt).toString());
+                                      sharedPreferences.setString(
+                                          "receiveAmount",
+                                          (recAmountReciever).toString());
+                                      sharedPreferences.setString(
+                                          "exchangerate",
+                                          exchangeRate.toStringAsFixed(2));
+                                      sharedPreferences.setString(
+                                          "fees", totalCostFee2.toString());
+
+                                      if (Is_transaction_fees_free == "1") {
+                                        if (sendAmt >=
+                                            transaction_fees_free_amount_limit) {
+                                          send_moneytos = 0;
+                                          sharedPreferences.setString(
+                                              "monyetosfee", "0");
+                                        } else {
+                                          send_moneytos = moneytos;
+                                          sharedPreferences.setString(
+                                              "monyetosfee",
+                                              moneytos.toString());
+                                        }
+                                      } else {
+                                        send_moneytos = moneytos;
+                                        sharedPreferences.setString(
+                                            "monyetosfee", moneytos.toString());
+                                      }
+                                    }
+
+                                    setState(() {});
+                                  },
+                                  onSubmitted: (_) {
+                                    FocusManager.instance.primaryFocus
+                                        ?.unfocus();
+                                  },
+                                  decoration: const InputDecoration(
+                                    border: InputBorder.none,
+                                    // labelText: 'Enter Name',
+                                    //hintText:"Yhesham sqrat gets",
+                                    contentPadding: EdgeInsets.zero,
+                                    hintStyle: TextStyle(
+                                        fontSize: 14,
+                                        fontFamily:
+                                            "s_asset/font/raleway/raleway_medium.ttf",
+                                        fontWeight: FontWeight.w500,
+                                        color: MyColors.color_ffF4287_text),
+                                  ),
+                                  style: const TextStyle(
+                                      fontSize: 25,
+                                      fontFamily:
+                                          "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
+                                      fontWeight: FontWeight.w800,
+                                      color: MyColors.blackColor),
+                                )),
+                            Row(
+                              children: [
+                                //  SvgPicture.asset("s_asset/images/flag2.svg"),
+                                CircledFlag(
+                                  flag: countryFlag,
+                                  radius: 9,
+                                ),
+                                Text(
+                                  destcountryCurrency_isoCode3,
+                                  style: const TextStyle(
+                                      fontSize: 14,
+                                      fontFamily:
+                                          "s_asset/font/raleway/raleway_bold.ttf",
+                                      fontWeight: FontWeight.w700,
+                                      color: MyColors.color_text),
+                                ),
+                                /*  wSizedBox,
+                                  SvgPicture.asset("s_asset/images/dropdown.svg",),*/
+                              ],
+                            ),
+                          ],
+                        )),
+                    hSizedBox3,
+                    hSizedBox3,
+                    const Text(
+                      "Exchange Rate",
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
+                          fontWeight: FontWeight.w500,
+                          color: MyColors.color_text_a),
+                    ),
+                    hSizedBox1,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Fees   ",style: TextStyle(color: MyColors.color_text_a,fontSize:12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,),),
+                            Text(
+                              "01.00",
+                              style: TextStyle(
+                                color: MyColors.color_text,
+                                fontSize: 12,
+                                fontFamily:
+                                    "s_asset/font/raleway/raleway_medium.ttf",
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            Text(
+                              " USD",
+                              style: TextStyle(
+                                color: MyColors.color_text,
+                                fontSize: 9,
+                                fontFamily:
+                                    "s_asset/font/raleway/raleway_medium.ttf",
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          ],
+                        ),
+                        wSizedBox1,
+                        SvgPicture.asset(
+                          "s_asset/images/leftrightarrow.svg",
+                          height: 10,
+                          width: 10,
+                        ),
+                        wSizedBox1,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              exchangeRate.toStringAsFixed(2),
+                              style: const TextStyle(
+                                color: MyColors.color_text,
+                                fontSize: 12,
+                                fontFamily:
+                                    "s_asset/font/raleway/raleway_semibold.ttf",
+                                fontWeight: FontWeight.w800,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 2,
+                            ),
+                            Text(
+                              destcountryCurrency_isoCode3,
+                              style: const TextStyle(
+                                color: MyColors.color_text,
+                                fontSize: 9,
+                                fontFamily:
+                                    "s_asset/font/raleway/raleway_medium.ttf",
+                                fontWeight: FontWeight.w600,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    hSizedBox3,
+                    Container(
+                      height: 30,
+                      width: 120,
+                      decoration: BoxDecoration(
+                        color: MyColors.color_D8E6FA_bac,
+                        border:
+                            Border.all(color: MyColors.color_gray_transparent),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(26.0)),
+                      ),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Text(
+                            "Fees   ",
+                            style: TextStyle(
+                              color: MyColors.color_text_a,
+                              fontSize: 12,
+                              fontFamily:
+                                  "s_asset/font/raleway/raleway_medium.ttf",
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          Text(
+                            send_moneytos.toString(),
+                            style: const TextStyle(
+                              color: MyColors.color_text,
+                              fontSize: 12,
+                              fontFamily:
+                                  "s_asset/font/raleway/raleway_semibold.ttf",
+                              fontWeight: FontWeight.w800,
+                            ),
+                          ),
+                          const Text(
+                            " USD",
+                            style: TextStyle(
+                              color: MyColors.color_text,
+                              fontSize: 9,
+                              fontFamily:
+                                  "s_asset/font/raleway/raleway_medium.ttf",
+                              fontWeight: FontWeight.w600,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    hSizedBox1,
+                    GestureDetector(
+                      onTap: () {
+                        sendMoney = fromMoneyController.text;
 
-                            Text(send_moneytos.toString(),style: TextStyle(color: MyColors.color_text,fontSize:12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w800,),),
-                            Text(" USD",style: TextStyle(color: MyColors.color_text,fontSize:9,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w600, ),)
+                        if (sendMoney.isEmpty) {
+                          Utility.showFlutterToast("Please Enter Send Amount");
+                        } else {
+                          if (double.parse(sendAmount) < min_limit) {
+                            Utility.showFlutterToast(
+                                "Please enter more than ${min_limit} amount");
+                          } else if (double.parse(sendAmount) > max_limit) {
+                            Utility.showFlutterToast(
+                                "Please enter less than ${max_limit} amount");
+                          } else {
+                            if (document_status == "Approved") {
+                              print("document status Approved>>>>>> ");
+                              transferbottomsheet(context);
+                            } else {
+                              print("document status Blank>>>>>> ");
+                              if (double.parse(sendAmount) <= 200) {
+                                transferbottomsheet(context);
+                              } else {
+                                Utility.showFlutterToast(
+                                    "Please verify your account first to transfer amount more than \$200");
+                              }
+                            }
+                          }
+                        }
+                      },
+                      child: Container(
+                        alignment: Alignment.center,
+                        height: 50,
+                        width: double.infinity,
+                        padding: EdgeInsets.symmetric(
+                          horizontal: size.width / 4,
+                        ),
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 30, vertical: 40),
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(colors: [
+                              MyColors.lightblueColor.withOpacity(0.90),
+                              MyColors.lightblueColor,
+                            ]),
+                            borderRadius: BorderRadius.circular(14),
+                            border: Border.all(
+                                color: MyColors.lightblueColor, width: 1)),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                                alignment: Alignment.center,
+                                child: const Text(
+                                  MyString.Next,
+                                  style: TextStyle(
+                                      color: MyColors.whiteColor,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 18,
+                                      fontFamily:
+                                          "s_asset/font/raleway/raleway_bold.ttf"),
+                                )),
                           ],
                         ),
                       ),
-
-                      hSizedBox1,
-                      GestureDetector(
-                        onTap: (){
-
-                          sendMoney=fromMoneyController.text;
-
-                          if(sendMoney.isEmpty){
-                            Utility.showFlutterToast( "Please Enter Send Amount");
-
-                          }
-                          else{
-                            if(double.parse(sendAmount)<min_limit){
-                              Utility.showFlutterToast( "Please enter more than ${min_limit} amount");
-                            }else if(double.parse(sendAmount)>max_limit){
-                              Utility.showFlutterToast( "Please enter less than ${max_limit} amount");
-                            }else{
-
-                              if(document_status == "Approved"){
-                                print("document status Approved>>>>>> ");
-                                transferbottomsheet(context);
-                              }else {
-                                print("document status Blank>>>>>> ");
-                                if(double.parse(sendAmount)<=200){
-                                  transferbottomsheet(context);
-                                }
-                                else{
-                                  Utility.showFlutterToast( "Please verify your account first to transfer amount more than \$200");
-                                }
-                              }
-                            }
-
-
-                          }
-
-
-                        },
-                        child: Container(
-                          alignment: Alignment.center,
-
-                          height: 50,
-                          width: double.infinity,
-                          padding: EdgeInsets.symmetric(
-                            horizontal: size.width /4,),
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 30,vertical: 40),
-                          decoration: BoxDecoration(
-                              gradient: LinearGradient(colors: [
-                                MyColors.lightblueColor.withOpacity(0.90),
-                                MyColors.lightblueColor,
-                              ]),
-                              borderRadius: BorderRadius.circular(14),
-                              border: Border.all(
-                                  color: MyColors.lightblueColor,
-                                  width: 1)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                  alignment: Alignment.center,
-                                  child: Text(
-                                    MyString.Next,
-                                    style: TextStyle(
-                                        color: MyColors.whiteColor,
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 18,
-                                        fontFamily:
-                                        "s_asset/font/raleway/raleway_bold.ttf"),
-                                  )),
-                            ],
-                          ),
-                        ),
-                      ),
-                      hSizedBox1,
-                      hSizedBox2,
-
-
-
-                    ],
-                  ),
+                    ),
+                    hSizedBox1,
+                    hSizedBox2,
+                  ],
                 ),
               ),
             ),
-      )
-        
-     
-    );
+          ),
+        ));
   }
 
-
-
-
-
-  Future <void> countryWiseExchangeRateApi(BuildContext context,String sendMoney, String destcountryCurrency_isoCode3, String desticountry_isoCode3,String sourceCurrencyIso3Code) async {
+  Future<void> countryWiseExchangeRateApi(
+      BuildContext context,
+      String sendMoney,
+      String destcountryCurrency_isoCode3,
+      String desticountry_isoCode3,
+      String sourceCurrencyIso3Code) async {
     Utility.ProgressloadingDialog(context, true);
     var request = {};
     /*dstCountryIso3Code=MEX
@@ -743,20 +893,19 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
     print("destCountrycodeiso3>>>>>" + desticountry_isoCode3.toString());
     print("sourceCountry>>>>>" + sourceCurrencyIso3Code.toString());
 
-
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
       HttpLogger(logLevel: LogLevel.BODY),
     ]);
 
     //var response = await http.get(Uri.parse(AllApiService.Quote_new_recpi_URL+"dstCountryIso3Code=MEX&dstCurrencyIso3Code=MXN&srcCurrencyIso3Code=USD&transferMethod=BANK_ACCOUNT&quoteBy=SEND_AMOUNT&amount="+sendMoney),
-    var response = await http.get(Uri.parse(
-        Apiservices.countryWiseExchangeRateapi + "?country_iso3=${desticountry_isoCode3}"),
+    var response = await http.get(
+        Uri.parse(Apiservices.countryWiseExchangeRateapi +
+            "?country_iso3=${desticountry_isoCode3}"),
         // body: convert.jsonEncode(request),
         headers: {
           "X-CLIENT": AllApiService.x_client,
           "content-type": "application/json",
           "Authorization": "Bearer " + auhtToken,
-
         });
     print("authToken?>>>>>>" + "Bearer " + auhtToken);
     https: //sandbox-api.readyremit.com/v1/Quote?dstCountryIso3Code=MEX&dstCurrencyIso3Code=MXN&srcCurrencyIso3Code=USD&transferMethod=BANK_ACCOUNT&quoteBy=SEND_AMOUNT&amount=3000
@@ -765,12 +914,12 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
     if (response.statusCode == 200) {
       Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
 
-
       // sendMoneyQuatationNewRecipResponse =
       // await SendMoneyQuatationNewRecipResponse.fromJson(jsonResponse);
 
       fixrateAmt = jsonResponse['data']['fx_rate'].toString();
-      recieveAmt = double.parse(jsonResponse['data']['fx_rate'].toString())*sendAmt;
+      recieveAmt =
+          double.parse(jsonResponse['data']['fx_rate'].toString()) * sendAmt;
 
       recAmountReciever = recieveAmt;
       print("recAmountReciever>>>>>>>" + recAmountReciever.toString());
@@ -781,73 +930,61 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
 
       print("amount...${toMoneyController.text}");
 
-      exchangeRate = double.parse(
-          jsonResponse['data']['fx_rate'].toString());
+      exchangeRate = double.parse(jsonResponse['data']['fx_rate'].toString());
       print("exchangeRate before>>>>" + exchangeRate.toString());
       exchangeRate = double.parse(exchangeRate.toStringAsFixed(2));
       print("exchangeRate>>>>" + exchangeRate.toString());
 
-
-      totalCostFee = double.parse(
-          jsonResponse['data']['fx_rate'].toString())*sendAmt;
+      totalCostFee =
+          double.parse(jsonResponse['data']['fx_rate'].toString()) * sendAmt;
       print("totalCostFee>>>>>>" + totalCostFee.toString());
       // totalCostFee2 = totalCostFee;
       // totalCostFee2 = totalCostFee2 / 100;
-      totalCostFee2 = sendAmt+moneytos;
+      totalCostFee2 = sendAmt + moneytos;
 
       print("totalCostFee2>>>>>>" + totalCostFee2.toString());
 
-      SharedPreferences sharedPreferences = await SharedPreferences
-          .getInstance();
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
       sharedPreferences.setString("totalCostFee", totalCostFee2.toString());
       print("totalCostFee2>>>>>>>" + totalCostFee2.toString());
 
-      print("dstCurrencyIso3Code"+ destcountryCurrency_isoCode3);
-      print("dstCountryIso3Code"+ desticountry_isoCode3);
-      print("sourceCurrencyIso3Code"+ sourceCurrencyIso3Code);
-      print("sendAmount"+ (sendAmt).toString());
-      print("receiveAmount"+ (recAmountReciever).toString());
-      sharedPreferences.setString("dstCurrencyIso3Code", destcountryCurrency_isoCode3);
+      print("dstCurrencyIso3Code" + destcountryCurrency_isoCode3);
+      print("dstCountryIso3Code" + desticountry_isoCode3);
+      print("sourceCurrencyIso3Code" + sourceCurrencyIso3Code);
+      print("sendAmount" + (sendAmt).toString());
+      print("receiveAmount" + (recAmountReciever).toString());
+      sharedPreferences.setString(
+          "dstCurrencyIso3Code", destcountryCurrency_isoCode3);
       sharedPreferences.setString("dstCountryIso3Code", desticountry_isoCode3);
-      sharedPreferences.setString("sourceCurrencyIso3Code", sourceCurrencyIso3Code);
+      sharedPreferences.setString(
+          "sourceCurrencyIso3Code", sourceCurrencyIso3Code);
       sharedPreferences.setString("sendAmount", (sendAmt).toString());
-      sharedPreferences.setString("receiveAmount", (recAmountReciever).toString());
-      sharedPreferences.setString("exchangerate", exchangeRate.toStringAsFixed(2));
+      sharedPreferences.setString(
+          "receiveAmount", (recAmountReciever).toString());
+      sharedPreferences.setString(
+          "exchangerate", exchangeRate.toStringAsFixed(2));
       sharedPreferences.setString("fees", totalCostFee2.toString());
 
       Utility.ProgressloadingDialog(context, false);
-      setState(() {
-
-      });
-    }
-
-
-    else{
+      setState(() {});
+    } else {
       // List<dynamic> errorres = json.decode(response.body);
       // Fluttertoast.showToast(msg: errorres[0]["message"]);
       //Fluttertoast.showToast(msg: "Minimum amount was not met for this transaction.");
 
       Utility.ProgressloadingDialog(context, false);
-      setState(() {
-
-      });
-
+      setState(() {});
     }
-
-
-
   }
 
-
-
-
-  transferbottomsheet(BuildContext context){
+  transferbottomsheet(BuildContext context) {
     return showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30))
-        ),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30), topRight: Radius.circular(30))),
         // anchorPoint: Offset(20.0, 30.0),
         //  backgroundColor: Colors.white,
         builder: (context) {
@@ -858,12 +995,11 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
                   decoration: new BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(30)),
-                  child: CustompinDialog(context))
-          );}
-    );
+                  child: CustompinDialog(context)));
+        });
   }
 
-  CustompinDialog(BuildContext context){
+  CustompinDialog(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
@@ -872,7 +1008,7 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
         child: Wrap(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 50),
+              padding: const EdgeInsets.only(top: 50),
               alignment: Alignment.center,
               child: SvgPicture.asset(
                 "a_assets/logo/confirm_img.svg",
@@ -880,26 +1016,42 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
               ),
             ),
             Container(
-              padding: EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20),
               alignment: Alignment.center,
-              child: Text(MyString.please_confirm,textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),),
+              child: const Text(
+                MyString.please_confirm,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
+              ),
             ),
-
             Container(
-              padding: EdgeInsets.only(top: 20),
+              padding: const EdgeInsets.only(top: 20),
               alignment: Alignment.center,
-              child: Text(MyString.exchange_rate_will_be_calculated_on_the,textAlign: TextAlign.center,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
+              child: const Text(
+                MyString.exchange_rate_will_be_calculated_on_the,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),
+              ),
             ),
-
-
             Container(
-              padding: EdgeInsets.only(top: 40,left: 25,right: 25,bottom: 60),
+              padding: const EdgeInsets.only(
+                  top: 40, left: 25, right: 25, bottom: 60),
               //  alignment: Alignment.center,
               child: GestureDetector(
-                onTap: (){
+                onTap: () {
                   Navigator.pop(context);
                   // Navigator.push(context, MaterialPageRoute(builder: (_) => TransferReasonforSendingScreen2()));
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>ScheduledAddRecipientInfoScreen()));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              ScheduledAddRecipientInfoScreen()));
                   setState(() {});
                 },
                 child: Container(
@@ -912,20 +1064,27 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 30),
+                          padding: const EdgeInsets.symmetric(horizontal: 30),
                           height: 50,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               color: MyColors.lightblueColor
-                            //  border: Border.all(color: bordercolor,width: 1.4)
-                          ),
-                          child: Center(child: Text(MyString.confirm,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
-                    )
-
-                ),
+                              //  border: Border.all(color: bordercolor,width: 1.4)
+                              ),
+                          child: const Center(
+                              child: Text(
+                            MyString.confirm,
+                            style: TextStyle(
+                                fontFamily:
+                                    "s_asset/font/raleway/raleway_bold.ttf",
+                                color: MyColors.whiteColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                                letterSpacing: 0.4),
+                          ))),
+                    )),
               ),
             ),
-
             hSizedBox3
           ],
         ),
@@ -933,8 +1092,9 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
     );
   }
 
-  Future <void> accountSettingApi(BuildContext context,) async {
-
+  Future<void> accountSettingApi(
+    BuildContext context,
+  ) async {
     Utility.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
@@ -944,7 +1104,6 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
     print("request ${request}");
     print("userid ${userid}");
     print("auth ${auth}");
-
 
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
       HttpLogger(logLevel: LogLevel.BODY),
@@ -959,45 +1118,45 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
           "accept": "application/json"
         });
 
-
     Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
       Utility.ProgressloadingDialog(context, false);
-      AccountSettingResponse accountSettingResponse  = await AccountSettingResponse.fromJson(jsonResponse);
-      document_status = accountSettingResponse.data!.userData!.documentStatus.toString();
+      AccountSettingResponse accountSettingResponse =
+          await AccountSettingResponse.fromJson(jsonResponse);
+      document_status =
+          accountSettingResponse.data!.userData!.documentStatus.toString();
       transfer_fees = accountSettingResponse.data!.userData!.freeTransation!;
       // Fluttertoast.showToast(msg: jsonResponse['message']);
 
       // Utility.ProgressloadingDialog(context, false);
-      setState(() {
-
-      });
+      setState(() {});
     } else {
       Utility.ProgressloadingDialog(context, false);
-      Utility.showFlutterToast( jsonResponse['message']);
+      Utility.showFlutterToast(jsonResponse['message']);
       //  Utility.ProgressloadingDialog(context, false);
 
-
-
-      setState(() {
-
-      });
+      setState(() {});
     }
     return;
   }
 
-  Future <void> feesbuyapi(BuildContext context,String country_iso3) async {
-
+  Future<void> feesbuyapi(BuildContext context, String country_iso3) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userid = sharedPreferences.getString("userid");
     var auth = sharedPreferences.getString("auth");
     var request = {};
     request['iso3'] = country_iso3;
-    request['delivery_method_type'] = sharedPreferences.getString("select_payment_method_status").toString();
-    if(sharedPreferences.getString("select_payment_method_status").toString()=="Mobile"){
-      request['mobile_operator_name'] = sharedPreferences.getString("recipientReceiveBankNameOrOperatorName").toString();
+    request['delivery_method_type'] =
+        sharedPreferences.getString("select_payment_method_status").toString();
+    if (sharedPreferences
+            .getString("select_payment_method_status")
+            .toString() ==
+        "Mobile") {
+      request['mobile_operator_name'] = sharedPreferences
+          .getString("recipientReceiveBankNameOrOperatorName")
+          .toString();
     }
 
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
@@ -1012,39 +1171,37 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
           "accept": "application/json",
         });
 
-
     Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
       CustomLoader.ProgressloadingDialog6(context, false);
       // referlistResponse = await ReferlistResponse.fromJson(jsonResponse);
 
-      print("money tos fees>>> "+jsonResponse['data']['monyetosfee'].toString());
-      Is_transaction_fees_free = jsonResponse['data']['Is_transaction_fees_free'].toString();
-      transaction_fees_free_amount_limit = double.parse(jsonResponse['data']['transaction_fees_free_amount_limit'].toString());
+      print("money tos fees>>> " +
+          jsonResponse['data']['monyetosfee'].toString());
+      Is_transaction_fees_free =
+          jsonResponse['data']['Is_transaction_fees_free'].toString();
+      transaction_fees_free_amount_limit = double.parse(jsonResponse['data']
+              ['transaction_fees_free_amount_limit']
+          .toString());
       moneytos = double.parse(jsonResponse['data']['monyetosfee'].toString());
       send_moneytos = moneytos;
       sharedPreferences.setString("monyetosfee", moneytos.toString());
       // sharedPreferences.setString("monyetosfee", moneytos.toString());
-      setState(() {
-
-      });
+      setState(() {});
     } else {
       CustomLoader.ProgressloadingDialog6(context, false);
-      setState(() {
-
-      });
+      setState(() {});
     }
     return;
   }
-  Future <void> txnminmaxlimitapi(BuildContext context,String currency) async {
 
+  Future<void> txnminmaxlimitapi(BuildContext context, String currency) async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userid = sharedPreferences.getString("userid");
     var auth = sharedPreferences.getString("auth");
     var request = {};
     request['currency'] = currency;
-
 
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
       HttpLogger(logLevel: LogLevel.BODY),
@@ -1058,29 +1215,22 @@ print("recieveAmt>>>>>>>>"+recieveAmt.toString());
           "accept": "application/json",
         });
 
-
     Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
       // referlistResponse = await ReferlistResponse.fromJson(jsonResponse);
 
-      print("money tos fees>>> "+jsonResponse['data']['monyetosfee'].toString());
+      print("money tos fees>>> " +
+          jsonResponse['data']['monyetosfee'].toString());
       min_limit = int.parse(jsonResponse['data']['min_limit'].toString());
       max_limit = int.parse(jsonResponse['data']['max_limit'].toString());
-      setState(() {
-
-      });
+      setState(() {});
     } else {
-      setState(() {
-
-      });
+      setState(() {});
     }
     return;
   }
-
 }
-
-
 
 class CircledFlag extends StatelessWidget {
   const CircledFlag({
@@ -1098,7 +1248,7 @@ class CircledFlag extends StatelessWidget {
       clipper: _FlagClipper(radius),
       child: Text(
         flag,
-        style: TextStyle(fontSize:3* radius),
+        style: TextStyle(fontSize: 3 * radius),
       ),
     );
   }

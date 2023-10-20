@@ -21,7 +21,6 @@ import 'package:pretty_http_logger/pretty_http_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:math' as Math;
 
-
 import '../../constance/customLoader/customLoader.dart';
 import '../../constance/customTextfield/uppercase_textfield.dart';
 import '../../model/RecipientFiealdModel.dart';
@@ -32,39 +31,43 @@ import '../dashboardScreen/dashboard.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
-
-class EditRecipientInfoScreen extends StatefulWidget{
+class EditRecipientInfoScreen extends StatefulWidget {
   String recipient_id;
   Recipientlist recipientlist;
-  EditRecipientInfoScreen({Key? key, required this.recipient_id, required this.recipientlist}) : super(key: key);
+
+  EditRecipientInfoScreen(
+      {Key? key, required this.recipient_id, required this.recipientlist})
+      : super(key: key);
+
   @override
-  State<EditRecipientInfoScreen> createState() => _EditRecipientInfoScreenState();
+  State<EditRecipientInfoScreen> createState() =>
+      _EditRecipientInfoScreenState();
 }
 
 class _EditRecipientInfoScreenState extends State<EditRecipientInfoScreen> {
-
   KeyboardActionsConfig _buildKeyboardActionsConfig(BuildContext context) {
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.ALL,
       keyboardBarColor: MyColors.lightBlackColor,
       actions: [
-
         KeyboardActionsItem(
           focusNode: mobileFocusNode,
-
         ),
       ],
     );
   }
 
-  String url = "https://sandbox-api.readyremit.com/v1/recipient-fields?recipientType=PERSON&dstCountryIso3Code=MEX&dstCurrencyIso3Code=MXN&transferMethod=BANK_ACCOUNT";
+  String url =
+      "https://sandbox-api.readyremit.com/v1/recipient-fields?recipientType=PERSON&dstCountryIso3Code=MEX&dstCurrencyIso3Code=MXN&transferMethod=BANK_ACCOUNT";
 
-  String slectedcountrCode="+91";
-  String? selectedCategory ;
-  String? selectedCategory2 ;
+  String slectedcountrCode = "+91";
+  String? selectedCategory;
+
+  String? selectedCategory2;
+
   List<FieldSetsModel> fieldsetlist = [];
   List<RecipientFieldsModel> recipientfieldsetlist = [];
-  List<Options> optionlist =[];
+  List<Options> optionlist = [];
   bool load = false;
 
   List<TextEditingController> _controllers1 = [];
@@ -78,7 +81,6 @@ class _EditRecipientInfoScreenState extends State<EditRecipientInfoScreen> {
   TextEditingController cityController = TextEditingController();
   TextEditingController postcodeController = TextEditingController();
 
-
   FocusNode firstFocusNode = FocusNode();
   FocusNode lastFocusNode = FocusNode();
   FocusNode mobileFocusNode = FocusNode();
@@ -89,7 +91,6 @@ class _EditRecipientInfoScreenState extends State<EditRecipientInfoScreen> {
 
   String img_error = "";
 
-
   XFile? _frontimage;
   String front_images = "";
   String? frontimg = "";
@@ -98,115 +99,127 @@ class _EditRecipientInfoScreenState extends State<EditRecipientInfoScreen> {
   int phone_min_val = 0;
   int phone_max_val = 0;
 
-getPrefences()async{
-  p = await SharedPreferences.getInstance();
+  getPrefences() async {
+    p = await SharedPreferences.getInstance();
 
-  print("currency isosfdgdfhdfhdef>>>> "+widget.recipientlist.countryIso3Code.toString());
-  print("currency iso>>>> "+p!.getString("country_Currency_isoCode3").toString());
-  print("phonecode iso>>>> "+p!.getString("phonecode").toString());
+    print("currency isosfdgdfhdfhdef>>>> " +
+        widget.recipientlist.countryIso3Code.toString());
+    print("currency iso>>>> " +
+        p!.getString("country_Currency_isoCode3").toString());
+    print("phonecode iso>>>> " + p!.getString("phonecode").toString());
 
-  print("currency iso>>>> "+p!.getString("country_Currency_isoCode3").toString());
-  print("phonecode iso>>>> "+p!.getString("phonecode").toString());
-  phone_min_val = int.parse(p!.getString("phonenumber_min_max_validation").toString().split("-")[0]);
-  phone_max_val = int.parse(p!.getString("phonenumber_min_max_validation").toString().split("-")[1]);
+    print("currency iso>>>> " +
+        p!.getString("country_Currency_isoCode3").toString());
+    print("phonecode iso>>>> " + p!.getString("phonecode").toString());
+    phone_min_val = int.parse(p!
+        .getString("phonenumber_min_max_validation")
+        .toString()
+        .split("-")[0]);
+    phone_max_val = int.parse(p!
+        .getString("phonenumber_min_max_validation")
+        .toString()
+        .split("-")[1]);
 
-  firstnameController.text = widget.recipientlist.firstName.toString();
-  lastnameController.text = widget.recipientlist.lastName.toString();
-  mobileNumberController.text = widget.recipientlist.phoneNumber.toString();
-  relationshipController.text = widget.recipientlist.relationship.toString();
-  addressController.text = widget.recipientlist.address.toString();
-  cityController.text = widget.recipientlist.city.toString();
-  postcodeController.text = widget.recipientlist.postcode.toString();
+    firstnameController.text = widget.recipientlist.firstName.toString();
+    lastnameController.text = widget.recipientlist.lastName.toString();
+    mobileNumberController.text = widget.recipientlist.phoneNumber.toString();
+    relationshipController.text = widget.recipientlist.relationship.toString();
+    addressController.text = widget.recipientlist.address.toString();
+    cityController.text = widget.recipientlist.city.toString();
+    postcodeController.text = widget.recipientlist.postcode.toString();
 
-  setState(() {
-
-  });
-
-}
+    setState(() {});
+  }
 
   bool frontimageSelected = false;
 
   final ImagePicker imagePicker = ImagePicker();
 
-
-
-
-  getfieldrecipient() async{
+  getfieldrecipient() async {
     fieldsetlist.clear();
     recipientfieldsetlist.clear();
     optionlist.clear();
     setState(() {
       load = true;
     });
-    await Webservices.RecipientFieldRequest(context, fieldsetlist,recipientfieldsetlist,optionlist);
+    await Webservices.RecipientFieldRequest(
+        context, fieldsetlist, recipientfieldsetlist, optionlist);
 
     setState(() {
       load = false;
     });
 
-    print("recipientfieldsetlist[j].fieldId>> "+recipientfieldsetlist.length.toString());
-    for(int j= 0; j < recipientfieldsetlist.length ; j++){
-     // _controllers[j].text = "hfdudhf";
-      if(recipientfieldsetlist[j].fieldId == "FIRST_NAME"){
-        print("recipientfieldsetlist[j].fieldId>> "+widget.recipientlist.firstName.toString());
-        recipientfieldsetlist[j].value = widget.recipientlist.firstName.toString();
+    print("recipientfieldsetlist[j].fieldId>> " +
+        recipientfieldsetlist.length.toString());
+    for (int j = 0; j < recipientfieldsetlist.length; j++) {
+      // _controllers[j].text = "hfdudhf";
+      if (recipientfieldsetlist[j].fieldId == "FIRST_NAME") {
+        print("recipientfieldsetlist[j].fieldId>> " +
+            widget.recipientlist.firstName.toString());
+        recipientfieldsetlist[j].value =
+            widget.recipientlist.firstName.toString();
         // _controllers[j].text = widget.recipientlist.firstName.toString();
-      }else if(recipientfieldsetlist[j].fieldId == "LAST_NAME"){
-        recipientfieldsetlist[j].value = widget.recipientlist.lastName.toString();
+      } else if (recipientfieldsetlist[j].fieldId == "LAST_NAME") {
+        recipientfieldsetlist[j].value =
+            widget.recipientlist.lastName.toString();
         // _controllers[j].text = widget.recipientlist.lastName.toString();
-      }else if(recipientfieldsetlist[j].fieldId == "PHONE_NUMBER"){
+      } else if (recipientfieldsetlist[j].fieldId == "PHONE_NUMBER") {
         // recipientfieldsetlist[j].value = widget.recipientlist.phoneNumber.toString();
         PhoneNumberModel phonemodel = new PhoneNumberModel();
-        phonemodel.countryIso3Code = widget.recipientlist.countryIso3Code.toString();
-        phonemodel.countryPhoneCode = int.parse("${widget.recipientlist.phonecode}");
+        phonemodel.countryIso3Code =
+            widget.recipientlist.countryIso3Code.toString();
+        phonemodel.countryPhoneCode =
+            int.parse("${widget.recipientlist.phonecode}");
         phonemodel.number = widget.recipientlist.phoneNumber;
-        print("phone number field>>> "+widget.recipientlist.phoneNumber.toString());
+        print("phone number field>>> " +
+            widget.recipientlist.phoneNumber.toString());
         recipientfieldsetlist[j].value = "${json.encode(phonemodel)}";
         print("json..${json.encode(phonemodel)}");
-        mobileNumberController.text = widget.recipientlist.phoneNumber.toString();
-      }else if(recipientfieldsetlist[j].fieldId == "ADDRESS_COUNTRY"){
-        recipientfieldsetlist[j].value = widget.recipientlist.countryName.toString();
+        mobileNumberController.text =
+            widget.recipientlist.phoneNumber.toString();
+      } else if (recipientfieldsetlist[j].fieldId == "ADDRESS_COUNTRY") {
+        recipientfieldsetlist[j].value =
+            widget.recipientlist.countryName.toString();
         // mobileNumberController.text = widget.recipientlist.countryName.toString();
       }
 
-
-
-      print("recipientfieldsetlist[j].value>>>> "+recipientfieldsetlist[j].value.toString());
-      setState((){});
+      print("recipientfieldsetlist[j].value>>>> " +
+          recipientfieldsetlist[j].value.toString());
+      setState(() {});
       // if(fieldsetlist[i].fields![j].value != null){
       //   AddRecipientFieldModel addmodel =  AddRecipientFieldModel(id:fieldsetlist[i][j].fieldId ,type:fieldsetlist[i].fields![j].fieldType,value : fieldsetlist[i].fields![j].value);
 
-      if(recipientfieldsetlist[j].value != null){
-        AddRecipientFieldModel addmodel =  AddRecipientFieldModel(id:recipientfieldsetlist[j].fieldId ,type:recipientfieldsetlist[j].fieldType,value : recipientfieldsetlist[j].value);
+      if (recipientfieldsetlist[j].value != null) {
+        AddRecipientFieldModel addmodel = AddRecipientFieldModel(
+            id: recipientfieldsetlist[j].fieldId,
+            type: recipientfieldsetlist[j].fieldType,
+            value: recipientfieldsetlist[j].value);
 
         addfieldlist.add(addmodel);
-        print(""+addmodel.value.toString());
-        setState((){});
-      }else{
-
-      }
-
+        print("" + addmodel.value.toString());
+        setState(() {});
+      } else {}
     }
   }
+
   List<TextEditingController> _controllers = [];
 
-
-  frontDocumentbottoms(BuildContext context){
+  frontDocumentbottoms(BuildContext context) {
     return showModalBottomSheet(
         context: context,
         builder: (context) {
           return Wrap(children: [
             ListTile(
-              leading: Icon(Icons.camera_alt),
-              title: Text('camera'),
+              leading: const Icon(Icons.camera_alt),
+              title: const Text('camera'),
               onTap: () {
                 Navigator.pop(context);
                 getfrontCameraImage(ImageSource.camera);
               },
             ),
             ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text('gallery'),
+              leading: const Icon(Icons.photo_album),
+              title: const Text('gallery'),
               onTap: () {
                 Navigator.pop(context);
                 getfrontCameraImage(ImageSource.gallery);
@@ -217,40 +230,34 @@ getPrefences()async{
   }
 
   void compressImage(imageSource) async {
-    var image = await imagePicker.getImage(source: imageSource,
-        imageQuality: 10);
+    var image =
+        await imagePicker.getImage(source: imageSource, imageQuality: 10);
     if (image == null) {
       print('+++++++++null');
     } else {
       _frontimage = XFile(image.path);
       front_images = _frontimage!.path;
-      frontimg =  _frontimage!.path;
-      setState(() {
-
-      });
+      frontimg = _frontimage!.path;
+      setState(() {});
 
       print('image path is ${frontimg}');
     }
-
   }
 
   Future getfrontCameraImage(imageSource) async {
-    var image = await imagePicker.getImage(source: imageSource,
-        imageQuality: 5);
+    var image =
+        await imagePicker.getImage(source: imageSource, imageQuality: 5);
     if (mounted) {
       setState(() {
         frontimageSelected = true;
-
 
         if (image == null) {
           print('+++++++++null');
         } else {
           _frontimage = XFile(image.path);
           front_images = _frontimage!.path;
-          frontimg =  _frontimage!.path;
-          setState(() {
-
-          });
+          frontimg = _frontimage!.path;
+          setState(() {});
           print('image path is ${frontimg}');
         }
         //  Navigator.pop(context);
@@ -270,8 +277,9 @@ getPrefences()async{
     cityFocusNode.unfocus();
     zipFocusNode.unfocus();
   }
-  List<AddRecipientFieldModel> addfieldlist =  [];
-  bool field_load =false;
+
+  List<AddRecipientFieldModel> addfieldlist = [];
+  bool field_load = false;
 
   @override
   void initState() {
@@ -280,11 +288,12 @@ getPrefences()async{
     getPrefences();
     getfieldrecipient();
   }
+
 /*  Oncallback(bool load){
     field_load = load;
   }*/
 
-  addRecipientField() async{
+  addRecipientField() async {
     // setState(() {
     //   field_load= true;
     // });
@@ -301,71 +310,103 @@ getPrefences()async{
     String city = cityController.text;
     String postcode = postcodeController.text;
 
-    if(widget.recipientlist.countryIso3Code.toString()=="IND"||widget.recipientlist.countryIso3Code.toString()=="PAK"){
-      if(first_name.isEmpty){
-        Utility.showFlutterToast( "enter first name");
-      }else if(last_name.isEmpty){
-        Utility.showFlutterToast( "enter last name");
-      }else if(phone_number.isEmpty){
-        Utility.showFlutterToast( "enter phone number");
-      }else if(phone_number.length<phone_min_val){
-        Utility.showFlutterToast( "enter valid phone number");
-      }else if(phone_number.length>phone_max_val){
-        Utility.showFlutterToast( "enter valid phone number");
-      }else if(relationship.isEmpty){
-        Utility.showFlutterToast( "enter relationship");
-      }
-      else{
-        editRecipientRequest(context, first_name, last_name, front_images, "${widget.recipientlist.countryIso3Code}",widget.recipient_id,widget.recipientlist.phonecode.toString(),phone_number, relationship,address,city,postcode);
+    if (widget.recipientlist.countryIso3Code.toString() == "IND" ||
+        widget.recipientlist.countryIso3Code.toString() == "PAK") {
+      if (first_name.isEmpty) {
+        Utility.showFlutterToast("enter first name");
+      } else if (last_name.isEmpty) {
+        Utility.showFlutterToast("enter last name");
+      } else if (phone_number.isEmpty) {
+        Utility.showFlutterToast("enter phone number");
+      } else if (phone_number.length < phone_min_val) {
+        Utility.showFlutterToast("enter valid phone number");
+      } else if (phone_number.length > phone_max_val) {
+        Utility.showFlutterToast("enter valid phone number");
+      } else if (relationship.isEmpty) {
+        Utility.showFlutterToast("enter relationship");
+      } else {
+        editRecipientRequest(
+            context,
+            first_name,
+            last_name,
+            front_images,
+            "${widget.recipientlist.countryIso3Code}",
+            widget.recipient_id,
+            widget.recipientlist.phonecode.toString(),
+            phone_number,
+            relationship,
+            address,
+            city,
+            postcode);
         print("json..${json.encode(addfieldlist)}");
       }
-    }else if(widget.recipientlist.countryIso3Code.toString()=="BGD"){
-      if(first_name.isEmpty){
-        Utility.showFlutterToast( "enter first name");
-      }else if(last_name.isEmpty){
-        Utility.showFlutterToast( "enter last name");
-      }else if(phone_number.isEmpty){
-        Utility.showFlutterToast( "enter phone number");
-      }else if(phone_number.length<phone_min_val){
-        Utility.showFlutterToast( "enter valid phone number");
-      }else if(phone_number.length>phone_max_val){
-        Utility.showFlutterToast( "enter valid phone number");
-      }else if(relationship.isEmpty){
-        Utility.showFlutterToast( "enter relationship");
-      }else if(address.isEmpty){
-        Utility.showFlutterToast( "enter address");
-      }
-      else{
-        editRecipientRequest(context, first_name, last_name, front_images, "${widget.recipientlist.countryIso3Code}",widget.recipient_id,widget.recipientlist.phonecode.toString(),phone_number, relationship,address,city,postcode);
+    } else if (widget.recipientlist.countryIso3Code.toString() == "BGD") {
+      if (first_name.isEmpty) {
+        Utility.showFlutterToast("enter first name");
+      } else if (last_name.isEmpty) {
+        Utility.showFlutterToast("enter last name");
+      } else if (phone_number.isEmpty) {
+        Utility.showFlutterToast("enter phone number");
+      } else if (phone_number.length < phone_min_val) {
+        Utility.showFlutterToast("enter valid phone number");
+      } else if (phone_number.length > phone_max_val) {
+        Utility.showFlutterToast("enter valid phone number");
+      } else if (relationship.isEmpty) {
+        Utility.showFlutterToast("enter relationship");
+      } else if (address.isEmpty) {
+        Utility.showFlutterToast("enter address");
+      } else {
+        editRecipientRequest(
+            context,
+            first_name,
+            last_name,
+            front_images,
+            "${widget.recipientlist.countryIso3Code}",
+            widget.recipient_id,
+            widget.recipientlist.phonecode.toString(),
+            phone_number,
+            relationship,
+            address,
+            city,
+            postcode);
         print("json..${json.encode(addfieldlist)}");
       }
-    }else{
-      if(first_name.isEmpty){
-        Utility.showFlutterToast( "enter first name");
-      }else if(last_name.isEmpty){
-        Utility.showFlutterToast( "enter last name");
-      }else if(phone_number.isEmpty){
-        Utility.showFlutterToast( "enter phone number");
-      }else if(phone_number.length<phone_min_val){
-        Utility.showFlutterToast( "enter valid phone number");
-      }else if(phone_number.length>phone_max_val){
-        Utility.showFlutterToast( "enter valid phone number");
-      }else if(relationship.isEmpty){
-        Utility.showFlutterToast( "enter relationship");
-      }else if(address.isEmpty){
-        Utility.showFlutterToast( "enter address");
-      }else if(city.isEmpty){
-        Utility.showFlutterToast( "enter city");
-      }else if(postcode.isEmpty){
-        Utility.showFlutterToast( "enter postcode");
-      }
-
-      else{
-        editRecipientRequest(context, first_name, last_name, front_images, "${widget.recipientlist.countryIso3Code}",widget.recipient_id,widget.recipientlist.phonecode.toString(),phone_number, relationship,address,city,postcode);
+    } else {
+      if (first_name.isEmpty) {
+        Utility.showFlutterToast("enter first name");
+      } else if (last_name.isEmpty) {
+        Utility.showFlutterToast("enter last name");
+      } else if (phone_number.isEmpty) {
+        Utility.showFlutterToast("enter phone number");
+      } else if (phone_number.length < phone_min_val) {
+        Utility.showFlutterToast("enter valid phone number");
+      } else if (phone_number.length > phone_max_val) {
+        Utility.showFlutterToast("enter valid phone number");
+      } else if (relationship.isEmpty) {
+        Utility.showFlutterToast("enter relationship");
+      } else if (address.isEmpty) {
+        Utility.showFlutterToast("enter address");
+      } else if (city.isEmpty) {
+        Utility.showFlutterToast("enter city");
+      } else if (postcode.isEmpty) {
+        Utility.showFlutterToast("enter postcode");
+      } else {
+        editRecipientRequest(
+            context,
+            first_name,
+            last_name,
+            front_images,
+            "${widget.recipientlist.countryIso3Code}",
+            widget.recipient_id,
+            widget.recipientlist.phonecode.toString(),
+            phone_number,
+            relationship,
+            address,
+            city,
+            postcode);
         print("json..${json.encode(addfieldlist)}");
       }
     }
-
 
     setState(() {});
   }
@@ -375,634 +416,694 @@ getPrefences()async{
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: const Size.fromHeight(0),
         child: AppBar(
           elevation: 0,
           backgroundColor: MyColors.whiteColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
-            statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+            statusBarIconBrightness: Brightness.dark,
+            // For Android (dark icons)
             statusBarBrightness: Brightness.light, // For iOS (dark icons)
           ),
         ),
       ),
-
-      bottomNavigationBar:load == true ? Container(height: 0,): field_load == true ? Container(height: 0,): Container(
-        height: 100,
-        padding: EdgeInsets.only(top: 20,left: 20,right: 20,bottom: 30),
-        color: MyColors.whiteColor,
-        child:Container(
-
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: (){
-                  firstFocusNode.unfocus();
-                  lastFocusNode.unfocus();
-                  mobileFocusNode.unfocus();
-                  address1FocusNode.unfocus();
-                  address2FocusNode.unfocus();
-                  cityFocusNode.unfocus();
-                  zipFocusNode.unfocus();
-                  Navigator.pop(context);
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
-                      ],
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        //  stops: [0.0, 1.0],
-                        colors: [
-                          MyColors.lightblueColor.withOpacity(0.10),
-                          MyColors.lightblueColor.withOpacity(0.10),
-                        ],
+      bottomNavigationBar: load == true
+          ? Container(
+              height: 0,
+            )
+          : field_load == true
+              ? Container(
+                  height: 0,
+                )
+              : Container(
+                  height: 100,
+                  padding: const EdgeInsets.only(
+                      top: 20, left: 20, right: 20, bottom: 30),
+                  color: MyColors.whiteColor,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          firstFocusNode.unfocus();
+                          lastFocusNode.unfocus();
+                          mobileFocusNode.unfocus();
+                          address1FocusNode.unfocus();
+                          address2FocusNode.unfocus();
+                          cityFocusNode.unfocus();
+                          zipFocusNode.unfocus();
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                            decoration: BoxDecoration(
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Colors.white,
+                                    offset: Offset(0, 4),
+                                    blurRadius: 5.0)
+                              ],
+                              gradient: LinearGradient(
+                                begin: Alignment.center,
+                                end: Alignment.bottomCenter,
+                                //  stops: [0.0, 1.0],
+                                colors: [
+                                  MyColors.lightblueColor.withOpacity(0.10),
+                                  MyColors.lightblueColor.withOpacity(0.10),
+                                ],
+                              ),
+                              //color: Colors.deepPurple.shade300,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            padding: const EdgeInsets.only(
+                                left: 28, right: 28, bottom: 0, top: 0),
+                            margin: const EdgeInsets.only(
+                                left: 20, right: 20, bottom: 0, top: 0.0),
+                            child: const Center(
+                                child: Text(
+                              MyString.back,
+                              style: TextStyle(
+                                  color: MyColors.lightblueColor,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                  fontFamily:
+                                      "s_asset/font/raleway/raleway_bold.ttf"),
+                            ))),
                       ),
-                      //color: Colors.deepPurple.shade300,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    padding:  EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
-                    margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
-                    child: Center(child: Text(MyString.back,style: TextStyle(color: MyColors.lightblueColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
-                ),
-              ),
-              wSizedBox3,
-           GestureDetector(
-                onTap: (){
-                  firstFocusNode.unfocus();
-                  lastFocusNode.unfocus();
-                  mobileFocusNode.unfocus();
-                  address1FocusNode.unfocus();
-                  address2FocusNode.unfocus();
-                  cityFocusNode.unfocus();
-                  zipFocusNode.unfocus();
-                  setState(() {
+                      wSizedBox3,
+                      GestureDetector(
+                        onTap: () {
+                          firstFocusNode.unfocus();
+                          lastFocusNode.unfocus();
+                          mobileFocusNode.unfocus();
+                          address1FocusNode.unfocus();
+                          address2FocusNode.unfocus();
+                          cityFocusNode.unfocus();
+                          zipFocusNode.unfocus();
+                          setState(() {});
+                          addfieldlist.clear();
+                          // for(int i = 0; i < fieldsetlist.length; i++){
+                          for (int j = 0;
+                              j < recipientfieldsetlist.length;
+                              j++) {
+                            recipientfieldsetlist[j].fieldId ==
+                                    "ADDRESS_COUNTRY"
+                                ? recipientfieldsetlist[j].value =
+                                    "${widget.recipientlist.countryIso3Code}"
+                                : "";
+                            setState(() {});
+                            // if(fieldsetlist[i].fields![j].value != null){
+                            //   AddRecipientFieldModel addmodel =  AddRecipientFieldModel(id:fieldsetlist[i][j].fieldId ,type:fieldsetlist[i].fields![j].fieldType,value : fieldsetlist[i].fields![j].value);
 
-                  });
-                  addfieldlist.clear();
-                 // for(int i = 0; i < fieldsetlist.length; i++){
-                    for(int j= 0; j < recipientfieldsetlist.length ; j++){
-                      recipientfieldsetlist[j].fieldId == "ADDRESS_COUNTRY" ?  recipientfieldsetlist[j].value  =  "${widget.recipientlist.countryIso3Code}" : "";
-                      setState((){});
-                      // if(fieldsetlist[i].fields![j].value != null){
-                      //   AddRecipientFieldModel addmodel =  AddRecipientFieldModel(id:fieldsetlist[i][j].fieldId ,type:fieldsetlist[i].fields![j].fieldType,value : fieldsetlist[i].fields![j].value);
+                            if (recipientfieldsetlist[j].value != null) {
+                              AddRecipientFieldModel addmodel =
+                                  AddRecipientFieldModel(
+                                      id: recipientfieldsetlist[j].fieldId,
+                                      type: recipientfieldsetlist[j].fieldType,
+                                      value: recipientfieldsetlist[j].value);
 
-    if(recipientfieldsetlist[j].value != null){
-      AddRecipientFieldModel addmodel =  AddRecipientFieldModel(id:recipientfieldsetlist[j].fieldId ,type:recipientfieldsetlist[j].fieldType,value : recipientfieldsetlist[j].value);
+                              addfieldlist.add(addmodel);
+                              print("" + addmodel.value.toString());
+                              setState(() {});
+                            } else {}
+                          }
+                          // }
+                          if (frontimg.toString().isEmpty ||
+                              frontimg == "" ||
+                              frontimg == null) {}
 
-    addfieldlist.add(addmodel);
-                        print(""+addmodel.value.toString());
-                        setState((){});
-                      }else{
+                          // if(frontimg.toString().isEmpty || frontimg == "" || frontimg == null){
+                          //  img_error = "Required*";
+                          //  setState((){});
+                          // }
+                          // else{
+                          img_error = "";
+                          addRecipientField();
+                          print("json..${json.encode(addfieldlist)}");
+                          // addRecipientField();
+                          /* for(int k= 0; k < addfieldlist.length ; k++){
+                    print("value2...${addfieldlist[k].value.toString()}");
+                    if(addfieldlist[k].value != null || addfieldlist[k].value.toString().isNotEmpty || addfieldlist[k].value != ""){
+                      print("value...${addfieldlist[k].value.toString()}");
+                      addRecipientField();
+                      Utility.showFlutterToast( "Error");
 
-                      }
-
-                    }
-                 // }
-                  if(frontimg.toString().isEmpty || frontimg == "" || frontimg == null){
-
-                  }
-
-                  // if(frontimg.toString().isEmpty || frontimg == "" || frontimg == null){
-                  //  img_error = "Required*";
-                  //  setState((){});
-                  // }
-                  // else{
-                    img_error ="";
-                    addRecipientField();
-                    print("json..${json.encode(addfieldlist)}");
-                    // addRecipientField();
-                   /* for(int k= 0; k < addfieldlist.length ; k++){
-                      print("value2...${addfieldlist[k].value.toString()}");
-                      if(addfieldlist[k].value != null || addfieldlist[k].value.toString().isNotEmpty || addfieldlist[k].value != ""){
-                        print("value...${addfieldlist[k].value.toString()}");
-                        addRecipientField();
-                        Utility.showFlutterToast( "Error");
-
-                      }else{
-                        print("error...${addfieldlist[k].value.toString()}");
-                        Fluttertoast.showToast(msg: addfieldlist[k].value.toString());
-                      }*/
-                  // }
-                  // }
-                  // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectDeliveryMethodScreen()));
-
-                },
-                child: Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
-                      ],
-                      gradient: LinearGradient(
-                        begin: Alignment.center,
-                        end: Alignment.bottomCenter,
-                        //  stops: [0.0, 1.0],
-                        colors: [
-                          MyColors.lightblueColor,
-                          MyColors.lightblueColor,
-                        ],
+                    }else{
+                      print("error...${addfieldlist[k].value.toString()}");
+                      Fluttertoast.showToast(msg: addfieldlist[k].value.toString());
+                    }*/
+                          // }
+                          // }
+                          // Navigator.push(context, MaterialPageRoute(builder: (context)=>SelectDeliveryMethodScreen()));
+                        },
+                        child: Container(
+                            decoration: BoxDecoration(
+                              boxShadow: const [
+                                BoxShadow(
+                                    color: Colors.white,
+                                    offset: Offset(0, 4),
+                                    blurRadius: 5.0)
+                              ],
+                              gradient: const LinearGradient(
+                                begin: Alignment.center,
+                                end: Alignment.bottomCenter,
+                                //  stops: [0.0, 1.0],
+                                colors: [
+                                  MyColors.lightblueColor,
+                                  MyColors.lightblueColor,
+                                ],
+                              ),
+                              //color: Colors.deepPurple.shade300,
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                            padding: const EdgeInsets.only(
+                                left: 28, right: 28, bottom: 0, top: 0),
+                            margin: const EdgeInsets.only(
+                                left: 20, right: 20, bottom: 0, top: 0.0),
+                            child: const Center(
+                                child: Text(
+                              MyString.Add,
+                              style: TextStyle(
+                                  color: MyColors.whiteColor,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                  fontFamily:
+                                      "s_asset/font/raleway/raleway_bold.ttf"),
+                            ))),
                       ),
-                      //color: Colors.deepPurple.shade300,
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    padding:  EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
-                    margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
-                    child: Center(child: Text(MyString.Add,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ),
-      ),
-
-      body:  KeyboardActions(
+      body: KeyboardActions(
         autoScroll: false,
         config: _buildKeyboardActionsConfig(context),
         child: Stack(
           children: [
             SingleChildScrollView(
-                child:  Column(
+                child: Column(
+              children: [
+                hSizedBox4,
+                Container(
+                    margin: const EdgeInsets.only(
+                      top: 0.0,
+                      bottom: 30,
+                    ),
+                    alignment: Alignment.center,
+                    child: const Text(
+                      MyString.Add_Recipient_Info,
+                      style: TextStyle(
+                          color: MyColors.color_text,
+                          fontSize: 18,
+                          fontFamily:
+                              "s_asset/font/raleway/raleway_semibold.ttf",
+                          fontWeight: FontWeight.w600),
+                    )),
+                hSizedBox,
+                Column(
                   children: [
-
-                    hSizedBox4,
-
-                    Container(
-                        margin: EdgeInsets.only(top: 0.0,bottom: 30,),
-                        alignment: Alignment.center,
-                        child: Text(MyString.Add_Recipient_Info,style: TextStyle(color: MyColors.color_text,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600 ),)),
-                    hSizedBox,
-
-                    Column(
-                      children: [
-                        GestureDetector(
-                          onTap:(){
-                            frontDocumentbottoms(context);
-
-                          },
-                          child: Container(
-                              height: 100,
-
-                              width: 100,
-                              margin: EdgeInsets.only(top: 0.0),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                      image: AssetImage("s_asset/images/circleprof.png",)
-                                  )
-                              ),
-                              child:
-                              _frontimage != null ? Container(
-                                  height: 80,width: 80,
+                    GestureDetector(
+                      onTap: () {
+                        frontDocumentbottoms(context);
+                      },
+                      child: Container(
+                          height: 100,
+                          width: 100,
+                          margin: const EdgeInsets.only(top: 0.0),
+                          alignment: Alignment.center,
+                          decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(
+                            "s_asset/images/circleprof.png",
+                          ))),
+                          child: _frontimage != null
+                              ? Container(
+                                  height: 80,
+                                  width: 80,
                                   child: ClipRRect(
                                       borderRadius: BorderRadius.circular(200),
-                                      child: Image.file(File(frontimg.toString()),fit: BoxFit.cover,)))
-                                  :
-                              SvgPicture.asset("s_asset/images/camera.svg")),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(top: 0.0,bottom: 30),
-                          alignment: Alignment.center,
-                          child: Text(img_error,style: TextStyle(color: MyColors.red,fontSize: 11),),
-                        ),
-                      ],
+                                      child: Image.file(
+                                        File(frontimg.toString()),
+                                        fit: BoxFit.cover,
+                                      )))
+                              : SvgPicture.asset("s_asset/images/camera.svg")),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 0.0, bottom: 30),
+                      alignment: Alignment.center,
+                      child: Text(
+                        img_error,
+                        style:
+                            const TextStyle(color: MyColors.red, fontSize: 11),
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                  decoration: BoxDecoration(
+                    color: MyColors.color_93B9EE.withOpacity(0.1),
+                    border: Border.all(color: MyColors.color_gray_transparent),
+                    borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                  ),
+                  child: TextFormField(
+                    controller: firstnameController,
+                    inputFormatters: [
+                      UpperCaseTextFormatter(),
+                    ],
+                    textInputAction: TextInputAction.done,
+                    style: const TextStyle(
+                        color: MyColors.blackColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "a_assets/font/poppins_regular.ttf"),
+                    decoration: InputDecoration(
+                      hintText: 'First name',
+                      hintStyle: TextStyle(
+                          color: MyColors.color_text.withOpacity(0.4),
+                          fontSize: 12,
+                          fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
+                          fontWeight: FontWeight.w500),
+
+                      border: InputBorder.none,
+
+                      // fillColor: MyColors.color_gray_transparent,
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                     ),
 
+                    keyboardType: TextInputType.text,
+
+                    maxLines: 1,
+
+                    // Only numbers can be entered
+                  ),
+                ),
+                hSizedBox3,
+                Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                  decoration: BoxDecoration(
+                    color: MyColors.color_93B9EE.withOpacity(0.1),
+                    border: Border.all(color: MyColors.color_gray_transparent),
+                    borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                  ),
+                  child: TextFormField(
+                    controller: lastnameController,
+                    inputFormatters: [
+                      UpperCaseTextFormatter(),
+                    ],
+                    textInputAction: TextInputAction.done,
+                    style: const TextStyle(
+                        color: MyColors.blackColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "a_assets/font/poppins_regular.ttf"),
+                    decoration: InputDecoration(
+                      hintText: 'Last name',
+                      hintStyle: TextStyle(
+                          color: MyColors.color_text.withOpacity(0.4),
+                          fontSize: 12,
+                          fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
+                          fontWeight: FontWeight.w500),
+
+                      border: InputBorder.none,
+
+                      // fillColor: MyColors.color_gray_transparent,
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                    ),
+
+                    keyboardType: TextInputType.text,
+
+                    maxLines: 1,
+
+                    // Only numbers can be entered
+                  ),
+                ),
+                hSizedBox3,
+                Row(
+                  children: [
                     Container(
-                      width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                      width: 60,
+                      margin: const EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 0.0),
                       decoration: BoxDecoration(
                         color: MyColors.color_93B9EE.withOpacity(0.1),
-                        border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        border:
+                            Border.all(color: MyColors.color_gray_transparent),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(12.0)),
                       ),
                       child: TextFormField(
-                        controller: firstnameController,
-                        inputFormatters: [
-                          UpperCaseTextFormatter(),
-                        ],
+                        enabled: false,
+                        controller: TextEditingController(
+                            text: p!.getString("phonecode").toString()),
                         textInputAction: TextInputAction.done,
-                        style: TextStyle(
-
-                            color:MyColors.blackColor,
+                        style: const TextStyle(
+                            color: MyColors.blackColor,
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            fontFamily: "a_assets/font/poppins_regular.ttf"
-
-
-                        ),
+                            fontFamily: "a_assets/font/poppins_regular.ttf"),
                         decoration: InputDecoration(
-                          hintText: 'First name',
-                          hintStyle: TextStyle(color: MyColors.color_text.withOpacity(0.4),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500 ),
-
+                          hintText: '',
+                          hintStyle: TextStyle(
+                              color: MyColors.color_text.withOpacity(0.4),
+                              fontSize: 12,
+                              fontFamily:
+                                  "s_asset/font/raleway/raleway_medium.ttf",
+                              fontWeight: FontWeight.w500),
+                          counterText: '',
                           border: InputBorder.none,
 
-
                           // fillColor: MyColors.color_gray_transparent,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-
-
+                          contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 12),
                         ),
 
-                        keyboardType: TextInputType.text,
+                        keyboardType: TextInputType.number,
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
 
                         maxLines: 1,
 
                         // Only numbers can be entered
                       ),
                     ),
-
-                    hSizedBox3,
-                    Container(
-                      width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                      decoration: BoxDecoration(
-                        color: MyColors.color_93B9EE.withOpacity(0.1),
-                        border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                      ),
-                      child: TextFormField(
-                        controller: lastnameController,
-                        inputFormatters: [
-                          UpperCaseTextFormatter(),
-                        ],
-                        textInputAction: TextInputAction.done,
-                        style: TextStyle(
-
-                            color:MyColors.blackColor,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: "a_assets/font/poppins_regular.ttf"
-
-
+                    Expanded(
+                      child: Container(
+                        width: double.infinity,
+                        margin: const EdgeInsets.fromLTRB(5.0, 0.0, 20.0, 0.0),
+                        decoration: BoxDecoration(
+                          color: MyColors.color_93B9EE.withOpacity(0.1),
+                          border: Border.all(
+                              color: MyColors.color_gray_transparent),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(12.0)),
                         ),
-                        decoration: InputDecoration(
-                          hintText: 'Last name',
-                          hintStyle: TextStyle(color: MyColors.color_text.withOpacity(0.4),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500 ),
-
-                          border: InputBorder.none,
-
-
-                          // fillColor: MyColors.color_gray_transparent,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-
-
-                        ),
-
-                        keyboardType: TextInputType.text,
-
-                        maxLines: 1,
-
-                        // Only numbers can be entered
-                      ),
-                    ),
-
-                    hSizedBox3,
-                    Row(
-                      children: [
-                        Container(
-                          width:60,
-                          margin:  EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 0.0),
-                          decoration: BoxDecoration(
-                            color: MyColors.color_93B9EE.withOpacity(0.1),
-                            border: Border.all(color: MyColors.color_gray_transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                          ),
-                          child: TextFormField(
-                            enabled: false,
-                            controller: TextEditingController(text: p!.getString("phonecode").toString()),
-                            textInputAction: TextInputAction.done,
-                            style: TextStyle(
-
-                                color:MyColors.blackColor,
+                        child: TextFormField(
+                          controller: mobileNumberController,
+                          textInputAction: TextInputAction.done,
+                          maxLength: phone_max_val,
+                          focusNode: mobileFocusNode,
+                          style: const TextStyle(
+                              color: MyColors.blackColor,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              fontFamily: "a_assets/font/poppins_regular.ttf"),
+                          decoration: InputDecoration(
+                            hintText: 'Phone number',
+                            hintStyle: TextStyle(
+                                color: MyColors.color_text.withOpacity(0.4),
                                 fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: "a_assets/font/poppins_regular.ttf"
+                                fontFamily:
+                                    "s_asset/font/raleway/raleway_medium.ttf",
+                                fontWeight: FontWeight.w500),
+                            counterText: '',
+                            border: InputBorder.none,
 
-
-                            ),
-                            decoration: InputDecoration(
-                              hintText: '',
-                              hintStyle: TextStyle(color: MyColors.color_text.withOpacity(0.4),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500 ),
-                              counterText: '',
-                              border: InputBorder.none,
-
-
-                              // fillColor: MyColors.color_gray_transparent,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-
-
-                            ),
-
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-
-                            maxLines: 1,
-
-                            // Only numbers can be entered
+                            // fillColor: MyColors.color_gray_transparent,
+                            contentPadding: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 12),
                           ),
+
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+
+                          maxLines: 1,
+
+                          // Only numbers can be entered
                         ),
-                        Expanded(
-                          child: Container(
-                            width:double.infinity,
-                            margin:  EdgeInsets.fromLTRB(5.0, 0.0, 20.0, 0.0),
+                      ),
+                    ),
+                  ],
+                ),
+                hSizedBox3,
+                Container(
+                  width: double.infinity,
+                  margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                  decoration: BoxDecoration(
+                    color: MyColors.color_93B9EE.withOpacity(0.1),
+                    border: Border.all(color: MyColors.color_gray_transparent),
+                    borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+                  ),
+                  child: TextFormField(
+                    controller: relationshipController,
+                    inputFormatters: [
+                      UpperCaseTextFormatter(),
+                    ],
+                    textInputAction: TextInputAction.done,
+                    style: const TextStyle(
+                        color: MyColors.blackColor,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w400,
+                        fontFamily: "a_assets/font/poppins_regular.ttf"),
+                    decoration: InputDecoration(
+                      hintText: 'Relationship',
+                      hintStyle: TextStyle(
+                          color: MyColors.color_text.withOpacity(0.4),
+                          fontSize: 12,
+                          fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
+                          fontWeight: FontWeight.w500),
+
+                      border: InputBorder.none,
+
+                      // fillColor: MyColors.color_gray_transparent,
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
+                    ),
+
+                    keyboardType: TextInputType.text,
+
+                    maxLines: 1,
+
+                    // Only numbers can be entered
+                  ),
+                ),
+                widget.recipientlist.countryIso3Code.toString() == "IND" ||
+                        widget.recipientlist.countryIso3Code.toString() == "PAK"
+                    ? Container()
+                    : Column(
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            margin: const EdgeInsets.fromLTRB(
+                                20.0, 30.0, 20.0, 0.0),
                             decoration: BoxDecoration(
                               color: MyColors.color_93B9EE.withOpacity(0.1),
-                              border: Border.all(color: MyColors.color_gray_transparent),
-                              borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                              border: Border.all(
+                                  color: MyColors.color_gray_transparent),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(12.0)),
                             ),
                             child: TextFormField(
-                              controller: mobileNumberController,
+                              controller: addressController,
+                              inputFormatters: [
+                                UpperCaseTextFormatter(),
+                              ],
                               textInputAction: TextInputAction.done,
-                              maxLength: phone_max_val,
-                              focusNode: mobileFocusNode,
-                              style: TextStyle(
-
-                                  color:MyColors.blackColor,
+                              style: const TextStyle(
+                                  color: MyColors.blackColor,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
-                                  fontFamily: "a_assets/font/poppins_regular.ttf"
-
-
-                              ),
+                                  fontFamily:
+                                      "a_assets/font/poppins_regular.ttf"),
                               decoration: InputDecoration(
-                                hintText: 'Phone number',
-                                hintStyle: TextStyle(color: MyColors.color_text.withOpacity(0.4),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500 ),
-                                counterText: '',
+                                hintText: 'Address',
+                                hintStyle: TextStyle(
+                                    color: MyColors.color_text.withOpacity(0.4),
+                                    fontSize: 12,
+                                    fontFamily:
+                                        "s_asset/font/raleway/raleway_medium.ttf",
+                                    fontWeight: FontWeight.w500),
+
                                 border: InputBorder.none,
 
-
                                 // fillColor: MyColors.color_gray_transparent,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-
-
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 12),
                               ),
 
-                              keyboardType: TextInputType.number,
-                              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                              keyboardType: TextInputType.text,
 
                               maxLines: 1,
 
                               // Only numbers can be entered
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                          widget.recipientlist.countryIso3Code.toString() ==
+                                  "BGD"
+                              ? Container()
+                              : Column(
+                                  children: [
+                                    hSizedBox3,
+                                    Container(
+                                      width: double.infinity,
+                                      margin: const EdgeInsets.fromLTRB(
+                                          20.0, 0.0, 20.0, 0.0),
+                                      decoration: BoxDecoration(
+                                        color: MyColors.color_93B9EE
+                                            .withOpacity(0.1),
+                                        border: Border.all(
+                                            color: MyColors
+                                                .color_gray_transparent),
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(12.0)),
+                                      ),
+                                      child: TextFormField(
+                                        controller: cityController,
+                                        inputFormatters: [
+                                          UpperCaseTextFormatter(),
+                                        ],
+                                        textInputAction: TextInputAction.done,
+                                        style: const TextStyle(
+                                            color: MyColors.blackColor,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            fontFamily:
+                                                "a_assets/font/poppins_regular.ttf"),
+                                        decoration: InputDecoration(
+                                          hintText: 'City',
+                                          hintStyle: TextStyle(
+                                              color: MyColors.color_text
+                                                  .withOpacity(0.4),
+                                              fontSize: 12,
+                                              fontFamily:
+                                                  "s_asset/font/raleway/raleway_medium.ttf",
+                                              fontWeight: FontWeight.w500),
 
-                    hSizedBox3,
-                    Container(
-                      width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                      decoration: BoxDecoration(
-                        color: MyColors.color_93B9EE.withOpacity(0.1),
-                        border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                      ),
-                      child: TextFormField(
-                        controller: relationshipController,
-                        inputFormatters: [
-                          UpperCaseTextFormatter(),
+                                          border: InputBorder.none,
+
+                                          // fillColor: MyColors.color_gray_transparent,
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 16, vertical: 12),
+                                        ),
+
+                                        keyboardType: TextInputType.text,
+
+                                        maxLines: 1,
+
+                                        // Only numbers can be entered
+                                      ),
+                                    ),
+                                    hSizedBox3,
+                                    Container(
+                                      width: double.infinity,
+                                      margin: const EdgeInsets.fromLTRB(
+                                          20.0, 0.0, 20.0, 0.0),
+                                      decoration: BoxDecoration(
+                                        color: MyColors.color_93B9EE
+                                            .withOpacity(0.1),
+                                        border: Border.all(
+                                            color: MyColors
+                                                .color_gray_transparent),
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(12.0)),
+                                      ),
+                                      child: TextFormField(
+                                        controller: postcodeController,
+                                        textInputAction: TextInputAction.done,
+                                        style: const TextStyle(
+                                            color: MyColors.blackColor,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            fontFamily:
+                                                "a_assets/font/poppins_regular.ttf"),
+                                        decoration: InputDecoration(
+                                          hintText: 'Postalcode',
+                                          hintStyle: TextStyle(
+                                              color: MyColors.color_text
+                                                  .withOpacity(0.4),
+                                              fontSize: 12,
+                                              fontFamily:
+                                                  "s_asset/font/raleway/raleway_medium.ttf",
+                                              fontWeight: FontWeight.w500),
+
+                                          border: InputBorder.none,
+
+                                          // fillColor: MyColors.color_gray_transparent,
+                                          contentPadding:
+                                              const EdgeInsets.symmetric(
+                                                  horizontal: 16, vertical: 12),
+                                        ),
+
+                                        keyboardType: TextInputType.text,
+
+                                        maxLines: 1,
+
+                                        // Only numbers can be entered
+                                      ),
+                                    ),
+                                  ],
+                                ),
                         ],
-                        textInputAction: TextInputAction.done,
-                        style: TextStyle(
-
-                            color:MyColors.blackColor,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: "a_assets/font/poppins_regular.ttf"
-
-
-                        ),
-                        decoration: InputDecoration(
-                          hintText: 'Relationship',
-                          hintStyle: TextStyle(color: MyColors.color_text.withOpacity(0.4),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500 ),
-
-                          border: InputBorder.none,
-
-
-                          // fillColor: MyColors.color_gray_transparent,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-
-
-                        ),
-
-                        keyboardType: TextInputType.text,
-
-                        maxLines: 1,
-
-                        // Only numbers can be entered
                       ),
-                    ),
-
-                    widget.recipientlist.countryIso3Code.toString()=="IND"||widget.recipientlist.countryIso3Code.toString()=="PAK"?
-                    Container():Column(
-                      children: [
-
-
-                        Container(
-                          width:double.infinity,
-                          margin:  EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
-                          decoration: BoxDecoration(
-                            color: MyColors.color_93B9EE.withOpacity(0.1),
-                            border: Border.all(color: MyColors.color_gray_transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                          ),
-                          child: TextFormField(
-                            controller: addressController,
-                            inputFormatters: [
-                              UpperCaseTextFormatter(),
-                            ],
-                            textInputAction: TextInputAction.done,
-                            style: TextStyle(
-
-                                color:MyColors.blackColor,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: "a_assets/font/poppins_regular.ttf"
-
-
-                            ),
-                            decoration: InputDecoration(
-                              hintText: 'Address',
-                              hintStyle: TextStyle(color: MyColors.color_text.withOpacity(0.4),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500 ),
-
-                              border: InputBorder.none,
-
-
-                              // fillColor: MyColors.color_gray_transparent,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-
-
-                            ),
-
-                            keyboardType: TextInputType.text,
-
-                            maxLines: 1,
-
-                            // Only numbers can be entered
-                          ),
-                        ),
-
-                        widget.recipientlist.countryIso3Code.toString()=="BGD"?
-                        Container():
-                        Column(
-                          children: [
-                            hSizedBox3,
-                            Container(
-                              width:double.infinity,
-                              margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                              decoration: BoxDecoration(
-                                color: MyColors.color_93B9EE.withOpacity(0.1),
-                                border: Border.all(color: MyColors.color_gray_transparent),
-                                borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                              ),
-                              child: TextFormField(
-                                controller: cityController,
-                                inputFormatters: [
-                                  UpperCaseTextFormatter(),
-                                ],
-                                textInputAction: TextInputAction.done,
-                                style: TextStyle(
-
-                                    color:MyColors.blackColor,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: "a_assets/font/poppins_regular.ttf"
-
-
-                                ),
-                                decoration: InputDecoration(
-                                  hintText: 'City',
-                                  hintStyle: TextStyle(color: MyColors.color_text.withOpacity(0.4),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500 ),
-
-                                  border: InputBorder.none,
-
-
-                                  // fillColor: MyColors.color_gray_transparent,
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-
-
-                                ),
-
-                                keyboardType: TextInputType.text,
-
-                                maxLines: 1,
-
-                                // Only numbers can be entered
-                              ),
-                            ),
-
-                            hSizedBox3,
-
-                            Container(
-                              width:double.infinity,
-                              margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-                              decoration: BoxDecoration(
-                                color: MyColors.color_93B9EE.withOpacity(0.1),
-                                border: Border.all(color: MyColors.color_gray_transparent),
-                                borderRadius: BorderRadius.all(Radius.circular(12.0)),
-                              ),
-                              child: TextFormField(
-                                controller: postcodeController,
-                                textInputAction: TextInputAction.done,
-                                style: TextStyle(
-
-                                    color:MyColors.blackColor,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w400,
-                                    fontFamily: "a_assets/font/poppins_regular.ttf"
-
-
-                                ),
-                                decoration: InputDecoration(
-                                  hintText: 'Postalcode',
-                                  hintStyle: TextStyle(color: MyColors.color_text.withOpacity(0.4),fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500 ),
-
-                                  border: InputBorder.none,
-
-
-                                  // fillColor: MyColors.color_gray_transparent,
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
-
-
-                                ),
-
-                                keyboardType: TextInputType.text,
-
-                                maxLines: 1,
-
-                                // Only numbers can be entered
-                              ),
-                            ),
-                          ],
-                        ),
-
-                      ],
-                    ),
-
-                    hSizedBox6,
-                    hSizedBox6,
-                  ],
-                )
-            ),
-
-            field_load ? Container(
-              color: MyColors.blackColor.withOpacity(0.30),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: GFLoader(
-                  type: GFLoaderType.custom,
-                  child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
-                  )),
-            )
+                hSizedBox6,
+                hSizedBox6,
+              ],
+            )),
+            field_load
+                ? Container(
+                    color: MyColors.blackColor.withOpacity(0.30),
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: const GFLoader(
+                        type: GFLoaderType.custom,
+                        child: Image(
+                          image: AssetImage("a_assets/logo/progress_image.png"),
+                        )),
+                  )
                 : Container(),
-
-            load == true ? Container(
-              color: MyColors.blackColor.withOpacity(0.30),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: GFLoader(
-                  type: GFLoaderType.custom,
-                  child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
-                  )),
-            )
+            load == true
+                ? Container(
+                    color: MyColors.blackColor.withOpacity(0.30),
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: const GFLoader(
+                        type: GFLoaderType.custom,
+                        child: Image(
+                          image: AssetImage("a_assets/logo/progress_image.png"),
+                        )),
+                  )
                 : Container(),
           ],
         ),
       ),
-
-
     );
   }
+
   // FieldSetsModel model
 
-  addresssCountrytatedropd(String name,int index){
+  addresssCountrytatedropd(String name, int index) {
     return GestureDetector(
-      onTap: (){
-        recipientfieldsetlist[index].value  =  "${p!.getString("country_Name")}";
-        setState((){});
+      onTap: () {
+        recipientfieldsetlist[index].value = "${p!.getString("country_Name")}";
+        setState(() {});
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-        height: 55,
-        width: double.infinity,
-        margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-        decoration: BoxDecoration(
-          color: MyColors.color_93B9EE.withOpacity(0.1),
-          border: Border.all(color: MyColors.color_gray_transparent),
-          borderRadius: BorderRadius.all(Radius.circular(12.0)),
-        ),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+          height: 55,
+          width: double.infinity,
+          margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+          decoration: BoxDecoration(
+            color: MyColors.color_93B9EE.withOpacity(0.1),
+            border: Border.all(color: MyColors.color_gray_transparent),
+            borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+          ),
+          child: Text(
+            "${p!.getString("country_Name")}",
+            style: const TextStyle(
+                color: MyColors.color_text,
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+                fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),
+          )
 
-        child:Text("${p!.getString("country_Name")}",style: TextStyle(color: MyColors.color_text,fontWeight: FontWeight.w500,fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),)
-
-
-        /*   DropdownButtonHideUnderline(
+          /*   DropdownButtonHideUnderline(
           child: StatefulBuilder(
             builder: (context, setState) {
               return Padding(
@@ -1043,24 +1144,23 @@ getPrefences()async{
             },
           ),
         ),*/
-      ),
+          ),
     );
   }
 
   // FieldSetsModel model,
-  dropd(String name,int index){
+  dropd(String name, int index) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       height: 55,
       width: double.infinity,
-      margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+      margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
       decoration: BoxDecoration(
         color: MyColors.color_93B9EE.withOpacity(0.1),
         border: Border.all(color: MyColors.color_gray_transparent),
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
       ),
-
-      child:  IgnorePointer(
+      child: IgnorePointer(
         ignoring: true,
         child: DropdownButtonHideUnderline(
           child: StatefulBuilder(
@@ -1070,22 +1170,20 @@ getPrefences()async{
                 child: DropdownButton(
                   isExpanded: true,
                   value: selectedCategory2,
-                  style:
-                  TextStyle(color: MyColors.blackColor),
+                  style: const TextStyle(color: MyColors.blackColor),
                   items: optionlist.map((Options model) {
                     return new DropdownMenuItem<String>(
-                        value: model.id.toString()  ,
-                        child: new Text(model.name.toString() ));
+                        value: model.id.toString(),
+                        child: new Text(model.name.toString()));
                   }).toList(),
                   hint: Text(
                     "${name}",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: MyColors.blackColor,
                         fontSize: 13,
                         fontWeight: FontWeight.w600),
                   ),
                   onChanged: (value) {
-
                     setState(() {
                       selectedCategory2 = value.toString();
                       recipientfieldsetlist[index].value = value.toString();
@@ -1103,22 +1201,21 @@ getPrefences()async{
     );
   }
 
-  Future<void> _onCountryChange(CountryCode countryCode ) async {
+  Future<void> _onCountryChange(CountryCode countryCode) async {
     //TODO : manipulate the selected country code here
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
-    slectedcountrCode=countryCode.toString();
+    slectedcountrCode = countryCode.toString();
     print("New Country selected:>>>>" + slectedcountrCode);
     print("Country ISO code :>>>>" + countryCode.code.toString());
     print("Country name code :>>>>" + countryCode.name.toString());
     print("Country dialCode code :>>>>" + countryCode.dialCode.toString());
-    sharedPreferences.setString('CountryISOCode',countryCode.code.toString());
+    sharedPreferences.setString('CountryISOCode', countryCode.code.toString());
     setState(() {});
-
   }
 
-  Future<void> AddRecipientFieldRequest(BuildContext context,
-      var field,String profileimg ) async {
+  Future<void> AddRecipientFieldRequest(
+      BuildContext context, var field, String profileimg) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
@@ -1134,15 +1231,18 @@ getPrefences()async{
     // request['accountNumber'] = "333000333";
     request['fields'] = field;
 
-
     // otpo
-    print("request URL>>>>>  ${Apiservices.addrecipientfield+"/"+widget.recipientlist.recipientId.toString()}");
+    print(
+        "request URL>>>>>  ${Apiservices.addrecipientfield + "/" + widget.recipientlist.recipientId.toString()}");
     print("request ${request}");
 
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
       HttpLogger(logLevel: LogLevel.BODY),
     ]);
-    var response = await http.put(Uri.parse(Apiservices.addrecipientfield+"/"+widget.recipientlist.recipientId.toString()),
+    var response = await http.put(
+        Uri.parse(Apiservices.addrecipientfield +
+            "/" +
+            widget.recipientlist.recipientId.toString()),
         body: convert.jsonEncode(request),
         headers: {
           'Authorization': 'Bearer ${p.getString('auth_Token')}',
@@ -1153,7 +1253,7 @@ getPrefences()async{
 
     if (response.statusCode == 200) {
       Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-      print("bdjkdshjgh"+jsonResponse.toString());
+      print("bdjkdshjgh" + jsonResponse.toString());
 
       String firstname = jsonResponse['firstName'].toString();
       String lastname = jsonResponse['lastName'].toString();
@@ -1168,33 +1268,40 @@ getPrefences()async{
       p.setString("lastname", lastname);
       print("recipientId22...${p.getString("recipientId")}");
       /* message == "" || message.isEmpty || message == ""? null:*/
-      String phone_number="" , phone_code="";
+      String phone_number = "", phone_code = "";
       // List<dynamic> fieldsList = json.decode(jsonResponse['fields']);
-      var fieldsList =   jsonResponse["fields"];
-      for(int i = 0 ; i< fieldsList.length  ;i++){
-
-        print("fields response>>>> "+fieldsList[i]["id"]);
-        if(fieldsList[i]["id"]=="PHONE_NUMBER"){
+      var fieldsList = jsonResponse["fields"];
+      for (int i = 0; i < fieldsList.length; i++) {
+        print("fields response>>>> " + fieldsList[i]["id"]);
+        if (fieldsList[i]["id"] == "PHONE_NUMBER") {
           phone_number = fieldsList[i]["value"]["number"].toString();
           phone_code = fieldsList[i]["value"]["countryPhoneCode"].toString();
         }
-
-
       }
       // editRecipientRequest(context, firstname, lastname, profileimg, "${widget.recipientlist.countryIso3Code}",widget.recipient_id,phone_code,phone_number);
 
       CustomLoader.ProgressloadingDialog(context, false);
-
     } else {
       List<dynamic> errorres = json.decode(response.body);
-      Utility.showFlutterToast( errorres[0]["message"]);
+      Utility.showFlutterToast(errorres[0]["message"]);
       CustomLoader.ProgressloadingDialog(context, false);
     }
     return;
   }
 
-  Future<void> editRecipientRequest(BuildContext context,
-      String first_name, String last_name, String profile_img, String countryIso3Code,String recipentId,String phonecode,String phone_number,String relationship,String address,String city,String postalcode) async {
+  Future<void> editRecipientRequest(
+      BuildContext context,
+      String first_name,
+      String last_name,
+      String profile_img,
+      String countryIso3Code,
+      String recipentId,
+      String phonecode,
+      String phone_number,
+      String relationship,
+      String address,
+      String city,
+      String postalcode) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences pre = await SharedPreferences.getInstance();
     try {
@@ -1203,16 +1310,18 @@ getPrefences()async{
       pre.setString("u_phone_number", phone_number);
       pre.setString("u_profile_img", profile_img);
       print('route is ${Apiservices.editRecipient}');
-      var request = http.MultipartRequest(
-          'POST', Uri.parse(Apiservices.editRecipient));
+      var request =
+          http.MultipartRequest('POST', Uri.parse(Apiservices.editRecipient));
       if (context != null && first_name != null && last_name != null) {
-        profile_img == "" ? null :
-        request.files
-            .add(await http.MultipartFile.fromPath('profileImage', profile_img));
+        profile_img == ""
+            ? null
+            : request.files.add(
+                await http.MultipartFile.fromPath('profileImage', profile_img));
         request.fields['first_name'] = first_name;
         request.fields['last_name'] = last_name;
         request.fields['countryIso3Code'] = countryIso3Code;
-        request.fields['country_name'] = widget.recipientlist.countryName.toString();
+        request.fields['country_name'] =
+            widget.recipientlist.countryName.toString();
         request.fields['recipient_server_id'] = recipentId;
         request.fields['phonecode'] = phonecode;
         request.fields['phone_number'] = phone_number;
@@ -1222,12 +1331,12 @@ getPrefences()async{
         request.fields['postcode'] = postalcode;
       }
 
-
       Map<String, String> headers = {
         "X-AUTHTOKEN": "${pre.getString("auth")}",
         "X-USERID": "${pre.getString("userid")}",
         "content-type": "application/json",
-        "accept": "application/json"};
+        "accept": "application/json"
+      };
 
       print('the request is :');
       print(request.fields);
@@ -1237,26 +1346,27 @@ getPrefences()async{
 
       response.stream.transform(convert.utf8.decoder).listen((event) {
         Map map = convert.jsonDecode(event);
-        print("create response>>>> "+map.toString());
+        print("create response>>>> " + map.toString());
         if (map["status"] == true) {
           CustomLoader.ProgressloadingDialog(context, false);
-          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-              DashboardScreen(currentpage_index:2)), (Route<dynamic> route) => false);
+          Navigator.of(context).pushAndRemoveUntil(
+              MaterialPageRoute(
+                  builder: (context) => DashboardScreen(currentpage_index: 2)),
+              (Route<dynamic> route) => false);
           // Navigator.push(
           //     context,
           //     MaterialPageRoute(
           //         builder: (context) => DashSelectDeliveryMethodScreen()));
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Recipient Updated Successfully')),
+            const SnackBar(content: Text('Recipient Updated Successfully')),
           );
-
 
           /// SUCCESS
         } else {
           print(map);
           print('error');
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('error')),
+            const SnackBar(content: Text('error')),
           );
           CustomLoader.ProgressloadingDialog(context, false);
 
@@ -1973,7 +2083,7 @@ body:  Stack(
                 ),
               ],
             ),
-          ),*//*
+          ),*/ /*
 
         ],
       )
@@ -2134,6 +2244,4 @@ class PhoneNumberModel {
     data['number'] = this.number;
     return data;
   }
-
-
 }

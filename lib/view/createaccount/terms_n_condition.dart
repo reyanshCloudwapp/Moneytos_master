@@ -34,13 +34,13 @@ class _TermsNConditionState extends State<TermsNConditionScreen> {
     return Scaffold(
       backgroundColor: MyColors.light_primarycolor2,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
           flexibleSpace: Container(
-            padding: EdgeInsets.fromLTRB(22, 30, 20, 0),
+            padding: const EdgeInsets.fromLTRB(22, 30, 20, 0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,8 +56,8 @@ class _TermsNConditionState extends State<TermsNConditionScreen> {
                     )),
                 Center(
                   child: Container(
-                    margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                    child: Text(
+                    margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                    child: const Text(
                       MyString.termscondition,
                       style: TextStyle(
                           color: MyColors.whiteColor,
@@ -85,13 +85,13 @@ class _TermsNConditionState extends State<TermsNConditionScreen> {
               width: MediaQuery.of(context).size.width,
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Card(
                 color: MyColors.whiteColor,
                 margin: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)),

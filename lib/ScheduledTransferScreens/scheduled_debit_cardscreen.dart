@@ -69,12 +69,12 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
         data: mediaQueryData.copyWith(textScaleFactor: 1.0),
         child: Scaffold(
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(5),
+            preferredSize: const Size.fromHeight(5),
             child: AppBar(
               elevation: 0,
               automaticallyImplyLeading: false,
               backgroundColor: MyColors.primaryColor,
-              systemOverlayStyle: SystemUiOverlayStyle(
+              systemOverlayStyle: const SystemUiOverlayStyle(
                 // Status bar color
                 statusBarColor: MyColors.primaryColor,
                 statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -98,7 +98,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                     child: Column(
                       children: [
                         Container(
-                          margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                          margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -114,7 +114,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
 
                               Container(
                                 alignment: Alignment.center,
-                                child: Text(
+                                child: const Text(
                                   "Add New Debit Card",
                                   style: TextStyle(
                                       color: MyColors.whiteColor,
@@ -130,14 +130,14 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                         ),
 
                         Container(
-                          margin: EdgeInsets.fromLTRB(0, 22, 0, 0),
+                          margin: const EdgeInsets.fromLTRB(0, 22, 0, 0),
                           // height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width,
                           child: Card(
                             elevation: 0,
                             color: MyColors.whiteColor,
                             margin: EdgeInsets.zero,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(30),
                                   topRight: Radius.circular(30)),
@@ -149,7 +149,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                     "s_asset/images/visa.png",width: 300,),
                                 hSizedBox3,
                                 Container(
-                                  margin: EdgeInsets.only(left: 22,right: 22),
+                                  margin: const EdgeInsets.only(left: 22,right: 22),
                                   height: 48,
                                   decoration: BoxDecoration(
                                       color: MyColors.blueColor.withOpacity(0.02),
@@ -165,13 +165,13 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                     cursorColor:MyColors.primaryColor,
                                     decoration: InputDecoration(
                                       fillColor: MyColors.blueColor.withOpacity(0.40),
-                                      border: OutlineInputBorder(
+                                      border: const OutlineInputBorder(
                                           borderSide: BorderSide(color: MyColors.whiteColor)
                                       ),
-                                      enabledBorder:  OutlineInputBorder(
+                                      enabledBorder:  const OutlineInputBorder(
                                           borderSide: BorderSide(color: MyColors.whiteColor)
                                       ),
-                                      focusedBorder: OutlineInputBorder(
+                                      focusedBorder: const OutlineInputBorder(
                                           borderSide: BorderSide(color: MyColors.whiteColor)
                                       ),
                                       // contentPadding: EdgeInsets.symmetric(horizontal: 15),
@@ -183,7 +183,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                 ),
                                 hSizedBox3,
                                 Container(
-                                  margin: EdgeInsets.only(left: 22,right: 22),
+                                  margin: const EdgeInsets.only(left: 22,right: 22),
                                   height: 48,
                                   decoration: BoxDecoration(
                                       color: MyColors.blueColor.withOpacity(0.02),
@@ -200,13 +200,13 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                     cursorColor:MyColors.primaryColor,
                                     decoration: InputDecoration(
                                       fillColor: MyColors.blueColor.withOpacity(0.40),
-                                      border: OutlineInputBorder(
+                                      border: const OutlineInputBorder(
                                           borderSide: BorderSide(color: MyColors.whiteColor)
                                       ),
-                                      enabledBorder:  OutlineInputBorder(
+                                      enabledBorder:  const OutlineInputBorder(
                                           borderSide: BorderSide(color: MyColors.whiteColor)
                                       ),
-                                      focusedBorder: OutlineInputBorder(
+                                      focusedBorder: const OutlineInputBorder(
                                           borderSide: BorderSide(color: MyColors.whiteColor)
                                       ),
                                       // contentPadding: EdgeInsets.symmetric(horizontal: 15),
@@ -223,7 +223,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                     Expanded(
                                       flex:1,
                                       child: Container(
-                                        margin: EdgeInsets.only(left: 22,right: 22),
+                                        margin: const EdgeInsets.only(left: 22,right: 22),
                                         height: 48,
 
                                         decoration: BoxDecoration(
@@ -251,19 +251,19 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                           //
                                           // },
                                           textInputAction: TextInputAction.done,
-                                          keyboardType: TextInputType.numberWithOptions(signed: true),
+                                          keyboardType: const TextInputType.numberWithOptions(signed: true),
                                           //focusNode: ibanFocus,
                                           // controller: ibanController,
                                           cursorColor:MyColors.primaryColor,
                                           decoration: InputDecoration(
                                             fillColor: MyColors.blueColor.withOpacity(0.40),
-                                            border: OutlineInputBorder(
+                                            border: const OutlineInputBorder(
                                                 borderSide: BorderSide(color: MyColors.whiteColor)
                                             ),
-                                            enabledBorder:  OutlineInputBorder(
+                                            enabledBorder:  const OutlineInputBorder(
                                                 borderSide: BorderSide(color: MyColors.whiteColor)
                                             ),
-                                            focusedBorder: OutlineInputBorder(
+                                            focusedBorder: const OutlineInputBorder(
                                                 borderSide: BorderSide(color: MyColors.whiteColor)
                                             ),
                                             // contentPadding: EdgeInsets.symmetric(horizontal: 15),
@@ -318,7 +318,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                 Container(
                                   alignment: Alignment.center,
                                   color: MyColors.whiteColor,
-                                  margin: EdgeInsets.only(left: 10,top: 30,right: 10),
+                                  margin: const EdgeInsets.only(left: 10,top: 30,right: 10),
                                   child: GestureDetector(
                                     onTap: (){
                                       String holderName = holdernameController.text.trim();
@@ -344,11 +344,11 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                     child: Container(
                                         width: 150,
                                         decoration: BoxDecoration(
-                                          boxShadow: [
+                                          boxShadow: const [
                                             BoxShadow(
                                                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                                           ],
-                                          gradient: LinearGradient(
+                                          gradient: const LinearGradient(
                                             begin: Alignment.center,
                                             end: Alignment.bottomCenter,
                                             //  stops: [0.0, 1.0],
@@ -360,9 +360,9 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
                                           //color: Colors.deepPurple.shade300,
                                           borderRadius: BorderRadius.circular(15),
                                         ),
-                                        padding:  EdgeInsets.only(left: 30, right: 30, bottom: 16,top: 16),
-                                        margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 20.0),
-                                        child: Text("Add Card",textAlign: TextAlign.center,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)
+                                        padding:  const EdgeInsets.only(left: 30, right: 30, bottom: 16,top: 16),
+                                        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 20.0),
+                                        child: const Text("Add Card",textAlign: TextAlign.center,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)
                                     ),
                                   ),
                                 ),
@@ -376,7 +376,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
 
 
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
                           color: MyColors.whiteColor,
                           height: 80,
                           child: GestureDetector(

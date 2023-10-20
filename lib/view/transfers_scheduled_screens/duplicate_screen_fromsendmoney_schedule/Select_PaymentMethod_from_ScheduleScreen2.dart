@@ -48,12 +48,12 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.light_primarycolor2,
             statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -61,14 +61,14 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
           ),
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only( left: 25,top: 25),
+            padding: const EdgeInsets.only( left: 25,top: 25),
             child: Row(
 
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only( top: 5),
+                  padding: const EdgeInsets.only( top: 5),
                   child: InkWell(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -83,8 +83,8 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                 // wSizedBox3,
                 Container(
                   alignment: Alignment.center,
-                  margin: EdgeInsets.fromLTRB(10, 5, 0, 0),
-                  child: Text(
+                  margin: const EdgeInsets.fromLTRB(10, 5, 0, 0),
+                  child: const Text(
                     MyString.select_payment_method,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -160,20 +160,20 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
           //Fluttertoast.showToast(msg: 'Shivangi the nani papri>>> ');
           pushNewScreen(
             context,
-            screen: TransferReview_andConfirmScreen(),
+            screen: const TransferReview_andConfirmScreen(),
             withNavBar: false,
           );
         },
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               color: MyColors.whiteColor
           ),
-          padding: EdgeInsets.only(bottom: 10),
+          padding: const EdgeInsets.only(bottom: 10),
           child: Container(
             alignment: Alignment.center,
             height: 46,
             width: double.infinity,
-            margin: EdgeInsets.only(left: 62,right:62,top: 30,bottom:50 ),
+            margin: const EdgeInsets.only(left: 62,right:62,top: 30,bottom:50 ),
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
                   MyColors.lightblueColor.withOpacity(0.90),
@@ -186,7 +186,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
             child:
             Container(
                 alignment: Alignment.center,
-                child: Text(
+                child: const Text(
                   MyString.go_to_review,
                   style: TextStyle(
                       color: MyColors.whiteColor,
@@ -211,7 +211,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
             ),
 
             Container(
-              margin: EdgeInsets.only(top: 0),
+              margin: const EdgeInsets.only(top: 0),
               width: double.infinity,
               decoration: BoxDecoration(
                   color: MyColors.whiteColor,
@@ -243,14 +243,14 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
 
                               },
                               child: Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 5, vertical: 10),
 
                                   child: Container(
-                                      margin: EdgeInsets.symmetric(
+                                      margin: const EdgeInsets.symmetric(
                                           vertical: 8, horizontal: 5),
                                       decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                                          borderRadius: const BorderRadius.all(Radius.circular(10)),
                                           border: Border.all(color: SelectedMethod==0?MyColors.color_93B9EE:MyColors.whiteColor,
                                               width: 2)
                                       ),
@@ -263,7 +263,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                             BorderRadius.circular(10),
                                           ),
                                           child: Container(
-                                            padding: EdgeInsets.symmetric(
+                                            padding: const EdgeInsets.symmetric(
                                                 vertical: 15, horizontal: 30),
                                             child: Column(
                                               children: [
@@ -297,14 +297,14 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                 });
                               },
                               child: Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 5, vertical: 10),
 
                                   child: Container(
-                                      margin: EdgeInsets.symmetric(
+                                      margin: const EdgeInsets.symmetric(
                                           vertical: 8, horizontal: 5),
                                       decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                                          borderRadius: const BorderRadius.all(Radius.circular(10)),
                                           border: Border.all(color: SelectedMethod==1?MyColors.color_93B9EE:MyColors.whiteColor,
                                               width: 2)
                                       ),
@@ -317,7 +317,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                             BorderRadius.circular(10),
                                           ),
                                           child: Container(
-                                            padding: EdgeInsets.symmetric(
+                                            padding: const EdgeInsets.symmetric(
                                                 vertical: 15, horizontal: 30),
                                             child: Column(
                                               children: [
@@ -351,14 +351,14 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                 });
                               },
                               child: Container(
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 5, vertical: 10),
 
                                   child: Container(
-                                      margin: EdgeInsets.symmetric(
+                                      margin: const EdgeInsets.symmetric(
                                           vertical: 8, horizontal: 5),
                                       decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                                          borderRadius: const BorderRadius.all(Radius.circular(10)),
                                           border: Border.all(color: SelectedMethod==2?MyColors.color_93B9EE:MyColors.whiteColor,
                                               width: 2)
                                       ),
@@ -371,7 +371,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                             BorderRadius.circular(10),
                                           ),
                                           child: Container(
-                                            padding: EdgeInsets.symmetric(
+                                            padding: const EdgeInsets.symmetric(
                                                 vertical: 15, horizontal: 30),
                                             child: Column(
                                               children: [
@@ -418,8 +418,8 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                         children: [
                           ListView.builder(
                               itemCount: 2,
-                              physics: NeverScrollableScrollPhysics(),
-                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              physics: const NeverScrollableScrollPhysics(),
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
                               shrinkWrap: true,
                               itemBuilder: (context ,int index){
                                 return GestureDetector(
@@ -431,7 +431,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                     });
                                   },
                                   child: Container(
-                                    margin: EdgeInsets.only(top:14),
+                                    margin: const EdgeInsets.only(top:14),
                                     child: Customcard2("","Citibank",MyColors.blackColor,"Account - 9560",index),
                                   ),
                                 );
@@ -453,7 +453,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                               alignment: Alignment.center,
                               height: 50,
                               width: double.infinity,
-                              margin: EdgeInsets.symmetric(horizontal: 22,),
+                              margin: const EdgeInsets.symmetric(horizontal: 22,),
 
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(colors: [
@@ -472,7 +472,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                   wSizedBox2,
                                   Container(
                                       alignment: Alignment.center,
-                                      child: Text(
+                                      child: const Text(
                                         "Link New Bank",
                                         style: TextStyle(
                                             color: MyColors.whiteColor,
@@ -502,8 +502,8 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                         children: [
                           ListView.builder(
                               itemCount: 2,
-                              physics: NeverScrollableScrollPhysics(),
-                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              physics: const NeverScrollableScrollPhysics(),
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
                               shrinkWrap: true,
                               itemBuilder: (context ,int index){
                                 return GestureDetector(
@@ -514,7 +514,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                     });
                                   },
                                   child: Container(
-                                    margin: EdgeInsets.only(top:14),
+                                    margin: const EdgeInsets.only(top:14),
                                     child: Customcard3("","Card Name",MyColors.blackColor,"**** 9560",index),
                                   ),
                                 );
@@ -538,7 +538,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
 
                               height: 50,
                               width: double.infinity,
-                              margin: EdgeInsets.symmetric(horizontal: 20,),
+                              margin: const EdgeInsets.symmetric(horizontal: 20,),
 
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(colors: [
@@ -557,7 +557,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                   wSizedBox2,
                                   Container(
                                       alignment: Alignment.center,
-                                      child: Text(
+                                      child: const Text(
                                         "Add New Card",
                                         style: TextStyle(
                                             color: MyColors.whiteColor,
@@ -586,8 +586,8 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                         children: [
                           ListView.builder(
                               itemCount: 2,
-                              physics: NeverScrollableScrollPhysics(),
-                              padding: EdgeInsets.symmetric(horizontal: 20),
+                              physics: const NeverScrollableScrollPhysics(),
+                              padding: const EdgeInsets.symmetric(horizontal: 20),
                               shrinkWrap: true,
                               itemBuilder: (context ,int index){
                                 return GestureDetector(
@@ -598,7 +598,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                     });
                                   },
                                   child: Container(
-                                    margin:EdgeInsets.only(top:14),
+                                    margin:const EdgeInsets.only(top:14),
                                     child: Customcard4("","Vodafone",MyColors.blackColor,"Number - 5117",index),
                                   ),
                                 );
@@ -621,7 +621,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
 
                               height: 50,
                               width: double.infinity,
-                              margin: EdgeInsets.symmetric(horizontal: 20,),
+                              margin: const EdgeInsets.symmetric(horizontal: 20,),
                               decoration: BoxDecoration(
                                   gradient: LinearGradient(colors: [
                                     MyColors.lightblueColor.withOpacity(0.80),
@@ -639,7 +639,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                                   wSizedBox2,
                                   Container(
                                       alignment: Alignment.center,
-                                      child: Text(
+                                      child: const Text(
                                         "New Mobile Money",
                                         style: TextStyle(
                                             color: MyColors.whiteColor,
@@ -680,7 +680,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
 
       decoration: BoxDecoration(
           border: Border.all(color: selectedItemTab==index?MyColors.color_3F84E5:MyColors.whiteColor,width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(12))
+          borderRadius: const BorderRadius.all(Radius.circular(12))
       ),
       child: Material(
 
@@ -693,7 +693,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
           BorderRadius.circular(10),
         ),
         child:  Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               vertical: 20, horizontal: 30),
           child:  Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -708,7 +708,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                       height: 40,
                       width: 40,
                       decoration: BoxDecoration(
-                          color: Color(0xff056CAD),
+                          color: const Color(0xff056CAD),
                           borderRadius: BorderRadius.circular(9)
                       ),
                       child: Image.asset("s_asset/images/bankicon1.png")),
@@ -770,7 +770,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
 
       decoration: BoxDecoration(
           border: Border.all(color: selectedItemTab==index?MyColors.color_3F84E5:MyColors.whiteColor,width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(12))
+          borderRadius: const BorderRadius.all(Radius.circular(12))
       ),
       child: Material(
         elevation: 16,
@@ -781,7 +781,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
           BorderRadius.circular(10),
         ),
         child:  Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               vertical: 20, horizontal: 30),
           child:  Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -816,18 +816,14 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Container(
-                              //  alignment: Alignment.topLeft,
-                              child: Text(
-                                "**** 9560",
-                                style: TextStyle(
-                                    color: color,
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily:
-                                    "s_asset/font/raleway/raleway_medium.ttf",
-                                    fontSize: 12),
-                              ),
-
+                            Text(
+                              "**** 9560",
+                              style: TextStyle(
+                                  color: color,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily:
+                                  "s_asset/font/raleway/raleway_medium.ttf",
+                                  fontSize: 12),
                             ),
 
                           ],
@@ -852,7 +848,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
                   hSizedBox4,
                   Container(
 
-                    margin: EdgeInsets.only(left: 20),
+                    margin: const EdgeInsets.only(left: 20),
                     child: Text(
                       "05/24",
                       style: TextStyle(
@@ -879,7 +875,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
 
       decoration: BoxDecoration(
           border: Border.all(color: selectedItemTab==index?MyColors.color_3F84E5:MyColors.whiteColor,width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(12))
+          borderRadius: const BorderRadius.all(Radius.circular(12))
       ),
       child: Material(
         elevation: 16,
@@ -890,7 +886,7 @@ class _SelectPayMethScheduleScreenState extends State<SelectPayMethScheduleScree
           BorderRadius.circular(10),
         ),
         child:  Container(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
               vertical: 20, horizontal: 30),
           child:  Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -8,14 +8,14 @@ import 'package:moneytos/model/customlists/customLists.dart';
 import '../../../../constance/sizedbox/sizedBox.dart';
 
 class LanguageScreen extends StatefulWidget {
-   LanguageScreen({Key? key}) : super(key: key);
+  LanguageScreen({Key? key}) : super(key: key);
 
   @override
   _LanguageScreenScreenState createState() => _LanguageScreenScreenState();
 }
 
 class _LanguageScreenScreenState extends State<LanguageScreen> {
- String? index;
+  String? index;
 
   @override
   Widget build(BuildContext context) {
@@ -35,14 +35,15 @@ class _LanguageScreenScreenState extends State<LanguageScreen> {
                 children: [
                   hSizedBox3,
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Row(
                       children: [
                         GestureDetector(
-                            onTap: (){
+                            onTap: () {
                               Navigator.pop(context);
                             },
-                            child: SvgPicture.asset("a_assets/icons/arrow_back.svg")),
+                            child: SvgPicture.asset(
+                                "a_assets/icons/arrow_back.svg")),
                         wSizedBox3,
                         wSizedBox1,
                         Container(
@@ -54,7 +55,7 @@ class _LanguageScreenScreenState extends State<LanguageScreen> {
                                 fontSize: 26,
                                 fontWeight: FontWeight.w800,
                                 fontFamily:
-                                "s_asset/font/raleway/raleway_extrabold.ttf"),
+                                    "s_asset/font/raleway/raleway_extrabold.ttf"),
                           ),
                         ),
                       ],
@@ -65,32 +66,30 @@ class _LanguageScreenScreenState extends State<LanguageScreen> {
                   /// body..
 
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(35),
-                      color: Colors.white,
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 23),
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                        itemCount: CustomList.language.length,
-                        itemBuilder: (context,int i){
-                      return Container(
-                        child: GestureDetector(
-                          onTap: (){
-                            index == i.toString();
-                            print("index..${index} ");
-                            setState(() {});
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(vertical: 5),
-                            child:CustomCardList(CustomList.language[i].toString(),i)
-                          ),
-                        ),
-                      );
-                    })
-
-                    ),
-
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(35),
+                        color: Colors.white,
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 23),
+                      child: ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: CustomList.language.length,
+                          itemBuilder: (context, int i) {
+                            return Container(
+                              child: GestureDetector(
+                                onTap: () {
+                                  index == i.toString();
+                                  print("index..${index} ");
+                                  setState(() {});
+                                },
+                                child: Container(
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 5),
+                                    child: CustomCardList(
+                                        CustomList.language[i].toString(), i)),
+                              ),
+                            );
+                          })),
                 ],
               ),
             ),
@@ -100,26 +99,38 @@ class _LanguageScreenScreenState extends State<LanguageScreen> {
     );
   }
 
-  CustomCardList(String title,int i){
-return Container(
-  child: Material(
-    color: MyColors.whiteColor,
-    elevation: 0.02,
-    shadowColor: MyColors.lightblueColor.withOpacity(0.01),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8),
-      side:  BorderSide(color: index == i ? MyColors.lightblueColor :  MyColors.border_color)
-    ),
-    child: Container(
-      padding: EdgeInsets.symmetric(vertical: 25,horizontal: 25),
-      alignment: Alignment.topLeft,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color:   i == index ? MyColors.lightblueColor : MyColors.border_color,width: 0.8 )
+  CustomCardList(String title, int i) {
+    return Container(
+      child: Material(
+        color: MyColors.whiteColor,
+        elevation: 0.02,
+        shadowColor: MyColors.lightblueColor.withOpacity(0.01),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+            side: BorderSide(
+                color: index == i
+                    ? MyColors.lightblueColor
+                    : MyColors.border_color)),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
+          alignment: Alignment.topLeft,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                  color: i == index
+                      ? MyColors.lightblueColor
+                      : MyColors.border_color,
+                  width: 0.8)),
+          child: Text(
+            title,
+            style: TextStyle(
+                color:
+                    i == index ? MyColors.lightblueColor : MyColors.blackColor,
+                fontSize: 14,
+                fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),
+          ),
+        ),
       ),
-      child: Text(title,style: TextStyle(color:  i == index ? MyColors.lightblueColor :  MyColors.blackColor,fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),),
-    ),
-  ),
-);
+    );
   }
 }

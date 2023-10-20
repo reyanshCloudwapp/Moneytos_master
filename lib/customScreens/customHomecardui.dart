@@ -25,7 +25,7 @@ class CustomHomeCardList extends StatelessWidget {
         elevation: 0.6,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 22, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             // color: wh
@@ -43,7 +43,7 @@ class CustomHomeCardList extends StatelessWidget {
                     fit: BoxFit.fill,
                     image: NetworkImage(
                       txnSubData.profileImage.toString(),),
-                    placeholder: AssetImage(
+                    placeholder: const AssetImage(
                         "a_assets/logo/progress_image.png"),
                     placeholderFit: BoxFit.scaleDown,
                     imageErrorBuilder:
@@ -61,7 +61,7 @@ class CustomHomeCardList extends StatelessWidget {
                 alignment: Alignment.topLeft,
                 child: Text(
                   txnSubData.recipientName.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: MyColors.blackColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w500,
@@ -96,7 +96,7 @@ class CustomHomeCardList extends StatelessWidget {
                     alignment: Alignment.topLeft,
                     child: Text(
                       txnSubData.sendAmount.toString(),
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: MyColors.lightblueColor,
                           fontWeight: FontWeight.w900,
                           fontSize: 20,
@@ -108,7 +108,7 @@ class CustomHomeCardList extends StatelessWidget {
                   ),
                   wSizedBox1,
                   Container(
-                    padding: EdgeInsets.only(top: 2),
+                    padding: const EdgeInsets.only(top: 2),
                     alignment: Alignment.topLeft,
                     child: Text(
                       MyString.usd,
@@ -129,7 +129,7 @@ class CustomHomeCardList extends StatelessWidget {
               /// Button
               ///
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(50),
                   color: bg_color,

@@ -17,11 +17,11 @@ class _CountdownTimerDisplayState extends State<CountdownTimerDisplay> {
         barrierDismissible: false,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text('Time Out'),
-            content: Text('The countdown timer has expired.'),
+            title: const Text('Time Out'),
+            content: const Text('The countdown timer has expired.'),
             actions: <Widget>[
               ElevatedButton(
-                child: Text('OK'),
+                child: const Text('OK'),
                 onPressed: () {
                   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
                       DashboardScreen()), (Route<dynamic> route) => false); // Close the dialog

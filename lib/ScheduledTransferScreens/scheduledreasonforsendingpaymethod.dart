@@ -89,12 +89,12 @@ class _ScheduledReasonForSendingPaymethodState extends State<ScheduledReasonForS
 
 
           appBar:PreferredSize(
-            preferredSize: Size.fromHeight(60),
+            preferredSize: const Size.fromHeight(60),
             child:
             AppBar(
 
               backgroundColor: MyColors.color_03153B,
-              systemOverlayStyle: SystemUiOverlayStyle(
+              systemOverlayStyle: const SystemUiOverlayStyle(
                 // Status bar color
                 statusBarColor: MyColors.color_03153B,
 
@@ -106,14 +106,14 @@ class _ScheduledReasonForSendingPaymethodState extends State<ScheduledReasonForS
               centerTitle: true,
               flexibleSpace: Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.only( left: 25,top: 25),
+                padding: const EdgeInsets.only( left: 25,top: 25),
                 child: Row(
 
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   // crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      padding: EdgeInsets.only( top: 5),
+                      padding: const EdgeInsets.only( top: 5),
                       child: InkWell(
                           onTap: () {
                             Navigator.of(context).pop();
@@ -128,7 +128,7 @@ class _ScheduledReasonForSendingPaymethodState extends State<ScheduledReasonForS
                     // wSizedBox3,
                     Container(
                       alignment: Alignment.center,
-                      child: Text(
+                      child: const Text(
                         "Select Payment Method",
                         style: TextStyle(
                             color: MyColors.whiteColor,
@@ -148,12 +148,12 @@ class _ScheduledReasonForSendingPaymethodState extends State<ScheduledReasonForS
             ),
           ),
           bottomSheet:   Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: MyColors.whiteColor,
             ),
 
-            margin: EdgeInsets.only(bottom: 30),
-            padding: EdgeInsets.symmetric(horizontal: 15),
+            margin: const EdgeInsets.only(bottom: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 15),
 
             height: 80,
             child: GestureDetector(
@@ -181,14 +181,14 @@ class _ScheduledReasonForSendingPaymethodState extends State<ScheduledReasonForS
                       children: [
 
                         Container(
-                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                           // height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width,
                           child: Card(
                             elevation: 0,
                             color: MyColors.whiteColor,
                             margin: EdgeInsets.zero,
-                            shape: RoundedRectangleBorder(
+                            shape: const RoundedRectangleBorder(
                               borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(30),
                                   topRight: Radius.circular(30)),
@@ -208,8 +208,8 @@ class _ScheduledReasonForSendingPaymethodState extends State<ScheduledReasonForS
                                 hSizedBox1,
                                 Container(
                                   width: size.width * 0.6,
-                                  margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                                  child: Text(
+                                  margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                                  child: const Text(
                                     "There's no Payment method linked yet before to pay by it",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -229,7 +229,7 @@ class _ScheduledReasonForSendingPaymethodState extends State<ScheduledReasonForS
 
                                   },
                                   child: Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 30),
+                                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 30),
                                     margin: EdgeInsets.symmetric(horizontal:size.width /6.7,vertical: 20),
                                     width: double.infinity,
                                     decoration: BoxDecoration(
@@ -256,7 +256,7 @@ class _ScheduledReasonForSendingPaymethodState extends State<ScheduledReasonForS
                                         ),
                                         hSizedBox1,
                                         Container(
-                                          child: Text(
+                                          child: const Text(
                                             MyString.link_new_method,
                                             style: TextStyle(
                                                 color: MyColors.whiteColor,
@@ -445,7 +445,7 @@ Custombtn(String text,double height,double width, BuildContext context) {
     //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
     child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
           ],
@@ -461,7 +461,7 @@ Custombtn(String text,double height,double width, BuildContext context) {
           //color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
-        child: Center(child: Text(text,style: TextStyle(color: MyColors.lightblueColor,fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w600),))),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
+        child: Center(child: Text(text,style: const TextStyle(color: MyColors.lightblueColor,fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w600),))),
   );
 }

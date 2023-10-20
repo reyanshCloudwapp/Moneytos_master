@@ -93,14 +93,14 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
         child: Scaffold(
           backgroundColor: MyColors.light_primarycolor2,
             appBar: PreferredSize(
-              preferredSize: Size.fromHeight(60),
+              preferredSize: const Size.fromHeight(60),
               child:   AppBar(
                 elevation: 0,
                 automaticallyImplyLeading: false,
                 backgroundColor: MyColors.light_primarycolor2,
                 flexibleSpace: Container(
                   alignment: Alignment.center,
-                  padding: EdgeInsets.fromLTRB(23, 30, 20, 0),
+                  padding: const EdgeInsets.fromLTRB(23, 30, 20, 0),
                   child: Row(
 
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,7 +119,7 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
                       //  wSizedBox,
                       Container(
                         // margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                        child: Text(
+                        child: const Text(
                           MyString.change_password,
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -174,18 +174,18 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
                   width: MediaQuery.of(context).size.width,
                 ),
                 Container(
-                    margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                         height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     child: Card(
                       elevation: 0,
                         color: MyColors.whiteColor,
                         margin: EdgeInsets.zero,
-                        shape: RoundedRectangleBorder(
+                        shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30),),
                         ),
                         child: Container(
-                          padding: EdgeInsets.fromLTRB(15, 10, 15, 0),
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
                           child: SingleChildScrollView(
                             child: Column(
                                 children: [
@@ -193,8 +193,8 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
 
                                   Container(
                                     width: size.width * 0.6,
-                                    margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                                    child: Text(
+                                    margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                                    child: const Text(
                                       MyString.update_your_password,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
@@ -213,9 +213,9 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
                                         child:textfield(current_passController,MyString.current_password,currentpassFocusNode,TextInputType.text,TextInputAction.next),
                                       ),
                                       is_oldpasserror == true ?  Container(
-                                        margin:  EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
+                                        margin:  const EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
                                         alignment: Alignment.topLeft,
-                                        child: Text(old_passerror,style: TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
+                                        child: Text(old_passerror,style: const TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
                                           : Container()
                                     ],
                                   ),
@@ -227,9 +227,9 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
                                         child:newpasstextfield(new_passController,MyString.new_password,newpassFocusNode,TextInputType.text,TextInputAction.next),
                                       ),
                                       is_showpasseooer == true ?  Container(
-                                        margin:  EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
+                                        margin:  const EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
                                         alignment: Alignment.topLeft,
-                                        child: Text(passerror,style: TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
+                                        child: Text(passerror,style: const TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
                                           : Container()
                                     ],
                                   ),
@@ -240,9 +240,9 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
                                         child: oldpasstextfield(confirm_passController,MyString.confirm_new_password,confirmpassFocusNode,TextInputType.text,TextInputAction.done),
                                       ),
                                       is_confirmpasserror == true ?  Container(
-                                        margin:  EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
+                                        margin:  const EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
                                         alignment: Alignment.topLeft,
-                                        child: Text(confirmpasserror,style: TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
+                                        child: Text(confirmpasserror,style: const TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
                                           : Container()
                                     ],
                                   ),
@@ -431,7 +431,7 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
 
                                     },
                                     child: Container(
-                                      padding: EdgeInsets.symmetric(horizontal: 20, ),
+                                      padding: const EdgeInsets.symmetric(horizontal: 20, ),
                                       child: CustomButton2(btnname: MyString.update_password,bg_color: MyColors.lightblueColor,bordercolor: MyColors.lightblueColor,height: 55,),
                                     ),
                                   ),
@@ -452,7 +452,7 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
   textfield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color:  currentpassfillcolor,
           border: Border.all(color: currentpassbordercolor),
@@ -463,7 +463,7 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
         controller:controller ,
         obscureText: _isObscureoldpassword,
         textInputAction: textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -487,9 +487,9 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -509,7 +509,7 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
 
   newpasstextfield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: newpassfillcolor,
           borderRadius: BorderRadius.circular(15),
@@ -521,7 +521,7 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
         controller:controller ,
         obscureText: _isObscurenewpassword,
         textInputAction: textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -545,9 +545,9 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -566,7 +566,7 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
   }
   oldpasstextfield(TextEditingController controller,String hinttext,FocusNode focusNode,TextInputType textInputType,TextInputAction textInputAction) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: confirmpassfillcolor,
           borderRadius: BorderRadius.circular(10),
@@ -577,7 +577,7 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
         controller:controller ,
         obscureText: _isObscureconfirmpassword,
         textInputAction: textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -601,9 +601,9 @@ class _SettingChangePasswordScreenState extends State<SettingChangePasswordScree
           enabledBorder: InputBorder.none,
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+              borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
 
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
@@ -657,12 +657,12 @@ CustomConfirmationDialog(BuildContext context){
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 25),
+          padding: const EdgeInsets.only(top: 25),
           alignment: Alignment.center,
-          child: Text(MyString.your_new_pincode_has_been_saved,textAlign: TextAlign.center,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),),
+          child: const Text(MyString.your_new_pincode_has_been_saved,textAlign: TextAlign.center,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),),
         ),
         Container(
-          padding: EdgeInsets.only(top: 40),
+          padding: const EdgeInsets.only(top: 40),
           //  alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -682,14 +682,14 @@ CustomConfirmationDialog(BuildContext context){
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 40),
+                          padding: const EdgeInsets.symmetric(horizontal: 40),
                           height: 50,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             //  color: MyColors.ligh
                             //  border: Border.all(color: bordercolor,width: 1.4)
                           ),
-                          child: Center(child: Text(MyString.ok,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",color:MyColors.whiteColor,fontSize:14,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
+                          child: const Center(child: Text(MyString.ok,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",color:MyColors.whiteColor,fontSize:14,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
                     )
 
                 ),

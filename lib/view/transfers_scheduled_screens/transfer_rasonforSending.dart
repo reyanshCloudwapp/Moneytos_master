@@ -29,21 +29,21 @@ class _TransferReasonforSendingScreen2State extends State<TransferReasonforSendi
         data: mediaQueryData.copyWith(textScaleFactor: 1.0),
         child: Scaffold(
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(60),
+            preferredSize: const Size.fromHeight(60),
             child: AppBar(
               backgroundColor: MyColors.light_primarycolor2,
               elevation: 0,
               centerTitle: true,
               flexibleSpace: Container(
                 alignment: Alignment.center,
-                padding: EdgeInsets.only( left: 25,top: 20),
+                padding: const EdgeInsets.only( left: 25,top: 20),
                 child: SingleChildScrollView(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
-                        padding: EdgeInsets.only( top: 5),
+                        padding: const EdgeInsets.only( top: 5),
                         child: InkWell(
                             onTap: () {
                               Navigator.of(context).pop();
@@ -55,8 +55,8 @@ class _TransferReasonforSendingScreen2State extends State<TransferReasonforSendi
                             )),
                       ),
                       Container(
-                        margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                        child:  Text(
+                        margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                        child:  const Text(
                           MyString.Reason_for_Sending,
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -85,7 +85,7 @@ class _TransferReasonforSendingScreen2State extends State<TransferReasonforSendi
               color: Colors.white,
               height: 70,
               alignment: Alignment.topCenter,
-              child: Text("Skip",style: TextStyle(fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.lightblueColor),),
+              child: const Text("Skip",style: TextStyle(fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.lightblueColor),),
             ),
           ),
           backgroundColor: MyColors.light_primarycolor2,
@@ -95,7 +95,7 @@ class _TransferReasonforSendingScreen2State extends State<TransferReasonforSendi
               children: <Widget>[
                 Container(color: MyColors.light_primarycolor2,height: 300,width: MediaQuery.of(context).size.width,),
                 Container(
-                  margin: EdgeInsets.fromLTRB(0, 10, 0, 0),
+                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width,
                   child: Card(
@@ -106,10 +106,10 @@ class _TransferReasonforSendingScreen2State extends State<TransferReasonforSendi
                     ),
                     child:GridView(
                       shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 10,vertical: 40),
+                      padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 40),
                       scrollDirection: Axis.vertical,
                     //  physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         childAspectRatio: 1/0.42 ,
                         crossAxisSpacing: 1.1,
@@ -134,14 +134,14 @@ class _TransferReasonforSendingScreen2State extends State<TransferReasonforSendi
                             },
                             child:  Container(
 
-                                margin: EdgeInsets.only(left: 8,top: 12,right: 8),
+                                margin: const EdgeInsets.only(left: 8,top: 12,right: 8),
 
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                                  borderRadius: const BorderRadius.all(Radius.circular(12)),
                                   border: Border.all(color: MyColors.color_text.withOpacity(0.2),width: 1.0),
                                 ),
-                                padding: EdgeInsets.symmetric(horizontal: 15,vertical: 0.0),
-                                child:Center(child: Text(MyString.Education,style: TextStyle(color: MyColors.color_text,fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500),))
+                                padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 0.0),
+                                child:const Center(child: Text(MyString.Education,style: TextStyle(color: MyColors.color_text,fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500),))
                             )
                         );
                       }).toList(),

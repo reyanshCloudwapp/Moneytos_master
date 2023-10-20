@@ -93,10 +93,10 @@ class _SelectBankScreen2BankDeposit extends State<SelectBankScreen2BankDeposit> 
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(50),
         child: AppBar(
 
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -105,7 +105,7 @@ class _SelectBankScreen2BankDeposit extends State<SelectBankScreen2BankDeposit> 
           elevation: 0,
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
-          title: Text(MyString.select_bank,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),),
+          title: const Text(MyString.select_bank,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),),
         ),
       ),
 
@@ -131,16 +131,16 @@ class _SelectBankScreen2BankDeposit extends State<SelectBankScreen2BankDeposit> 
           children: [
             hSizedBox2,
             Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 20.0),
+              padding:  const EdgeInsets.symmetric(horizontal: 20.0),
               child: searchbank()
               //CustomTextFields(controller: searchController, focus: searchFocus, textInputAction: TextInputAction.done, keyboardtype: TextInputType.text,border_color: MyColors.whiteColor.withOpacity(0.05),hinttext: MyString.search_bank,),
             ),
             GridView(
               shrinkWrap: true,
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               scrollDirection: Axis.vertical,
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              physics: const NeverScrollableScrollPhysics(),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 1/0.50 ,
                 crossAxisSpacing: 1.1,
@@ -152,8 +152,8 @@ class _SelectBankScreen2BankDeposit extends State<SelectBankScreen2BankDeposit> 
                     // Navigator.push(context, MaterialPageRoute(builder: (context)=>BankAccountNumber(bank_name:  selectbankposts[index].name.toString(),bank_id:selectbankposts[index].id.toString())));
                   },
                   child: Container(
-                     padding: EdgeInsets.symmetric(vertical:4,horizontal: 10),
-                     margin: EdgeInsets.symmetric(vertical:8,horizontal: 5),
+                     padding: const EdgeInsets.symmetric(vertical:4,horizontal: 10),
+                     margin: const EdgeInsets.symmetric(vertical:8,horizontal: 5),
                       child: CustomSelectBankList(title:selectbankposts[index].name.toString(),img: "a_assets/images/onboarding_img/logo.png",)),
                 );
               }).toList(),
@@ -184,13 +184,13 @@ class _SelectBankScreen2BankDeposit extends State<SelectBankScreen2BankDeposit> 
         cursorColor:MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          enabledBorder:  OutlineInputBorder(
+          enabledBorder:  const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
 

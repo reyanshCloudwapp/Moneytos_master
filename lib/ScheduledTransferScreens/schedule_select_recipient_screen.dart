@@ -63,13 +63,13 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
     return Scaffold(
       resizeToAvoidBottomInset : false,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: const Size.fromHeight(0),
         child: AppBar(
           backgroundColor: MyColors.light_primarycolor2,
           elevation: 0,
           centerTitle: true,
           automaticallyImplyLeading: false,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.light_primarycolor2,
 
@@ -80,14 +80,14 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
         ),
       ),
       bottomSheet: Container(
-        margin: EdgeInsets.only(bottom: 26),
-        decoration: BoxDecoration(
+        margin: const EdgeInsets.only(bottom: 26),
+        decoration: const BoxDecoration(
           color: MyColors.whiteColor,
         ),
 
         alignment: Alignment.center,
        height: 80,
-       padding: EdgeInsets.only(bottom: 15,top: 15),
+       padding: const EdgeInsets.only(bottom: 15,top: 15),
         child: GestureDetector(
           onTap: (){
             Navigator.pop(context);
@@ -104,7 +104,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
           ///
           Container(
             height: size.height * 0.6,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: MyColors.light_primarycolor2,
             ),
           ),
@@ -114,7 +114,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
 
           Container(
             height: size.height * 0.4,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: MyColors.light_primarycolor2,
             ),
             child: Column(
@@ -203,7 +203,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
           ),
           Container(
 
-            margin: EdgeInsets.only(top: 250),
+            margin: const EdgeInsets.only(top: 250),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
                color: MyColors.whiteColor,
@@ -213,7 +213,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                 children: [
                   Container(
 
-                    padding: EdgeInsets.only(top:30),
+                    padding: const EdgeInsets.only(top:30),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(30),
                       color: MyColors.whiteColor,
@@ -225,13 +225,13 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                     alignment: Alignment.center,
                     child: Utility.shrimmerGridLoader(150,150),
                   ):
-                  recipientList.length==0?Container(
+                  recipientList.isEmpty?Container(
                     height: size.height/1.5,
                     alignment: Alignment.center,
-                    child: Text("No Data",style: TextStyle(fontSize: 18),),
+                    child: const Text("No Data",style: TextStyle(fontSize: 18),),
                   ):
                   Container(
-                    padding: EdgeInsets.only(top: 0.0),
+                    padding: const EdgeInsets.only(top: 0.0),
                     decoration: BoxDecoration(
                         color: MyColors.whiteColor,
                         borderRadius: BorderRadius.circular(20)),
@@ -240,7 +240,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                       child: Column(
                         children: [
                           Container(
-                            margin: EdgeInsets.symmetric(horizontal: 20,vertical: 0),
+                            margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 0),
                             /*decoration: BoxDecoration(
                                 color: MyColors.lightblueColor.withOpacity(0.03),
                                 borderRadius: BorderRadius.circular(30)
@@ -254,8 +254,8 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                                 GridView(
                                   shrinkWrap: true,
                                   padding: EdgeInsets.only(left: 10,right: 20,bottom: size.height/2.8),
-                                  physics:NeverScrollableScrollPhysics(),
-                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  physics:const NeverScrollableScrollPhysics(),
+                                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2,
                                     childAspectRatio: 1 / 0.86,
                                     crossAxisSpacing: 1.1,
@@ -263,7 +263,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                                   ),
                                   children: List.generate(recipientList.length, (index)  {
                                     return Container(
-                                        margin: EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                                        margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
 
                                         child: Material(
                                             elevation: 0.6,
@@ -294,7 +294,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                                               },
                                               child: Container(
                                                 alignment: Alignment.center,
-                                                padding: EdgeInsets.symmetric(
+                                                padding: const EdgeInsets.symmetric(
                                                     vertical: 0, horizontal: 10),
                                                 child: Column(
                                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -323,14 +323,14 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                                                           fit: BoxFit.fill,
                                                           image: NetworkImage(
                                                             recipientList[index].profileImage.toString(),),
-                                                          placeholder: AssetImage(
+                                                          placeholder: const AssetImage(
                                                               "a_assets/logo/progress_image.png"),
                                                           placeholderFit: BoxFit.scaleDown,
                                                           imageErrorBuilder:
                                                               (context, error, stackTrace) {
                                                             return Container(
                                                                 color: MyColors.divider_color,
-                                                                alignment:Alignment.center,child: Text(recipientList[index].firstName.toString()[0].toUpperCase(),style: TextStyle(
+                                                                alignment:Alignment.center,child: Text(recipientList[index].firstName.toString()[0].toUpperCase(),style: const TextStyle(
                                                                 color: MyColors.shedule_color,
                                                                 fontSize: 18,
                                                                 fontWeight: FontWeight.w700,
@@ -346,7 +346,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                                                       alignment: Alignment.center,
                                                       child: Text(
                                                           recipientList[index].firstName.toString(),
-                                                        style: TextStyle(
+                                                        style: const TextStyle(
                                                             color: MyColors.blackColor,
                                                             fontWeight: FontWeight.w500,
                                                             fontFamily:
@@ -362,7 +362,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
                                 ),
                                 /// call api open gridview///
 
-                               SizedBox(height: 200,),
+                               const SizedBox(height: 200,),
                               ],
                             ),
                           ),
@@ -395,7 +395,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
   searchRecipient() {
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       
       decoration: BoxDecoration(
         color: MyColors.lightblueColor.withOpacity(0.05),
@@ -405,7 +405,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
       child: TextField(
         onChanged: (value) => _searchAllRecipintFilter(value),
         textInputAction: TextInputAction.done,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -414,7 +414,7 @@ class _ScheduleSelectRecipientScreenState extends State<ScheduleSelectRecipientS
           hintText: " Search Recipient...",
           border: InputBorder.none,
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(22),
+          contentPadding: const EdgeInsets.all(22),
           suffixIcon: Padding(
               padding: const EdgeInsets.all(12.0),
               child: Icon(

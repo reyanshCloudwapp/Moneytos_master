@@ -88,7 +88,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       setState(() {
         check = false;
         Timer(
-            Duration(seconds: 1),
+            const Duration(seconds: 1),
                 () {
                 Navigator.pushReplacement(
                     context,
@@ -140,7 +140,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           itemCount: contents.length,
           controller: _controller,
           scrollDirection: Axis.horizontal,
-          physics: AlwaysScrollableScrollPhysics(),
+          physics: const AlwaysScrollableScrollPhysics(),
           onPageChanged: (int index) {
             setState(() {
               currentindex = index;
@@ -164,7 +164,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                     ),
                     // child: Image.asset(contents[i].image.toString(),height: MediaQuery.of(context).size.height/1.1,width: MediaQuery.of(context).size.width,fit: BoxFit.fill,),
                     child: i==1?Container():Container(
-                      child: GFLoader(
+                      child: const GFLoader(
                           type: GFLoaderType.custom,
                           child: Image(image: AssetImage("a_assets/images/onboarding_img/logo_onboarding_anim.gif"),
                             // height: MediaQuery.of(context).size.height,
@@ -178,7 +178,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   // /// text title ui
                   Container(
                     height: MediaQuery.of(context).size.height/1.1,
-                    padding: EdgeInsets.only(left: 10,right: 10,bottom: 20),
+                    padding: const EdgeInsets.only(left: 10,right: 10,bottom: 20),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -191,7 +191,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                             child: Text(
                               contents[i].title.toString(),
                               textAlign: TextAlign.start,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.w600,
                                   color: MyColors.darkgreen,
@@ -227,7 +227,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     bottomNavigationBar: Container(
       alignment: Alignment.bottomCenter,
     //  color: MyColors.blackColor,
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
     width: size.width,
     height: 75,
     child: Row(
@@ -259,12 +259,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (ctx, i) {
                   return Padding(
-                    padding:  EdgeInsets.symmetric(horizontal: 5.0),
+                    padding:  const EdgeInsets.symmetric(horizontal: 5.0),
                     child: Container(
 
                       height: currentindex == i ? 8 : 8,
                       width: currentindex == i ? 8 : 8,
-                      margin: EdgeInsets.only(right: 5),
+                      margin: const EdgeInsets.only(right: 5),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: currentindex == i
@@ -286,7 +286,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       child: GestureDetector(
         behavior: HitTestBehavior.translucent,
           onTap: () async{
-            currentindex != 2 ?  await _controller!.nextPage(duration: Duration(microseconds: 100),
+            currentindex != 2 ?  await _controller!.nextPage(duration: const Duration(microseconds: 100),
                 curve: Curves.bounceIn)
             : Navigator.push(context, MaterialPageRoute(builder: (_) => LoginScreenPage()));
 
@@ -294,7 +294,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           },
         child: Container(
             decoration: BoxDecoration(
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                     color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
               ],
@@ -310,7 +310,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               //color: Colors.deepPurple.shade300,
               borderRadius: BorderRadius.circular(15),
             ),
-            margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
+            margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
             child: const Icon(
               Icons.arrow_forward_ios_rounded,
               color: MyColors.whiteColor,

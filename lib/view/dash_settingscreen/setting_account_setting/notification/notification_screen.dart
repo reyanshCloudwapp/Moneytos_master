@@ -47,14 +47,14 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return Scaffold(
       backgroundColor: MyColors.light_primarycolor2,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
           flexibleSpace:    Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.fromLTRB(22, 30, 20, 0),
+            padding: const EdgeInsets.fromLTRB(22, 30, 20, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -66,7 +66,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                 ),
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.notification,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -125,14 +125,14 @@ class _NotificationScreenState extends State<NotificationScreen> {
               /// body..
 
               Container(
-                margin: EdgeInsets.only(top: 8),
+                margin: const EdgeInsets.only(top: 8),
                 height: size.height,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   // borderRadius: BorderRadius.circular(35),
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(35),topRight: Radius.circular(35)),
                   color: Colors.white,
                 ),
-                padding: EdgeInsets.symmetric(horizontal: 23),
+                padding: const EdgeInsets.symmetric(horizontal: 23),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -141,7 +141,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     /// App notification
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.app_notification,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -162,7 +162,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: const Text(
                             MyString.when_logged_in_through_new_device,
                             style: TextStyle(
                                 color: MyColors.blackColor,
@@ -200,7 +200,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: const Text(
                             MyString.notify_me_about_salesandpromotions,
                             style: TextStyle(
                                 color: MyColors.blackColor,
@@ -257,7 +257,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: const Text(
                             MyString.Notify_me_for_referrals,
                             style: TextStyle(
                                 color: MyColors.blackColor,
@@ -314,7 +314,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: const Text(
                             MyString.notify_me_transaction,
                             style: TextStyle(
                                 color: MyColors.blackColor,
@@ -368,7 +368,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                     /// Email notification
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.email_notification,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -387,7 +387,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: const Text(
                             MyString.when_logged_in_through_new_device,
                             style: TextStyle(
                                 color: MyColors.blackColor,
@@ -424,7 +424,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: const Text(
                             MyString.notify_me_about_salesandpromotions,
                             style: TextStyle(
                                 color: MyColors.blackColor,
@@ -480,7 +480,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: const Text(
                             MyString.Notify_me_for_referrals,
                             style: TextStyle(
                                 color: MyColors.blackColor,
@@ -537,7 +537,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
                       children: [
                         Container(
                           alignment: Alignment.center,
-                          child: Text(
+                          child: const Text(
                             MyString.notify_me_transaction,
                             style: TextStyle(
                                 color: MyColors.blackColor,

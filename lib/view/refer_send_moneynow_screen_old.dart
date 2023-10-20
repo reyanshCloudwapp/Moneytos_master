@@ -42,13 +42,13 @@ class _ReferSendMoneyOldScreenState extends State<ReferSendMoneyOldScreen> {
     return Scaffold(
 backgroundColor: MyColors.light_primarycolor2,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(50),
         child:   AppBar(
           automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: MyColors.light_primarycolor2,
           flexibleSpace: Container(
-            padding: EdgeInsets.fromLTRB(22, 35, 20, 0),
+            padding: const EdgeInsets.fromLTRB(22, 35, 20, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -65,7 +65,7 @@ backgroundColor: MyColors.light_primarycolor2,
                 //  wSizedBox,
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.refe_friend,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -92,7 +92,7 @@ backgroundColor: MyColors.light_primarycolor2,
           ),
           Container(
             //padding: EdgeInsets.symmetric(horizontal: 20),
-            margin: EdgeInsets.fromLTRB(0, 22, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 22, 0, 0),
             height: MediaQuery.of(context).size.height,
             width: MediaQuery.of(context).size.width,
             child: Card(
@@ -103,7 +103,7 @@ backgroundColor: MyColors.light_primarycolor2,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,11 +117,11 @@ backgroundColor: MyColors.light_primarycolor2,
                             referlistResponse.data!.referralData!.isNotEmpty?
                             ListView.builder(
                                 shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: referlistResponse.data!.referralData!.length,
                                 itemBuilder: (BuildContext context, int index) {
                                   return Container(
-                                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
                                     decoration: BoxDecoration(color: MyColors.lightblueColor.withOpacity(0.05),
                                         borderRadius: BorderRadius.circular(8)
                                     ),
@@ -134,7 +134,7 @@ backgroundColor: MyColors.light_primarycolor2,
                                             Container(
                                               child: Text(
                                                 referlistResponse.data!.referralData![index].name.toString(),
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     color: MyColors.blackColor,
                                                     fontSize: 16,
                                                     fontWeight: FontWeight.w600,
@@ -157,7 +157,7 @@ backgroundColor: MyColors.light_primarycolor2,
                                         Container(
                                           child: Text(
                                             referlistResponse.data!.referralData![index].email.toString(),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: MyColors.blackColor,
                                                 fontSize: 10,
                                                 fontWeight: FontWeight.w600,
@@ -172,7 +172,7 @@ backgroundColor: MyColors.light_primarycolor2,
                                             Container(
                                               child: Text(
                                                 referlistResponse.data!.referralData![index].phone.toString(),
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     color: MyColors.blackColor,
                                                     fontSize: 10,
                                                     fontWeight: FontWeight.w600,
@@ -185,10 +185,10 @@ backgroundColor: MyColors.light_primarycolor2,
                                                   color:MyColors.blackColor.withOpacity(0.05),
                                                   borderRadius: BorderRadius.circular(50)
                                               ),
-                                              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                                              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                                               child: Text(
                                                 referlistResponse.data!.referralData![index].status.toString(),
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     color: MyColors.primaryColor,
                                                     fontSize: 10,
                                                     fontWeight: FontWeight.w600,
@@ -204,11 +204,11 @@ backgroundColor: MyColors.light_primarycolor2,
                             ):Container(
                               height: size.height/1.5,
                               alignment: Alignment.center,
-                              child: Text("No Data",style: TextStyle(fontSize: 18),),
+                              child: const Text("No Data",style: TextStyle(fontSize: 18),),
                             ):Container(
                               height: size.height/1.5,
                               alignment: Alignment.center,
-                              child: Text("No Data",style: TextStyle(fontSize: 18),),
+                              child: const Text("No Data",style: TextStyle(fontSize: 18),),
                             ),
                             // userlistcard("Today",MyColors.blackColor.withOpacity(0.05),"Sent",MyColors.primaryColor),
                             // hSizedBox2,
@@ -240,7 +240,7 @@ backgroundColor: MyColors.light_primarycolor2,
       bottomSheet: Container(
         // color: MyColors.whiteColor,
           height: 140,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: MyColors.whiteColor,
             /*gradient: LinearGradient(
            begin: Alignment.center,
@@ -255,7 +255,7 @@ backgroundColor: MyColors.light_primarycolor2,
          ),*/
           ),
           width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 35,horizontal: 20),
+          padding: const EdgeInsets.symmetric(vertical: 35,horizontal: 20),
           child:  GestureDetector(
             onTap:(){
 
@@ -298,7 +298,7 @@ backgroundColor: MyColors.light_primarycolor2,
                             color: MyColors.whiteColor,
                           ),
                           wSizedBox1,
-                          Text(MyString.refer_new_friend,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize: 16,fontWeight: FontWeight.w700,letterSpacing: 0.7 ),),
+                          const Text(MyString.refer_new_friend,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize: 16,fontWeight: FontWeight.w700,letterSpacing: 0.7 ),),
                         ],
                       ),
                     )
@@ -311,7 +311,7 @@ backgroundColor: MyColors.light_primarycolor2,
 
   userlistcard(String day,Color color,btnname,Color textcolor) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
       decoration: BoxDecoration(color: MyColors.lightblueColor.withOpacity(0.05),
         borderRadius: BorderRadius.circular(8)
       ),
@@ -322,7 +322,7 @@ backgroundColor: MyColors.light_primarycolor2,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                child: Text(
+                child: const Text(
                   "Friend Name",
                   style: TextStyle(
                       color: MyColors.blackColor,
@@ -345,7 +345,7 @@ backgroundColor: MyColors.light_primarycolor2,
           ),
           hSizedBox,
           Container(
-            child: Text(
+            child: const Text(
               "heshamsqrat@gmail.com",
               style: TextStyle(
                   color: MyColors.blackColor,
@@ -360,7 +360,7 @@ backgroundColor: MyColors.light_primarycolor2,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                child: Text(
+                child: const Text(
                   "121345646545",
                   style: TextStyle(
                       color: MyColors.blackColor,
@@ -375,7 +375,7 @@ backgroundColor: MyColors.light_primarycolor2,
                     color:color,
                   borderRadius: BorderRadius.circular(50)
                     ),
-                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 5),
                 child: Text(
                   btnname,
                   style: TextStyle(
@@ -414,7 +414,7 @@ backgroundColor: MyColors.light_primarycolor2,
               Row(
                 children: [
                   Container(
-                    child: Text(
+                    child: const Text(
                       "2",
                       style: TextStyle(
                           color: MyColors.lightblueColor,

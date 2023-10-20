@@ -44,8 +44,8 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
   }
 
   setdata(){
-    status =   documentdetaillist.length > 0 ? "${documentdetaillist[0].documentStatus == null || documentdetaillist[0].documentStatus.toString().isEmpty? "": documentdetaillist[0].documentStatus}" : "";
-    passport_type = documentdetaillist.length > 0 ? "${documentdetaillist[0].documentType == null || documentdetaillist[0].documentType.toString().isEmpty? "": documentdetaillist[0].documentType}" : "";
+    status =   documentdetaillist.isNotEmpty ? "${documentdetaillist[0].documentStatus == null || documentdetaillist[0].documentStatus.toString().isEmpty? "": documentdetaillist[0].documentStatus}" : "";
+    passport_type = documentdetaillist.isNotEmpty ? "${documentdetaillist[0].documentType == null || documentdetaillist[0].documentType.toString().isEmpty? "": documentdetaillist[0].documentType}" : "";
 
     setState(() {
 
@@ -102,20 +102,20 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
             ),
           ),*/
           child: Container(
-            margin: EdgeInsets.fromLTRB(0, 18, 0, 0),
+            margin: const EdgeInsets.fromLTRB(0, 18, 0, 0),
             //height:MediaQuery.of(context).size.height,
            // width: MediaQuery.of(context).size.width,
            // padding: EdgeInsets.symmetric(horizontal: 20),
             child: Card(
               color: MyColors.whiteColor,
               margin: EdgeInsets.zero,
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30)),
               ),
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 20),
+                padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
@@ -161,7 +161,7 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
                       hSizedBox2,
                       hSizedBox1,
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -174,7 +174,7 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
                           },
                           child: Cameracard(
                             "a_assets/icons/choose_doc/camera.svg",
-                            documentdetaillist.length > 0 ? "${documentdetaillist[0].ducumentFrontImage == null || documentdetaillist[0].ducumentFrontImage.toString().isEmpty? "": documentdetaillist[0].ducumentFrontImage}" :"",
+                            documentdetaillist.isNotEmpty ? "${documentdetaillist[0].ducumentFrontImage == null || documentdetaillist[0].ducumentFrontImage.toString().isEmpty? "": documentdetaillist[0].ducumentFrontImage}" :"",
 
                           ),
                         ),
@@ -183,7 +183,7 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
                       hSizedBox2,
 
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -193,7 +193,7 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
                           onTap: () {},
                           child: Cameracard(
                               "a_assets/icons/choose_doc/camera.svg",
-                              documentdetaillist.length > 0 ? "${documentdetaillist[0].ducumentBackImage == null || documentdetaillist[0].ducumentBackImage.toString().isEmpty? "": documentdetaillist[0].ducumentBackImage}" : ""
+                              documentdetaillist.isNotEmpty ? "${documentdetaillist[0].ducumentBackImage == null || documentdetaillist[0].ducumentBackImage.toString().isEmpty? "": documentdetaillist[0].ducumentBackImage}" : ""
 
                           ),
                         ),
@@ -207,7 +207,7 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
 
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: CustomButton2(btnname:"Upload Again",bg_color: MyColors.lightblueColor,bordercolor: MyColors.lightblueColor,),
                         ),
                       ),
@@ -224,7 +224,7 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
 
         load == true ? Container(
           color:  MyColors.primaryColor.withOpacity(0.060),
-          child: Center(child: CircularProgressIndicator(color: MyColors.lightblueColor,)),) : Container()
+          child: const Center(child: CircularProgressIndicator(color: MyColors.lightblueColor,)),) : Container()
       ],
     );
   }
@@ -264,7 +264,7 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
     return showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))
         ),
         // anchorPoint: Offset(20.0, 30.0),
@@ -274,9 +274,9 @@ class _SettingVerificationSuccessfullyScreenState extends State<SettingVerificat
               color: Colors.transparent,
               height: MediaQuery.of(context).size.height * 0.82,
               child: Container(
-                  decoration: new BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))),
+                      borderRadius: const BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))),
                   child: SettingAccountVerifiedDialogScreen())
           );}
     );

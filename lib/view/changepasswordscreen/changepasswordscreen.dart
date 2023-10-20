@@ -67,12 +67,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
 
@@ -81,9 +81,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             statusBarBrightness: Brightness.dark, // For iOS (dark icons)
           ),
           flexibleSpace: Container(
-            padding: EdgeInsets.only(top: 25),
+            padding: const EdgeInsets.only(top: 25),
             alignment: Alignment.center,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: MyColors.color_03153B,
               image: DecorationImage(
                   image: AssetImage("s_asset/images/bgimage.png",),
@@ -93,7 +93,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
             child: Column(
               children: [
                 Container(
-                    margin: EdgeInsets.only(top: 50.0,left: 0.0),
+                    margin: const EdgeInsets.only(top: 50.0,left: 0.0),
                     child: Align(
                         alignment: Alignment.center,
                         child: SvgPicture.asset('a_assets/images/logo.svg',fit: BoxFit.cover,))),
@@ -106,7 +106,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
         children: [
           Container(
             height: size.height * 0.3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 //color: MyColors.primaryColor,
                   image: DecorationImage(
                       image: AssetImage("s_asset/images/bgimage.png",),
@@ -117,7 +117,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
           // Image.asset('assets/images/map.png',fit: BoxFit.cover,),
 
           Container(
-            margin: EdgeInsets.only(top: 30.0),
+            margin: const EdgeInsets.only(top: 30.0),
             width: MediaQuery.of(context).size.width,
             child: Material(
               color:MyColors.whiteColor ,
@@ -127,18 +127,18 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               child: SingleChildScrollView(
                 child: Container(
                    height: size.height ,
-                  margin: EdgeInsets.only(top: 45.0,left: 20.0,right: 20.0),
+                  margin: const EdgeInsets.only(top: 45.0,left: 20.0,right: 20.0),
                   child: Column(
 
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Align(
+                      const Align(
                           alignment: Alignment.center,
                           child: Text("Change password",style: TextStyle(fontSize: 26,fontWeight: FontWeight.w700,color: MyColors.blackColor,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)),
 
                       Padding(
-                        padding:  EdgeInsets.only(top:20.0),
+                        padding:  const EdgeInsets.only(top:20.0),
                         child:
                         Align(
                             alignment: Alignment.center,
@@ -151,7 +151,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           Container(
                             height: 50,
                             width: MediaQuery.of(context).size.width,
-                            margin:  EdgeInsets.fromLTRB(20.0, 60.0, 16.0, 0.0),
+                            margin:  const EdgeInsets.fromLTRB(20.0, 60.0, 16.0, 0.0),
                             decoration: BoxDecoration(
                                 color: passfillcolor,
                                 border:  Border.all(color: passbordercolor ),
@@ -165,7 +165,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 setState(() {});
                               },
                               textInputAction: TextInputAction.done,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color:MyColors.blackColor,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w400,
@@ -189,7 +189,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 hintText: 'Password',
                                 border: InputBorder.none,
                                 fillColor: MyColors.whiteColor,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 15),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 15),
 
                                 focusedBorder: InputBorder.none,
                                 enabledBorder: InputBorder.none,
@@ -204,9 +204,9 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           ),
 
                           ispasserror == true ?  Container(
-                            margin:  EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
+                            margin:  const EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
                             alignment: Alignment.topLeft,
-                            child: Text(passerror,style: TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
+                            child: Text(passerror,style: const TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
                               : Container()
 
                         ],
@@ -217,7 +217,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           Container(
                             height: 50,
                             width: MediaQuery.of(context).size.width,
-                            margin:  EdgeInsets.fromLTRB(20.0, 20.0, 16.0, 0.0),
+                            margin:  const EdgeInsets.fromLTRB(20.0, 20.0, 16.0, 0.0),
                             decoration: BoxDecoration(
                                 color: cinfirmpassfillcolor,
                                    border: Border.all(color: cinfirmpassfillcolor,width: 1),
@@ -231,7 +231,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 setState(() {});
                               },
                               textInputAction: TextInputAction.done,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 color:MyColors.blackColor,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
@@ -255,7 +255,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                                 hintText: 'Confirm Password',
                                 border: InputBorder.none,
                                 fillColor: MyColors.whiteColor,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 15),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 15),
                                 focusedBorder:InputBorder.none,
                                 enabledBorder: InputBorder.none,
 
@@ -269,19 +269,19 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                           ),
 
                           isconfirm_passerror == true ?  Container(
-                            margin:  EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
+                            margin:  const EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
                             alignment: Alignment.topLeft,
-                            child: Text(confirm_passerror,style: TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
+                            child: Text(confirm_passerror,style: const TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
                               : Container()
                         ],
                       ),
                       Padding(
-                        padding:  EdgeInsets.only(top:56.0),
+                        padding:  const EdgeInsets.only(top:56.0),
                         child: Align(
 
                           alignment: Alignment.center,
-                          child: load == true ? CircularProgressIndicator(color: MyColors.lightblueColor,):  ElevatedButton(
-                            child: Text('Confirm'),
+                          child: load == true ? const CircularProgressIndicator(color: MyColors.lightblueColor,):  ElevatedButton(
+                            child: const Text('Confirm'),
                             onPressed: () {
                               passfocus.unfocus();
                               con_passfocus.unfocus();
@@ -341,12 +341,12 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                             },
                             style: ElevatedButton.styleFrom(
                                 primary: MyColors.lightblueColor,
-                                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 17),
+                                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 17),
 
-                                shape: RoundedRectangleBorder(
+                                shape: const RoundedRectangleBorder(
                                     borderRadius: BorderRadius.all(Radius.circular(16.0))
                                 ),
-                                textStyle: TextStyle(
+                                textStyle: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold)),
                           ),

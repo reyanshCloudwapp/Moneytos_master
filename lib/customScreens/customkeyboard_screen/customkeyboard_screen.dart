@@ -38,7 +38,7 @@ class _CustomKeyboardScreenState extends State<CustomKeyboardScreen> {
   }
 
   backSpace(){
-    if(pinEntered.length > 0){
+    if(pinEntered.isNotEmpty){
       pinEntered = pinEntered.substring(0,pinEntered.length -1);
       alert = "";
       print("pinentered..${pinEntered}");
@@ -59,13 +59,13 @@ class _CustomKeyboardScreenState extends State<CustomKeyboardScreen> {
 
             /// number ui
             Padding(
-              padding: EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 10),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: firstlist.map((e) {
                   return Container(
-                      padding: EdgeInsets.symmetric( vertical: 10),
+                      padding: const EdgeInsets.symmetric( vertical: 10),
                       child: numberButton(e));
                 }).toList(),
               ),
@@ -79,7 +79,7 @@ class _CustomKeyboardScreenState extends State<CustomKeyboardScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: secondlist.map((e) {
                 return Container(
-                    padding: EdgeInsets.symmetric( vertical: 10),
+                    padding: const EdgeInsets.symmetric( vertical: 10),
                     child: numberButton(e));
               }).toList(),
             ),
@@ -92,7 +92,7 @@ class _CustomKeyboardScreenState extends State<CustomKeyboardScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: thirdlist.map((e) {
                 return Container(
-                    padding: EdgeInsets.symmetric( vertical: 15),
+                    padding: const EdgeInsets.symmetric( vertical: 15),
                     child: numberButton(e));
               }).toList(),
             ),
@@ -105,7 +105,7 @@ class _CustomKeyboardScreenState extends State<CustomKeyboardScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only( top: 15),
+                    padding: const EdgeInsets.only( top: 15),
                     child: InkWell(
                       onTap: () {
                         backSpace();
@@ -123,7 +123,7 @@ class _CustomKeyboardScreenState extends State<CustomKeyboardScreen> {
                     ),
                   ),
 
-                  Padding(padding: EdgeInsets.only( top: 17),child:Container(
+                  Padding(padding: const EdgeInsets.only( top: 17),child:Container(
                     width: 50,
                     child:  numberButton(0),
                   )),
@@ -137,8 +137,8 @@ class _CustomKeyboardScreenState extends State<CustomKeyboardScreen> {
                     child: Container(
                       // height: 20,
                       alignment: Alignment.bottomCenter,
-                      padding: EdgeInsets.only( top: 22),
-                      child: Text(".",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
+                      padding: const EdgeInsets.only( top: 22),
+                      child: const Text(".",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
                     ),
                   )
                       : Container()
@@ -169,7 +169,7 @@ class _CustomKeyboardScreenState extends State<CustomKeyboardScreen> {
           height: 30,
           child: Text(
             item.toString(),
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.blackColor,
                 fontWeight: FontWeight.w800,
                 fontSize: 20,

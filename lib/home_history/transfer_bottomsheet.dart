@@ -73,7 +73,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
     return is_load?Container(
       height: size.width,
       width: size.height,
-      child: Center(
+      child: const Center(
           child:GFLoader(
               type: GFLoaderType.custom,
               child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
@@ -94,7 +94,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
             hSizedBox3,
 
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child:  Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -102,7 +102,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
 
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       MyString.transaction_detail,
                       style: TextStyle(
                           color: MyColors.blackColor,
@@ -122,7 +122,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                     },
                     child: Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.view_detail,
                         style: TextStyle(
                             color: MyColors.lightblueColor,
@@ -138,7 +138,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
             hSizedBox3,
 ///
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child:  Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -160,7 +160,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                     children: [
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           "01.00",
                           style: TextStyle(
                               color: MyColors.lightblueColor,
@@ -173,7 +173,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                       wSizedBox,
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           MyString.usd,
                           style: TextStyle(
                               color: MyColors.blackColor,
@@ -193,7 +193,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           "${exchange_rate}",
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.lightblueColor,
                               fontSize: 14,
                               fontFamily: "s_asset/font/montserrat/MontserratAlternates-SemiBold.otf",
@@ -206,7 +206,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           currency_code,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.blackColor,
                               fontSize: 9,
                               fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
@@ -224,7 +224,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
 
             ///
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child:  Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -246,7 +246,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                     alignment: Alignment.topLeft,
                     child: Text(
                       created_at==""?"":"${created_at}",
-                      style: TextStyle(
+                      style: const TextStyle(
                         letterSpacing: 0.5,
                           color: MyColors.blackColor,
                           fontSize: 12,
@@ -264,7 +264,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
 
             ///
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child:  Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -286,7 +286,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                     alignment: Alignment.topLeft,
                     child: Text(
                       mtin_number,
-                      style: TextStyle(
+                      style: const TextStyle(
                           letterSpacing: 0.5,
                           color: MyColors.blackColor,
                           fontSize: 12,
@@ -302,7 +302,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
 
             ///
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child:  Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -326,7 +326,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           double.parse(you_send).toStringAsFixed(2),
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.blackColor,
                               fontSize: 14,
                               fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -337,7 +337,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                       wSizedBox,
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           MyString.usd,
                           style: TextStyle(
                               color: MyColors.blackColor,
@@ -356,7 +356,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
 
             ///
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child:  Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -381,7 +381,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                         child: Text(
                           fees,
                           // fees,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.blackColor,
                               fontSize: 14,
                               fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -392,7 +392,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                       wSizedBox,
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           MyString.usd,
                           style: TextStyle(
                               color: MyColors.blackColor,
@@ -409,12 +409,12 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
             hSizedBox3,
 
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               height: 0.5,
               child: DottedBorder(
                 color: Colors.black.withOpacity(0.50),
                 strokeWidth: 0.5,
-                dashPattern: [8, 4],
+                dashPattern: const [8, 4],
                 child: Container(),
               ),
             ),
@@ -422,7 +422,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
 
             ///
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child:  Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -446,7 +446,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           "${total_amount}",
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.blackColor,
                               fontSize: 20,
                               fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -457,7 +457,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                       wSizedBox,
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           MyString.usd,
                           style: TextStyle(
                               color: MyColors.blackColor,
@@ -506,8 +506,8 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
             /// alert strings................
 
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text("Times may vary but we estimate that the recipient will receive the funds within 24 hours. Some receiving financial institutions may charge additional fees; foreign taxes may apply.\nToll Free No: (855) 411-237\n\nMoneytos may earn revenue from the conversion of USD to other countries.",
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: const Text("Times may vary but we estimate that the recipient will receive the funds within 24 hours. Some receiving financial institutions may charge additional fees; foreign taxes may apply.\nToll Free No: (855) 411-237\n\nMoneytos may earn revenue from the conversion of USD to other countries.",
                   style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/MontserratAlternates-Medium.otf",color: MyColors.blackColor,letterSpacing: 0.7)),
             ),
 
@@ -515,7 +515,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
             hSizedBox3,
 
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 // mainAxisAlignment: MainAxisAlignment.center,
@@ -559,7 +559,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                                 "a_assets/icons/download_icon.svg",
                               ),
                             wSizedBox1,
-                            Text("Receipt",style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.lightblueColor,fontSize: 16,fontWeight: FontWeight.w700,letterSpacing: 0.7 ),),
+                            const Text("Receipt",style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.lightblueColor,fontSize: 16,fontWeight: FontWeight.w700,letterSpacing: 0.7 ),),
                             ],
                           ),
                         )
@@ -611,19 +611,19 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
               Container(
                 height: 32,
                 width: 32,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: MyColors.light_primarycolor2,
                   shape: BoxShape.circle,
                 ),
                 child: Padding(
-                  padding:  EdgeInsets.all(8.0),
+                  padding:  const EdgeInsets.all(8.0),
                   child: SvgPicture.asset("s_asset/images/tick.svg",height: 16,width: 16,),
                 ),
               ),
               Container(
                 height: 1,
                 width: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: MyColors.light_primarycolor2,
                   shape: BoxShape.rectangle,
                 ),
@@ -633,12 +633,12 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
               Container(
                 height: 32,
                 width: 32,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: MyColors.light_primarycolor2,
                   shape: BoxShape.circle,
                 ),
                 child: Padding(
-                  padding:  EdgeInsets.all(8.0),
+                  padding:  const EdgeInsets.all(8.0),
                   child: SvgPicture.asset("s_asset/images/tick.svg",height: 16,width: 16,),
                 ),
               ),
@@ -647,7 +647,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
               Container(
                 height: 1,
                 width: 100,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: MyColors.light_primarycolor2,
                   shape: BoxShape.rectangle,
                 ),
@@ -657,19 +657,19 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
               Container(
                 height: 32,
                 width: 32,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: MyColors.light_primarycolor2,
                   shape: BoxShape.circle,
                 ),
                 child: Padding(
-                  padding:  EdgeInsets.all(8.0),
+                  padding:  const EdgeInsets.all(8.0),
                   child: SvgPicture.asset("s_asset/images/tick.svg",height: 16,width: 16,),
                 ),
               ):
               Container(
                 height: 32,
                 width: 32,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: MyColors.color_F3F3F3,
                   shape: BoxShape.circle,
                 ),
@@ -688,20 +688,20 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                 Container(
                   height: 32,
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: MyColors.color_linecolor,
                       borderRadius: BorderRadius.all(Radius.circular(16))
 
                   ),
                   child: Container(
                       alignment: Alignment.center,
-                      child: Text("On Its Way",textAlign:TextAlign.center,style: TextStyle(fontSize: 10, fontFamily:" s_asset/font/raleway/raleway_bold.ttf",fontWeight:FontWeight.w600,color: MyColors.light_primarycolor2 ),)),
+                      child: const Text("On Its Way",textAlign:TextAlign.center,style: TextStyle(fontSize: 10, fontFamily:" s_asset/font/raleway/raleway_bold.ttf",fontWeight:FontWeight.w600,color: MyColors.light_primarycolor2 ),)),
                 ),
                 wSizedBox2,
                 Container(
                   height: 32,
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: MyColors.color_linecolor,
                       borderRadius: BorderRadius.all(Radius.circular(16))
 
@@ -714,7 +714,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                 Container(
                   height: 32,
                   width: 100,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: MyColors.color_linecolor,
                       borderRadius: BorderRadius.all(Radius.circular(16))
 
@@ -871,8 +871,8 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
   /// usercard...
   usercard() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: MyColors.lightblueColor.withOpacity(0.03)),
@@ -894,7 +894,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                     fit: BoxFit.fill,
                     image: NetworkImage(
                       first_name,),
-                    placeholder: AssetImage(
+                    placeholder: const AssetImage(
                         "a_assets/logo/progress_image.png"),
                     placeholderFit: BoxFit.scaleDown,
                     imageErrorBuilder:
@@ -914,7 +914,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         "${first_name} ${last_name}",
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 14,
                             fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",
@@ -976,7 +976,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             double.parse(will_recieve).toStringAsFixed(2),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontFamily: "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
@@ -990,7 +990,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             currency_code,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 8,
                                 fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",
@@ -1030,7 +1030,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             widget.txnSubData.trasnsferReason.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
@@ -1056,8 +1056,8 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
   deliveryMethid(){
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: MyColors.lightblueColor.withOpacity(0.03)),
@@ -1083,7 +1083,7 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                     wSizedBox1,
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(delivery_method,style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/MontserratAlternates-Medium.otf",color: MyColors.blackColor),),
+                      child: Text(delivery_method,style: const TextStyle(fontSize: 14,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/MontserratAlternates-Medium.otf",color: MyColors.blackColor),),
                     ),
                   ],
                 ),
@@ -1117,13 +1117,13 @@ class _TransferBottomsheetState extends State<TransferBottomsheet> {
                     children: [
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(bank_name,style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/montserrat/Montserrat-Bold.otf",color: MyColors.blackColor),),
+                        child: Text(bank_name,style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/montserrat/Montserrat-Bold.otf",color: MyColors.blackColor),),
                       ),
 
                       hSizedBox,
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(account_number,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/MontserratAlternates-Medium.otf",color: MyColors.blackColor),),
+                        child: Text(account_number,style: const TextStyle(fontSize: 12,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/MontserratAlternates-Medium.otf",color: MyColors.blackColor),),
                       ),
                     ],
                   ),

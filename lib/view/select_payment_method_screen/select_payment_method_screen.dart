@@ -775,7 +775,7 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         contentPadding: const EdgeInsets.only(top: 10.0),
-        content: Container(
+        content: SizedBox(
           width: 300.0,
           height: 300,
           child: SingleChildScrollView(
@@ -946,7 +946,7 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
+                  SizedBox(
                       height: 40,
                       width: 40,
                       // decoration: BoxDecoration(
@@ -1038,7 +1038,7 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         contentPadding: const EdgeInsets.only(top: 10.0),
-        content: Container(
+        content: SizedBox(
           width: 300.0,
           child: SingleChildScrollView(
             child: Column(
@@ -1261,42 +1261,40 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
                             width: 24,
                           )),
                   wSizedBox1,
-                  Container(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          alignment: Alignment.center,
-                          child: Text(
-                            title,
-                            style: TextStyle(
-                                color: color,
-                                fontWeight: FontWeight.w700,
-                                fontFamily:
-                                    "s_asset/font/raleway/raleway_bold.ttf",
-                                fontSize: 16),
-                          ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        alignment: Alignment.center,
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                              color: color,
+                              fontWeight: FontWeight.w700,
+                              fontFamily:
+                                  "s_asset/font/raleway/raleway_bold.ttf",
+                              fontSize: 16),
                         ),
-                        hSizedBox1,
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              //  alignment: Alignment.topLeft,
-                              child: Text(
-                                "**** " + CardNumber,
-                                style: TextStyle(
-                                    color: color,
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily:
-                                        "s_asset/font/raleway/raleway_medium.ttf",
-                                    fontSize: 12),
-                              ),
+                      ),
+                      hSizedBox1,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            //  alignment: Alignment.topLeft,
+                            child: Text(
+                              "**** " + CardNumber,
+                              style: TextStyle(
+                                  color: color,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily:
+                                      "s_asset/font/raleway/raleway_medium.ttf",
+                                  fontSize: 12),
                             ),
-                          ],
-                        )
-                      ],
-                    ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
                 ],
               ),

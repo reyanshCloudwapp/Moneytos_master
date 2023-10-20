@@ -2,16 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:moneytos/constance/myColors/mycolor.dart';
 
-
 class CustomButton extends StatelessWidget {
   String btnname;
-  Color bg_color, textcolor,bordercolor;
+  Color bg_color, textcolor, bordercolor;
   double height;
   double fontsize;
-  CustomButton({Key? key,this.btnname = "",this.bg_color = MyColors.primaryColor,this.textcolor = MyColors.whiteColor,this.bordercolor = MyColors.primaryColor,this.height = 50,
-    this.fontsize = 18
 
-  }) : super(key: key);
+  CustomButton(
+      {Key? key,
+      this.btnname = "",
+      this.bg_color = MyColors.primaryColor,
+      this.textcolor = MyColors.whiteColor,
+      this.bordercolor = MyColors.primaryColor,
+      this.height = 50,
+      this.fontsize = 18})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class CustomButton extends StatelessWidget {
         height: height,
         child: Material(
           elevation: 1,
-          shadowColor:  MyColors.btncolor,
+          shadowColor: MyColors.btncolor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
@@ -38,19 +43,25 @@ class CustomButton extends StatelessWidget {
                 ),
                 //    border: Border.all(color: bordercolor,width: 1.4)
               ),
-              child: Center(child: Text(btnname,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:textcolor,fontSize: fontsize,fontWeight: FontWeight.w700,letterSpacing: 0.3 ),))),
-        )
-    );
+              child: Center(
+                  child: Text(
+                btnname,
+                style: TextStyle(
+                    fontFamily: "s_asset/font/raleway/raleway_bold.ttf",
+                    color: textcolor,
+                    fontSize: fontsize,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.3),
+              ))),
+        ));
   }
 
-  addressList(){
+  addressList() {
     return Container(
-      child: Column(
+      child: const Column(
         children: [
           Row(
-            children: [
-
-            ],
+            children: [],
           )
         ],
       ),
@@ -60,13 +71,19 @@ class CustomButton extends StatelessWidget {
 
 class CustomButton2 extends StatelessWidget {
   String btnname;
-  Color bg_color, textcolor,bordercolor;
+  Color bg_color, textcolor, bordercolor;
   double height;
   double fontsize;
-  CustomButton2({Key? key,this.btnname = "",this.bg_color = MyColors.primaryColor,this.textcolor = MyColors.whiteColor,this.bordercolor = MyColors.primaryColor,this.height = 50,
-    this.fontsize = 18
 
-  }) : super(key: key);
+  CustomButton2(
+      {Key? key,
+      this.btnname = "",
+      this.bg_color = MyColors.primaryColor,
+      this.textcolor = MyColors.whiteColor,
+      this.bordercolor = MyColors.primaryColor,
+      this.height = 50,
+      this.fontsize = 18})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -90,26 +107,29 @@ class CustomButton2 extends StatelessWidget {
                       MyColors.darkbtncolor,
                     ],
                   ),
-                  border: Border.all(color: bordercolor,width: 1.4)
-              ),
-              child: Center(child: Text(btnname,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:textcolor,fontSize:fontsize,fontWeight: FontWeight.w700,letterSpacing: 0.7 ),))),
-        )
-    );
+                  border: Border.all(color: bordercolor, width: 1.4)),
+              child: Center(
+                  child: Text(
+                btnname,
+                style: TextStyle(
+                    fontFamily: "s_asset/font/raleway/raleway_bold.ttf",
+                    color: textcolor,
+                    fontSize: fontsize,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.7),
+              ))),
+        ));
   }
 
-  addressList(){
+  addressList() {
     return Container(
-      child: Column(
+      child: const Column(
         children: [
           Row(
-            children: [
-
-            ],
+            children: [],
           )
         ],
       ),
     );
   }
 }
-
-

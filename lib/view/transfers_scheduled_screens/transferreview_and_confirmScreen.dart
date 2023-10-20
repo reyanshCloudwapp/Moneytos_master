@@ -31,20 +31,20 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           backgroundColor: MyColors.light_primarycolor2,
           elevation: 0,
           centerTitle: true,
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only( left: 25,top: 25),
+            padding: const EdgeInsets.only( left: 25,top: 25),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only( top: 5),
+                  padding: const EdgeInsets.only( top: 5),
                   child: InkWell(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -59,7 +59,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                 // wSizedBox3,
                 Container(
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.review_and_confirm,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -89,8 +89,8 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
               height: size.height,
               child: Container(
                 height: size.height,
-                margin: EdgeInsets.only(top: 10),
-                decoration: BoxDecoration(
+                margin: const EdgeInsets.only(top: 10),
+                decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                     color: MyColors.whiteColor
                 ),
@@ -123,7 +123,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                           //  transferbottomsheet(context);
                         },
                         child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
 
                           child: CustomButton2(btnname: "Schedule From 16 Jul",bordercolor: MyColors.lightblueColor,),
                         ),
@@ -143,7 +143,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
   /// usercard...
   usercard() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
       child: Material(
         elevation: 10,
         shadowColor: MyColors.lightblueColor.withOpacity(0.30),
@@ -154,7 +154,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: MyColors.whiteColor),
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             children: [
               /// top
@@ -163,7 +163,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                   CircleAvatar(
                     radius: 25,
                     backgroundColor: MyColors.lightblueColor.withOpacity(0.09),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         "R",
                         style:
@@ -183,7 +183,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                           children: [
                             Container(
                               alignment: Alignment.topLeft,
-                              child: Text(
+                              child: const Text(
                                 "Hesham Sqrat",
                                 style: TextStyle(
                                     color: MyColors.blackColor,
@@ -196,11 +196,9 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                             // wSizedBox4,
                             Row(
                               children: [
-                                Container(
-                                  child: SvgPicture.asset(
-                                    "a_assets/icons/edit.svg",
-                                    color: MyColors.blackColor,
-                                  ),
+                                SvgPicture.asset(
+                                  "a_assets/icons/edit.svg",
+                                  color: MyColors.blackColor,
                                 ),
 
                               ],
@@ -280,7 +278,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
   /// deleviry method
   deliveryMethid() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       child: Material(
         elevation: 10,
         shadowColor: MyColors.lightblueColor.withOpacity(0.30),
@@ -289,7 +287,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
         ),
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
 
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -322,7 +320,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                         wSizedBox1,
                         Container(
                           alignment: Alignment.topLeft,
-                          child: Text(
+                          child: const Text(
                             MyString.bank_deposit,
                             style: TextStyle(
                                 fontSize: 14,
@@ -364,7 +362,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                       children: [
                         Container(
                           alignment: Alignment.topLeft,
-                          child: Text(
+                          child: const Text(
                             MyString.qnb_ba,
                             style: TextStyle(
                                 fontSize: 16,
@@ -377,7 +375,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                         hSizedBox,
                         Container(
                           alignment: Alignment.topLeft,
-                          child: Text(
+                          child: const Text(
                             "DE68500105178297336485",
                             style: TextStyle(
                                 fontSize: 12,
@@ -403,7 +401,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
   bankcard(){
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       child: Material(
         elevation: 10,
         shadowColor: MyColors.lightblueColor.withOpacity(0.30),
@@ -412,7 +410,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
         ),
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
 
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -428,7 +426,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                 children: [
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       MyString.qnb_ba,
                       style: TextStyle(
                           fontSize: 16,
@@ -441,7 +439,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                   hSizedBox,
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       "DE68500105178297336485",
                       style: TextStyle(
                           fontSize: 12,
@@ -463,7 +461,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
   ///exchangeRate
   exchangeRatecard(){
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
 
@@ -488,7 +486,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
 
                 Container(
                   alignment: Alignment.topLeft,
-                  child: Text(
+                  child: const Text(
                     MyString.depend_on_day_of_transfer,
                     style: TextStyle(
                         color: MyColors.blackColor,
@@ -525,7 +523,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         "1,473.00",
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -538,7 +536,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                     wSizedBox,
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.usd,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -577,7 +575,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         "1,473.00",
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -590,7 +588,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                     wSizedBox,
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.usd,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -627,7 +625,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         "000-00-0000",
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -650,7 +648,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
             child: DottedBorder(
               color: Colors.black.withOpacity(0.50),
               strokeWidth: 0.5,
-              dashPattern: [8, 4],
+              dashPattern: const [8, 4],
               child: Container(),
             ),
           ),
@@ -678,7 +676,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                     children: [
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           "1,473.00",
                           style: TextStyle(
                               color: MyColors.blackColor,
@@ -691,7 +689,7 @@ class _TransferReview_andConfirmScreenState extends State<TransferReview_andConf
                       wSizedBox,
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           MyString.usd,
                           style: TextStyle(
                               color: MyColors.blackColor,

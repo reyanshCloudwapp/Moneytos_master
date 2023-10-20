@@ -208,16 +208,16 @@ class TransactionChargeRequest {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['amount'] = this.amount;
-    if (this.amountDetails != null) {
-      data['amount_details'] = this.amountDetails!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['amount'] = amount;
+    if (amountDetails != null) {
+      data['amount_details'] = amountDetails!.toJson();
     }
-    if (this.billingInfo != null) {
-      data['billing_info'] = this.billingInfo!.toJson();
+    if (billingInfo != null) {
+      data['billing_info'] = billingInfo!.toJson();
     }
-    data['source'] = this.source;
-    data['capture'] = this.capture;
+    data['source'] = source;
+    data['capture'] = capture;
     return data;
   }
 }
@@ -241,12 +241,12 @@ class AmountDetails {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['tax'] = this.tax;
-    data['surcharge'] = this.surcharge;
-    data['shipping'] = this.shipping;
-    data['tip'] = this.tip;
-    data['discount'] = this.discount;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['tax'] = tax;
+    data['surcharge'] = surcharge;
+    data['shipping'] = shipping;
+    data['tip'] = tip;
+    data['discount'] = discount;
     return data;
   }
 }
@@ -289,17 +289,17 @@ class BillingInfo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['first_name'] = this.firstName;
-    data['last_name'] = this.lastName;
-    data['company'] = this.company;
-    data['street'] = this.street;
-    data['street2'] = this.street2;
-    data['state'] = this.state;
-    data['city'] = this.city;
-    data['zip'] = this.zip;
-    data['country'] = this.country;
-    data['phone'] = this.phone;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['first_name'] = firstName;
+    data['last_name'] = lastName;
+    data['company'] = company;
+    data['street'] = street;
+    data['street2'] = street2;
+    data['state'] = state;
+    data['city'] = city;
+    data['zip'] = zip;
+    data['country'] = country;
+    data['phone'] = phone;
     return data;
   }
 }

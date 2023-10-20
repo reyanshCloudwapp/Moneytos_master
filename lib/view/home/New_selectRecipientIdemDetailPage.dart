@@ -516,16 +516,16 @@ class _NewSelectRecipientHomeDetailScreenState
         builder: (context) {
           return Wrap(children: [
             ListTile(
-              leading: Icon(Icons.camera_alt),
-              title: Text('camera'),
+              leading: const Icon(Icons.camera_alt),
+              title: const Text('camera'),
               onTap: () {
                 Navigator.pop(context);
                 getfrontCameraImage(ImageSource.camera);
               },
             ),
             ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text('gallery'),
+              leading: const Icon(Icons.photo_album),
+              title: const Text('gallery'),
               onTap: () {
                 Navigator.pop(context);
                 getfrontCameraImage(ImageSource.gallery);
@@ -604,14 +604,14 @@ class _NewSelectRecipientHomeDetailScreenState
     return Scaffold(
       backgroundColor: MyColors.color_03153B,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(265),
+        preferredSize: const Size.fromHeight(265),
         child: AppBar(
           backgroundColor: MyColors.color_03153B,
           elevation: 0,
           centerTitle: true,
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only(left: 20, top: 65, right: 20),
+            padding: const EdgeInsets.only(left: 20, top: 65, right: 20),
             child: Column(
               children: [
                 /// appbar ui....
@@ -620,7 +620,7 @@ class _NewSelectRecipientHomeDetailScreenState
                   //  margin: EdgeInsets.only(left: 22),
                   // height: 25,
                   // width: 25,
-                  margin: EdgeInsets.only(top: 5),
+                  margin: const EdgeInsets.only(top: 5),
                   child: InkWell(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -636,7 +636,7 @@ class _NewSelectRecipientHomeDetailScreenState
                       /// Profile image
                       Stack(children: [
                         Container(
-                          margin: EdgeInsets.fromLTRB(0, 0, 0.0, 10.0),
+                          margin: const EdgeInsets.fromLTRB(0, 0, 0.0, 10.0),
                           child: Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
@@ -654,7 +654,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                   image: NetworkImage(
                                     img,
                                   ),
-                                  placeholder: AssetImage(
+                                  placeholder: const AssetImage(
                                       "a_assets/logo/progress_image.png"),
                                   placeholderFit: BoxFit.scaleDown,
                                   imageErrorBuilder:
@@ -665,7 +665,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                           recipient_firstname
                                               .toString()[0]
                                               .toUpperCase(),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: MyColors.shedule_color,
                                               fontSize: 25,
                                               fontWeight: FontWeight.w700,
@@ -707,7 +707,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 "  " +
                                 recipient_lastname,
                             // MyString.recipient_name,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.whiteColor,
                                 fontWeight: FontWeight.w600,
                                 fontSize: 15,
@@ -744,12 +744,12 @@ class _NewSelectRecipientHomeDetailScreenState
                           // ),
                           // wSizedBox,
                           Container(
-                              margin: EdgeInsets.fromLTRB(00, 0, 0, 0),
+                              margin: const EdgeInsets.fromLTRB(00, 0, 0, 0),
                               child: Text(
                                 countryEmoji +
                                     "  " +
                                     country_name,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: MyColors.whiteColor,
                                     fontWeight: FontWeight.w600,
                                     fontSize: 14,
@@ -765,7 +765,7 @@ class _NewSelectRecipientHomeDetailScreenState
             ),
           ),
           automaticallyImplyLeading: false,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
             statusBarIconBrightness:
@@ -904,10 +904,10 @@ class _NewSelectRecipientHomeDetailScreenState
                   ? SelectbankDetailBody()
                   : Container(
                 height: size.height,
-                padding: EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                     horizontal: 20, vertical: 0),
                 width: double.infinity,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   // borderRadius: BorderRadius.circular(30),
                     borderRadius: BorderRadius.only(
                         topRight: Radius.circular(30.0),
@@ -933,9 +933,9 @@ class _NewSelectRecipientHomeDetailScreenState
                             width: double.infinity,
                             height: 50,
                             // margin:  EdgeInsets.fromLTRB(12.0, 26.0, 0.0, 0.0),
-                            padding: EdgeInsets.fromLTRB(
+                            padding: const EdgeInsets.fromLTRB(
                                 16.0, 0, 20.0, 0.0),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: MyColors.whiteColor,
                               //border: Border.all(color: MyColors.color_gray_transparent),
                               borderRadius: BorderRadius.all(
@@ -965,7 +965,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                     wSizedBox1,
                                     Text(
                                       country_name,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                           fontSize: 14,
                                           fontFamily:
                                           "s_asset/font/raleway/raleway_medium.ttf",
@@ -1013,7 +1013,7 @@ class _NewSelectRecipientHomeDetailScreenState
                             padding: EdgeInsets.symmetric(
                               horizontal: size.width / 4,
                             ),
-                            margin: EdgeInsets.symmetric(
+                            margin: const EdgeInsets.symmetric(
                                 horizontal: 30, vertical: 40),
                             decoration: BoxDecoration(
                                 gradient:
@@ -1035,7 +1035,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 Container(
                                     alignment:
                                     Alignment.center,
-                                    child: Text(
+                                    child: const Text(
                                       MyString.Next,
                                       style: TextStyle(
                                           color: MyColors
@@ -1107,7 +1107,7 @@ class _NewSelectRecipientHomeDetailScreenState
       //padding: EdgeInsets.symmetric(horizontal: 10),
       height: MediaQuery.of(context).size.height,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         // borderRadius: BorderRadius.circular(30),
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0)),
@@ -1115,7 +1115,7 @@ class _NewSelectRecipientHomeDetailScreenState
       child: Stack(
         children: [
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
             child: SingleChildScrollView(
               child: Column(
                 children: [
@@ -1123,64 +1123,62 @@ class _NewSelectRecipientHomeDetailScreenState
                   hSizedBox3,
                   GridView(
                     shrinkWrap: true,
-                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
                     scrollDirection: Axis.vertical,
-                    physics: NeverScrollableScrollPhysics(),
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    physics: const NeverScrollableScrollPhysics(),
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       childAspectRatio: 1 / 0.50,
                       crossAxisSpacing: 1.0,
                       mainAxisSpacing: 0.5,
                     ),
                     children: List.generate(selectCountryList.length, (index) {
-                      return Container(
-                        child: GestureDetector(
-                          onTap: () async {
-                            country_name =
-                                selectCountryList[index].name.toString();
+                      return GestureDetector(
+                        onTap: () async {
+                          country_name =
+                              selectCountryList[index].name.toString();
 
-                            // is_country = "";
-                            is_country = "delivery_method";
-                            setState(() {});
-                            // setState((){});
+                          // is_country = "";
+                          is_country = "delivery_method";
+                          setState(() {});
+                          // setState((){});
 
-                            //   Navigator.push(context, MaterialPageRoute(builder: (context)=>SendMoneyQuatationFromNewRecipient()));
+                          //   Navigator.push(context, MaterialPageRoute(builder: (context)=>SendMoneyQuatationFromNewRecipient()));
 
-                            SharedPreferences sharedPreferences =
-                            await SharedPreferences.getInstance();
-                            sharedPreferences.setString("country_Name",
-                                selectCountryList[index].name.toString());
-                            sharedPreferences.setString("country_Flag",
-                                selectCountryList[index].emoji.toString());
-                            sharedPreferences.setString("iso3",
-                                selectCountryList[index].iso3.toString());
-                            sharedPreferences.setString("iso2",
-                                selectCountryList[index].iso2.toString());
-                            sharedPreferences.setString("country_isoCode3",
-                                selectCountryList[index].iso3.toString());
-                            sharedPreferences.setString(
-                                "country_Currency_isoCode3",
-                                selectCountryList[index].currency.toString());
-                            sharedPreferences.setString("phonecode",
-                                selectCountryList[index].phonecode.toString());
-                            sharedPreferences.setString(
-                                "phonenumber_min_max_validation",
-                                selectCountryList[index]
-                                    .phonumberMinMaxValidation
-                                    .toString());
+                          SharedPreferences sharedPreferences =
+                          await SharedPreferences.getInstance();
+                          sharedPreferences.setString("country_Name",
+                              selectCountryList[index].name.toString());
+                          sharedPreferences.setString("country_Flag",
+                              selectCountryList[index].emoji.toString());
+                          sharedPreferences.setString("iso3",
+                              selectCountryList[index].iso3.toString());
+                          sharedPreferences.setString("iso2",
+                              selectCountryList[index].iso2.toString());
+                          sharedPreferences.setString("country_isoCode3",
+                              selectCountryList[index].iso3.toString());
+                          sharedPreferences.setString(
+                              "country_Currency_isoCode3",
+                              selectCountryList[index].currency.toString());
+                          sharedPreferences.setString("phonecode",
+                              selectCountryList[index].phonecode.toString());
+                          sharedPreferences.setString(
+                              "phonenumber_min_max_validation",
+                              selectCountryList[index]
+                                  .phonumberMinMaxValidation
+                                  .toString());
 
-                            setState(() {});
-                          },
-                          child: Container(
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 0, horizontal: 5),
-                              margin: EdgeInsets.symmetric(
-                                  vertical: 5, horizontal: 5),
-                              child: CustomSelectCountryList(
-                                title: selectCountryList[index].name.toString(),
-                                img: selectCountryList[index].emoji.toString(),
-                              )),
-                        ),
+                          setState(() {});
+                        },
+                        child: Container(
+                            padding: const EdgeInsets.symmetric(
+                                vertical: 0, horizontal: 5),
+                            margin: const EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 5),
+                            child: CustomSelectCountryList(
+                              title: selectCountryList[index].name.toString(),
+                              img: selectCountryList[index].emoji.toString(),
+                            )),
                       );
                     }).toList(),
                   ),
@@ -1191,13 +1189,13 @@ class _NewSelectRecipientHomeDetailScreenState
           ),
           Container(
             // color: Colors.white,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 // borderRadius: BorderRadius.circular(30),
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(30.0),
                       topLeft: Radius.circular(30.0)),
                   color: MyColors.whiteColor),
-              padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
 
               //  padding:  EdgeInsets.symmetric(horizontal: 20.0),
               child: searchCountry()
@@ -1213,12 +1211,12 @@ class _NewSelectRecipientHomeDetailScreenState
     return Container(
       height: MediaQuery.of(context).size.height,
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         // borderRadius: BorderRadius.circular(30),
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0)),
           color: MyColors.whiteColor),
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
       /*  decoration: BoxDecoration(
               // borderRadius: BorderRadius.circular(30),
                 borderRadius: BorderRadius.only(topRight: Radius.circular(30),topLeft: Radius.circular(30),bottomLeft: Radius.circular(5)),
@@ -1229,12 +1227,12 @@ class _NewSelectRecipientHomeDetailScreenState
             hSizedBox4,
             Container(
               width: double.infinity,
-              margin: EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
-              padding: EdgeInsets.fromLTRB(16.0, 9.0, 16.0, 9.0),
+              margin: const EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(16.0, 9.0, 16.0, 9.0),
               decoration: BoxDecoration(
                 color: MyColors.color_D8E6FA_bac,
                 border: Border.all(color: MyColors.color_gray_transparent),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1245,7 +1243,7 @@ class _NewSelectRecipientHomeDetailScreenState
                       controller: fromMoneyController,
                       // keyboardType: TextInputType.number,
                       textInputAction: TextInputAction.done,
-                      keyboardType: TextInputType.numberWithOptions(decimal: true),
+                      keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                       focusNode: _amountFocus,
 
@@ -1366,7 +1364,7 @@ class _NewSelectRecipientHomeDetailScreenState
                               color: MyColors.color_ffF4287_text
                                   .withOpacity(0.20))),
 
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 25,
                           fontFamily:
                           "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
@@ -1393,12 +1391,12 @@ class _NewSelectRecipientHomeDetailScreenState
             ),
             Container(
               width: double.infinity,
-              margin: EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
-              padding: EdgeInsets.fromLTRB(16.0, 9.0, 16.0, 9.0),
+              margin: const EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(16.0, 9.0, 16.0, 9.0),
               decoration: BoxDecoration(
                 color: MyColors.color_D8E6FA_bac,
                 border: Border.all(color: MyColors.color_gray_transparent),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -1407,7 +1405,7 @@ class _NewSelectRecipientHomeDetailScreenState
                       width: 150,
                       child: TextField(
                         controller: toMoneyController,
-                        keyboardType: TextInputType.numberWithOptions(decimal: true),
+                        keyboardType: const TextInputType.numberWithOptions(decimal: true),
                         // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                         focusNode: _toamountFocus,
                         maxLines: null,
@@ -1534,7 +1532,7 @@ class _NewSelectRecipientHomeDetailScreenState
                               fontWeight: FontWeight.w500,
                               color: MyColors.color_ffF4287_text),
                         ),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 25,
                             fontFamily:
                             "s_asset/font/montserrat/Montserrat-ExtraBold.otf",
@@ -1545,13 +1543,13 @@ class _NewSelectRecipientHomeDetailScreenState
                     children: [
                       //  SvgPicture.asset("s_asset/images/flag2.svg"),
 
-                      (desticountry_isoCode3 == "NGA"&& sharedPreferences?.getString("select_payment_method_status").toString() == "Bank")|| (desticountry_isoCode3 == "SOM" || (desticountry_isoCode3 == "ETH")) ?     Container(margin: EdgeInsets.only(right: 5), child: SvgPicture.asset("s_asset/images/flag1.svg"))   :    CircledFlag(
+                      (desticountry_isoCode3 == "NGA"&& sharedPreferences?.getString("select_payment_method_status").toString() == "Bank")|| (desticountry_isoCode3 == "SOM" || (desticountry_isoCode3 == "ETH")) ?     Container(margin: const EdgeInsets.only(right: 5), child: SvgPicture.asset("s_asset/images/flag1.svg"))   :    CircledFlag(
                         flag: countryFlag,
                         radius: 9,
                       ),
                       Text(
                         (desticountry_isoCode3 == "NGA" && sharedPreferences?.getString("select_payment_method_status").toString() == "Bank")|| (desticountry_isoCode3 == "SOM" || (desticountry_isoCode3 == "ETH")) ?  "USD":  destcountryCurrency_isoCode3,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18,
                             fontFamily: "s_asset/font/raleway/raleway_bold.ttf",
                             fontWeight: FontWeight.w700,
@@ -1566,7 +1564,7 @@ class _NewSelectRecipientHomeDetailScreenState
             ),
             // hSizedBox3,
             hSizedBox3,
-            Text(
+            const Text(
               "Exchange Rate",
               style: TextStyle(
                   fontSize: 12,
@@ -1578,7 +1576,7 @@ class _NewSelectRecipientHomeDetailScreenState
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Row(
+                const Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -1615,19 +1613,19 @@ class _NewSelectRecipientHomeDetailScreenState
                   children: [
                     Text(
                       exchangeRate.toStringAsFixed(2),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: MyColors.color_text,
                         fontSize: 12,
                         fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",
                         fontWeight: FontWeight.w800,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 2,
                     ),
                     Text(
                       (desticountry_isoCode3 == "NGA" && sharedPreferences?.getString("select_payment_method_status").toString() == "Bank")|| (desticountry_isoCode3 == "SOM" || (desticountry_isoCode3 == "ETH"))  ? "USD":      destcountryCurrency_isoCode3,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: MyColors.color_text,
                         fontSize: 9,
                         fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
@@ -1645,13 +1643,13 @@ class _NewSelectRecipientHomeDetailScreenState
               decoration: BoxDecoration(
                 color: MyColors.color_D8E6FA_bac,
                 border: Border.all(color: MyColors.color_gray_transparent),
-                borderRadius: BorderRadius.all(Radius.circular(26.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(26.0)),
               ),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Fees   ",
                     style: TextStyle(
                       color: MyColors.color_text_a,
@@ -1672,7 +1670,7 @@ class _NewSelectRecipientHomeDetailScreenState
                       ),
                     ),
                   ),
-                  Text(
+                  const Text(
                     " USD",
                     style: TextStyle(
                       color: MyColors.color_text,
@@ -1741,7 +1739,7 @@ class _NewSelectRecipientHomeDetailScreenState
                 padding: EdgeInsets.symmetric(
                   horizontal: MediaQuery.of(context).size.width / 4,
                 ),
-                margin: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+                margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
                 decoration: BoxDecoration(
                     gradient: LinearGradient(colors: [
                       MyColors.lightblueColor.withOpacity(0.90),
@@ -1755,7 +1753,7 @@ class _NewSelectRecipientHomeDetailScreenState
                   children: [
                     Container(
                         alignment: Alignment.center,
-                        child: Text(
+                        child: const Text(
                           MyString.Next,
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -1845,8 +1843,8 @@ class _NewSelectRecipientHomeDetailScreenState
     return Container(
       height: MediaQuery.of(context).size.height,
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: const BoxDecoration(
         // borderRadius: BorderRadius.circular(30),
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(30.0), topLeft: Radius.circular(30.0)),
@@ -1855,12 +1853,12 @@ class _NewSelectRecipientHomeDetailScreenState
         children: [
           hSizedBox3,
           Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 0.0,
                 bottom: 30,
               ),
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 MyString.Add_Recipient_Info,
                 style: TextStyle(
                     color: MyColors.color_text,
@@ -1872,7 +1870,7 @@ class _NewSelectRecipientHomeDetailScreenState
           hSizedBox2,
           ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
+              physics: const NeverScrollableScrollPhysics(),
               padding: EdgeInsets.zero,
               itemCount: recipientfieldsetlist.length,
               itemBuilder: (context, int i) {
@@ -1887,11 +1885,11 @@ class _NewSelectRecipientHomeDetailScreenState
                 }
                 return Container(
                   width: double.infinity,
-                  margin: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+                  margin: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
                   decoration: BoxDecoration(
                     color: MyColors.color_93B9EE.withOpacity(0.1),
                     border: Border.all(color: MyColors.color_gray_transparent),
-                    borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                    borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                   ),
                   child: TextFormField(
                     controller: _controllers[i],
@@ -1923,7 +1921,7 @@ class _NewSelectRecipientHomeDetailScreenState
                       addfieldlist.add(addmodel);
                       print("json..${json.encode(addfieldlist)}");
                     },
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: MyColors.blackColor,
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
@@ -1946,7 +1944,7 @@ class _NewSelectRecipientHomeDetailScreenState
 
                       // fillColor: MyColors.color_gray_transparent,
                       contentPadding:
-                      EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                     ),
                     keyboardType: TextInputType.text,
                   ),
@@ -2021,7 +2019,7 @@ class _NewSelectRecipientHomeDetailScreenState
               padding: EdgeInsets.symmetric(
                 horizontal: MediaQuery.of(context).size.width / 4,
               ),
-              margin: EdgeInsets.symmetric(horizontal: 30, vertical: 40),
+              margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 40),
               decoration: BoxDecoration(
                   gradient: LinearGradient(colors: [
                     MyColors.lightblueColor.withOpacity(0.90),
@@ -2034,7 +2032,7 @@ class _NewSelectRecipientHomeDetailScreenState
                 children: [
                   Container(
                       alignment: Alignment.center,
-                      child: Text(
+                      child: const Text(
                         MyString.Next,
                         style: TextStyle(
                             color: MyColors.whiteColor,
@@ -2055,13 +2053,13 @@ class _NewSelectRecipientHomeDetailScreenState
   CustomText(String text) {
     return Container(
       //  height: 40,
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: MyColors.primaryColor.withOpacity(0.03)),
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 12,
             fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
@@ -2117,9 +2115,9 @@ class _NewSelectRecipientHomeDetailScreenState
         Column(children: [
           Container(
               height: 700,
-              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
               width: double.infinity,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 // borderRadius: BorderRadius.circular(30),
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(30.0),
@@ -2133,8 +2131,8 @@ class _NewSelectRecipientHomeDetailScreenState
         : Container(
       // height: MediaQuery.of(context).size.height,
         width: double.infinity,
-        padding: EdgeInsets.symmetric(horizontal: 0),
-        decoration: BoxDecoration(
+        padding: const EdgeInsets.symmetric(horizontal: 0),
+        decoration: const BoxDecoration(
           // borderRadius: BorderRadius.circular(30),
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(30.0),
@@ -2146,9 +2144,9 @@ class _NewSelectRecipientHomeDetailScreenState
               children: [
                 Container(
                   padding:
-                  EdgeInsets.symmetric(horizontal: 0, vertical: 20),
+                  const EdgeInsets.symmetric(horizontal: 0, vertical: 20),
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     // borderRadius: BorderRadius.circular(30),
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(30.0),
@@ -2167,13 +2165,13 @@ class _NewSelectRecipientHomeDetailScreenState
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              SizedBox(width: 10,),
+                              const SizedBox(width: 10,),
                               bankListResponse.status == true
                                   ? SizedBox(
                                 height: 150,
                                 child: ListView.builder(
                                     physics:
-                                    NeverScrollableScrollPhysics(),
+                                    const NeverScrollableScrollPhysics(),
                                     shrinkWrap: true,
                                     scrollDirection: Axis.horizontal,
                                     itemCount:
@@ -2185,7 +2183,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                         width: 220,
                                         child: Container(
                                           // padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
-                                          padding: EdgeInsets.only(
+                                          padding: const EdgeInsets.only(
                                               right: 5,
                                               top: 5,
                                               bottom: 5),
@@ -2209,7 +2207,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                 // getaccountitemdetailApi(receipent_id,accountdetaillist[index].recipientAccountId.toString());
                                               },
                                               child: Container(
-                                                padding: EdgeInsets
+                                                padding: const EdgeInsets
                                                     .symmetric(
                                                     horizontal:
                                                     17,
@@ -2229,7 +2227,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                             .whiteColor,
                                                         width: 1)),
                                                 child: Container(
-                                                  padding: EdgeInsets
+                                                  padding: const EdgeInsets
                                                       .symmetric(
                                                       horizontal:
                                                       8,
@@ -2369,7 +2367,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                           //       color:
                                                           //       MyColors.blackColor,
                                                           //     )),
-                                                          SizedBox(
+                                                          const SizedBox(
                                                             width: 10,
                                                           ),
                                                           InkWell(
@@ -2401,7 +2399,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                             textAlign:
                                                             TextAlign
                                                                 .start,
-                                                            style: TextStyle(
+                                                            style: const TextStyle(
                                                                 color: MyColors
                                                                     .blackColor,
                                                                 fontWeight: FontWeight
@@ -2422,7 +2420,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                         // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                         children: [
                                                           Padding(
-                                                            padding: EdgeInsets.only(
+                                                            padding: const EdgeInsets.only(
                                                                 top:
                                                                 0.0,
                                                                 right:
@@ -2486,13 +2484,13 @@ class _NewSelectRecipientHomeDetailScreenState
                                   ?.getString("partnerPaymentMethod")
                                   .toString() ==
                                   "juba" &&
-                                  sharedPreferences?.getString("select_payment_method_status").toString() == "Cash") && locationList.length>0 ?
+                                  sharedPreferences?.getString("select_payment_method_status").toString() == "Cash") && locationList.isNotEmpty ?
                               SizedBox(
                                 height: 150,
                                 width: 220,
                                 child: Container(
                                   // padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                       right: 5,
                                       top: 5,
                                       bottom: 5),
@@ -2516,7 +2514,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                         // getaccountitemdetailApi(receipent_id,accountdetaillist[index].recipientAccountId.toString());
                                       },
                                       child: Container(
-                                        padding: EdgeInsets
+                                        padding: const EdgeInsets
                                             .symmetric(
                                             horizontal:
                                             17,
@@ -2536,7 +2534,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                     .whiteColor,
                                                 width: 1)),
                                         child: Container(
-                                          padding: EdgeInsets
+                                          padding: const EdgeInsets
                                               .symmetric(
                                               horizontal:
                                               8,
@@ -2588,7 +2586,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                   alignment:
                                                   Alignment
                                                       .topLeft,
-                                                  child: Text(
+                                                  child: const Text(
                                                     //  accountdetaillist[index].fields![i].id.toString() == "BANK_ACCOUNT_NUMBER" ?
                                                     "",
                                                     //: "",
@@ -2618,7 +2616,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                 // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   Padding(
-                                                    padding: EdgeInsets.only(
+                                                    padding: const EdgeInsets.only(
                                                         top:
                                                         0.0,
                                                         right:
@@ -2704,9 +2702,9 @@ class _NewSelectRecipientHomeDetailScreenState
                                   alignment: Alignment.center,
                                   width: MediaQuery.of(context).size.width *
                                       0.45,
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 15, vertical: 0),
-                                  margin: EdgeInsets.symmetric(vertical: 5),
+                                  margin: const EdgeInsets.symmetric(vertical: 5),
                                   decoration: BoxDecoration(
                                       gradient: LinearGradient(colors: [
                                         MyColors.lightblueColor
@@ -2728,7 +2726,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                           width: 30,
                                           height: 30,
                                           decoration: BoxDecoration(
-                                            gradient: LinearGradient(
+                                            gradient: const LinearGradient(
                                                 colors: [
                                                   MyColors.whiteColor,
                                                   MyColors.whiteColor
@@ -2736,14 +2734,14 @@ class _NewSelectRecipientHomeDetailScreenState
                                             borderRadius:
                                             BorderRadius.circular(5),
                                           ),
-                                          child: Icon(
+                                          child: const Icon(
                                             CupertinoIcons.add,
                                             color: MyColors.lightblueColor,
                                           )),
                                       hSizedBox2,
                                       Container(
                                           alignment: Alignment.center,
-                                          child: Text(
+                                          child: const Text(
                                             MyString.add_new_method,
                                             style: TextStyle(
                                                 color: MyColors.whiteColor,
@@ -2767,7 +2765,7 @@ class _NewSelectRecipientHomeDetailScreenState
                           hSizedBox2,
 
                           Container(
-                            margin: EdgeInsets.only(left: 14),
+                            margin: const EdgeInsets.only(left: 14),
                             child: Row(
                               crossAxisAlignment:
                               CrossAxisAlignment.center,
@@ -2776,7 +2774,7 @@ class _NewSelectRecipientHomeDetailScreenState
                               children: [
                                 Container(
                                     alignment: Alignment.topLeft,
-                                    child: Text(
+                                    child: const Text(
                                       MyString.receive_methods,
                                       style: TextStyle(
                                           color:
@@ -2792,7 +2790,7 @@ class _NewSelectRecipientHomeDetailScreenState
 
                           Container(
                             margin:
-                            EdgeInsets.only(top: 12.0, left: 14),
+                            const EdgeInsets.only(top: 12.0, left: 14),
                             child: Row(children: [
                               SvgPicture.asset(
                                 "a_assets/icons/bank.svg",
@@ -2807,7 +2805,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 "Bank Account",
                                 // bankListResponse.status==true?bankListResponse.data![cureentindex].routingCodeType1.toString():"",
                                 // MyString.bank_deposite,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: MyColors.color_text,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14,
@@ -2820,7 +2818,7 @@ class _NewSelectRecipientHomeDetailScreenState
                           ListView.builder(
                               shrinkWrap: true,
                               itemCount: 1,
-                              physics: NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               //accountdetailfieldsetlist2.length,
                               itemBuilder: (context, int index) {
                                 return Container(
@@ -2832,7 +2830,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                             .spaceBetween,
                                         children: [
                                           Container(
-                                            margin: EdgeInsets.only(
+                                            margin: const EdgeInsets.only(
                                                 top: 12.0, left: 14),
                                             child: Column(
                                                 mainAxisAlignment:
@@ -2844,7 +2842,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                 children: [
                                                   Text(
                                                     sharedPreferences!.getString("select_payment_method_status").toString()=="Mobile"?"Operator":"Bank Name",
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         color: MyColors
                                                             .color_text_a,
                                                         fontWeight:
@@ -2882,7 +2880,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                               .toString()
 
                                                               : "",
-                                                          style: TextStyle(
+                                                          style: const TextStyle(
                                                               color: MyColors
                                                                   .color_text,
                                                               fontWeight:
@@ -2901,9 +2899,9 @@ class _NewSelectRecipientHomeDetailScreenState
                                           sharedPreferences!.getString("select_payment_method_status").toString()=="Mobile"?
                                           Container():
                                           Container(
-                                            margin: EdgeInsets.only(
+                                            margin: const EdgeInsets.only(
                                                 top: 0.0),
-                                            padding: EdgeInsets.only(
+                                            padding: const EdgeInsets.only(
                                                 right: 14),
                                             child: Column(
                                                 mainAxisAlignment:
@@ -2913,7 +2911,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                 CrossAxisAlignment
                                                     .start,
                                                 children: [
-                                                  Text(
+                                                  const Text(
                                                     "Account Type",
                                                     //  MyString.Swift_Code,
                                                     style: TextStyle(
@@ -2941,7 +2939,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                         : "" == "P"
                                                         ? "Saving"
                                                         : "Checking",
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                         color: MyColors
                                                             .color_text,
                                                         fontWeight:
@@ -2958,7 +2956,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                       Container(
                                         alignment:
                                         Alignment.centerLeft,
-                                        margin: EdgeInsets.only(
+                                        margin: const EdgeInsets.only(
                                             top: 24.0, left: 14),
                                         child: Column(
                                             mainAxisAlignment:
@@ -2971,7 +2969,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                               Text(
                                                 sharedPreferences!.getString("select_payment_method_status").toString()=="Mobile"?"Mobile Number":"BANK ACCOUNT NUMBER",
                                                 // MyString.iban_code,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     color: MyColors
                                                         .color_text_a,
                                                     fontWeight:
@@ -3000,7 +2998,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                         .length -
                                                         4)
                                                     : "",
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     color: MyColors
                                                         .color_text,
                                                     fontWeight:
@@ -3184,7 +3182,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                       .width /
                                       4,
                                 ),
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                     horizontal: 30, vertical: 40),
                                 decoration: BoxDecoration(
                                     gradient: LinearGradient(colors: [
@@ -3204,7 +3202,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                   children: [
                                     Container(
                                         alignment: Alignment.center,
-                                        child: Text(
+                                        child: const Text(
                                           MyString.Next,
                                           style: TextStyle(
                                               color:
@@ -3236,7 +3234,7 @@ class _NewSelectRecipientHomeDetailScreenState
                               hSizedBox2,
 
                               Container(
-                                margin: EdgeInsets.only(left: 14),
+                                margin: const EdgeInsets.only(left: 14),
                                 child: Row(
                                   crossAxisAlignment:
                                   CrossAxisAlignment.center,
@@ -3245,7 +3243,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                   children: [
                                     Container(
                                         alignment: Alignment.topLeft,
-                                        child: Text(
+                                        child: const Text(
                                           MyString.receive_methods,
                                           style: TextStyle(
                                               color:
@@ -3261,7 +3259,7 @@ class _NewSelectRecipientHomeDetailScreenState
 
                               Container(
                                 margin:
-                                EdgeInsets.only(top: 12.0, left: 14),
+                                const EdgeInsets.only(top: 12.0, left: 14),
                                 child: Row(children: [
                                   SvgPicture.asset(
                                     "a_assets/icons/bank.svg",
@@ -3270,7 +3268,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                     color: MyColors.blackColor,
                                   ),
                                   wSizedBox1,
-                                  Text(
+                                  const Text(
                                     "Cash",
                                     // bankListResponse.status==true?bankListResponse.data![cureentindex].routingCodeType1.toString():"",
                                     // MyString.bank_deposite,
@@ -3293,7 +3291,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                           .spaceBetween,
                                       children: [
                                         Container(
-                                          margin: EdgeInsets.only(
+                                          margin: const EdgeInsets.only(
                                               top: 12.0, left: 14),
                                           child: Column(
                                               mainAxisAlignment:
@@ -3303,7 +3301,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                               CrossAxisAlignment
                                                   .start,
                                               children: [
-                                                Text(
+                                                const Text(
                                                   "Operator",
                                                   style: TextStyle(
                                                       color: MyColors
@@ -3327,7 +3325,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                     wSizedBox1,
                                                     Container(
                                                       width: 160,
-                                                      child: Text(
+                                                      child: const Text(
 
                                                        "Juba Express",
                                                         style: TextStyle(
@@ -3359,7 +3357,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 height: MediaQuery.of(context).size.height/2,
                                 child: Column(
                                   children: [
-                                    SizedBox(height: 100,),
+                                    const SizedBox(height: 100,),
                                     Container(
                                       // alignment: Alignment.bottomCenter,
                                       child: GestureDetector(
@@ -3376,7 +3374,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  SendMoneyQuotationFromNewRecipient(
+                                                  const SendMoneyQuotationFromNewRecipient(
                                                   ),
                                             ),
                                           );
@@ -3393,7 +3391,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                                 .width /
                                                 4,
                                           ),
-                                          margin: EdgeInsets.symmetric(
+                                          margin: const EdgeInsets.symmetric(
                                               horizontal: 30, vertical: 10),
                                           decoration: BoxDecoration(
                                               gradient: LinearGradient(colors: [
@@ -3413,7 +3411,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                             children: [
                                               Container(
                                                   alignment: Alignment.center,
-                                                  child: Text(
+                                                  child: const Text(
                                                     MyString.Next,
                                                     style: TextStyle(
                                                         color:
@@ -3455,7 +3453,7 @@ class _NewSelectRecipientHomeDetailScreenState
                 ? Container(
               height: MediaQuery.of(context).size.height,
               color: Colors.white,
-              child: Center(
+              child: const Center(
                   child: GFLoader(
                       type: GFLoaderType.custom,
                       child: Image(
@@ -3514,9 +3512,9 @@ class _NewSelectRecipientHomeDetailScreenState
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+        contentPadding: const EdgeInsets.only(top: 10.0),
         content: Container(
           width: 300.0,
           child: SingleChildScrollView(
@@ -3526,13 +3524,13 @@ class _NewSelectRecipientHomeDetailScreenState
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: purposeCodesResponse.data!.length,
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
@@ -3557,14 +3555,14 @@ class _NewSelectRecipientHomeDetailScreenState
                                 });
                               },
                               child: Container(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 child: Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.radio_button_off_sharp,
                                       color: MyColors.primaryColor,
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 10,
                                     ),
                                     Expanded(
@@ -3575,7 +3573,7 @@ class _NewSelectRecipientHomeDetailScreenState
                               ),
                             );
                           }),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                     ],
@@ -3619,9 +3617,9 @@ class _NewSelectRecipientHomeDetailScreenState
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+        contentPadding: const EdgeInsets.only(top: 10.0),
         content: Container(
           width: 300.0,
           child: SingleChildScrollView(
@@ -3631,15 +3629,15 @@ class _NewSelectRecipientHomeDetailScreenState
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-                        Text(
+                        const Text(
                           "Are you sure, you want to Delete?",
                           style: TextStyle(
                               fontSize: 16,
@@ -3648,7 +3646,7 @@ class _NewSelectRecipientHomeDetailScreenState
                               fontFamily:
                               "s_asset/font/raleway/raleway_regular.ttf"),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                         Row(
@@ -3659,7 +3657,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 style: ButtonStyle(
                                     padding:
                                     MaterialStateProperty.all<EdgeInsets>(
-                                        EdgeInsets.fromLTRB(
+                                        const EdgeInsets.fromLTRB(
                                             25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor:
                                     MaterialStateProperty.all<Color>(
@@ -3677,7 +3675,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 // shape: RoundedRectangleBorder(
                                 //     borderRadius: BorderRadius.circular(10.0)),
                                 // color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "No",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -3688,7 +3686,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 ),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               width: 10,
                             ),
                             Expanded(
@@ -3697,7 +3695,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 style: ButtonStyle(
                                     padding:
                                     MaterialStateProperty.all<EdgeInsets>(
-                                        EdgeInsets.fromLTRB(
+                                        const EdgeInsets.fromLTRB(
                                             25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor:
                                     MaterialStateProperty.all<Color>(
@@ -3719,7 +3717,7 @@ class _NewSelectRecipientHomeDetailScreenState
                                 // shape: RoundedRectangleBorder(
                                 //     borderRadius: BorderRadius.circular(10.0)),
                                 // color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "Yes",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -3732,7 +3730,7 @@ class _NewSelectRecipientHomeDetailScreenState
                             ),
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                       ],
@@ -3819,11 +3817,11 @@ class _NewSelectRecipientHomeDetailScreenState
         cursorColor: MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
           hintText: MyString.select_country,
           hintStyle: TextStyle(

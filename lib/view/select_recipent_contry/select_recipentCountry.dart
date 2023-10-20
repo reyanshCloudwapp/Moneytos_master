@@ -61,18 +61,18 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
           flexibleSpace: Container(
-            padding: EdgeInsets.only(left: 20, top: 60, right: 20),
+            padding: const EdgeInsets.only(left: 20, top: 60, right: 20),
             child: Column(
               children: [
                 Container(
-                  child: Text(
+                  child: const Text(
                     MyString.Select_Recipient_Country,
                     style: TextStyle(
                         color: MyColors.color_text,
@@ -85,7 +85,7 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
                 ),
                 hSizedBox4,
                 Container(
-                    padding: EdgeInsets.only(left: 5, right: 5),
+                    padding: const EdgeInsets.only(left: 5, right: 5),
                     //  padding:  EdgeInsets.symmetric(horizontal: 20.0),
                     child: searchCountry()
                     //CustomTextFields(controller: searchController, focus: searchFocus, textInputAction: TextInputAction.done, keyboardtype: TextInputType.text,border_color: MyColors.whiteColor.withOpacity(0.05),hinttext: MyString.search_bank,),
@@ -93,7 +93,7 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
               ],
             ),
           ),
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness:
@@ -118,7 +118,7 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
           padding: EdgeInsets.symmetric(
               horizontal: MediaQuery.of(context).size.width / 2.7,
               vertical: 25),
-          margin: EdgeInsets.only(bottom: 0),
+          margin: const EdgeInsets.only(bottom: 0),
           child: CustomButton(
             btnname: MyString.cancel,
             textcolor: MyColors.lightblueColor,
@@ -128,7 +128,7 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -137,10 +137,10 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
                   ? Utility.shrimmerCountryGridLoader(80, 150)
                   : GridView(
                       shrinkWrap: true,
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
                       scrollDirection: Axis.vertical,
-                      physics: NeverScrollableScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         childAspectRatio: 1 / 0.50,
                         crossAxisSpacing: 1.0,
@@ -158,14 +158,14 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
                                       context,
                                       MaterialPageRoute(
                                           builder: (context) =>
-                                              SelectPaymentMethodScreen()
+                                              const SelectPaymentMethodScreen()
                                               // SendMoneyQuotationFromNewRecipient()
                                       ))
                                   : Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                         builder: (context) =>
-                                            SelectPaymentMethodScreen(),
+                                            const SelectPaymentMethodScreen(),
                                       ),
                                     );
                               // Navigator.push(
@@ -208,9 +208,9 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
                                       .toString());
                             },
                             child: Container(
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                     vertical: 0, horizontal: 5),
-                                margin: EdgeInsets.symmetric(
+                                margin: const EdgeInsets.symmetric(
                                     vertical: 5, horizontal: 5),
                                 child: CustomSelectCountryList(
                                   title:
@@ -247,11 +247,11 @@ class _SelectBankScreenState extends State<SelectRecipentCountry> {
         cursorColor: MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
           hintText: MyString.select_country,
           hintStyle: TextStyle(

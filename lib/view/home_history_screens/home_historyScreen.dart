@@ -69,7 +69,7 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: MyColors.whiteColor,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
           statusBarColor: MyColors.whiteColor,
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -79,11 +79,11 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
 
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Icon(Icons.arrow_back_ios_new,color: MyColors.color_1D2D5F,),
-                const Text(
+                Text(
                   "History",
                   style: TextStyle(
                     color: MyColors.color_1D2D5F,
@@ -97,7 +97,7 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
 
 
               ],),
-            SizedBox(height: 31,),
+            const SizedBox(height: 31,),
             searchtextfield(
                 searchController,
                 "Name/Mobile",
@@ -125,7 +125,7 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
       ListView.builder(
         controller: scrollcontroller,
           itemCount: _searchResult.length,
-          padding: EdgeInsets.symmetric(horizontal: 16),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
           itemBuilder: (context, int index) {
             return GestureDetector(
               onTap: (){
@@ -138,12 +138,12 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
         // margin: EdgeInsets.only(top: 50),
         height: size.height/1.5,
         alignment: Alignment.center,
-        child: Text("No Data",style: TextStyle(fontSize: 18),),):
+        child: const Text("No Data",style: TextStyle(fontSize: 18),),):
       Container(
         // margin: EdgeInsets.only(top: 50),
         height: size.height/1.5,
         alignment: Alignment.center,
-        child: Text("No Data",style: TextStyle(fontSize: 18),),),
+        child: const Text("No Data",style: TextStyle(fontSize: 18),),),
     );
   }
 
@@ -163,9 +163,9 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
               color: Colors.transparent,
               height: MediaQuery.of(context).size.height * 0.76,
               child: Container(
-                  decoration: new BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
-                      borderRadius: new BorderRadius.only(
+                      borderRadius: const BorderRadius.only(
                           topLeft: const Radius.circular(30.0), topRight: const Radius.circular(30.0))),
                   child: TransferBottomsheet(isMfs: false,readyremit_transferId: readyremit_transferId, selected_acc_id: txnSubData.senderSendMethodId.toString(), selected_payment_type: txnSubData.senderSendMethod.toString(), selected_acc_name: txnSubData.recipientName.toString(), selected_last4: txnSubData.senderSendMethodLast4digit.toString(), txnSubData: txnSubData,))
           );}
@@ -188,7 +188,7 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
         controller: controller,
         focusNode: focusNode,
         textInputAction: textInputAction,
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 14,
             fontWeight: FontWeight.w400,
@@ -205,21 +205,21 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
               _searchResult = _latesttransferResult;
               setState(() {});
             },
-            child: Icon(CupertinoIcons.clear),
+            child: const Icon(CupertinoIcons.clear),
           ):null,
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.color_EBF0FA, width: 1)),
+              borderSide: const BorderSide(color: MyColors.color_EBF0FA, width: 1)),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.color_EBF0FA, width: 1)),
+              borderSide: const BorderSide(color: MyColors.color_EBF0FA, width: 1)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide(color: MyColors.color_EBF0FA, width: 1)),
+              borderSide: const BorderSide(color: MyColors.color_EBF0FA, width: 1)),
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.all(15),
+          contentPadding: const EdgeInsets.all(15),
 
-          hintStyle: TextStyle(
+          hintStyle: const TextStyle(
               color: MyColors.color_93999C,
               fontSize: 14,
               fontWeight: FontWeight.w600,

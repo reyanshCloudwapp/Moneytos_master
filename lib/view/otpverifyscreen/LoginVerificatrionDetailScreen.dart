@@ -91,12 +91,12 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
       return Scaffold(
         backgroundColor: MyColors.whiteColor,
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(190),
+          preferredSize: const Size.fromHeight(190),
           child: AppBar(
             elevation: 0,
             automaticallyImplyLeading: false,
             backgroundColor: MyColors.light_primarycolor2,
-            systemOverlayStyle: SystemUiOverlayStyle(
+            systemOverlayStyle: const SystemUiOverlayStyle(
               // Status bar color
               statusBarColor: MyColors.color_03153B,
 
@@ -105,9 +105,9 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
               statusBarBrightness: Brightness.dark, // For iOS (dark icons)
             ),
             flexibleSpace: Container(
-              padding: EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.only(top: 30),
               alignment: Alignment.center,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                     image: AssetImage("s_asset/images/bgimage.png",),
                     fit: BoxFit.cover
@@ -116,21 +116,21 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(width: 20,),
+                  const SizedBox(width: 20,),
                   GestureDetector(
                       onTap: (){
                         Navigator.pop(context);
                       },
-                      child: Container(margin: EdgeInsets.only(top: 20), child: SvgPicture.asset("a_assets/icons/arrow_back.svg"))
+                      child: Container(margin: const EdgeInsets.only(top: 20), child: SvgPicture.asset("a_assets/icons/arrow_back.svg"))
                   ),
                   Expanded(
                     child: Container(
-                        margin: EdgeInsets.only(top: 50.0,left: 0.0),
+                        margin: const EdgeInsets.only(top: 50.0,left: 0.0),
                         child: Align(
                             alignment: Alignment.center,
                             child: SvgPicture.asset('a_assets/images/logo.svg',fit: BoxFit.cover,))),
                   ),
-                  SizedBox(width: 46,)
+                  const SizedBox(width: 46,)
                 ],
               ),
             ),
@@ -140,7 +140,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
           children: [
             Container(
               height: size.height * 0.3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 //color: MyColors.primaryColor,
                   image: DecorationImage(
                       image: AssetImage("s_asset/images/bgimage.png",),
@@ -157,7 +157,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
             Container(
 
               // color: MyColors.whiteColor,
-              margin: EdgeInsets.only(top: 20.0),
+              margin: const EdgeInsets.only(top: 20.0),
               height: size.height * 0.8,
               width: MediaQuery.of(context).size.width,
               child: Material(
@@ -166,20 +166,20 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(top: 50.0,left: 20.0,right: 20.0),
+                  margin: const EdgeInsets.only(top: 50.0,left: 20.0,right: 20.0),
                   child: SingleChildScrollView(
                     child: Column(
 
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Align(
+                        const Align(
                             alignment: Alignment.center,
                             child: Text("Verification",style: TextStyle(fontSize: 26,fontWeight: FontWeight.w600,color: MyColors.blackColor,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)),
 
 
 
-                        SizedBox(height: 25,),
+                        const SizedBox(height: 25,),
 
                         InkWell(
                           onTap: (){
@@ -187,7 +187,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           },
                           child: Container(
                             height: 45,
-                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
                             decoration: BoxDecoration(
                                 color: MyColors.primaryColor.withOpacity(0.01),
                                 borderRadius: BorderRadius.circular(8)),
@@ -196,7 +196,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               enabled: false,
                               controller:dobController ,
                               textInputAction: TextInputAction.next,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: MyColors.blackColor,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -215,9 +215,9 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
-                                    borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+                                    borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
                                 fillColor: MyColors.whiteColor,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                                 hintStyle: TextStyle(
                                     color: MyColors.blackColor.withOpacity(0.50),
@@ -235,7 +235,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           ),
                         ),
 
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
 
                         InkWell(
                           onTap: (){
@@ -243,7 +243,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           },
                           child: Container(
                             height: 45,
-                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
                             decoration: BoxDecoration(
                                 color: MyColors.primaryColor.withOpacity(0.01),
                                 borderRadius: BorderRadius.circular(8)),
@@ -252,7 +252,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               enabled: false,
                               controller:accountTypeController ,
                               textInputAction: TextInputAction.next,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: MyColors.blackColor,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -271,9 +271,9 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
-                                    borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+                                    borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
                                 fillColor: MyColors.whiteColor,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                                 hintStyle: TextStyle(
                                     color: MyColors.blackColor.withOpacity(0.50),
@@ -291,7 +291,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           ),
                         ),
 
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
 
                         InkWell(
                           onTap: (){
@@ -300,7 +300,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           },
                           child: Container(
                             height: 45,
-                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
                             decoration: BoxDecoration(
                                 color: MyColors.primaryColor.withOpacity(0.01),
                                 borderRadius: BorderRadius.circular(8)),
@@ -309,7 +309,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               enabled: false,
                               controller:documentTypeController ,
                               textInputAction: TextInputAction.next,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: MyColors.blackColor,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -328,9 +328,9 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
-                                    borderSide: BorderSide(color: MyColors.lightblueColor, width: 1)),
+                                    borderSide: const BorderSide(color: MyColors.lightblueColor, width: 1)),
                                 fillColor: MyColors.whiteColor,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                                 hintStyle: TextStyle(
                                     color: MyColors.blackColor.withOpacity(0.50),
@@ -348,11 +348,11 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           ),
                         ),
 
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
 
                         Container(
                           height: 45,
-                          margin: EdgeInsets.symmetric(horizontal: 20),
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
                               color: MyColors.primaryColor.withOpacity(0.01),
                               borderRadius: BorderRadius.circular(8)),
@@ -360,7 +360,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           child: TextField(
                             controller:idNumberController ,
                             textInputAction: TextInputAction.next,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
@@ -371,7 +371,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               enabledBorder: InputBorder.none,
                               focusedBorder: InputBorder.none,
                               fillColor: MyColors.whiteColor,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                               hintStyle: TextStyle(
                                   color: MyColors.blackColor.withOpacity(0.50),
@@ -388,11 +388,11 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           ),
                         ),
 
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
 
                         Container(
                           height: 45,
-                          margin: EdgeInsets.symmetric(horizontal: 20),
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
                               color: MyColors.primaryColor.withOpacity(0.01),
                               borderRadius: BorderRadius.circular(8)),
@@ -400,7 +400,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           child: TextField(
                             controller:addressController ,
                             textInputAction: TextInputAction.next,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
@@ -411,7 +411,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               enabledBorder: InputBorder.none,
                               focusedBorder: InputBorder.none,
                               fillColor: MyColors.whiteColor,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                               hintStyle: TextStyle(
                                   color: MyColors.blackColor.withOpacity(0.50),
@@ -428,11 +428,11 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           ),
                         ),
 
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
 
                         Container(
                           height: 45,
-                          margin: EdgeInsets.symmetric(horizontal: 20),
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
                               color: MyColors.primaryColor.withOpacity(0.01),
                               borderRadius: BorderRadius.circular(8)),
@@ -440,7 +440,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           child: TextField(
                             controller:cityController ,
                             textInputAction: TextInputAction.next,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
@@ -451,7 +451,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               enabledBorder: InputBorder.none,
                               focusedBorder: InputBorder.none,
                               fillColor: MyColors.whiteColor,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                               hintStyle: TextStyle(
                                   color: MyColors.blackColor.withOpacity(0.50),
@@ -468,11 +468,11 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           ),
                         ),
 
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
 
                         Container(
                           height: 45,
-                          margin: EdgeInsets.symmetric(horizontal: 20),
+                          margin: const EdgeInsets.symmetric(horizontal: 20),
                           decoration: BoxDecoration(
                               color: MyColors.primaryColor.withOpacity(0.01),
                               borderRadius: BorderRadius.circular(8)),
@@ -480,7 +480,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           child: TextField(
                             controller:zipcodeController ,
                             textInputAction: TextInputAction.next,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
@@ -491,7 +491,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               enabledBorder: InputBorder.none,
                               focusedBorder: InputBorder.none,
                               fillColor: MyColors.whiteColor,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                               hintStyle: TextStyle(
                                   color: MyColors.blackColor.withOpacity(0.50),
@@ -508,7 +508,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           ),
                         ),
 
-                        SizedBox(height: 15,),
+                        const SizedBox(height: 15,),
 
                         InkWell(
                           onTap: (){
@@ -516,7 +516,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           },
                           child: Container(
                             height: 45,
-                            margin: EdgeInsets.symmetric(horizontal: 20),
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
                             decoration: BoxDecoration(
                                 color: MyColors.primaryColor.withOpacity(0.01),
                                 borderRadius: BorderRadius.circular(8)),
@@ -525,7 +525,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               controller:sourceofincomeController ,
                               enabled: false,
                               textInputAction: TextInputAction.next,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: MyColors.blackColor,
                                   fontSize: 14,
                                   fontWeight: FontWeight.w400,
@@ -544,7 +544,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
                                 fillColor: MyColors.whiteColor,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 12),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 12),
 
                                 hintStyle: TextStyle(
                                     color: MyColors.blackColor.withOpacity(0.50),
@@ -566,12 +566,12 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
 
 
                         Padding(
-                          padding:  EdgeInsets.only(top:20.0),
+                          padding:  const EdgeInsets.only(top:20.0),
                           child: Align(
 
                             alignment: Alignment.center,
                             child:   ElevatedButton(
-                              child: Text('Submit'),
+                              child: const Text('Submit'),
                               onPressed: () {
 
                                 // Navigator.push(context, MaterialPageRoute(builder: (context)=>DashboardScreen()));
@@ -607,19 +607,19 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                               },
                               style: ElevatedButton.styleFrom(
                                   primary: MyColors.lightblueColor,
-                                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 17),
+                                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 17),
 
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(Radius.circular(16.0))
                                   ),
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold)),
                             ),
                           ),
                         ),
 
-                        SizedBox(height: 50,)
+                        const SizedBox(height: 50,)
 
                       ],
                     ),
@@ -642,7 +642,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         content: Container(
           width: 300.0,
@@ -660,7 +660,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      Text(
+                      const Text(
                         "Select Account Type",
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -672,7 +672,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
 
                       ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: accountTypeList.length,
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
@@ -683,11 +683,11 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                                 Navigator.pop(context);
                               },
                               child: Container(
-                                padding: EdgeInsets.only(top: 20),
+                                padding: const EdgeInsets.only(top: 20),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
-                                    SizedBox(width: 10,),
+                                    const Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
+                                    const SizedBox(width: 10,),
                                     Expanded(child: Text('${accountTypeList[index]}')),
                                   ],
                                 ),
@@ -696,7 +696,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           }
                       ),
 
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                     ],
                   ),),
 
@@ -718,7 +718,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         content: Container(
           width: 300.0,
@@ -736,7 +736,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      Text(
+                      const Text(
                         "Select Document Type",
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -748,7 +748,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
 
                       ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: documentTypeList.length,
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
@@ -758,11 +758,11 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                                 Navigator.pop(context);
                               },
                               child: Container(
-                                padding: EdgeInsets.only(top: 20),
+                                padding: const EdgeInsets.only(top: 20),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
-                                    SizedBox(width: 10,),
+                                    const Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
+                                    const SizedBox(width: 10,),
                                     Expanded(child: Text('${documentTypeList[index]}')),
                                   ],
                                 ),
@@ -771,7 +771,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           }
                       ),
 
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                     ],
                   ),),
 
@@ -793,7 +793,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         content: Container(
           width: 300.0,
@@ -811,7 +811,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      Text(
+                      const Text(
                         "Select Document Type",
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -823,7 +823,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
 
                       ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: sourceOfincomeList.length,
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
@@ -832,11 +832,11 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                                 Navigator.pop(context);
                               },
                               child: Container(
-                                padding: EdgeInsets.only(top: 20),
+                                padding: const EdgeInsets.only(top: 20),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
-                                    SizedBox(width: 10,),
+                                    const Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
+                                    const SizedBox(width: 10,),
                                     Expanded(child: Text('${sourceOfincomeList[index]}')),
                                   ],
                                 ),
@@ -845,7 +845,7 @@ class _LoginVerificatrionDetailScreenState extends State<LoginVerificatrionDetai
                           }
                       ),
 
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                     ],
                   ),),
 

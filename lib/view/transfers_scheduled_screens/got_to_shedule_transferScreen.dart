@@ -25,7 +25,7 @@ class _GoToSheduleTransfer_ScreeneState extends State<GoToSheduleTransfer_Screen
             child: Column(
               children: [
                 Container(
-                  padding: EdgeInsets.only(top: 50),
+                  padding: const EdgeInsets.only(top: 50),
                   alignment: Alignment.center,
                   child: SvgPicture.asset(
                     "a_assets/logo/confirm_img.svg",
@@ -33,20 +33,20 @@ class _GoToSheduleTransfer_ScreeneState extends State<GoToSheduleTransfer_Screen
                   ),
                 ),
                 Container(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                   alignment: Alignment.center,
-                  child: Text(MyString.please_confirm,textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),),
+                  child: const Text(MyString.please_confirm,textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),),
                 ),
 
                 Container(
-                  padding: EdgeInsets.only(top: 20),
+                  padding: const EdgeInsets.only(top: 20),
                   alignment: Alignment.center,
-                  child: Text(MyString.exchange_rate_will_be_calculated_on_the,textAlign: TextAlign.center,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
+                  child: const Text(MyString.exchange_rate_will_be_calculated_on_the,textAlign: TextAlign.center,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
                 ),
 
 
                 Container(
-                  padding: EdgeInsets.only(top: 50,left: 25,right: 25),
+                  padding: const EdgeInsets.only(top: 50,left: 25,right: 25),
                   //  alignment: Alignment.center,
                   child: GestureDetector(
                     onTap: (){
@@ -62,14 +62,14 @@ class _GoToSheduleTransfer_ScreeneState extends State<GoToSheduleTransfer_Screen
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Container(
-                              padding: EdgeInsets.symmetric(horizontal: 30),
+                              padding: const EdgeInsets.symmetric(horizontal: 30),
                               height: 50,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   color: MyColors.lightblueColor
                                 //  border: Border.all(color: bordercolor,width: 1.4)
                               ),
-                              child: Center(child: Text(MyString.confirm,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
+                              child: const Center(child: Text(MyString.confirm,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
                         )
 
                     ),

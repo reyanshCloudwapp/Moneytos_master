@@ -149,12 +149,12 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
         .size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
 
@@ -165,7 +165,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           ),
           flexibleSpace: Container(
             alignment: Alignment.center,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: MyColors.color_03153B,
               image: DecorationImage(
                   image: AssetImage(
@@ -176,7 +176,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
             child: Column(
               children: [
                 Container(
-                    margin: EdgeInsets.only(top: 50.0, left: 0.0),
+                    margin: const EdgeInsets.only(top: 50.0, left: 0.0),
                     child: Align(
                         alignment: Alignment.center,
                         child: SvgPicture.asset(
@@ -192,7 +192,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
         children: [
           Container(
             height: size.height * 0.2,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: MyColors.color_03153B,
               image: DecorationImage(
                   image: AssetImage(
@@ -203,7 +203,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           ),
           Container(
             // color: MyColors.whiteColor,
-            margin: EdgeInsets.only(top: 5.0),
+            margin: const EdgeInsets.only(top: 5.0),
             height: MediaQuery
                 .of(context)
                 .size
@@ -218,14 +218,14 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                 borderRadius: BorderRadius.circular(20.0),
               ),
               child: Container(
-                margin: EdgeInsets.only(top: 16.0, left: 20.0, right: 20.0),
+                margin: const EdgeInsets.only(top: 16.0, left: 20.0, right: 20.0),
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       hSizedBox2,
-                      Align(
+                      const Align(
                           alignment: Alignment.center,
                           child: Text(
                             "Getting Started",
@@ -294,12 +294,12 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                       ),
                                       isfullnameerror == true
                                           ? Container(
-                                        padding: EdgeInsets.only(
+                                        padding: const EdgeInsets.only(
                                             left: 25, right: 20, top: 10),
                                         alignment: Alignment.topLeft,
                                         child: Text(
                                           nameerror,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: MyColors.red,
                                               fontWeight: FontWeight.w600,
                                               fontSize: 12,
@@ -332,12 +332,12 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                       ),
                                       islastnameerror == true
                                           ? Container(
-                                        padding: EdgeInsets.only(
+                                        padding: const EdgeInsets.only(
                                             left: 25, right: 20, top: 10),
                                         alignment: Alignment.topLeft,
                                         child: Text(
                                           lastnameerror,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: MyColors.red,
                                               fontWeight: FontWeight.w600,
                                               fontSize: 12,
@@ -369,12 +369,12 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                       ),
                                       isemailerror == true
                                           ? Container(
-                                        padding: EdgeInsets.only(
+                                        padding: const EdgeInsets.only(
                                             left: 25, right: 20, top: 10),
                                         alignment: Alignment.topLeft,
                                         child: Text(
                                           emailerror,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               color: MyColors.red,
                                               fontWeight: FontWeight.w600,
                                               fontSize: 12,
@@ -469,11 +469,8 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                                 showpass,
                                                 ispasserror),
                                             ispasserror == true
-                                                ? Container(
-                                              // width: 20,
-                                              child: SvgPicture.asset(
-                                                  "a_assets/icons/error_icon.svg"),
-                                            )
+                                                ? SvgPicture.asset(
+                                                    "a_assets/icons/error_icon.svg")
                                                 : Container()
                                           ],
                                         ),
@@ -483,14 +480,14 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                               .of(context)
                                               .size
                                               .width * 0.74,
-                                          padding: EdgeInsets.only(
+                                          padding: const EdgeInsets.only(
                                               left: 25,
                                               right: 15,
                                               top: 10),
                                           alignment: Alignment.topLeft,
                                           child: Text(
                                             validation_str.toString(),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: MyColors.red,
                                                 fontWeight:
                                                 FontWeight.w600,
@@ -535,14 +532,14 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                               .of(context)
                                               .size
                                               .width * 0.74,
-                                          padding: EdgeInsets.only(
+                                          padding: const EdgeInsets.only(
                                               left: 25,
                                               right: 15,
                                               top: 10),
                                           alignment: Alignment.topLeft,
                                           child: Text(
                                             validation_strconfPass.toString(),
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: MyColors.red,
                                                 fontWeight:
                                                 FontWeight.w600,
@@ -570,7 +567,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                       .of(context)
                                       .size
                                       .width * 0.74,
-                                  margin: EdgeInsets.symmetric(horizontal: 20),
+                                  margin: const EdgeInsets.symmetric(horizontal: 20),
                                   decoration: BoxDecoration(
                                       color: refferalcodefillcolor,
                                       //error == "1"? MyColors.whiteColor :  error == "2"? MyColors.red.withOpacity(0.05) : MyColors.lightblueColor.withOpacity(0.03),
@@ -604,7 +601,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                       /*isfocus = !isfocus;*/
                                       setState(() {});
                                     },
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: MyColors.blackColor,
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
@@ -619,7 +616,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
 
 
 
-                                      contentPadding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+                                      contentPadding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
                                       hintStyle: TextStyle(
                                           color: MyColors.blackColor.withOpacity(0.50),
                                           fontSize: 14,
@@ -639,11 +636,11 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
 
 
                                   Padding(
-                                    padding: EdgeInsets.only(top: 50.0),
+                                    padding: const EdgeInsets.only(top: 50.0),
                                     child: Align(
                                       alignment: Alignment.center,
                                       child: ElevatedButton(
-                                        child: Text(
+                                        child: const Text(
                                           'Getting Started',
                                           style: TextStyle(
                                               fontSize: 18,
@@ -1333,12 +1330,12 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                         },
                                         style: ElevatedButton.styleFrom(
                                             primary: MyColors.lightblueColor,
-                                            padding: EdgeInsets.symmetric(
+                                            padding: const EdgeInsets.symmetric(
                                                 horizontal: 50, vertical: 14),
-                                            shape: RoundedRectangleBorder(
+                                            shape: const RoundedRectangleBorder(
                                                 borderRadius: BorderRadius.all(
                                                     Radius.circular(16.0))),
-                                            textStyle: TextStyle(
+                                            textStyle: const TextStyle(
                                                 fontSize: 18,
                                                 fontWeight: FontWeight.bold)),
                                       ),
@@ -1352,12 +1349,12 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                           /// end
                           hSizedBox2,
                           Padding(
-                            padding: EdgeInsets.only(top: 0.0),
+                            padding: const EdgeInsets.only(top: 0.0),
                             child: GestureDetector(
                               onTap: () {},
                               child: Column(
                                 children: [
-                                  Row(
+                                  const Row(
                                     crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
@@ -1375,7 +1372,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                   ),
                                   InkWell(
                                     onTap: (){
-                                      Navigator.push(context, MaterialPageRoute(builder: (context)=>PrivacyPolicyScreen()));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const PrivacyPolicyScreen()));
                                     },
                                     child: Row(
                                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -1383,9 +1380,9 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                       children: [
                                         InkWell(
                                           onTap: (){
-                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>TermsNConditionScreen()));
+                                            Navigator.push(context, MaterialPageRoute(builder: (context)=>const TermsNConditionScreen()));
                                           },
-                                          child: Text(
+                                          child: const Text(
                                             "Terms and Conditions",
                                             style: TextStyle(
                                                 color: MyColors.lightblueColor,
@@ -1394,7 +1391,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                                 "s_asset/font/raleway/raleway_semibold.ttf"),
                                           ),
                                         ),
-                                        Text(
+                                        const Text(
                                           " and ",
                                           style: TextStyle(
                                               color: MyColors.color_text,
@@ -1402,7 +1399,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                               fontFamily:
                                               "s_asset/font/raleway/raleway_semibold.ttf"),
                                         ),
-                                        Text(
+                                        const Text(
                                           "Privacy Policy",
                                           style: TextStyle(
                                               color: MyColors.lightblueColor,
@@ -1429,7 +1426,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                               },
                               child: Container(
                                   decoration: BoxDecoration(
-                                    boxShadow: [
+                                    boxShadow: const [
                                       BoxShadow(
                                           color: Colors.white,
                                           offset: Offset(0, 4),
@@ -1449,11 +1446,11 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
                                     //color: Colors.deepPurple.shade300,
                                     borderRadius: BorderRadius.circular(15),
                                   ),
-                                  padding: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(
                                       left: 40, right: 40, bottom: 16, top: 16),
-                                  margin: EdgeInsets.only(
+                                  margin: const EdgeInsets.only(
                                       left: 20, right: 20, bottom: 0, top: 50),
-                                  child: Text(
+                                  child: const Text(
                                     "Log in",
                                     style: TextStyle(
                                         color: MyColors.color_3F84E5,
@@ -1493,7 +1490,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           .of(context)
           .size
           .width * 0.74,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: passfillcolor,
           //error == "1"? MyColors.whiteColor :  error == "2"? MyColors.red.withOpacity(0.05) : MyColors.lightblueColor.withOpacity(0.03),
@@ -1527,7 +1524,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           /*isfocus = !isfocus;*/
           setState(() {});
         },
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -1539,7 +1536,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           focusedBorder: InputBorder.none,
           errorBorder: InputBorder.none,
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
           suffixIcon: IconButton(
               icon: Icon(
                 _isObscure ? Icons.visibility_off : Icons.visibility,
@@ -1588,7 +1585,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           .of(context)
           .size
           .width * 0.74,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: confPassfillcolor,
           //error == "1"? MyColors.whiteColor :  error == "2"? MyColors.red.withOpacity(0.05) : MyColors.lightblueColor.withOpacity(0.03),
@@ -1628,7 +1625,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           /*isfocus = !isfocus;*/
           setState(() {});
         },
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -1640,7 +1637,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           focusedBorder: InputBorder.none,
           errorBorder: InputBorder.none,
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
           suffixIcon: IconButton(
               icon: Icon(
                 _isObscure2 ? Icons.visibility_off : Icons.visibility,
@@ -1685,7 +1682,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           .of(context)
           .size
           .width * 0.74,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: fullnamefillcolor,
           //error == "1"? MyColors.whiteColor :  error == "2"? MyColors.red.withOpacity(0.05) : MyColors.lightblueColor.withOpacity(0.03),
@@ -1718,7 +1715,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           /*isfocus = !isfocus;*/
           setState(() {});
         },
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -1733,7 +1730,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
 
 
 
-          contentPadding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
               fontSize: 14,
@@ -1763,7 +1760,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           .of(context)
           .size
           .width * 0.74,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: lastnamefillcolor,
           //error == "1"? MyColors.whiteColor :  error == "2"? MyColors.red.withOpacity(0.05) : MyColors.lightblueColor.withOpacity(0.03),
@@ -1796,7 +1793,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           /*isfocus = !isfocus;*/
           setState(() {});
         },
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -1811,7 +1808,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
 
 
 
-          contentPadding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
               fontSize: 14,
@@ -1841,7 +1838,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           .of(context)
           .size
           .width * 0.74,
-      margin: EdgeInsets.symmetric(horizontal: 20),
+      margin: const EdgeInsets.symmetric(horizontal: 20),
       decoration: BoxDecoration(
           color: emailfillcolor,
           //error == "1"? MyColors.whiteColor :  error == "2"? MyColors.red.withOpacity(0.05) : MyColors.lightblueColor.withOpacity(0.03),
@@ -1874,7 +1871,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           /*isfocus = !isfocus;*/
           setState(() {});
         },
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontSize: 12,
             fontWeight: FontWeight.w400,
@@ -1886,7 +1883,7 @@ class _LoginScreenPageState extends State<LoginScreenPage> {
           focusedBorder: InputBorder.none,
           errorBorder: InputBorder.none,
           fillColor: MyColors.whiteColor,
-          contentPadding: EdgeInsets.symmetric(horizontal: 22, vertical: 12),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 22, vertical: 12),
           hintStyle: TextStyle(
               color: MyColors.blackColor.withOpacity(0.50),
               fontSize: 12,

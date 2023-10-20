@@ -81,12 +81,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
 
@@ -96,7 +96,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           ),
           flexibleSpace: Container(
             alignment: Alignment.center,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: MyColors.color_03153B,
               image: DecorationImage(
                   image: AssetImage("s_asset/images/bgimage.png",),
@@ -106,7 +106,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             child: Column(
               children: [
                 Container(
-                    margin: EdgeInsets.only(top: 50.0,left: 0.0),
+                    margin: const EdgeInsets.only(top: 50.0,left: 0.0),
                     child: Align(
                         alignment: Alignment.center,
                         child: SvgPicture.asset('a_assets/images/logo.svg',fit: BoxFit.cover,))),
@@ -122,7 +122,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           children: [
             Container(
               height: size.height * 0.3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 //color: MyColors.primaryColor,
                   image: DecorationImage(
                       image: AssetImage("s_asset/images/bgimage.png",),
@@ -135,7 +135,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
             Container(
 
               // color: MyColors.whiteColor,
-              margin: EdgeInsets.only(top: 5.0),
+              margin: const EdgeInsets.only(top: 5.0),
               height: size.height * 0.8,
               width: MediaQuery.of(context).size.width,
               child: Material(
@@ -144,30 +144,30 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(top: 60.0,left: 20.0,right: 20.0),
+                  margin: const EdgeInsets.only(top: 60.0,left: 20.0,right: 20.0),
                   child: SingleChildScrollView(
                     child: Column(
 
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Align(
+                        const Align(
                             alignment: Alignment.center,
                             child: Text("Reset your password",style: TextStyle(fontSize: 26,fontWeight: FontWeight.w500,color: MyColors.blackColor),)),
 
 
-                        SizedBox(
+                        const SizedBox(
                           height: 22.0,
                         ),
 
-                        Align(
+                        const Align(
                             alignment: Alignment.center,
                             child: Text("We will send a code to your phone \n to reset your password.",textAlign: TextAlign.center,style: TextStyle(fontSize: 13,fontWeight: FontWeight.w300,color: MyColors.blackColor),)),
 
                         Column(
                           children: [
                             Container(
-                              margin: EdgeInsets.only(left: 18.0,top: 30),
+                              margin: const EdgeInsets.only(left: 18.0,top: 30),
                               decoration: BoxDecoration(
                                   color:mobilefillcolor,
                                   border:  Border.all(color: mobilebordercolor, ),
@@ -184,7 +184,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                     initialSelection: 'CA',
                                     // favorite: ['+91','IN'],
                                     showCountryOnly: false,
-                                    textStyle: TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w300),
+                                    textStyle: const TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w300),
                                     showOnlyCountryWhenClosed: false,
                                     alignLeft: false,
                                     showFlag: false,
@@ -212,14 +212,14 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                         setState(() {
                                         });
                                       },
-                                      style: TextStyle(
+                                      style: const TextStyle(
 
                                           color:MyColors.blackColor,
                                           fontSize: 12,
                                           fontFamily: "s_asset/font/raleway/raleway_medium.ttf"
 
                                       ),
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                           hintText: 'Phone Number',
                                           border: InputBorder.none,
                                           fillColor: MyColors.whiteColor,
@@ -242,18 +242,18 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                             ),
 
                             ismobileerror == true ?  Container(
-                              margin:  EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
+                              margin:  const EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
                               alignment: Alignment.topLeft,
-                              child: Text(mobileerror,style: TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
+                              child: Text(mobileerror,style: const TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
                                 : Container()
                           ],
                         ),
                         Padding(
-                          padding:  EdgeInsets.only(top:60.0),
+                          padding:  const EdgeInsets.only(top:60.0),
                           child: Align(
                             alignment: Alignment.center,
-                            child: load == true ? CircularProgressIndicator(color: MyColors.lightblueColor,) :  ElevatedButton(
-                              child: Text('Reset Password'),
+                            child: load == true ? const CircularProgressIndicator(color: MyColors.lightblueColor,) :  ElevatedButton(
+                              child: const Text('Reset Password'),
                               onPressed: () {
                                 mobilefocus.unfocus();
                                 if (mobileNumberController.text.isEmpty ) {
@@ -285,12 +285,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
 
                               style: ElevatedButton.styleFrom(
                                   primary: MyColors.lightblueColor,
-                                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
 
-                                  shape: RoundedRectangleBorder(
+                                  shape: const RoundedRectangleBorder(
                                       borderRadius: BorderRadius.all(Radius.circular(16.0))
                                   ),
-                                  textStyle: TextStyle(
+                                  textStyle: const TextStyle(
                                       fontSize: 18,
                                       fontWeight: FontWeight.bold)),
                             ),

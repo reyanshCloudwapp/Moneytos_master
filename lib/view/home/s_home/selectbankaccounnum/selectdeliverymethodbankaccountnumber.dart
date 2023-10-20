@@ -44,14 +44,14 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
         elevation: 0,
         backgroundColor: MyColors.whiteColor,
         centerTitle: true,
-        actions: [],
-        systemOverlayStyle: SystemUiOverlayStyle(
+        actions: const [],
+        systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
           statusBarColor: MyColors.whiteColor,
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
-        title: Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
+        title: const Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
       ),
 
 
@@ -59,8 +59,8 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
            // alignment: Alignment.center,
 
                    // margin: EdgeInsets.symmetric(vertical: 12) ,
-                    padding: EdgeInsets.symmetric(horizontal: 15,vertical: 14),
-                   decoration: BoxDecoration(
+                    padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 14),
+                   decoration: const BoxDecoration(
                      color: MyColors.whiteColor,
                    ),
                   height: 100,
@@ -95,9 +95,9 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
             Container(
                 width:double.infinity,
                 height: 50,
-                 margin:  EdgeInsets.fromLTRB(14.0, 0.0, 14.0, 0.0),
-                padding: EdgeInsets.fromLTRB(16.0,0, 20.0, 0.0),
-                decoration: BoxDecoration(
+                 margin:  const EdgeInsets.fromLTRB(14.0, 0.0, 14.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(16.0,0, 20.0, 0.0),
+                decoration: const BoxDecoration(
                   color: MyColors.whiteColor,
                   //border: Border.all(color: MyColors.color_gray_transparent),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -116,7 +116,7 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
                       children: [
                         SvgPicture.asset("s_asset/images/flag2.svg",width: 26,height: 26,),
                         wSizedBox1,
-                        Text(MyString.country_name,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_text),),
+                        const Text(MyString.country_name,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_text),),
                       ],
                     ),
                     Container(
@@ -129,9 +129,9 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
             Container(
                 height: 50,
                 width:double.infinity,
-                margin:  EdgeInsets.fromLTRB(14.0, 0.0, 14.0, 0.0),
-                padding: EdgeInsets.fromLTRB(16.0,0, 20.0, 0.0),
-                decoration: BoxDecoration(
+                margin:  const EdgeInsets.fromLTRB(14.0, 0.0, 14.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(16.0,0, 20.0, 0.0),
+                decoration: const BoxDecoration(
                   color: MyColors.whiteColor,
                   //  border: Border.all(color: MyColors.color_gray_transparent),
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -148,7 +148,7 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         // SvgPicture.asset("s_asset/images/flag2.svg",width: 24,height: 24,),
                         //wSizedBox1,
@@ -166,9 +166,9 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
               children: [
                 hSizedBox3,
                 Container(
-                    margin: EdgeInsets.only(top: 16,bottom: 20),
+                    margin: const EdgeInsets.only(top: 16,bottom: 20),
                     alignment: Alignment.center,
-                    child: Text(MyString.Bank_Account_Number,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"))),
+                    child: const Text(MyString.Bank_Account_Number,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"))),
               hSizedBox4,
 
                 IBAN(),
@@ -176,7 +176,7 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
                   onTap: (){
                   },
                   child: Container(
-                    margin: EdgeInsets.only(right: 12,top: 12),
+                    margin: const EdgeInsets.only(right: 12,top: 12),
                     alignment: Alignment.bottomRight,
                     child:Custombtn(MyString.check,70,140,context) ,
                   ),
@@ -199,7 +199,7 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
 
   IBAN(){
     return Container(
-      margin: EdgeInsets.only(left: 22,right: 22),
+      margin: const EdgeInsets.only(left: 22,right: 22),
       height: 48,
       decoration: BoxDecoration(
           color: MyColors.blueColor.withOpacity(0.02),
@@ -214,19 +214,19 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
         cursorColor:MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          enabledBorder:  OutlineInputBorder(
+          enabledBorder:  const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           hintText: MyString.iban_code,
           suffixIcon: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: SvgPicture.asset("a_assets/icons/paste.svg",height: 15,),
           ),
           hintStyle: TextStyle(color: MyColors.blackColor.withOpacity(0.30),fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),
@@ -242,9 +242,9 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
       color: MyColors.whiteColor,
       //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
       child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.only(left: 10,right: 10),
           decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
             ],
@@ -260,8 +260,8 @@ class _SelectDeliveryMethodBankAccNumState extends State<SelectDeliveryMethodBan
             //color: Colors.deepPurple.shade300,
             borderRadius: BorderRadius.circular(10),
           ),
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 22),
-          child: Center(child: Text(text,style: TextStyle(color: MyColors.whiteColor,fontWeight: FontWeight.w700,fontSize: 18,fontFamily: "s_asset/font/raleway/Bold.ttf"),))),
+          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 22),
+          child: Center(child: Text(text,style: const TextStyle(color: MyColors.whiteColor,fontWeight: FontWeight.w700,fontSize: 18,fontFamily: "s_asset/font/raleway/Bold.ttf"),))),
     );
   }
 }
@@ -273,7 +273,7 @@ Custombtn(String text,double height,double width, BuildContext context) {
     //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
     child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
           ],
@@ -289,7 +289,7 @@ Custombtn(String text,double height,double width, BuildContext context) {
           //color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
-        child: Center(child: Text(text,style: TextStyle(color: MyColors.lightblueColor,fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w600),))),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
+        child: Center(child: Text(text,style: const TextStyle(color: MyColors.lightblueColor,fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w600),))),
   );
 }

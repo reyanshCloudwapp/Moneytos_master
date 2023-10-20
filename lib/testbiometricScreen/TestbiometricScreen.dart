@@ -23,9 +23,9 @@ class _TestBiometricExampleState extends State<TestBiometricExample> {
     super.initState();
     auth.isDeviceSupported().then(
           (bool isSupported) => setState(() => _supportState = isSupported
-          ? _SupportState.supported
-          : _SupportState.unsupported),
-    );
+              ? _SupportState.supported
+              : _SupportState.unsupported),
+        );
   }
 
   Future<void> _checkBiometrics() async {
@@ -91,7 +91,7 @@ class _TestBiometricExampleState extends State<TestBiometricExample> {
     }
 
     setState(
-            () => _authorized = authenticated ? 'Authorized' : 'Not Authorized');
+        () => _authorized = authenticated ? 'Authorized' : 'Not Authorized');
   }
 
   Future<void> _authenticateWithBiometrics() async {
@@ -103,7 +103,7 @@ class _TestBiometricExampleState extends State<TestBiometricExample> {
       });
       authenticated = await auth.authenticate(
         localizedReason:
-        'Scan your fingerprint (or face or whatever) to authenticate',
+            'Scan your fingerprint (or face or whatever) to authenticate',
         options: const AuthenticationOptions(
           stickyAuth: true,
           biometricOnly: true,
@@ -172,9 +172,9 @@ class _TestBiometricExampleState extends State<TestBiometricExample> {
                 if (_isAuthenticating)
                   ElevatedButton(
                     onPressed: _cancelAuthentication,
-                    child: Row(
+                    child: const Row(
                       mainAxisSize: MainAxisSize.min,
-                      children: const <Widget>[
+                      children: <Widget>[
                         Text('Cancel Authentication'),
                         Icon(Icons.cancel),
                       ],
@@ -185,9 +185,9 @@ class _TestBiometricExampleState extends State<TestBiometricExample> {
                     children: <Widget>[
                       ElevatedButton(
                         onPressed: _authenticate,
-                        child: Row(
+                        child: const Row(
                           mainAxisSize: MainAxisSize.min,
-                          children: const <Widget>[
+                          children: <Widget>[
                             Text('Authenticate'),
                             Icon(Icons.perm_device_information),
                           ],

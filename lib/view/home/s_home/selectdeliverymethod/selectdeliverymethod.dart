@@ -64,7 +64,7 @@ class _SelectDeliveryMethodScreenState
           elevation: 0,
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
-          actions: [],
+          actions: const [],
           systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
@@ -342,7 +342,7 @@ class _SelectDeliveryMethodScreenState
                               padding: const EdgeInsets.only(top: 10.0),
                               child: Container(
                                 margin: const EdgeInsets.only(left: 10.0),
-                                child:  Row(
+                                child:  const Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -407,7 +407,7 @@ class _SelectDeliveryMethodScreenState
                           width: 36,
                         ),
                         wSizedBox3,
-                         Column(
+                         const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -473,8 +473,8 @@ class _SelectDeliveryMethodScreenState
                     },
                     child: Container(
                         decoration: BoxDecoration(
-                          boxShadow: [
-                            const BoxShadow(
+                          boxShadow: const [
+                            BoxShadow(
                                 color: Colors.white,
                                 offset: Offset(0, 4),
                                 blurRadius: 5.0)
@@ -512,14 +512,14 @@ class _SelectDeliveryMethodScreenState
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      AddRecipientInfoScreen()))
+                                      const AddRecipientInfoScreen()))
                           : Utility.showFlutterToast(
                               "Please Select Delivery Method");
                     },
                     child: Container(
                         decoration: BoxDecoration(
-                          boxShadow: [
-                            const BoxShadow(
+                          boxShadow: const [
+                            BoxShadow(
                                 color: Colors.white,
                                 offset: Offset(0, 4),
                                 blurRadius: 5.0)

@@ -19,13 +19,13 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
     return Scaffold(
       backgroundColor: MyColors.light_primarycolor2,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
           flexibleSpace: Container(
-            padding: EdgeInsets.fromLTRB(22, 30, 20, 0),
+            padding: const EdgeInsets.fromLTRB(22, 30, 20, 0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -41,8 +41,8 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                     )),
                 Center(
                   child: Container(
-                    margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                    child: Text(
+                    margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                    child: const Text(
                       "FAQs",
                       style: TextStyle(
                           color: MyColors.whiteColor,
@@ -70,13 +70,13 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
               width: MediaQuery.of(context).size.width,
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(0, 12, 0, 0),
+              margin: const EdgeInsets.fromLTRB(0, 12, 0, 0),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Card(
                 color: MyColors.whiteColor,
                 margin: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)),
@@ -228,7 +228,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox3,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_first_que,
                             style: TextStyle(
                                 fontSize: 16,
@@ -241,7 +241,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_first_ans,
                             style: TextStyle(
                                 fontSize: 12,
@@ -254,7 +254,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox3,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_second_que,
                             style: TextStyle(
                                 fontSize: 16,
@@ -267,7 +267,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_second_ans,
                             style: TextStyle(
                                 fontSize: 12,
@@ -280,7 +280,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox3,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_third_que,
                             style: TextStyle(
                                 fontSize: 16,
@@ -293,7 +293,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_third_ans,
                             style: TextStyle(
                                 fontSize: 12,
@@ -306,7 +306,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox3,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_fourth_que,
                             style: TextStyle(
                                 fontSize: 16,
@@ -319,7 +319,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_fourth_ans,
                             style: TextStyle(
                                 fontSize: 12,
@@ -332,7 +332,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox3,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_fifth_ques,
                             style: TextStyle(
                                 fontSize: 16,
@@ -345,7 +345,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_fifth_ans,
                             style: TextStyle(
                                 fontSize: 12,
@@ -358,7 +358,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox3,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_sixth_ques,
                             style: TextStyle(
                                 fontSize: 16,
@@ -371,7 +371,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_sixth_ans,
                             style: TextStyle(
                                 fontSize: 12,
@@ -384,7 +384,7 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       hSizedBox3,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_seven_que,
                             style: TextStyle(
                                 fontSize: 16,
@@ -396,9 +396,9 @@ class _LegalResourcesScreenState extends State<AboutUsScreen> {
                       ),
                       hSizedBox1,
                       Container(
-                        margin: EdgeInsets.only(bottom: 50),
+                        margin: const EdgeInsets.only(bottom: 50),
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.Faq_seven_ans,
                             style: TextStyle(
                                 fontSize: 12,

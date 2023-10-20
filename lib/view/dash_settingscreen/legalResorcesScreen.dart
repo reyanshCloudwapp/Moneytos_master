@@ -21,13 +21,13 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
     return Scaffold(
       backgroundColor: MyColors.light_primarycolor2,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
           flexibleSpace: Container(
-            padding: EdgeInsets.fromLTRB(22, 30, 20, 0),
+            padding: const EdgeInsets.fromLTRB(22, 30, 20, 0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -43,8 +43,8 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                     )),
                 Center(
                   child: Container(
-                    margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                    child: Text(
+                    margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                    child: const Text(
                       MyString.legal_resorces,
                       style: TextStyle(
                           color: MyColors.whiteColor,
@@ -72,13 +72,13 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
               width: MediaQuery.of(context).size.width,
             ),
             Container(
-              margin: EdgeInsets.fromLTRB(0, 12, 0, 0),
+              margin: const EdgeInsets.fromLTRB(0, 12, 0, 0),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Card(
                 color: MyColors.whiteColor,
                 margin: EdgeInsets.zero,
-                shape: RoundedRectangleBorder(
+                shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(30),
                       topRight: Radius.circular(30)),
@@ -89,8 +89,8 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                       hSizedBox3,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(MyString.minnesota_dept_of_commerce,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: const Text(MyString.minnesota_dept_of_commerce,
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -102,7 +102,7 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.minnesota_dept_of_commerce_des1,
                             style: TextStyle(
                                 fontSize: 12,
@@ -112,12 +112,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 color: MyColors.blackColor.withOpacity(0.70),
                                 letterSpacing: 0.7)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.minnesota_dept_of_commerce_des2,
                             style: TextStyle(
                                 fontSize: 12,
@@ -127,12 +127,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 color: MyColors.blackColor.withOpacity(0.70),
                                 letterSpacing: 0.7)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.minnesota_dept_of_commerce_des3,
                             style: TextStyle(
                                 fontSize: 12,
@@ -143,12 +143,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 letterSpacing: 0.7)),
                       ),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.minnesota_dept_of_commerce_des4,
                             style: TextStyle(
                                 fontSize: 12,
@@ -158,12 +158,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 color: MyColors.lightblueColor.withOpacity(0.70),
                                 letterSpacing: 0.7)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.minnesota_dept_of_commerce_des5,
                             style: TextStyle(
                                 fontSize: 12,
@@ -173,12 +173,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 color: MyColors.blackColor.withOpacity(0.70),
                                 letterSpacing: 0.7)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.minnesota_dept_of_commerce_des6,
                             style: TextStyle(
                                 fontSize: 12,
@@ -189,12 +189,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 letterSpacing: 0.7)),
                       ),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(MyString.minnesota_dept_of_commerce_des7,
                             style: TextStyle(
                                 fontSize: 12,
@@ -210,8 +210,8 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
 
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(MyString.consumer_Financial_Protection_Bureau,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: const Text(MyString.consumer_Financial_Protection_Bureau,
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -222,7 +222,7 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                             MyString.consumer_finencial_legal_des,
                             style: TextStyle(
@@ -233,12 +233,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 color: MyColors.blackColor.withOpacity(0.70),
                                 letterSpacing: 0.7)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                             MyString.consumer_finencial_legal_des1,
                             style: TextStyle(
@@ -249,12 +249,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 color: MyColors.blackColor.withOpacity(0.70),
                                 letterSpacing: 0.7)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                             MyString.consumer_Financial_Protection_Bureau_des1,
                             style: TextStyle(
@@ -273,8 +273,8 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
 
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(MyString.Moneytos_llc,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: const Text(MyString.Moneytos_llc,
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -285,7 +285,7 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                       hSizedBox1,
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                             MyString.Moneytos_llc_des1,
                             style: TextStyle(
@@ -296,12 +296,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 color: MyColors.blackColor.withOpacity(0.70),
                                 letterSpacing: 0.7)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                             MyString.phone_not_available,
                             style: TextStyle(
@@ -312,12 +312,12 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 color: MyColors.lightblueColor.withOpacity(0.70),
                                 letterSpacing: 0.7)),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Text(
                             MyString.Moneytos_llc_des2,
                             style: TextStyle(
@@ -333,8 +333,8 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
 
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(MyString.privacypolicy,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: const Text(MyString.privacypolicy,
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -343,7 +343,7 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 letterSpacing: 0.7)),
                       ),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
 
@@ -353,7 +353,7 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                         },
                         child: Container(
                           alignment: Alignment.topLeft,
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Text(
                               AllApiService.personabashurl+"privacy-policy",
                               style: TextStyle(
@@ -370,8 +370,8 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
 
                       Container(
                         alignment: Alignment.topLeft,
-                        padding: EdgeInsets.symmetric(horizontal: 20),
-                        child: Text(MyString.termscondition,
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: const Text(MyString.termscondition,
                             style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w500,
@@ -380,7 +380,7 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                                 letterSpacing: 0.7)),
                       ),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
 
@@ -391,7 +391,7 @@ class _LegalResourcesScreenState extends State<LegalResourcesScreen> {
                         },
                         child: Container(
                           alignment: Alignment.topLeft,
-                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
                           child: Text(
                               AllApiService.personabashurl+"terms-conditions",
                               style: TextStyle(

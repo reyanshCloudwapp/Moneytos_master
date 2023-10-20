@@ -78,13 +78,13 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
         child: Scaffold(
           backgroundColor: MyColors.whiteColor,
           appBar: PreferredSize(
-            preferredSize: Size.fromHeight(60),
+            preferredSize: const Size.fromHeight(60),
             child: AppBar(
               elevation: 0,
               automaticallyImplyLeading: false,
               backgroundColor: MyColors.light_primarycolor2,
               flexibleSpace:   Container(
-                padding: EdgeInsets.fromLTRB(22, 30, 20, 0),
+                padding: const EdgeInsets.fromLTRB(22, 30, 20, 0),
                 child:Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,7 +101,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                     Center(
                       child: Container(
                        // margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                        child:  Text(
+                        child:  const Text(
                           "Account Settings",
                           style: TextStyle(
                               color: MyColors.whiteColor,
@@ -133,7 +133,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                 children: <Widget>[
                   Container(height: 300,color: MyColors.light_primarycolor2,),
                   Container(
-                    margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     child: Card(
@@ -144,20 +144,20 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                       ),
                       child:
                       accountSettingResponse.status==true? Container(
-                        margin: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                        margin: const EdgeInsets.fromLTRB(20, 20, 20, 20),
                         child: SingleChildScrollView(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
-                                margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      child:  Text(
+                                      child:  const Text(
                                         "Name",
                                         style: TextStyle(
                                             color: MyColors.greycolor,
@@ -169,10 +169,10 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                       ,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                                       child:  Text(
                                        accountSettingResponse.data!.userData!.name.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -185,13 +185,13 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      child:  Text(
+                                      child:  const Text(
                                         "Email",
                                         style: TextStyle(
                                             color: MyColors.greycolor,
@@ -203,10 +203,10 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                       ,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                                       child:  Text(
                                         accountSettingResponse.data!.userData!.email.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -219,13 +219,13 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      child:  Text(
+                                      child:  const Text(
                                         "Phone Number",
                                         style: TextStyle(
                                             color: MyColors.greycolor,
@@ -237,10 +237,10 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                       ,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                                       child:  Text(
                                         accountSettingResponse.data!.userData!.mobileNumber.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -253,13 +253,13 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      child:  Text(
+                                      child:  const Text(
                                         "Birthdate",
                                         style: TextStyle(
                                             color: MyColors.greycolor,
@@ -271,10 +271,10 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                       ,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                                       child:  Text(
                                           accountSettingResponse.data!.userData!.dob.toString()=="null"?"":Utility.DatefomatToYYYYMMTOMMDD(accountSettingResponse.data!.userData!.dob.toString()),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -287,13 +287,13 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      child:  Text(
+                                      child:  const Text(
                                         "Country",
                                         style: TextStyle(
                                             color: MyColors.greycolor,
@@ -305,10 +305,10 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                       ,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                                       child:  Text(
                                         accountSettingResponse.data!.userData!.countryName.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -321,13 +321,13 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      child:  Text(
+                                      child:  const Text(
                                         "State",
                                         style: TextStyle(
                                             color: MyColors.greycolor,
@@ -339,10 +339,10 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                       ,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                                       child:  Text(
                                         accountSettingResponse.data!.userData!.stateName.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -355,13 +355,13 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      child:  Text(
+                                      child:  const Text(
                                         "Address",
                                         style: TextStyle(
                                             color: MyColors.greycolor,
@@ -373,10 +373,10 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                       ,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                                       child:  Text(
                                           accountSettingResponse.data!.userData!.address.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -389,13 +389,13 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 ),
                               ),
                               Container(
-                                margin: EdgeInsets.fromLTRB(20, 20, 20, 0),
+                                margin: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
-                                      child:  Text(
+                                      child:  const Text(
                                         "Zip Code",
                                         style: TextStyle(
                                             color: MyColors.greycolor,
@@ -407,10 +407,10 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                       ,
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                                      margin: const EdgeInsets.fromLTRB(0, 5, 0, 0),
                                       child:  Text(
                                           accountSettingResponse.data!.userData!.zipcode.toString(),
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w500,
                                             fontSize: 14,
@@ -435,7 +435,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 },
                                 child: Container(
                                   height: 50,
-                                  margin: EdgeInsets.fromLTRB(00, 50, 0, 0),
+                                  margin: const EdgeInsets.fromLTRB(00, 50, 0, 0),
                                   child: Row(
                                     children: [
                                       SvgPicture.asset(
@@ -443,8 +443,8 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                           width: 20),
                                       Container(
                                         margin:
-                                        EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                        child: Text(
+                                        const EdgeInsets.fromLTRB(20, 0, 0, 0),
+                                        child: const Text(
                                           "Delete Account",
                                           style: TextStyle(
                                               color: MyColors.color_ED5565,
@@ -530,9 +530,9 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+        contentPadding: const EdgeInsets.only(top: 10.0),
         content: Container(
           width: 300.0,
           child: SingleChildScrollView(
@@ -544,19 +544,19 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
 
 
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
 
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
 
 
 
 
-                        Text(
+                        const Text(
                           "Are you sure, you want to Delete?",
                           style: TextStyle(
                               fontSize: 16,
@@ -566,7 +566,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                         ),
 
 
-                        SizedBox(height: 40,),
+                        const SizedBox(height: 40,),
 
                         Row(
                           children: [
@@ -574,7 +574,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                               flex:1,
                               child: ElevatedButton(
                                 style: ButtonStyle(
-                                    padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                    padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -593,7 +593,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 /* shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0)),*/
                                 //  color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "No",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -603,12 +603,12 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             Expanded(
                               flex:1,
                               child: ElevatedButton(
                                 style: ButtonStyle(
-                                    padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                    padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -627,7 +627,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
 
                                 },
 
-                                child: Text(
+                                child: const Text(
                                   "Yes",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -640,7 +640,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
                           ],
                         ),
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                       ],
                     ),
                   ),),

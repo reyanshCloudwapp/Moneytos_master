@@ -39,7 +39,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
   }
 
   backSpace(){
-    if(pinEntered.length > 0){
+    if(pinEntered.isNotEmpty){
       pinEntered = pinEntered.substring(0,pinEntered.length -1);
       alert = "";
       print("pinentered..${pinEntered}");
@@ -64,7 +64,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
                 color: MyColors.lightblueColor
               ),
               alignment: Alignment.center,
-              child: Text("1,473.00",style: TextStyle(color: Colors.white,fontSize: 36,fontWeight: FontWeight.w800,fontFamily: "s_asset/font/montserrat/Montserrat-ExtraBold.otf"),),
+              child: const Text("1,473.00",style: TextStyle(color: Colors.white,fontSize: 36,fontWeight: FontWeight.w800,fontFamily: "s_asset/font/montserrat/Montserrat-ExtraBold.otf"),),
             ),
             hSizedBox3,
 
@@ -83,7 +83,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
                 children: [
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       "01.00",
                       style: TextStyle(
                           color: MyColors.blackColor,
@@ -96,7 +96,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
                   wSizedBox,
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       MyString.usd,
                       style: TextStyle(
                           color: MyColors.blackColor,
@@ -114,7 +114,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
 
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       "01.00",
                       style: TextStyle(
                           color: MyColors.blackColor,
@@ -127,7 +127,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
                   wSizedBox,
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       MyString.aud,
                       style: TextStyle(
                           color: MyColors.blackColor,
@@ -144,7 +144,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
             
             Container(
               margin: EdgeInsets.symmetric(horizontal:size.width /4.6 ),
-              padding: EdgeInsets.symmetric(vertical:8 ),
+              padding: const EdgeInsets.symmetric(vertical:8 ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: MyColors.lightblueColor.withOpacity(0.02)
@@ -162,7 +162,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
                   wSizedBox1,
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       "01.00",
                       style: TextStyle(
                           color: MyColors.blackColor,
@@ -176,7 +176,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
 
                   Container(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: const Text(
                       MyString.usd,
                       style: TextStyle(
                           color: MyColors.blackColor,
@@ -196,13 +196,13 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
             hSizedBox3,
             //numberButton(1),
             Padding(
-              padding: EdgeInsets.only(top: 10),
+              padding: const EdgeInsets.only(top: 10),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: firstlist.map((e) {
                   return Container(
-                      padding: EdgeInsets.symmetric( vertical: 10),
+                      padding: const EdgeInsets.symmetric( vertical: 10),
                       child: numberButton(e));
                 }).toList(),
               ),
@@ -216,7 +216,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: secondlist.map((e) {
                 return Container(
-                    padding: EdgeInsets.symmetric( vertical: 10),
+                    padding: const EdgeInsets.symmetric( vertical: 10),
                     child: numberButton(e));
               }).toList(),
             ),
@@ -229,7 +229,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: thirdlist.map((e) {
                 return Container(
-                    padding: EdgeInsets.symmetric( vertical: 15),
+                    padding: const EdgeInsets.symmetric( vertical: 15),
                     child: numberButton(e));
               }).toList(),
             ),
@@ -242,7 +242,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only( top: 15),
+                    padding: const EdgeInsets.only( top: 15),
                     child: InkWell(
                       onTap: () {
                         backSpace();
@@ -260,7 +260,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
                     ),
                   ),
 
-                  Padding(padding: EdgeInsets.only( top: 17),child:Container(
+                  Padding(padding: const EdgeInsets.only( top: 17),child:Container(
                     width: 50,
                     child:  numberButton(0),
                   )),
@@ -282,8 +282,8 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
                     child: Container(
                       // height: 20,
                       alignment: Alignment.topLeft,
-                      padding: EdgeInsets.only( right: 25),
-                      child: Text(".",style: TextStyle(  color: MyColors.blackColor,
+                      padding: const EdgeInsets.only( right: 25),
+                      child: const Text(".",style: TextStyle(  color: MyColors.blackColor,
                           fontWeight: FontWeight.w800,
                           fontSize: 40,
                           fontFamily: "s_asset/font/montserrat/Montserrat-ExtraBold.otf"),),
@@ -325,7 +325,7 @@ class _TransferKeyBoardNum1State extends State<TransferKeyBoardNum1> {
           height: 30,
           child: Text(
             item.toString(),
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.blackColor,
                 fontWeight: FontWeight.w800,
                 fontSize: 20,
@@ -369,7 +369,7 @@ CustompinDialog(BuildContext context){
       child: Wrap(
         children: [
           Container(
-            padding: EdgeInsets.only(top: 50),
+            padding: const EdgeInsets.only(top: 50),
             alignment: Alignment.center,
             child: SvgPicture.asset(
               "a_assets/logo/confirm_img.svg",
@@ -377,25 +377,25 @@ CustompinDialog(BuildContext context){
             ),
           ),
           Container(
-            padding: EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 20),
             alignment: Alignment.center,
-            child: Text(MyString.please_confirm,textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),),
+            child: const Text(MyString.please_confirm,textAlign: TextAlign.center,style: TextStyle(fontSize: 18,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),),
           ),
 
           Container(
-            padding: EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 20),
             alignment: Alignment.center,
-            child: Text(MyString.exchange_rate_will_be_calculated_on_the,textAlign: TextAlign.center,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
+            child: const Text(MyString.exchange_rate_will_be_calculated_on_the,textAlign: TextAlign.center,style: TextStyle(fontSize: 12,fontWeight: FontWeight.w600,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
           ),
 
 
           Container(
-            padding: EdgeInsets.only(top: 50,left: 25,right: 25,bottom: 80),
+            padding: const EdgeInsets.only(top: 50,left: 25,right: 25,bottom: 80),
             //  alignment: Alignment.center,
             child: GestureDetector(
               onTap: (){
                 Navigator.pop(context);
-               Navigator.push(context, MaterialPageRoute(builder: (_) => TransferReasonforSendingScreen2(isMfs: false,)));
+               Navigator.push(context, MaterialPageRoute(builder: (_) => const TransferReasonforSendingScreen2(isMfs: false,)));
               },
               child: Container(
                   alignment: Alignment.center,
@@ -407,14 +407,14 @@ CustompinDialog(BuildContext context){
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
                         height: 50,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10),
                             color: MyColors.lightblueColor
                           //  border: Border.all(color: bordercolor,width: 1.4)
                         ),
-                        child: Center(child: Text(MyString.confirm,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
+                        child: const Center(child: Text(MyString.confirm,style: TextStyle(fontFamily: "s_asset/font/raleway/raleway_bold.ttf",color:MyColors.whiteColor,fontSize:18,fontWeight: FontWeight.w700,letterSpacing: 0.4 ),))),
                   )
 
               ),

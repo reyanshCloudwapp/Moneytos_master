@@ -79,14 +79,14 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
     return Scaffold(
 
         appBar: PreferredSize(
-          preferredSize: Size.fromHeight(60),
+          preferredSize: const Size.fromHeight(60),
           child: AppBar(
             elevation: 0,
             automaticallyImplyLeading: false,
             backgroundColor: MyColors.light_primarycolor2,
             flexibleSpace:    Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.fromLTRB(22, 30, 20, 0),
+              padding: const EdgeInsets.fromLTRB(22, 30, 20, 0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -98,7 +98,7 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
                   ),
                   Container(
                     alignment: Alignment.center,
-                    child: Text(
+                    child: const Text(
                       MyString.verification,
                       style: TextStyle(
                           color: MyColors.whiteColor,
@@ -178,7 +178,7 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
                         child: Center(
                             child:GFLoader(
                                 type: GFLoaderType.custom,
-                                child: Image(image: AssetImage("a_assets/logo/txn_loader_new.gif"),
+                                child: Image(image: const AssetImage("a_assets/logo/txn_loader_new.gif"),
                                   height: MediaQuery.of(context).size.height,
                                   width: MediaQuery.of(context).size.width,
                                   fit: BoxFit.fill,

@@ -33,7 +33,7 @@ class Utility {
           context: context,
           barrierDismissible: false,
           builder: (BuildContext context) {
-            return Center(
+            return const Center(
               child:GFLoader(
                   type: GFLoaderType.custom,
                   child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
@@ -198,7 +198,7 @@ class Utility {
               width: MediaQuery.of(context).size.width,
               child: GFLoader(
                   type: GFLoaderType.custom,
-                  child: Image(image: AssetImage("a_assets/logo/txn_loader_new.gif"),
+                  child: Image(image: const AssetImage("a_assets/logo/txn_loader_new.gif"),
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     fit: BoxFit.fill,
@@ -225,7 +225,7 @@ class Utility {
               width: MediaQuery.of(context).size.width,
               child: GFLoader(
                   type: GFLoaderType.custom,
-                  child: Image(image: AssetImage("a_assets/logo/txnfinishedloadernew.gif"),
+                  child: Image(image: const AssetImage("a_assets/logo/txnfinishedloadernew.gif"),
                     height: MediaQuery.of(context).size.height,
                     width: MediaQuery.of(context).size.width,
                     fit: BoxFit.fill,
@@ -244,7 +244,7 @@ class Utility {
     var beginningNextMonth = (month.month < 12)
         ? new DateTime(month.year, month.month + 1, 1)
         : new DateTime(month.year + 1, 1, 1);
-    return beginningNextMonth.subtract(new Duration(days: 1));
+    return beginningNextMonth.subtract(const Duration(days: 1));
   }
 
 
@@ -254,9 +254,9 @@ class Utility {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+        contentPadding: const EdgeInsets.only(top: 10.0),
         content: Container(
           width: 300.0,
           child: SingleChildScrollView(
@@ -268,14 +268,14 @@ class Utility {
 
 
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
 
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
 
                         Container(
                           alignment: Alignment.center,
@@ -285,7 +285,7 @@ class Utility {
                           ),
                         ),
 
-                        SizedBox(height: 30,),
+                        const SizedBox(height: 30,),
 
 
 
@@ -293,7 +293,7 @@ class Utility {
                         Text(
                           msg,
                           // "Something went Wrong",
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               color: MyColors.blackColor,
                               fontWeight: FontWeight.w700,
@@ -301,11 +301,11 @@ class Utility {
                         ),
 
 
-                        SizedBox(height: 40,),
+                        const SizedBox(height: 40,),
 
                         ElevatedButton(
                           style: ButtonStyle(
-                              padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(50.0, 12.0, 50.0, 12.0)),
+                              padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(50.0, 12.0, 50.0, 12.0)),
                               foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
@@ -319,7 +319,7 @@ class Utility {
 
                           },
 
-                          child: Text(
+                          child: const Text(
                             "Retry",
                             style: TextStyle(
                                 fontSize: 15,
@@ -329,7 +329,7 @@ class Utility {
                           ),
                         ),
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                       ],
                     ),
                   ),),
@@ -355,7 +355,7 @@ class Utility {
         physics: const NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(
+        const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           // childAspectRatio: 2.7,
         ),
@@ -390,7 +390,7 @@ class Utility {
         physics: const NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(
+        const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 1.7,
         ),
@@ -424,7 +424,7 @@ class Utility {
         physics: const NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         gridDelegate:
-        SliverGridDelegateWithFixedCrossAxisCount(
+        const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 1.7,
         ),
@@ -454,7 +454,7 @@ class Utility {
       baseColor: Colors.grey[300]!,
       highlightColor: Colors.white,
       child: ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
           padding: const EdgeInsets.all(8),
           itemCount: 10,
@@ -484,7 +484,7 @@ class Utility {
       baseColor: Colors.grey[300]!,
       highlightColor: Colors.white,
       child: ListView.builder(
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         shrinkWrap: true,
           padding: const EdgeInsets.all(8),
           itemCount: 2,
@@ -622,7 +622,7 @@ class Utility {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         content: Container(
           width: 300.0,
@@ -640,7 +640,7 @@ class Utility {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      Text(
+                      const Text(
                         "Select Bank Code",
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -652,7 +652,7 @@ class Utility {
 
                       ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: pakModelList.length,
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
@@ -662,11 +662,11 @@ class Utility {
                                 Navigator.pop(context);
                               },
                               child: Container(
-                                padding: EdgeInsets.only(top: 20),
+                                padding: const EdgeInsets.only(top: 20),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
-                                    SizedBox(width: 10,),
+                                    const Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
+                                    const SizedBox(width: 10,),
                                     Expanded(child: Text('${pakModelList[index].code} - ${pakModelList[index].name}')),
                                   ],
                                 ),
@@ -675,7 +675,7 @@ class Utility {
                           }
                       ),
 
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                     ],
                   ),),
 
@@ -714,25 +714,25 @@ class Utility {
                   child: SvgPicture.asset("a_assets/icons/clear_red.svg"),
                 ),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
 
-              Text(
+              const Text(
                 "Moneytos is not available in your state at moment.",
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
               ),
-              SizedBox(height: 10,),
-              Text(
+              const SizedBox(height: 10,),
+              const Text(
                 "We will notify you as soon as the application becomes available in your state. We apologize for any inconvenience caused and Thank you for understanding.",
                 style: TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w700,
                     fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
               // SizedBox(height: 50,),
 

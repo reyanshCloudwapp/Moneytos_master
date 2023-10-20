@@ -37,13 +37,16 @@ class ScheduledBankAccountNumber extends StatefulWidget {
   String bank_name;
   String bank_id;
 
-  ScheduledBankAccountNumber({Key? key, this.bank_name = "", this.bank_id = ""}) : super(key: key);
+  ScheduledBankAccountNumber({Key? key, this.bank_name = "", this.bank_id = ""})
+      : super(key: key);
 
   @override
-  State<ScheduledBankAccountNumber> createState() => _ScheduledBankAccountNumberState();
+  State<ScheduledBankAccountNumber> createState() =>
+      _ScheduledBankAccountNumberState();
 }
 
-class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber> {
+class _ScheduledBankAccountNumberState
+    extends State<ScheduledBankAccountNumber> {
   ///Textfield contrller
   bool ischeck = false;
   TextEditingController ibanController = TextEditingController();
@@ -87,7 +90,8 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     super.initState();
 
     loadPref();
-    WidgetsBinding.instance.addPostFrameCallback((_) => niumRoutingCodeTypesApi(context));
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => niumRoutingCodeTypesApi(context));
     // getfieldAccount();
     setState(() {});
   }
@@ -143,12 +147,13 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     });
   }
 
-  PakCodeUpdate(String pakCode , String pakName){
+  PakCodeUpdate(String pakCode, String pakName) {
     niumroutingcodetypeList.clear();
-    print("pak code>>> "+pakCode);
-    print("pak name>>> "+pakName);
-    niumroutingcodetypeList.add(NiumRoutingCodeType(type: "BANK CODE",value: pakCode)) ;
-    PakCodeController.text = pakCode+"-"+pakName;
+    print("pak code>>> " + pakCode);
+    print("pak name>>> " + pakName);
+    niumroutingcodetypeList
+        .add(NiumRoutingCodeType(type: "BANK CODE", value: pakCode));
+    PakCodeController.text = pakCode + "-" + pakName;
   }
 
   @override
@@ -157,9 +162,9 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(50),
         child: AppBar(
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark,
@@ -171,8 +176,8 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
           title: Container(
-              margin: EdgeInsets.only(top: 20),
-              child: Text(
+              margin: const EdgeInsets.only(top: 20),
+              child: const Text(
                 MyString.bank_account_number,
                 style: TextStyle(
                     color: MyColors.blackColor,
@@ -183,7 +188,7 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
         ),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         color: MyColors.whiteColor,
         height: 80,
         child: Row(
@@ -205,24 +210,24 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
                 String accountNumber = bankAccNumberController.text;
                 String accountType = accountTypeController.text;
                 String bankName = bankNameController.text;
-                for(var valdata in niumroutingcodetypeList){
-                  print("val data>>> "+valdata.value.toString());
-                  if(valdata.type.toString().isEmpty){
-                    Utility.showFlutterToast( "Enter routing type");
-                  }else if(valdata.value.toString().isEmpty){
-                    Utility.showFlutterToast( "Enter routing value");
-                  }else if(accountNumber.isEmpty){
-                    Utility.showFlutterToast( "Enter account number");
-                  }else if(accountType.isEmpty){
-                    Utility.showFlutterToast( "Enter account type");
-                  }else if(bankName.isEmpty){
-                    Utility.showFlutterToast( "Enter bank name");
-                  }else{
-                    if(ischeck==false){
-                      addRecipientBankAccountapi(context, accountNumber, accountType, bankName);
+                for (var valdata in niumroutingcodetypeList) {
+                  print("val data>>> " + valdata.value.toString());
+                  if (valdata.type.toString().isEmpty) {
+                    Utility.showFlutterToast("Enter routing type");
+                  } else if (valdata.value.toString().isEmpty) {
+                    Utility.showFlutterToast("Enter routing value");
+                  } else if (accountNumber.isEmpty) {
+                    Utility.showFlutterToast("Enter account number");
+                  } else if (accountType.isEmpty) {
+                    Utility.showFlutterToast("Enter account type");
+                  } else if (bankName.isEmpty) {
+                    Utility.showFlutterToast("Enter bank name");
+                  } else {
+                    if (ischeck == false) {
+                      addRecipientBankAccountapi(
+                          context, accountNumber, accountType, bankName);
                       ischeck = true;
                     }
-
                   }
                 }
               },
@@ -237,201 +242,217 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
           child: Column(
             children: [
               hSizedBox3,
-              desticountry_isoCode3=="PAK"?
-              Column(
-                children: [
-                  InkWell(
-                    onTap: (){
-                      Utility().dialogAccountType(context,PakCodeUpdate);
-                    },
-                    child: Container(
-                      width: double.infinity,
-                      margin: EdgeInsets.fromLTRB(
-                          20.0, 0.0, 20.0, 0.0),
-                      decoration: BoxDecoration(
-                        color: MyColors.color_93B9EE
-                            .withOpacity(0.1),
-                        border: Border.all(
-                            color: MyColors
-                                .color_gray_transparent),
-                        borderRadius: BorderRadius.all(
-                            Radius.circular(12.0)),
-                      ),
-                      child: TextFormField(
-                        enabled: false,
-                        controller:PakCodeController,
-                        // routingValueController,
-                        inputFormatters: [
-                          UpperCaseTextFormatter(),
-                        ],
-                        textInputAction:
-                        TextInputAction.done,
-
-                        style: TextStyle(
-                            color: MyColors.blackColor,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400,
-                            fontFamily:
-                            "a_assets/font/poppins_regular.ttf"),
-                        decoration: InputDecoration(
-                          hintText:
-                          // fieldsetlistAccount[index]
-                          //     .fields![i]
-                          //     .placeholderText,
-                          "Select Bank Code",
-                          hintStyle: TextStyle(
-                              color: MyColors.color_text
-                                  .withOpacity(0.4),
-                              fontSize: 12,
-                              fontFamily:
-                              "s_asset/font/raleway/raleway_medium.ttf",
-                              fontWeight:
-                              FontWeight.w500),
-
-                          border: InputBorder.none,
-
-                          // fillColor: MyColors.color_gray_transparent,
-                          contentPadding:
-                          EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 12),
-                        ),
-                        // keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
-                      ),
-                    ),
-                  ),
-                  InkWell(onTap:(){
-                    String search_key = "BANK CODE";
-                    String search_value = niumroutingcodetypeList[0].value!;
-                    String payout_method = "LOCAL";
-                    searchbanknamebyifscApi(context, country_isoCode2, search_key, search_value, destcountryCurrency_isoCode3, payout_method, search_key);
-                  }, child: Container(margin: EdgeInsets.only(right: 23,top: 10), alignment:Alignment.centerRight, child: Text("Validate",style: TextStyle(color: MyColors.lightblueColor),))),
-                  hSizedBox3,
-                ],
-              ):
-              ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  // padding: const EdgeInsets.all(8),
-                  itemCount: niumroutingcodetypeList.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Column(
+              desticountry_isoCode3 == "PAK"
+                  ? Column(
                       children: [
-                        Container(
-                          width: double.infinity,
-                          margin: EdgeInsets.fromLTRB(
-                              20.0, 0.0, 20.0, 0.0),
-                          decoration: BoxDecoration(
-                            color: MyColors.color_93B9EE
-                                .withOpacity(0.1),
-                            border: Border.all(
-                                color: MyColors
-                                    .color_gray_transparent),
-                            borderRadius: BorderRadius.all(
-                                Radius.circular(12.0)),
-                          ),
-                          child: TextFormField(
-                            // controller:
-                            // routingValueController,
-                            inputFormatters: [
-                              UpperCaseTextFormatter(),
-                            ],
-                            onChanged: (val){
-                              niumroutingcodetypeList[index].value = val;
-                              setState(() {
-
-                              });
-                            },
-                            // inputFormatters: [
-                            //   LengthLimitingTextInputFormatter(18),
-                            // ],
-                            textInputAction:
-                            TextInputAction.done,
-                            onFieldSubmitted: (val) {
-                              if(index==0){
-                                print("hvfh if>>>>  ${val}");
-                                String search_key = niumroutingcodetypeList[index].type!;
-                                String search_value = val;
-                                String payout_method = "LOCAL";
-                                // searchbanknamebyifscApi(context, country_isoCode2, search_key, search_value, destcountryCurrency_isoCode3, payout_method, search_key);
-                              }else{
-                                print("hvfh else>>>>  ");
-                              }
-
-                              // AddRecipientFieldModel addmodel =   AddRecipientFieldModel(id:fieldsetlist[index].fields![i].fieldId.toString(),type:fieldsetlist[index].fields![i].fieldType.toString(),value :firstnameController.text);
-
-                              //  addfieldlist.add(addmodel);
-                              //  print("json..${json.encode(addfieldlist)}");
-                              setState(() {});
-                            },
-
-                            style: TextStyle(
-                                color: MyColors.blackColor,
-                                fontSize: 12,
-                                fontWeight: FontWeight.w400,
-                                fontFamily:
-                                "a_assets/font/poppins_regular.ttf"),
-                            decoration: InputDecoration(
-                              hintText:
-                              // fieldsetlistAccount[index]
-                              //     .fields![i]
-                              //     .placeholderText,
-                              "Enter ${niumroutingcodetypeList[index].type}",
-                              hintStyle: TextStyle(
-                                  color: MyColors.color_text
-                                      .withOpacity(0.4),
-                                  fontSize: 12,
-                                  fontFamily:
-                                  "s_asset/font/raleway/raleway_medium.ttf",
-                                  fontWeight:
-                                  FontWeight.w500),
-
-                              border: InputBorder.none,
-
-                              // fillColor: MyColors.color_gray_transparent,
-                              contentPadding:
-                              EdgeInsets.symmetric(
-                                  horizontal: 16,
-                                  vertical: 12),
+                        InkWell(
+                          onTap: () {
+                            Utility().dialogAccountType(context, PakCodeUpdate);
+                          },
+                          child: Container(
+                            width: double.infinity,
+                            margin:
+                                const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                            decoration: BoxDecoration(
+                              color: MyColors.color_93B9EE.withOpacity(0.1),
+                              border: Border.all(
+                                  color: MyColors.color_gray_transparent),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(12.0)),
                             ),
-                            // keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
+                            child: TextFormField(
+                              enabled: false,
+                              controller: PakCodeController,
+                              // routingValueController,
+                              inputFormatters: [
+                                UpperCaseTextFormatter(),
+                              ],
+                              textInputAction: TextInputAction.done,
+
+                              style: const TextStyle(
+                                  color: MyColors.blackColor,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  fontFamily:
+                                      "a_assets/font/poppins_regular.ttf"),
+                              decoration: InputDecoration(
+                                hintText:
+                                    // fieldsetlistAccount[index]
+                                    //     .fields![i]
+                                    //     .placeholderText,
+                                    "Select Bank Code",
+                                hintStyle: TextStyle(
+                                    color: MyColors.color_text.withOpacity(0.4),
+                                    fontSize: 12,
+                                    fontFamily:
+                                        "s_asset/font/raleway/raleway_medium.ttf",
+                                    fontWeight: FontWeight.w500),
+
+                                border: InputBorder.none,
+
+                                // fillColor: MyColors.color_gray_transparent,
+                                contentPadding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 12),
+                              ),
+                              // keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
+                            ),
                           ),
                         ),
-                        index == 0?InkWell(onTap:(){
-                          String search_key = niumroutingcodetypeList[index].type!;
-                          String search_value = niumroutingcodetypeList[index].value!;
-                          String payout_method = "LOCAL";
-                          searchbanknamebyifscApi(context, country_isoCode2, search_key, search_value, destcountryCurrency_isoCode3, payout_method, search_key);
-                        }, child: Container(margin: EdgeInsets.only(right: 23,top: 10), alignment:Alignment.centerRight, child: Text("Validate",style: TextStyle(color: MyColors.lightblueColor),))):Container(),
+                        InkWell(
+                            onTap: () {
+                              String search_key = "BANK CODE";
+                              String search_value =
+                                  niumroutingcodetypeList[0].value!;
+                              String payout_method = "LOCAL";
+                              searchbanknamebyifscApi(
+                                  context,
+                                  country_isoCode2,
+                                  search_key,
+                                  search_value,
+                                  destcountryCurrency_isoCode3,
+                                  payout_method,
+                                  search_key);
+                            },
+                            child: Container(
+                                margin:
+                                    const EdgeInsets.only(right: 23, top: 10),
+                                alignment: Alignment.centerRight,
+                                child: const Text(
+                                  "Validate",
+                                  style:
+                                      TextStyle(color: MyColors.lightblueColor),
+                                ))),
                         hSizedBox3,
                       ],
-                    );
-                  }
-              ),
+                    )
+                  : ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      // padding: const EdgeInsets.all(8),
+                      itemCount: niumroutingcodetypeList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return Column(
+                          children: [
+                            Container(
+                              width: double.infinity,
+                              margin: const EdgeInsets.fromLTRB(
+                                  20.0, 0.0, 20.0, 0.0),
+                              decoration: BoxDecoration(
+                                color: MyColors.color_93B9EE.withOpacity(0.1),
+                                border: Border.all(
+                                    color: MyColors.color_gray_transparent),
+                                borderRadius: const BorderRadius.all(
+                                    Radius.circular(12.0)),
+                              ),
+                              child: TextFormField(
+                                // controller:
+                                // routingValueController,
+                                inputFormatters: [
+                                  UpperCaseTextFormatter(),
+                                ],
+                                onChanged: (val) {
+                                  niumroutingcodetypeList[index].value = val;
+                                  setState(() {});
+                                },
+                                // inputFormatters: [
+                                //   LengthLimitingTextInputFormatter(18),
+                                // ],
+                                textInputAction: TextInputAction.done,
+                                onFieldSubmitted: (val) {
+                                  if (index == 0) {
+                                    print("hvfh if>>>>  ${val}");
+                                    String search_key =
+                                        niumroutingcodetypeList[index].type!;
+                                    String search_value = val;
+                                    String payout_method = "LOCAL";
+                                    // searchbanknamebyifscApi(context, country_isoCode2, search_key, search_value, destcountryCurrency_isoCode3, payout_method, search_key);
+                                  } else {
+                                    print("hvfh else>>>>  ");
+                                  }
 
+                                  // AddRecipientFieldModel addmodel =   AddRecipientFieldModel(id:fieldsetlist[index].fields![i].fieldId.toString(),type:fieldsetlist[index].fields![i].fieldType.toString(),value :firstnameController.text);
+
+                                  //  addfieldlist.add(addmodel);
+                                  //  print("json..${json.encode(addfieldlist)}");
+                                  setState(() {});
+                                },
+
+                                style: const TextStyle(
+                                    color: MyColors.blackColor,
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w400,
+                                    fontFamily:
+                                        "a_assets/font/poppins_regular.ttf"),
+                                decoration: InputDecoration(
+                                  hintText:
+                                      // fieldsetlistAccount[index]
+                                      //     .fields![i]
+                                      //     .placeholderText,
+                                      "Enter ${niumroutingcodetypeList[index].type}",
+                                  hintStyle: TextStyle(
+                                      color:
+                                          MyColors.color_text.withOpacity(0.4),
+                                      fontSize: 12,
+                                      fontFamily:
+                                          "s_asset/font/raleway/raleway_medium.ttf",
+                                      fontWeight: FontWeight.w500),
+
+                                  border: InputBorder.none,
+
+                                  // fillColor: MyColors.color_gray_transparent,
+                                  contentPadding: const EdgeInsets.symmetric(
+                                      horizontal: 16, vertical: 12),
+                                ),
+                                // keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
+                              ),
+                            ),
+                            index == 0
+                                ? InkWell(
+                                    onTap: () {
+                                      String search_key =
+                                          niumroutingcodetypeList[index].type!;
+                                      String search_value =
+                                          niumroutingcodetypeList[index].value!;
+                                      String payout_method = "LOCAL";
+                                      searchbanknamebyifscApi(
+                                          context,
+                                          country_isoCode2,
+                                          search_key,
+                                          search_value,
+                                          destcountryCurrency_isoCode3,
+                                          payout_method,
+                                          search_key);
+                                    },
+                                    child: Container(
+                                        margin: const EdgeInsets.only(
+                                            right: 23, top: 10),
+                                        alignment: Alignment.centerRight,
+                                        child: const Text(
+                                          "Validate",
+                                          style: TextStyle(
+                                              color: MyColors.lightblueColor),
+                                        )))
+                                : Container(),
+                            hSizedBox3,
+                          ],
+                        );
+                      }),
 
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.fromLTRB(
-                    20.0, 0.0, 20.0, 0.0),
+                margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                 decoration: BoxDecoration(
-                  color: MyColors.color_93B9EE
-                      .withOpacity(0.1),
-                  border: Border.all(
-                      color: MyColors
-                          .color_gray_transparent),
-                  borderRadius: BorderRadius.all(
-                      Radius.circular(12.0)),
+                  color: MyColors.color_93B9EE.withOpacity(0.1),
+                  border: Border.all(color: MyColors.color_gray_transparent),
+                  borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                 ),
                 child: TextFormField(
                   enabled: false,
-                  controller:
-                  bankNameController,
+                  controller: bankNameController,
                   // inputFormatters: [
                   //   LengthLimitingTextInputFormatter(18),
                   // ],
-                  textInputAction:
-                  TextInputAction.next,
+                  textInputAction: TextInputAction.next,
                   onTap: () {
                     print("hvfh");
                     // AddRecipientFieldModel addmodel =   AddRecipientFieldModel(id:fieldsetlist[index].fields![i].fieldId.toString(),type:fieldsetlist[index].fields![i].fieldType.toString(),value :firstnameController.text);
@@ -441,34 +462,28 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
                     setState(() {});
                   },
 
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: MyColors.blackColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily:
-                      "a_assets/font/poppins_regular.ttf"),
+                      fontFamily: "a_assets/font/poppins_regular.ttf"),
                   decoration: InputDecoration(
                     hintText:
-                    // fieldsetlistAccount[index]
-                    //     .fields![i]
-                    //     .placeholderText,
-                    "Bank Name",
+                        // fieldsetlistAccount[index]
+                        //     .fields![i]
+                        //     .placeholderText,
+                        "Bank Name",
                     hintStyle: TextStyle(
-                        color: MyColors.color_text
-                            .withOpacity(0.4),
+                        color: MyColors.color_text.withOpacity(0.4),
                         fontSize: 12,
-                        fontFamily:
-                        "s_asset/font/raleway/raleway_medium.ttf",
-                        fontWeight:
-                        FontWeight.w500),
+                        fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
+                        fontWeight: FontWeight.w500),
 
                     border: InputBorder.none,
 
                     // fillColor: MyColors.color_gray_transparent,
-                    contentPadding:
-                    EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
                   ),
                   keyboardType: TextInputType.text,
                 ),
@@ -478,25 +493,18 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
               // hSizedBox3,
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.fromLTRB(
-                    20.0, 0.0, 20.0, 0.0),
+                margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                 decoration: BoxDecoration(
-                  color: MyColors.color_93B9EE
-                      .withOpacity(0.1),
-                  border: Border.all(
-                      color: MyColors
-                          .color_gray_transparent),
-                  borderRadius: BorderRadius.all(
-                      Radius.circular(12.0)),
+                  color: MyColors.color_93B9EE.withOpacity(0.1),
+                  border: Border.all(color: MyColors.color_gray_transparent),
+                  borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                 ),
                 child: TextFormField(
-                  controller:
-                  bankAccNumberController,
+                  controller: bankAccNumberController,
                   inputFormatters: [
                     LengthLimitingTextInputFormatter(18),
                   ],
-                  textInputAction:
-                  TextInputAction.next,
+                  textInputAction: TextInputAction.next,
                   onTap: () {
                     print("hvfh");
                     // AddRecipientFieldModel addmodel =   AddRecipientFieldModel(id:fieldsetlist[index].fields![i].fieldId.toString(),type:fieldsetlist[index].fields![i].fieldType.toString(),value :firstnameController.text);
@@ -505,66 +513,53 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
                     //  print("json..${json.encode(addfieldlist)}");
                     setState(() {});
                   },
-
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: MyColors.blackColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
-                      fontFamily:
-                      "a_assets/font/poppins_regular.ttf"),
+                      fontFamily: "a_assets/font/poppins_regular.ttf"),
                   decoration: InputDecoration(
                     hintText:
-                    // fieldsetlistAccount[index]
-                    //     .fields![i]
-                    //     .placeholderText,
-                    "Account Number",
+                        // fieldsetlistAccount[index]
+                        //     .fields![i]
+                        //     .placeholderText,
+                        "Account Number",
                     hintStyle: TextStyle(
-                        color: MyColors.color_text
-                            .withOpacity(0.4),
+                        color: MyColors.color_text.withOpacity(0.4),
                         fontSize: 12,
-                        fontFamily:
-                        "s_asset/font/raleway/raleway_medium.ttf",
-                        fontWeight:
-                        FontWeight.w500),
+                        fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
+                        fontWeight: FontWeight.w500),
 
                     border: InputBorder.none,
 
                     // fillColor: MyColors.color_gray_transparent,
-                    contentPadding:
-                    EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12),
+                    contentPadding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 12),
                   ),
-                  keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
+                  keyboardType: const TextInputType.numberWithOptions(
+                      signed: true, decimal: false),
                 ),
               ),
               hSizedBox3,
               InkWell(
-                onTap: (){
+                onTap: () {
                   dialogAccountType(context);
                 },
                 child: Container(
                   width: double.infinity,
-                  margin: EdgeInsets.fromLTRB(
-                      20.0, 0.0, 20.0, 0.0),
+                  margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                   decoration: BoxDecoration(
-                    color: MyColors.color_93B9EE
-                        .withOpacity(0.1),
-                    border: Border.all(
-                        color: MyColors
-                            .color_gray_transparent),
-                    borderRadius: BorderRadius.all(
-                        Radius.circular(12.0)),
+                    color: MyColors.color_93B9EE.withOpacity(0.1),
+                    border: Border.all(color: MyColors.color_gray_transparent),
+                    borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                   ),
                   child: TextFormField(
                     enabled: false,
-                    controller:
-                    accountTypeController,
+                    controller: accountTypeController,
                     inputFormatters: [
                       LengthLimitingTextInputFormatter(18),
                     ],
-                    textInputAction:
-                    TextInputAction.next,
+                    textInputAction: TextInputAction.next,
                     onTap: () {
                       print("hvfh");
                       // AddRecipientFieldModel addmodel =   AddRecipientFieldModel(id:fieldsetlist[index].fields![i].fieldId.toString(),type:fieldsetlist[index].fields![i].fieldType.toString(),value :firstnameController.text);
@@ -573,42 +568,34 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
                       //  print("json..${json.encode(addfieldlist)}");
                       setState(() {});
                     },
-
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: MyColors.blackColor,
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
-                        fontFamily:
-                        "a_assets/font/poppins_regular.ttf"),
+                        fontFamily: "a_assets/font/poppins_regular.ttf"),
                     decoration: InputDecoration(
                       hintText:
-                      // fieldsetlistAccount[index]
-                      //     .fields![i]
-                      //     .placeholderText,
-                      "Bank Account Type",
+                          // fieldsetlistAccount[index]
+                          //     .fields![i]
+                          //     .placeholderText,
+                          "Bank Account Type",
                       hintStyle: TextStyle(
-                          color: MyColors.color_text
-                              .withOpacity(0.4),
+                          color: MyColors.color_text.withOpacity(0.4),
                           fontSize: 12,
-                          fontFamily:
-                          "s_asset/font/raleway/raleway_medium.ttf",
-                          fontWeight:
-                          FontWeight.w500),
+                          fontFamily: "s_asset/font/raleway/raleway_medium.ttf",
+                          fontWeight: FontWeight.w500),
 
                       border: InputBorder.none,
 
                       // fillColor: MyColors.color_gray_transparent,
-                      contentPadding:
-                      EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 12),
+                      contentPadding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 12),
                     ),
-                    keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
+                    keyboardType: const TextInputType.numberWithOptions(
+                        signed: true, decimal: false),
                   ),
                 ),
               ),
-
-
 
               /*  IBAN(),
              hSizedBox2,
@@ -631,12 +618,11 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
   }
 
   dialogAccountType(BuildContext context) {
-
-    List<String> listtype = ["Checking","Saving"];
+    List<String> listtype = ["Checking", "Saving"];
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         content: Container(
           width: 300.0,
@@ -646,63 +632,58 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-
-
-                Container(
-                  // margin: EdgeInsets.only(left: 14,right: 14),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-
-                      Text(
-                        "Select Bank Account Type",
-                        style: TextStyle(
-                            color: MyColors.blackColor,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            fontFamily:
-                            "s_asset/font/raleway/raleway_extrabold.ttf"),
-                      ),
-
-                      ListView.builder(
-                          shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
-                          itemCount: listtype.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return InkWell(
-                              onTap: (){
-                                setState(() {
-                                  accountTypeController.text = listtype[index];
-                                  Navigator.pop(context);
-                                });
-                              },
-                              child: Container(
-                                padding: EdgeInsets.only(top: 20),
-                                child: Row(
-                                  children: [
-                                    Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
-                                    SizedBox(width: 10,),
-                                    Expanded(child: Text('${listtype[index]}')),
-                                  ],
-                                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      "Select Bank Account Type",
+                      style: TextStyle(
+                          color: MyColors.blackColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          fontFamily:
+                              "s_asset/font/raleway/raleway_extrabold.ttf"),
+                    ),
+                    ListView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: listtype.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return InkWell(
+                            onTap: () {
+                              setState(() {
+                                accountTypeController.text = listtype[index];
+                                Navigator.pop(context);
+                              });
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 20),
+                              child: Row(
+                                children: [
+                                  const Icon(
+                                    Icons.radio_button_off_sharp,
+                                    color: MyColors.primaryColor,
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Expanded(child: Text('${listtype[index]}')),
+                                ],
                               ),
-                            );
-                          }
-                      ),
-
-                      SizedBox(height: 10,),
-                    ],
-                  ),),
-
-
-
+                            ),
+                          );
+                        }),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
         ),
       ),
     );
-
   }
 
   IBAN() {
@@ -720,16 +701,16 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
         cursorColor: MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           hintText: MyString.iban_code,
           suffixIcon: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: SvgPicture.asset(
               "a_assets/icons/paste.svg",
               height: 15,
@@ -755,9 +736,9 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
       color: MyColors.whiteColor,
       //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
       child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.only(left: 10, right: 10),
           decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
             ],
@@ -773,11 +754,11 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
             //color: Colors.deepPurple.shade300,
             borderRadius: BorderRadius.circular(10),
           ),
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
+          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
           child: Center(
               child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.whiteColor,
                 fontSize: 17,
                 fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
@@ -850,12 +831,13 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
                   BankAccountOptionsModel optionmodel =
                       BankAccountOptionsModel.fromJson(element);
                   optionBanklist.add(optionmodel);
-                  slect_bank_type = optionBanklist.length > 0 ?   optionBanklist[0].id.toString() : "" ;
+                  slect_bank_type = optionBanklist.isNotEmpty
+                      ? optionBanklist[0].id.toString()
+                      : "";
                   print("optionmodel ${slect_bank_type}");
                 });
               }
               // }
-
             } else {}
           });
         }
@@ -867,10 +849,8 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     return;
   }
 
-
   static Future<void> AddBankAccountfieldFieldRequest2(BuildContext context,
-      var createAccfildList,
-      String bankAccountNum, String recipientId) async {
+      var createAccfildList, String bankAccountNum, String recipientId) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
@@ -878,7 +858,8 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
 
     var request = {};
     request['dstCountryIso3Code'] = "${p.getString("country_isoCode3")}";
-    request['dstCurrencyIso3Code'] = "${p.getString("country_Currency_isoCode3")}";
+    request['dstCurrencyIso3Code'] =
+        "${p.getString("country_Currency_isoCode3")}";
     request['transferMethod'] = "BANK_ACCOUNT";
     request['senderId'] = "23cab527-e802-4e49-8cc1-78e5c5c8e8df";
     request['fields'] = createAccfildList;
@@ -887,7 +868,10 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
       HttpLogger(logLevel: LogLevel.BODY),
     ]);
-    var response = await http.post(Uri.parse("https://sandbox-api.readyremit.com/v1/recipients/"+recipientId+"/accounts"),
+    var response = await http.post(
+        Uri.parse("https://sandbox-api.readyremit.com/v1/recipients/" +
+            recipientId +
+            "/accounts"),
         body: convert.jsonEncode(request),
         headers: {
           'Authorization': 'Bearer ${p.getString('auth_Token')}',
@@ -898,31 +882,28 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
 
     if (response.statusCode == 201) {
       Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-      print("bdjkdshjgh"+jsonResponse.toString());
+      print("bdjkdshjgh" + jsonResponse.toString());
 
-     /* String firstname = jsonResponse['firstName'].toString();
+      /* String firstname = jsonResponse['firstName'].toString();
       String lastname = jsonResponse['lastName'].toString();
       String message = jsonResponse['message'].toString();*/
 
       p.setString("BankdetailResponse", response.body);
       /* message == "" || message.isEmpty || message == ""? null:*/
-    //  createRecipient2Request(context, firstname, lastname, profileimg, "${p.getString("country_isoCode3")}",recipientId);
+      //  createRecipient2Request(context, firstname, lastname, profileimg, "${p.getString("country_isoCode3")}",recipientId);
 
       CustomLoader.ProgressloadingDialog(context, false);
       Navigator.push(
           context,
           MaterialPageRoute(
               builder: (context) => ScheduledSelectDeliveryAddMethodScreen()));
-
-
     } else {
       List<dynamic> errorres = json.decode(response.body);
-      Utility.showFlutterToast( errorres[0]["message"]);
-        CustomLoader.ProgressloadingDialog(context, false);
+      Utility.showFlutterToast(errorres[0]["message"]);
+      CustomLoader.ProgressloadingDialog(context, false);
     }
     return;
   }
-
 
   Future<void> addBankAccFiledField(BuildContext context, var createAccfildList,
       String bankAccountNum, String recipientId) async {
@@ -935,7 +916,8 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     var request = {};
 
     request['dstCurrencyIso3Code'] = "${p.getString("country_isoCode3")}";
-    request['dstCountryIso3Code'] = "${p.getString("country_Currency_isoCode3")}";
+    request['dstCountryIso3Code'] =
+        "${p.getString("country_Currency_isoCode3")}";
     request['transferMethod'] = "BANK_ACCOUNT";
     request['senderId'] = "23cab527-e802-4e49-8cc1-78e5c5c8e8df";
     request['accountNumber'] = bankAccountNum;
@@ -946,7 +928,8 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     print("request ${request}");
     print("UrlAddBank>>>>" + AllApiService.add_banAccount_fields.toString());
     var response = await http.post(
-        Uri.parse("https://sandbox-api.readyremit.com/v1/recipients/ab16ab0c-1d0f-407d-8463-8b1f95e23b78/accounts"),
+        Uri.parse(
+            "https://sandbox-api.readyremit.com/v1/recipients/ab16ab0c-1d0f-407d-8463-8b1f95e23b78/accounts"),
         // var response = await http.post(Uri.parse(AllApiService.add_banAccount_fields+recipientId+"/accounts"),
 
         headers: {
@@ -964,27 +947,32 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
           MaterialPageRoute(
               builder: (context) => SelectDeliveryAddMethodScreen()));
     } else {
-      Utility.showFlutterToast( "Failled");
+      Utility.showFlutterToast("Failled");
     }
     return;
   }
 
-
-
   dropd(String name, BankAccountNumberFieldSetsModel model, int index) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 16),
-      // height: 55,
-      width: double.infinity,
-      margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
-      decoration: BoxDecoration(
-        color: MyColors.color_93B9EE.withOpacity(0.1),
-        border: Border.all(color: MyColors.color_gray_transparent),
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
-      ),
-      child:Text(widget.bank_name,style: TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),)
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 16),
+        // height: 55,
+        width: double.infinity,
+        margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+        decoration: BoxDecoration(
+          color: MyColors.color_93B9EE.withOpacity(0.1),
+          border: Border.all(color: MyColors.color_gray_transparent),
+          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
+        ),
+        child: Text(
+          widget.bank_name,
+          style: const TextStyle(
+              color: MyColors.blackColor,
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
+        )
 
-      /*DropdownButtonHideUnderline(
+        /*DropdownButtonHideUnderline(
         child: StatefulBuilder(
           builder: (context, setState) {
             return Padding(
@@ -1021,20 +1009,20 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
           },
         ),
       ),*/
-    );
+        );
   }
 
   addressstatedropd(
       String name, BankAccountNumberFieldSetsModel model, int index) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       height: 55,
       width: double.infinity,
-      margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+      margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
       decoration: BoxDecoration(
         color: MyColors.color_93B9EE.withOpacity(0.1),
         border: Border.all(color: MyColors.color_gray_transparent),
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
       ),
       child: DropdownButtonHideUnderline(
         child: StatefulBuilder(
@@ -1044,15 +1032,19 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
               child: DropdownButton(
                 isExpanded: true,
                 value: selectedCategory2,
-                style: TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),
+                style: const TextStyle(
+                    color: MyColors.blackColor,
+                    fontSize: 13,
+                    fontWeight: FontWeight.w600,
+                    fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
                 items: optionBanklist.map((BankAccountOptionsModel model) {
                   return new DropdownMenuItem<String>(
                       value: model.id.toString(),
                       child: new Text(model.name.toString()));
                 }).toList(),
                 hint: Text(
-                  "${optionBanklist.length > 0 ? optionBanklist[0].name.toString() : ""}",
-                  style: TextStyle(
+                  "${optionBanklist.isNotEmpty ? optionBanklist[0].name.toString() : ""}",
+                  style: const TextStyle(
                       color: MyColors.blackColor,
                       fontSize: 13,
                       fontWeight: FontWeight.w600),
@@ -1076,8 +1068,9 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     );
   }
 
-  Future <void> niumRoutingCodeTypesApi(BuildContext context,) async {
-
+  Future<void> niumRoutingCodeTypesApi(
+    BuildContext context,
+  ) async {
     Utility.ProgressloadingDialog(context, true);
     var request = {};
 
@@ -1087,42 +1080,43 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     // request['audience'] = "https://sandbox-api.readyremit.com";
     // request['grant_type'] = "client_credentials";
 
-
-
-
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
       HttpLogger(logLevel: LogLevel.BODY),
     ]);
 
-    var response = await http.get(Uri.parse(Apiservices.niumRoutingCodeTypesapi+"?country_iso2="+p.getString("iso2").toString()),
+    var response = await http.get(
+        Uri.parse(Apiservices.niumRoutingCodeTypesapi +
+            "?country_iso2=" +
+            p.getString("iso2").toString()),
         // body: convert.jsonEncode(request),
         headers: {
-
           "Content-Type": "application/json",
           "X-CLIENT": AllApiService.x_client,
-
         });
-
 
     Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
     // getTokenResponse  = await GetTokenResponse.fromJson(jsonResponse);
     Utility.ProgressloadingDialog(context, false);
-    for(var dataval in jsonResponse['data']){
-      print("token_auhtToken>>>>>>>>"+dataval['routing_code_type'].toString());
-      niumroutingcodetypeList.add(NiumRoutingCodeType(type: dataval['routing_code_type'].toString(),value: ""));
+    for (var dataval in jsonResponse['data']) {
+      print(
+          "token_auhtToken>>>>>>>>" + dataval['routing_code_type'].toString());
+      niumroutingcodetypeList.add(NiumRoutingCodeType(
+          type: dataval['routing_code_type'].toString(), value: ""));
     }
 
-
-
-    setState(() {
-
-    });
+    setState(() {});
 
     return;
-
   }
 
-  Future <void> searchbanknamebyifscApi(BuildContext context,String country_code,String search_key,String search_value,String currency_code,String payout_method,String routing_code_type) async {
+  Future<void> searchbanknamebyifscApi(
+      BuildContext context,
+      String country_code,
+      String search_key,
+      String search_value,
+      String currency_code,
+      String payout_method,
+      String routing_code_type) async {
     Utility.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var request = {};
@@ -1138,7 +1132,8 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
       HttpLogger(logLevel: LogLevel.BODY),
     ]);
 
-    var response = await http.post(Uri.parse(Apiservices.searchbanknamebyifscapi),
+    var response = await http.post(
+        Uri.parse(Apiservices.searchbanknamebyifscapi),
         body: convert.jsonEncode(request),
         headers: {
           "X-AUTHTOKEN": "${p.getString("auth")}",
@@ -1147,35 +1142,29 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
           "accept": "application/json"
         });
 
-
-    try{
+    try {
       List<dynamic> jsonResponse = convert.jsonDecode(response.body);
       if (response.statusCode == 200) {
         // Fluttertoast.showToast(msg: jsonResponse['message']);
-        jsonResponse.length>0?
-        bankNameController.text = jsonResponse[0]["bank_name"].toString():
-        Utility.showFlutterToast( "Invalid IFSC");;
-        setState(() {
-
-        });
+        jsonResponse.isNotEmpty
+            ? bankNameController.text = jsonResponse[0]["bank_name"].toString()
+            : Utility.showFlutterToast("Invalid IFSC");
+        ;
+        setState(() {});
       } else {
-        Utility.showFlutterToast( "Invalid Search Value");
+        Utility.showFlutterToast("Invalid Search Value");
 
-
-        setState(() {
-
-        });
+        setState(() {});
       }
-    }catch(e){
-      Utility.showFlutterToast( "Invalid Search Value");
+    } catch (e) {
+      Utility.showFlutterToast("Invalid Search Value");
     }
     Utility.ProgressloadingDialog(context, false);
     return;
   }
 
-
-
-  Future<void> addRecipientBankAccountapi(BuildContext context,String account_number,String bank_acc_type,String bank_name) async {
+  Future<void> addRecipientBankAccountapi(BuildContext context,
+      String account_number, String bank_acc_type, String bank_name) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
@@ -1183,9 +1172,11 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
 
     var request = {};
     request['recipient_id'] = "${recipientId}";
-    for(int i=0;i<niumroutingcodetypeList.length;i++){
-      request['routing_code_type_${i+1}'] = niumroutingcodetypeList[i].type.toString();
-      request['routing_code_value_${i+1}'] = niumroutingcodetypeList[i].value.toString();
+    for (int i = 0; i < niumroutingcodetypeList.length; i++) {
+      request['routing_code_type_${i + 1}'] =
+          niumroutingcodetypeList[i].type.toString();
+      request['routing_code_value_${i + 1}'] =
+          niumroutingcodetypeList[i].value.toString();
     }
     request['account_number'] = account_number;
     request['bank_account_type'] = bank_acc_type;
@@ -1196,10 +1187,11 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
       HttpLogger(logLevel: LogLevel.BODY),
     ]);
-    var response = await http.post(Uri.parse(Apiservices.addRecipientBankAccountapi),
+    var response = await http.post(
+        Uri.parse(Apiservices.addRecipientBankAccountapi),
         body: convert.jsonEncode(request),
         headers: {
-          "X-AUTHTOKEN":"${p.getString("auth")}",
+          "X-AUTHTOKEN": "${p.getString("auth")}",
           "X-USERID": "${p.getString("userid")}",
           "content-type": "application/json",
           "accept": "application/json",
@@ -1208,8 +1200,8 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
     Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
     if (jsonResponse['status'] == true) {
       Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-      print("bdjkdshjgh"+jsonResponse.toString());
-      print("response.body>>>>"+response.body);
+      print("bdjkdshjgh" + jsonResponse.toString());
+      print("response.body>>>>" + response.body);
 
       /* String firstname = jsonResponse['firstName'].toString();
       String lastname = jsonResponse['lastName'].toString();
@@ -1224,18 +1216,15 @@ class _ScheduledBankAccountNumberState extends State<ScheduledBankAccountNumber>
           context,
           MaterialPageRoute(
               builder: (context) => ScheduledSelectDeliveryAddMethodScreen()));
-
-
     } else {
       // List<dynamic> errorres = json.decode(response.body);
       // Fluttertoast.showToast(msg: errorres[0]["message"]);
       ischeck = false;
-      Utility.showFlutterToast( jsonResponse['message']);
+      Utility.showFlutterToast(jsonResponse['message']);
       CustomLoader.ProgressloadingDialog(context, false);
     }
     return;
   }
-
 }
 
 Custombtn(String text, double height, double width, BuildContext context) {
@@ -1246,7 +1235,7 @@ Custombtn(String text, double height, double width, BuildContext context) {
     //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
     child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
           ],
@@ -1262,11 +1251,11 @@ Custombtn(String text, double height, double width, BuildContext context) {
           //color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
         child: Center(
             child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               color: MyColors.lightblueColor,
               fontSize: 17,
               fontWeight: FontWeight.w600),

@@ -136,16 +136,16 @@ getPrefences()async{
         builder: (context) {
           return Wrap(children: [
             ListTile(
-              leading: Icon(Icons.camera_alt),
-              title: Text('camera'),
+              leading: const Icon(Icons.camera_alt),
+              title: const Text('camera'),
               onTap: () {
                 Navigator.pop(context);
                 getfrontCameraImage(ImageSource.camera);
               },
             ),
             ListTile(
-              leading: Icon(Icons.photo_album),
-              title: Text('gallery'),
+              leading: const Icon(Icons.photo_album),
+              title: const Text('gallery'),
               onTap: () {
                 Navigator.pop(context);
                 getfrontCameraImage(ImageSource.gallery);
@@ -239,11 +239,11 @@ getPrefences()async{
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(0),
+        preferredSize: const Size.fromHeight(0),
         child: AppBar(
           elevation: 0,
           backgroundColor: MyColors.whiteColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -254,7 +254,7 @@ getPrefences()async{
 
       bottomNavigationBar:load == true ? Container(height: 0,): field_load == true ? Container(height: 0,): Container(
         height: 100,
-        padding: EdgeInsets.only(top: 20,left: 20,right: 20,bottom: 30),
+        padding: const EdgeInsets.only(top: 20,left: 20,right: 20,bottom: 30),
         color: MyColors.whiteColor,
         child:Container(
 
@@ -274,7 +274,7 @@ getPrefences()async{
                 },
                 child: Container(
                     decoration: BoxDecoration(
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                       ],
@@ -290,9 +290,9 @@ getPrefences()async{
                       //color: Colors.deepPurple.shade300,
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    padding:  EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
-                    margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
-                    child: Center(child: Text(MyString.back,style: TextStyle(color: MyColors.lightblueColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
+                    padding:  const EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
+                    margin: const EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
+                    child: const Center(child: Text(MyString.back,style: TextStyle(color: MyColors.lightblueColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
                 ),
               ),
               wSizedBox3,
@@ -379,11 +379,11 @@ getPrefences()async{
                 },
                 child: Container(
                     decoration: BoxDecoration(
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                             color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                       ],
-                      gradient: LinearGradient(
+                      gradient: const LinearGradient(
                         begin: Alignment.center,
                         end: Alignment.bottomCenter,
                         //  stops: [0.0, 1.0],
@@ -395,9 +395,9 @@ getPrefences()async{
                       //color: Colors.deepPurple.shade300,
                       borderRadius: BorderRadius.circular(15),
                     ),
-                    padding:  EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
-                    margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
-                    child: Center(child: Text(MyString.Add,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
+                    padding:  const EdgeInsets.only(left: 28, right: 28, bottom: 0,top: 0),
+                    margin: const EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
+                    child: const Center(child: Text(MyString.Add,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),))
                 ),
               ),
             ],
@@ -416,9 +416,9 @@ getPrefences()async{
                     hSizedBox4,
 
                     Container(
-                        margin: EdgeInsets.only(top: 0.0,bottom: 30,),
+                        margin: const EdgeInsets.only(top: 0.0,bottom: 30,),
                         alignment: Alignment.center,
-                        child: Text(MyString.Add_Recipient_Info,style: TextStyle(color: MyColors.color_text,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600 ),)),
+                        child: const Text(MyString.Add_Recipient_Info,style: TextStyle(color: MyColors.color_text,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600 ),)),
                     hSizedBox,
                     SingleChildScrollView(
                       child: Column(
@@ -432,9 +432,9 @@ getPrefences()async{
                                 height: 100,
 
                                 width: 100,
-                                margin: EdgeInsets.only(top: 0.0),
+                                margin: const EdgeInsets.only(top: 0.0),
                                 alignment: Alignment.center,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage("s_asset/images/circleprof.png",)
                                     )
@@ -449,9 +449,9 @@ getPrefences()async{
                                 SvgPicture.asset("s_asset/images/camera.svg")),
                           ),
                           Container(
-                            margin: EdgeInsets.only(top: 0.0,bottom: 30),
+                            margin: const EdgeInsets.only(top: 0.0,bottom: 30),
                             alignment: Alignment.center,
-                            child: Text(img_error,style: TextStyle(color: MyColors.red,fontSize: 11),),
+                            child: Text(img_error,style: const TextStyle(color: MyColors.red,fontSize: 11),),
                           ),
                         ],
                       ),
@@ -459,11 +459,11 @@ getPrefences()async{
 
                     Container(
                       width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                      margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                       decoration: BoxDecoration(
                         color: MyColors.color_93B9EE.withOpacity(0.1),
                         border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                       ),
                       child: TextFormField(
                         controller: firstnameController,
@@ -471,7 +471,7 @@ getPrefences()async{
                           UpperCaseTextFormatter(),
                         ],
                         textInputAction: TextInputAction.done,
-                        style: TextStyle(
+                        style: const TextStyle(
 
                             color:MyColors.blackColor,
                             fontSize: 12,
@@ -488,7 +488,7 @@ getPrefences()async{
 
 
                           // fillColor: MyColors.color_gray_transparent,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                         ),
@@ -504,11 +504,11 @@ getPrefences()async{
                     hSizedBox3,
                     Container(
                       width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                      margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                       decoration: BoxDecoration(
                         color: MyColors.color_93B9EE.withOpacity(0.1),
                         border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                       ),
                       child: TextFormField(
                         controller: lastnameController,
@@ -516,7 +516,7 @@ getPrefences()async{
                           UpperCaseTextFormatter(),
                         ],
                         textInputAction: TextInputAction.done,
-                        style: TextStyle(
+                        style: const TextStyle(
 
                             color:MyColors.blackColor,
                             fontSize: 12,
@@ -533,7 +533,7 @@ getPrefences()async{
 
 
                           // fillColor: MyColors.color_gray_transparent,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                         ),
@@ -551,17 +551,17 @@ getPrefences()async{
                       children: [
                         Container(
                           width:60,
-                          margin:  EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 0.0),
+                          margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 5.0, 0.0),
                           decoration: BoxDecoration(
                             color: MyColors.color_93B9EE.withOpacity(0.1),
                             border: Border.all(color: MyColors.color_gray_transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                            borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                           ),
                           child: TextFormField(
                             enabled: false,
                             controller: TextEditingController(text: p!.getString("phonecode").toString()),
                             textInputAction: TextInputAction.done,
-                            style: TextStyle(
+                            style: const TextStyle(
 
                                 color:MyColors.blackColor,
                                 fontSize: 12,
@@ -578,7 +578,7 @@ getPrefences()async{
 
 
                               // fillColor: MyColors.color_gray_transparent,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                             ),
@@ -594,18 +594,18 @@ getPrefences()async{
                         Expanded(
                           child: Container(
                             width:double.infinity,
-                            margin:  EdgeInsets.fromLTRB(5.0, 0.0, 20.0, 0.0),
+                            margin:  const EdgeInsets.fromLTRB(5.0, 0.0, 20.0, 0.0),
                             decoration: BoxDecoration(
                               color: MyColors.color_93B9EE.withOpacity(0.1),
                               border: Border.all(color: MyColors.color_gray_transparent),
-                              borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                              borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                             ),
                             child: TextFormField(
                               controller: mobileNumberController,
                               textInputAction: TextInputAction.done,
                               maxLength: p?.getString("partnerPaymentMethod").toString()=="mfs"?null:phone_max_val,
                               focusNode: mobileFocusNode,
-                              style: TextStyle(
+                              style: const TextStyle(
 
                                   color:MyColors.blackColor,
                                   fontSize: 12,
@@ -622,7 +622,7 @@ getPrefences()async{
 
 
                                 // fillColor: MyColors.color_gray_transparent,
-                                contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                                contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                               ),
@@ -642,11 +642,11 @@ getPrefences()async{
                     hSizedBox3,
                     Container(
                       width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                      margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                       decoration: BoxDecoration(
                         color: MyColors.color_93B9EE.withOpacity(0.1),
                         border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                       ),
                       child: TextFormField(
                         controller: relationshipController,
@@ -654,7 +654,7 @@ getPrefences()async{
                           UpperCaseTextFormatter(),
                         ],
                         textInputAction: TextInputAction.done,
-                        style: TextStyle(
+                        style: const TextStyle(
 
                             color:MyColors.blackColor,
                             fontSize: 12,
@@ -671,7 +671,7 @@ getPrefences()async{
 
 
                           // fillColor: MyColors.color_gray_transparent,
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                         ),
@@ -691,11 +691,11 @@ getPrefences()async{
 
                         Container(
                           width:double.infinity,
-                          margin:  EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
+                          margin:  const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
                           decoration: BoxDecoration(
                             color: MyColors.color_93B9EE.withOpacity(0.1),
                             border: Border.all(color: MyColors.color_gray_transparent),
-                            borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                            borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                           ),
                           child: TextFormField(
                             controller: addressController,
@@ -703,7 +703,7 @@ getPrefences()async{
                               UpperCaseTextFormatter(),
                             ],
                             textInputAction: TextInputAction.done,
-                            style: TextStyle(
+                            style: const TextStyle(
 
                                 color:MyColors.blackColor,
                                 fontSize: 12,
@@ -720,7 +720,7 @@ getPrefences()async{
 
 
                               // fillColor: MyColors.color_gray_transparent,
-                              contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                              contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                             ),
@@ -740,11 +740,11 @@ getPrefences()async{
                             hSizedBox3,
                             Container(
                               width:double.infinity,
-                              margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                              margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                               decoration: BoxDecoration(
                                 color: MyColors.color_93B9EE.withOpacity(0.1),
                                 border: Border.all(color: MyColors.color_gray_transparent),
-                                borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                                borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                               ),
                               child: TextFormField(
                                 controller: cityController,
@@ -752,7 +752,7 @@ getPrefences()async{
                                   UpperCaseTextFormatter(),
                                 ],
                                 textInputAction: TextInputAction.done,
-                                style: TextStyle(
+                                style: const TextStyle(
 
                                     color:MyColors.blackColor,
                                     fontSize: 12,
@@ -769,7 +769,7 @@ getPrefences()async{
 
 
                                   // fillColor: MyColors.color_gray_transparent,
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                                  contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                                 ),
@@ -786,16 +786,16 @@ getPrefences()async{
 
                             Container(
                               width:double.infinity,
-                              margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                              margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                               decoration: BoxDecoration(
                                 color: MyColors.color_93B9EE.withOpacity(0.1),
                                 border: Border.all(color: MyColors.color_gray_transparent),
-                                borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                                borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                               ),
                               child: TextFormField(
                                 controller: postcodeController,
                                 textInputAction: TextInputAction.done,
-                                style: TextStyle(
+                                style: const TextStyle(
 
                                     color:MyColors.blackColor,
                                     fontSize: 12,
@@ -812,7 +812,7 @@ getPrefences()async{
 
 
                                   // fillColor: MyColors.color_gray_transparent,
-                                  contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 12),
+                                  contentPadding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
 
 
                                 ),
@@ -855,17 +855,17 @@ getPrefences()async{
         setState((){});
       },
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
         height: 55,
         width: double.infinity,
-        margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+        margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
         decoration: BoxDecoration(
           color: MyColors.color_93B9EE.withOpacity(0.1),
           border: Border.all(color: MyColors.color_gray_transparent),
-          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
         ),
 
-        child:Text("${p!.getString("country_Name")}",style: TextStyle(color: MyColors.color_text,fontWeight: FontWeight.w500,fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),)
+        child:Text("${p!.getString("country_Name")}",style: const TextStyle(color: MyColors.color_text,fontWeight: FontWeight.w500,fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),)
 
 
         /*   DropdownButtonHideUnderline(
@@ -916,14 +916,14 @@ getPrefences()async{
   // FieldSetsModel model,
   dropd(String name,int index){
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       height: 55,
       width: double.infinity,
-      margin:  EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+      margin:  const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
       decoration: BoxDecoration(
         color: MyColors.color_93B9EE.withOpacity(0.1),
         border: Border.all(color: MyColors.color_gray_transparent),
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
       ),
 
       child:  IgnorePointer(
@@ -937,7 +937,7 @@ getPrefences()async{
                   isExpanded: true,
                   value: selectedCategory2,
                   style:
-                  TextStyle(color: MyColors.blackColor),
+                  const TextStyle(color: MyColors.blackColor),
                   items: optionlist.map((Options model) {
                     return new DropdownMenuItem<String>(
                         value: model.id.toString()  ,
@@ -945,7 +945,7 @@ getPrefences()async{
                   }).toList(),
                   hint: Text(
                     "${name}",
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: MyColors.blackColor,
                         fontSize: 13,
                         fontWeight: FontWeight.w600),
@@ -1046,7 +1046,7 @@ getPrefences()async{
           print(map);
           print('error');
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('error')),
+            const SnackBar(content: Text('error')),
           );
           CustomLoader.ProgressloadingDialog(context, false);
 
@@ -1193,7 +1193,7 @@ getPrefences()async{
           print(map);
           print('error');
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('error')),
+            const SnackBar(content: Text('error')),
           );
           CustomLoader.ProgressloadingDialog(context, false);
 

@@ -132,7 +132,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
 
     if(sharedPreferences.get("BankdetailResponse").toString()!="null"){
       Timer(
-          Duration(seconds: 1),
+          const Duration(seconds: 1),
               () {
 
             var response = sharedPreferences.get("BankdetailResponse").toString();
@@ -182,7 +182,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(60),
+        preferredSize: const Size.fromHeight(60),
         child: AppBar(
           backgroundColor: MyColors.color_03153B,
           elevation: 0,
@@ -190,13 +190,13 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
 
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only( left: 25,top: 27),
+            padding: const EdgeInsets.only( left: 25,top: 27),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  padding: EdgeInsets.only( top: 5),
+                  padding: const EdgeInsets.only( top: 5),
                   child: InkWell(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -210,9 +210,9 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                 // wSizedBox3,
                 // wSizedBox3,
                 Container(
-                  padding: EdgeInsets.only( top: 5),
+                  padding: const EdgeInsets.only( top: 5),
                   alignment: Alignment.center,
-                  child: Text(
+                  child: const Text(
                     MyString.review_and_confirm,
                     style: TextStyle(
                         color: MyColors.whiteColor,
@@ -232,7 +232,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
 
 
           //backgroundColor: MyColors.primaryColor,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
             statusBarIconBrightness: Brightness.light, // For Android (dark icons)
@@ -251,8 +251,8 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
 
             Container(
               height: size.height,
-              margin: EdgeInsets.only(top: 0),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(top: 0),
+              decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(20),topRight: Radius.circular(20)),
                   color: MyColors.whiteColor
               ),
@@ -320,7 +320,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                       },
                       child: Container(
 
-                        padding: EdgeInsets.symmetric(horizontal: 60,vertical: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 60,vertical: 30),
 
                         child: CustomButton2(btnname: "Schedule From ${Utility.DatefomatToDDMMM(schedule_date)}",bordercolor: MyColors.lightblueColor,),
                       ),
@@ -353,19 +353,19 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                   child: SvgPicture.asset("a_assets/icons/clear_red.svg"),
                 ),
               ),
-              SizedBox(height: 50,),
+              const SizedBox(height: 50,),
 
 
-              Text(
+              const Text(
                 "Schedule is coming soon check back later",
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                     fontFamily: "s_asset/font/raleway/raleway_regular.ttf"),
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
-              SizedBox(height: 50,),
+              const SizedBox(height: 50,),
 
             ],),
 
@@ -375,7 +375,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
   /// usercard...
   usercard() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
       child: Material(
           elevation: 10,
           shadowColor: MyColors.lightblueColor.withOpacity(0.12),
@@ -386,7 +386,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: MyColors.whiteColor),
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Column(
               children: [
                 /// top
@@ -402,12 +402,12 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                           fit: BoxFit.fill,
                           image: NetworkImage(
                             u_profile_img,),
-                          placeholder: AssetImage(
+                          placeholder: const AssetImage(
                               "a_assets/logo/progress_image.png"),
                           placeholderFit: BoxFit.scaleDown,
                           imageErrorBuilder:
                               (context, error, stackTrace) {
-                            return Text(u_first_name.toString()[0].toUpperCase(),style: TextStyle(
+                            return Text(u_first_name.toString()[0].toUpperCase(),style: const TextStyle(
                                 color: MyColors.shedule_color,
                                 fontSize: 18,
                                 fontWeight: FontWeight.w700,
@@ -434,7 +434,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                                   fit: BoxFit.contain,
                                   child: Text(
                                     "${u_first_name} ${u_last_name}",
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: MyColors.blackColor,
                                         fontSize: 14,
                                         fontFamily:
@@ -484,7 +484,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
   /// deleviry method
   deliveryMethid() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       child: Material(
         elevation: 10,
         shadowColor: MyColors.lightblueColor.withOpacity(0.10),
@@ -493,7 +493,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
         ),
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
 
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -531,7 +531,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                               alignment: Alignment.topLeft,
                               child: Text(
                                 widget.selected_payment_type=="check"?"Bank Account":widget.selected_payment_type,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                     fontFamily:
@@ -571,7 +571,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                               alignment: Alignment.topLeft,
                               child: Text(
                                 recipient_recieve_amount.toString(),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w800,
                                     fontFamily:
@@ -584,7 +584,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                               alignment: Alignment.topLeft,
                               child: Text(
                                 dstCurrencyIso3Code,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 8,
                                     fontWeight: FontWeight.w600,
                                     fontFamily:
@@ -621,7 +621,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                               alignment: Alignment.topLeft,
                               child: Text(
                                   BankName,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w700,
                                     fontFamily:
@@ -634,7 +634,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                               alignment: Alignment.topLeft,
                               child: Text(
                                 BankAccNumber.isEmpty?"":"****"+BankAccNumber.substring(BankAccNumber.length-4),
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 12,
                                     fontWeight: FontWeight.w500,
                                     fontFamily:
@@ -670,7 +670,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
   bankcard(){
 
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 15, vertical: 3),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 3),
       child: Material(
         elevation: 10,
         shadowColor: MyColors.lightblueColor.withOpacity(0.10),
@@ -679,7 +679,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
         ),
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
 
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
@@ -700,7 +700,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           widget.selected_acc_name.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
                               fontFamily:
@@ -713,7 +713,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           "****"+widget.selected_last4.toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w500,
                               fontFamily:
@@ -739,10 +739,10 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
   ///exchangeRate
   exchangeRatecard(){
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: MyColors.whiteColor,
       ),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
 
@@ -754,7 +754,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
               children: [
 
                 Container(
-                  margin: EdgeInsets.only(top: 14.0),
+                  margin: const EdgeInsets.only(top: 14.0),
                   alignment: Alignment.topLeft,
                   child: Text(
                     MyString.exchange_rate,
@@ -769,7 +769,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
 
                 Container(
                   alignment: Alignment.topLeft,
-                  child: Text(
+                  child: const Text(
                     MyString.depend_on_day_of_transfer,
                     style: TextStyle(
                         color: MyColors.blackColor,
@@ -808,7 +808,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         sendAmount,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 14,
                             fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -819,7 +819,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                     wSizedBox,
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.usd,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -860,7 +860,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         monyetosfee,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 14,
                             fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -871,7 +871,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                     wSizedBox,
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.usd,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -930,9 +930,9 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
           Container(
             height: 0.5,
             child: DottedBorder(
-              color: Color(0xffE9EDF2),
+              color: const Color(0xffE9EDF2),
               strokeWidth: 0.5,
-              dashPattern: [8, 4],
+              dashPattern: const [8, 4],
               child: Container(),
             ),
           ),
@@ -962,7 +962,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           total_amount,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.blackColor,
                               fontSize: 20,
                               fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -973,7 +973,7 @@ class _ScheduledGotoreviewScreenState extends State<ScheduledGotoreviewScreen> {
                       wSizedBox,
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           MyString.usd,
                           style: TextStyle(
                               color: MyColors.blackColor,

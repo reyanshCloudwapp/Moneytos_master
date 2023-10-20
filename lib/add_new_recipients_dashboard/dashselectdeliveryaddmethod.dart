@@ -83,8 +83,8 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
     });
     await Webservices.AccountDetailsRequest(context,accountdetaillist,accountdetailfieldsetlist,receipent_id);
 
-    recipientId =  accountdetaillist.length > 0 ? accountdetaillist[0].recipientAccountId.toString(): "";
-    receipent_account_id =  accountdetaillist.length > 0 ? accountdetaillist[0].recipientAccountId.toString(): "";
+    recipientId =  accountdetaillist.isNotEmpty ? accountdetaillist[0].recipientAccountId.toString(): "";
+    receipent_account_id =  accountdetaillist.isNotEmpty ? accountdetaillist[0].recipientAccountId.toString(): "";
     setState((){});
     getaccountitemdetailApi(receipent_id,receipent_account_id);
     setState((){
@@ -116,20 +116,20 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
         elevation: 0,
         backgroundColor: MyColors.whiteColor,
         centerTitle: true,
-        actions: [],
-        systemOverlayStyle: SystemUiOverlayStyle(
+        actions: const [],
+        systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
           statusBarColor: MyColors.whiteColor,
           statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
           statusBarBrightness: Brightness.light, // For iOS (dark icons)
         ),
-        title: Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
+        title: const Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
       ),
       bottomSheet:   load == true || itemload == true?  Container(
         height: 0,
       ) :  Container(
         //margin: EdgeInsets.only(top: 20),
-        padding: EdgeInsets.only(left: 20,right:20,top: 20,bottom: 20),
+        padding: const EdgeInsets.only(left: 20,right:20,top: 20,bottom: 20),
         color: MyColors.whiteColor,
         height: 125,
         child: Row(
@@ -233,9 +233,9 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                 ),*/
                 // hSizedBox,
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
                   width: double.infinity,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     // borderRadius: BorderRadius.circular(30),
                       borderRadius: BorderRadius.only(
                           topRight: Radius.circular(30.0),
@@ -264,7 +264,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                         height: 150,
                                         width: 200,
                                         child: Container(
-                                          padding: EdgeInsets.symmetric(horizontal: 5,vertical: 5),
+                                          padding: const EdgeInsets.symmetric(horizontal: 5,vertical: 5),
                                           child: Material(
                                             elevation: 2,
                                             color: MyColors.whiteColor,
@@ -282,7 +282,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                                 getaccountitemdetailApi(receipent_id,accountdetaillist[index].recipientAccountId.toString());
                                               },
                                               child: Container(
-                                                padding: EdgeInsets.symmetric(horizontal: 17,vertical: 10),
+                                                padding: const EdgeInsets.symmetric(horizontal: 17,vertical: 10),
                                                 decoration: BoxDecoration(
                                                     color: MyColors.whiteColor,
                                                     borderRadius: BorderRadius.circular(8),
@@ -294,7 +294,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                                     //accountdetaillist[index].fields!.length,
                                                     itemBuilder: (context,int i){
                                                       return Container(
-                                                        padding: EdgeInsets.symmetric(
+                                                        padding: const EdgeInsets.symmetric(
                                                             horizontal: 8, vertical: 10),
                                                         child: Column(
                                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -344,7 +344,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                                                   //: "",
                                                                   maxLines: 2,
                                                                   textAlign: TextAlign.start,
-                                                                  style: TextStyle(
+                                                                  style: const TextStyle(
                                                                       color: MyColors.blackColor,
                                                                       fontWeight: FontWeight.w500,
                                                                       fontSize: 12,
@@ -361,7 +361,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                                               children: [
 
                                                                 Padding(
-                                                                  padding:  EdgeInsets.only(top: 0.0,right: 1),
+                                                                  padding:  const EdgeInsets.only(top: 0.0,right: 1),
                                                                   child: SvgPicture.asset("a_assets/icons/bank.svg",height: 20,width: 20,color: cureentindex == index ? MyColors.lightblueColor:MyColors.blackColor,),
                                                                 ),
 
@@ -414,9 +414,9 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                 child: Container(
                                   alignment: Alignment.center,
                                   width: size.width * 0.45,
-                                  padding: EdgeInsets.symmetric(
+                                  padding: const EdgeInsets.symmetric(
                                       horizontal: 15, vertical:0),
-                                  margin: EdgeInsets.symmetric(vertical: 5),
+                                  margin: const EdgeInsets.symmetric(vertical: 5),
                                   decoration: BoxDecoration(
                                       gradient: LinearGradient(colors: [
                                         MyColors.lightblueColor.withOpacity(0.70),
@@ -434,20 +434,20 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                           width: 30,
                                           height: 30,
                                           decoration: BoxDecoration(
-                                            gradient: LinearGradient(colors: [
+                                            gradient: const LinearGradient(colors: [
                                               MyColors.whiteColor,
                                               MyColors.whiteColor
                                             ]),
                                             borderRadius: BorderRadius.circular(5),
                                           ),
-                                          child: Icon(
+                                          child: const Icon(
                                             CupertinoIcons.add,
                                             color: MyColors.lightblueColor,
                                           )),
                                       hSizedBox2,
                                       Container(
                                           alignment: Alignment.center,
-                                          child: Text(
+                                          child: const Text(
                                             MyString.add_new_method,
                                             style: TextStyle(
                                                 color: MyColors.whiteColor,
@@ -470,14 +470,14 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                       hSizedBox2,
 
                       Container(
-                        margin: EdgeInsets.only(left: 14),
+                        margin: const EdgeInsets.only(left: 14),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
                                 alignment: Alignment.topLeft,
-                                child: Text(
+                                child: const Text(
                                   MyString.receive_methods,
                                   style: TextStyle(
                                       color: MyColors.color_text_a,
@@ -492,15 +492,15 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                       ),
 
                       Container(
-                        margin: EdgeInsets.only(top:12.0,left: 14),
+                        margin: const EdgeInsets.only(top:12.0,left: 14),
                         child: Row(
                             children:[
                               SvgPicture.asset("a_assets/icons/bank.svg",height: 20,width: 20,color: MyColors.blackColor,),
                               wSizedBox1,
                               Text(
-                                accountdetaillist2.length > 0 ?   accountdetaillist2[0].transferMethod.toString() : "",
+                                accountdetaillist2.isNotEmpty ?   accountdetaillist2[0].transferMethod.toString() : "",
                                // MyString.bank_deposite,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: MyColors.color_text,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 14,
@@ -515,7 +515,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                       ListView.builder(
                         shrinkWrap: true,
                           itemCount: 1,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           //accountdetailfieldsetlist2.length,
                           itemBuilder: (context,int index){
                         return Container(
@@ -525,12 +525,12 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    margin: EdgeInsets.only(top:12.0,left: 14),
+                                    margin: const EdgeInsets.only(top:12.0,left: 14),
                                     child: Column(
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children:[
-                                          Text(
+                                          const Text(
                                             "Bank Name",
                                             style: TextStyle(
                                                 color:MyColors.color_text_a,
@@ -549,7 +549,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                                 width: 200,
                                                 child: Text(
                                                   bankName,
-                                                  style: TextStyle(
+                                                  style: const TextStyle(
                                                       color: MyColors.color_text,
                                                       fontWeight: FontWeight.w800,
                                                       fontSize: 16,
@@ -564,12 +564,12 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                     ),
                                   ),
                                   Container(
-                                    margin: EdgeInsets.only(top:0.0),
+                                    margin: const EdgeInsets.only(top:0.0),
                                     child: Column(
                                         mainAxisAlignment: MainAxisAlignment.start,
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children:[
-                                          Text(
+                                          const Text(
                                             "Account Type",
                                           //  MyString.Swift_Code,
                                             style: TextStyle(
@@ -586,7 +586,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                                            // accountdetaillist[index].fields![1].value.toString() == "p" ? "Saving": "Checking" ,
                                            //  accountdetailfieldsetlist2[index].id.toString()=="BANK_ACCOUNT_TYPE"?accountdetailfieldsetlist2[index].value.toString():"",
                                             account_type == "p" ?  "Saving": "Checking",
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                                 color: MyColors.color_text,
                                                 fontWeight: FontWeight.w600,
                                                 fontSize: 14,
@@ -601,12 +601,12 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
                               ),
                               Container(
                                 alignment: Alignment.centerLeft,
-                                margin: EdgeInsets.only(top:24.0,left: 14),
+                                margin: const EdgeInsets.only(top:24.0,left: 14),
                                 child: Column(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children:[
-                                      Text(
+                                      const Text(
                                         "BANK ACCOUNT NUMBER",
                                        // MyString.iban_code,
                                         style: TextStyle(
@@ -621,7 +621,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
 
                                       Text(
                                           account_number,
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                             color: MyColors.color_text,
                                             fontWeight: FontWeight.w600,
                                             fontSize: 14,
@@ -681,7 +681,7 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
           load == true || itemload == true?  Container(
             height: size.height,
             color: Colors.black.withOpacity(0.30),
-            child: Center(
+            child: const Center(
                 child: GFLoader(
                     type: GFLoaderType.custom,
                     child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
@@ -700,9 +700,9 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
       color: MyColors.whiteColor,
       //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
       child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.only(left: 10,right: 10),
           decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
             ],
@@ -718,8 +718,8 @@ class _DashSelectDeliveryAddMethodScreenState extends State<DashSelectDeliveryAd
             //color: Colors.deepPurple.shade300,
             borderRadius: BorderRadius.circular(10),
           ),
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
-          child: Center(child: Text(text,style: TextStyle(color: MyColors.whiteColor,fontWeight: FontWeight.w700,fontSize: 18,fontFamily: "s_asset/font/raleway/Bold.ttf"),))),
+          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
+          child: Center(child: Text(text,style: const TextStyle(color: MyColors.whiteColor,fontWeight: FontWeight.w700,fontSize: 18,fontFamily: "s_asset/font/raleway/Bold.ttf"),))),
     );
   }
 }
@@ -731,7 +731,7 @@ Custombtn(String text,double height,double width, BuildContext context) {
     //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
     child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
           ],
@@ -747,8 +747,8 @@ Custombtn(String text,double height,double width, BuildContext context) {
           //color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
-        child: Center(child: Text(text,style: TextStyle(color: MyColors.lightblueColor,fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w600),))),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
+        child: Center(child: Text(text,style: const TextStyle(color: MyColors.lightblueColor,fontSize: 16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w600),))),
   );
 }
 

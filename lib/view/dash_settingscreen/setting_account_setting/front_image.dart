@@ -17,7 +17,7 @@ class _FrontImageScreenState extends State<FrontImageScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: SingleChildScrollView(
         child: Column(
 
@@ -25,8 +25,8 @@ class _FrontImageScreenState extends State<FrontImageScreen> {
             hSizedBox4,
             Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-              child: Text(
+              margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+              child: const Text(
                 MyString.front_image,
                 style: TextStyle(
                     color: MyColors.blackColor,
@@ -40,8 +40,8 @@ class _FrontImageScreenState extends State<FrontImageScreen> {
             hSizedBox,
             Container(
               alignment: Alignment.center,
-              margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-              child: Text(
+              margin: const EdgeInsets.fromLTRB(00, 5, 0, 0),
+              child: const Text(
                 MyString.position_the_front_of_your_proof,
                 style: TextStyle(
                     color: MyColors.blackColor,
@@ -56,7 +56,7 @@ class _FrontImageScreenState extends State<FrontImageScreen> {
             hSizedBox,
 
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 30),
+              padding: const EdgeInsets.symmetric(horizontal: 30),
               child: InkWell(
                   onTap: () {
                   //  Navigator.of(context).pop();
@@ -90,7 +90,7 @@ class _FrontImageScreenState extends State<FrontImageScreen> {
 
             hSizedBox5,
             Container(
-              padding: EdgeInsets.symmetric(horizontal: 25),
+              padding: const EdgeInsets.symmetric(horizontal: 25),
               child: CustomButton2(btnname: MyString.confirm,bg_color: MyColors.lightblueColor,bordercolor: MyColors.lightblueColor,),
             )
           ],

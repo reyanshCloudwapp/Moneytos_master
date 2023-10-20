@@ -23,12 +23,12 @@ class CountdownTimerState with ChangeNotifier {
         timer.cancel(); // Stop the timer when it reaches 0
         // Show a dialog after the timer is canceled
 
-          _showDialog(context);
-
+        _showDialog(context);
       }
     });
   }
-  void stopTimer(){
+
+  void stopTimer() {
     _timer?.cancel();
   }
 
@@ -40,14 +40,16 @@ class CountdownTimerState with ChangeNotifier {
       barrierDismissible: false,
       builder: (BuildContext ctx) {
         return AlertDialog(
-          title: Text('Session Timeout:'),
-          content: Text('Your session has expired due to inactivity. Please restart the send process to continue using our services. Thank you!'),
+          title: const Text('Session Timeout:'),
+          content: const Text(
+              'Your session has expired due to inactivity. Please restart the send process to continue using our services. Thank you!'),
           actions: <Widget>[
             ElevatedButton(
-              child: Text('OK'),
+              child: const Text('OK'),
               onPressed: () {
-                Navigator.of(ctx).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                    DashboardScreen()), (Route<dynamic> route) => false); // Close the dialog
+                Navigator.of(ctx).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => DashboardScreen()),
+                    (Route<dynamic> route) => false); // Close the dialog
               },
             ),
           ],

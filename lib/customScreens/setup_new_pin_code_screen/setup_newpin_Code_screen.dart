@@ -53,7 +53,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
   }
 
   backSpace(){
-    if(pinEntered.length > 0){
+    if(pinEntered.isNotEmpty){
       pinEntered = pinEntered.substring(0,pinEntered.length -1);
       alert = "";
       print("pinentered..${pinEntered}");
@@ -90,9 +90,9 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
 
           /// Setup New Pin Code
           Container(
-            padding: EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.only(top: 20),
             alignment: Alignment.center,
-            child: Text(
+            child: const Text(
               MyString.setup_new_pin_code,
               style: TextStyle(
                   color: MyColors.blackColor,
@@ -121,14 +121,14 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
 
           hSizedBox4,
           Padding(
-            padding: EdgeInsets.only(top: 30),
+            padding: const EdgeInsets.only(top: 30),
             child: Row(
 
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   CupertinoIcons.circle_fill,
-                  color: pinEntered.length >= 1?MyColors.lightblueColor:  MyColors.lightblueColor.withOpacity(0.30),
+                  color: pinEntered.isNotEmpty?MyColors.lightblueColor:  MyColors.lightblueColor.withOpacity(0.30),
                   size: 9,
                 ),
                 wSizedBox1,
@@ -175,7 +175,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
           hSizedBox3,
           //numberButton(1),
           Padding(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -186,7 +186,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
                     numberClicked(e);
                   },
                   child: Container(
-                      padding: EdgeInsets.symmetric( vertical: 10),
+                      padding: const EdgeInsets.symmetric( vertical: 10),
                       child: numberButton(e)),
                 );
               }).toList(),
@@ -206,7 +206,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
                   pinlength.toString().length == 4 ? Container(): numberClicked(e);
                 },
                 child: Container(
-                    padding: EdgeInsets.symmetric( vertical: 10),
+                    padding: const EdgeInsets.symmetric( vertical: 10),
                     child: numberButton(e)),
               );
             }).toList(),
@@ -225,7 +225,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
                   pinlength.toString().length == 4 ? Container():  numberClicked(e);
                 },
                 child: Container(
-                    padding: EdgeInsets.symmetric( vertical: 15),
+                    padding: const EdgeInsets.symmetric( vertical: 15),
                     child: numberButton(e)),
               );
             }).toList(),
@@ -239,7 +239,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: EdgeInsets.only( top: 15),
+                padding: const EdgeInsets.only( top: 15),
                 child: InkWell(
                     onTap: () {
                       backSpace();
@@ -257,7 +257,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
                 ),
               ),
 
-              Padding(padding: EdgeInsets.only( top: 15,right: 55),child: GestureDetector(
+              Padding(padding: const EdgeInsets.only( top: 15,right: 55),child: GestureDetector(
                 behavior: HitTestBehavior.translucent,
                 onTap: () {
                  pinlength.toString().length == 4 ? Container():
@@ -278,7 +278,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
 
                     pushNewScreen(
                       context,
-                      screen: SettingForgotPinCodeScreen(),
+                      screen: const SettingForgotPinCodeScreen(),
                       withNavBar: false,
                     );
 
@@ -286,8 +286,8 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
                 child: Container(
                  // height: 20,
                   alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.only( top: 22),
-                  child: Text("Forgot!",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
+                  padding: const EdgeInsets.only( top: 22),
+                  child: const Text("Forgot!",style: TextStyle(color: MyColors.lightblueColor,fontSize: 12,fontWeight: FontWeight.w500),),
                 ),
               )
                  : Container()
@@ -307,7 +307,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
               setState(() {});
             },
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               child: CustomButton2(btnname:MyString.submit,bg_color: MyColors.lightblueColor,bordercolor: MyColors.lightblueColor,),
             ),
           ),
@@ -324,7 +324,7 @@ class _SetupNewPinCodeScreenState extends State<SetupNewPinCodeScreen> {
       height: 30,
       child: Text(
         item.toString(),
-        style: TextStyle(
+        style: const TextStyle(
             color: MyColors.blackColor,
             fontWeight: FontWeight.w800,
             fontSize: 20,

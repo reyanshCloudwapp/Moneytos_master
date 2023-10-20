@@ -9,12 +9,14 @@ import 'package:moneytos/view/home/s_home/sendsuccessfullytransferscreen/sendsuc
 import 'package:moneytos/view/transfers_scheduled_screens/sheduled_successfully_screen.dart';
 import 'package:moneytos/view/transfers_scheduled_screens/treansfer_enter_pin_code.dart';
 
-class TransferVerificationTouchFaceId extends StatefulWidget{
+class TransferVerificationTouchFaceId extends StatefulWidget {
   @override
-  State<TransferVerificationTouchFaceId> createState() => _TransferVerificationTouchFaceIdState();
+  State<TransferVerificationTouchFaceId> createState() =>
+      _TransferVerificationTouchFaceIdState();
 }
 
-class _TransferVerificationTouchFaceIdState extends State<TransferVerificationTouchFaceId> {
+class _TransferVerificationTouchFaceIdState
+    extends State<TransferVerificationTouchFaceId> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +25,7 @@ class _TransferVerificationTouchFaceIdState extends State<TransferVerificationTo
         elevation: 0,
         automaticallyImplyLeading: false,
         backgroundColor: MyColors.lightblueColor,
-        systemOverlayStyle: SystemUiOverlayStyle(
+        systemOverlayStyle: const SystemUiOverlayStyle(
           // Status bar color
           statusBarColor: MyColors.lightblueColor,
 
@@ -41,7 +43,7 @@ class _TransferVerificationTouchFaceIdState extends State<TransferVerificationTo
             ///title
             Container(
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 MyString.verification1,
                 style: TextStyle(
                     color: MyColors.whiteColor,
@@ -71,7 +73,7 @@ class _TransferVerificationTouchFaceIdState extends State<TransferVerificationTo
             ///title
             Container(
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 MyString.using_touch_id,
                 style: TextStyle(
                     color: MyColors.whiteColor,
@@ -83,27 +85,32 @@ class _TransferVerificationTouchFaceIdState extends State<TransferVerificationTo
             hSizedBox2,
             hSizedBox1,
 
-
             GestureDetector(
               behavior: HitTestBehavior.translucent,
-              onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>SendSuccessfullyTransferScreen(readyremit_transferId: '', sendAmount: '', transfer_reason: '', fees: '',)));
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SendSuccessfullyTransferScreen(
+                              readyremit_transferId: '',
+                              sendAmount: '',
+                              transfer_reason: '',
+                              fees: '',
+                            )));
               },
-              child:   Container(
+              child: Container(
                   alignment: Alignment.center,
-                  child: SvgPicture.asset("a_assets/logo/touch_id.svg")
-              ),
+                  child: SvgPicture.asset("a_assets/logo/touch_id.svg")),
             ),
 
             hSizedBox5,
             hSizedBox2,
 
-
             /// usin face id
             ///title
             Container(
               alignment: Alignment.center,
-              child: Text(
+              child: const Text(
                 MyString.using_face_id,
                 style: TextStyle(
                     color: MyColors.whiteColor,
@@ -115,23 +122,21 @@ class _TransferVerificationTouchFaceIdState extends State<TransferVerificationTo
             hSizedBox2,
             hSizedBox1,
 
-
             Container(
                 alignment: Alignment.center,
-                child: SvgPicture.asset("a_assets/logo/face_d.svg")
-            ),
+                child: SvgPicture.asset("a_assets/logo/face_d.svg")),
             hSizedBox5,
 
             /// usin pincode
             ///title
             GestureDetector(
               behavior: HitTestBehavior.translucent,
-              onTap: (){
+              onTap: () {
                 transferbottomsheet(context);
               },
               child: Container(
                 alignment: Alignment.center,
-                child: Text(
+                child: const Text(
                   MyString.or_using_pin_code,
                   style: TextStyle(
                       color: MyColors.whiteColor,
@@ -148,13 +153,16 @@ class _TransferVerificationTouchFaceIdState extends State<TransferVerificationTo
     );
   }
 
-  transferbottomsheet(BuildContext context){
+  transferbottomsheet(BuildContext context) {
     return showModalBottomSheet(
         context: context,
         isScrollControlled: true,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))
-        ),
+        shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(30),
+                topRight: Radius.circular(30),
+                bottomLeft: Radius.circular(10),
+                bottomRight: Radius.circular(10))),
         // anchorPoint: Offset(20.0, 30.0),
         backgroundColor: MyColors.lightblueColor.withOpacity(0.10),
         builder: (context) {
@@ -162,11 +170,14 @@ class _TransferVerificationTouchFaceIdState extends State<TransferVerificationTo
               color: Colors.transparent,
               height: MediaQuery.of(context).size.height * 0.86,
               child: Container(
-                  decoration: new BoxDecoration(
+                  decoration: const BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))),
-                  child: TransferPinCodeScreen2())
-          );}
-    );
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                          bottomLeft: Radius.circular(10),
+                          bottomRight: Radius.circular(10))),
+                  child: const TransferPinCodeScreen2()));
+        });
   }
 }

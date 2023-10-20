@@ -34,7 +34,7 @@ class _SelectLocationToAddMethodScreenState extends State<SelectLocationToAddMet
         elevation: 0,
         backgroundColor: MyColors.whiteColor,
         centerTitle: true,
-        title: Text(MyString.Select_Location_method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
+        title: const Text(MyString.Select_Location_method,style: TextStyle(color: MyColors.blackColor,fontSize: 18,fontWeight: FontWeight.w600,letterSpacing: 0.4,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf"),),
       ),
 
       bottomSheet: Container(
@@ -63,26 +63,26 @@ class _SelectLocationToAddMethodScreenState extends State<SelectLocationToAddMet
           children: [
             hSizedBox2,
             Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 20.0),
+                padding:  const EdgeInsets.symmetric(horizontal: 20.0),
                 child: searchLocation()
               //CustomTextFields(controller: searchController, focus: searchFocus, textInputAction: TextInputAction.done, keyboardtype: TextInputType.text,border_color: MyColors.whiteColor.withOpacity(0.05),hinttext: MyString.search_bank,),
             ),
             ListView.builder(
               shrinkWrap: true,
-              padding: EdgeInsets.symmetric(horizontal: 10,vertical: 20),
+              padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 20),
               scrollDirection: Axis.vertical,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: 10,
                 itemBuilder: (context,int index){
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20,vertical: 8),
+                    margin: const EdgeInsets.symmetric(horizontal: 20,vertical: 8),
 
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(12)),
+                      borderRadius: const BorderRadius.all(Radius.circular(12)),
                       border: Border.all(color: MyColors.color_text.withOpacity(0.2),width: 1.0),
                     ),
-                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 24),
-                    child:Text(MyString.location_name,style: TextStyle(color: MyColors.color_text,fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500),)
+                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 24),
+                    child:const Text(MyString.location_name,style: TextStyle(color: MyColors.color_text,fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500),)
                   );
                 }
             ),
@@ -107,13 +107,13 @@ class _SelectLocationToAddMethodScreenState extends State<SelectLocationToAddMet
         cursorColor:MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          enabledBorder:  OutlineInputBorder(
+          enabledBorder:  const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)
           ),
 

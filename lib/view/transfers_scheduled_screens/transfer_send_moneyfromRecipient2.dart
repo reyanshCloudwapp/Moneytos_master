@@ -22,14 +22,14 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
     return Scaffold(
       backgroundColor: MyColors.light_primarycolor2,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(265),
+        preferredSize: const Size.fromHeight(265),
         child: AppBar(
           backgroundColor: MyColors.light_primarycolor2,
           elevation: 0,
           centerTitle: true,
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only( left: 20,top: 65,right: 20),
+            padding: const EdgeInsets.only( left: 20,top: 65,right: 20),
             child: Column(
               children: [
                 /// appbar ui....
@@ -42,8 +42,8 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                       Stack(
                           children:[
                             Container(
-                              margin: EdgeInsets.fromLTRB(0, 16, 0.0, 10.0),
-                              child: CircleAvatar(
+                              margin: const EdgeInsets.fromLTRB(0, 16, 0.0, 10.0),
+                              child: const CircleAvatar(
                                 backgroundColor: Colors.white,
                                 radius: 40,
                                 backgroundImage: AssetImage(
@@ -57,7 +57,7 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                               child: Container(
                                 height: 26,
                                 width: 26,
-                                decoration: BoxDecoration(
+                                decoration: const BoxDecoration(
                                     color: MyColors.accent_ED5565_red,
                                     borderRadius: BorderRadius.all(Radius.circular(10)),
                                     image: DecorationImage(
@@ -65,7 +65,7 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                                     )
 
                                 ),
-                                margin: EdgeInsets.fromLTRB(26, 0, 0.0, 10.0),
+                                margin: const EdgeInsets.fromLTRB(26, 0, 0.0, 10.0),
 
                               ),
                             ),
@@ -79,7 +79,7 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                       hSizedBox1,
                       Container(
                         //  margin: EdgeInsets.fromLTRB(00, 5, 0, 0),
-                          child: Text(
+                          child: const Text(
                             MyString.recipient_name,
                             style: TextStyle(
                                 color: MyColors.whiteColor,
@@ -111,7 +111,7 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                         children: [
                           Padding(
                             padding:
-                            EdgeInsets.only(top: 0.0, right: 1),
+                            const EdgeInsets.only(top: 0.0, right: 1),
                             child: SvgPicture.asset(
                               "a_assets/icons/au_australia.svg",
                               height: 20,
@@ -121,8 +121,8 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                           wSizedBox,
                           Container(
                               margin:
-                              EdgeInsets.fromLTRB(00, 5, 0, 0),
-                              child: Text(
+                              const EdgeInsets.fromLTRB(00, 5, 0, 0),
+                              child: const Text(
                                 "Sydney, AU",
                                 style: TextStyle(
                                     color: MyColors.whiteColor,
@@ -150,10 +150,10 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
             width: MediaQuery.of(context).size.width,
           ),
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             width: double.infinity,
             height: size.height,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               // borderRadius: BorderRadius.circular(30),
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(30),topRight: Radius.circular(30)),
                 color: MyColors.whiteColor),
@@ -163,24 +163,24 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                   hSizedBox1,
                   Container(
                       width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
-                      padding: EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
+                      margin:  const EdgeInsets.fromLTRB(12.0, 26.0, 12.0, 0.0),
+                      padding: const EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
                       decoration: BoxDecoration(
                         color: MyColors.color_D8E6FA_bac,
                         border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                               width:170,
-                              child: Text("You send",style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_ffF4287_text),)),
+                              child: const Text("You send",style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_ffF4287_text),)),
                           Row(
                             children: [
                               SvgPicture.asset("s_asset/images/flag1.svg"),
                               wSizedBox,
-                              Text(MyString.usd,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
+                              const Text(MyString.usd,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
                             ],
                           ),
                         ],
@@ -188,24 +188,24 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                   ),
                   Container(
                       width:double.infinity,
-                      margin:  EdgeInsets.fromLTRB(0.0, 26.0, 0.0, 0.0),
-                      padding: EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
+                      margin:  const EdgeInsets.fromLTRB(0.0, 26.0, 0.0, 0.0),
+                      padding: const EdgeInsets.fromLTRB(16.0, 22.0, 16.0, 22.0),
                       decoration: BoxDecoration(
                         color: MyColors.color_D8E6FA_bac,
                         border: Border.all(color: MyColors.color_gray_transparent),
-                        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                       ),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
                               width:170,
-                              child: Text("hesham sqrat gets",style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_ffF4287_text),)),
+                              child: const Text("hesham sqrat gets",style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_ffF4287_text),)),
                           Row(
                             children: [
                               SvgPicture.asset("s_asset/images/flag2.svg"),
                               wSizedBox,
-                              Text(MyString.AUD,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
+                              const Text(MyString.AUD,style: TextStyle(fontSize: 14,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w700,color: MyColors.color_text),),
                               wSizedBox,
                               SvgPicture.asset("s_asset/images/dropdown.svg",),
                             ],
@@ -215,15 +215,15 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                   ),
                   hSizedBox3,
 
-                  Text("Exchange Rate will effect in scheduled Date",style: TextStyle(fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: Color(0xffFCB901)),),
+                  const Text("Exchange Rate will effect in scheduled Date",style: TextStyle(fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: Color(0xffFCB901)),),
                   hSizedBox3,
 
-                  Text("Exchange Rate",style: TextStyle(fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_text_a),),
+                  const Text("Exchange Rate",style: TextStyle(fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w500,color: MyColors.color_text_a),),
                   hSizedBox1,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Row(
+                      const Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -235,7 +235,7 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                       SvgPicture.asset("s_asset/images/leftrightarrow.svg",height: 10,width: 10,),
                       wSizedBox1,
 
-                      Row(
+                      const Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -256,9 +256,9 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
 
                       color: MyColors.color_D8E6FA_bac,
                       border: Border.all(color: MyColors.color_gray_transparent),
-                      borderRadius: BorderRadius.all(Radius.circular(26.0)),
+                      borderRadius: const BorderRadius.all(Radius.circular(26.0)),
                     ),
-                    child: Row(
+                    child: const Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -282,7 +282,7 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                       width: double.infinity,
                       padding: EdgeInsets.symmetric(
                         horizontal: size.width /4,),
-                      margin: EdgeInsets.symmetric(
+                      margin: const EdgeInsets.symmetric(
                           horizontal: 20,vertical: 50),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(colors: [
@@ -298,7 +298,7 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                         children: [
                           Container(
                               alignment: Alignment.center,
-                              child: Text(
+                              child: const Text(
                                 MyString.Next,
                                 style: TextStyle(
                                     color: MyColors.whiteColor,
@@ -340,7 +340,7 @@ class _TransferSendMoneyFromRecipient2State extends State<TransferSendMoneyFromR
                   decoration: new BoxDecoration(
                       color: Colors.white,
                       borderRadius: new BorderRadius.circular(30)),
-                  child: TransferKeyBoardNum1())
+                  child: const TransferKeyBoardNum1())
           );}
     );
   }

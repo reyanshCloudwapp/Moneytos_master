@@ -43,7 +43,7 @@ class _MobileMoneypinServiceProState extends State<MobileMoneypinServicePro> {
   }
 
   backSpace() {
-    if (pinEntered.length > 0) {
+    if (pinEntered.isNotEmpty) {
       pinEntered = pinEntered.substring(0, pinEntered.length - 1);
       alert = "";
       print("pinentered..${pinEntered}");
@@ -79,7 +79,7 @@ class _MobileMoneypinServiceProState extends State<MobileMoneypinServicePro> {
                   child: SvgPicture.asset("s_asset/images/leftarrow.svg",
                       height: 32, width: 32)),
             ),
-            title:  Column(
+            title:  const Column(
               children: [
                 Text(
                   MyString.Mobile_Money_Number,
@@ -425,8 +425,8 @@ class _MobileMoneypinServiceProState extends State<MobileMoneypinServicePro> {
       child: Container(
           padding: const EdgeInsets.only(left: 10, right: 10),
           decoration: BoxDecoration(
-            boxShadow: [
-              const BoxShadow(
+            boxShadow: const [
+              BoxShadow(
                   color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
             ],
             gradient: LinearGradient(

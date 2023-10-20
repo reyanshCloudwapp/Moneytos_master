@@ -66,13 +66,13 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           elevation: 0,
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
-          actions: [],
-          systemOverlayStyle: SystemUiOverlayStyle(
+          actions: const [],
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
@@ -80,12 +80,12 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
           ),
           flexibleSpace: Container(
             alignment: Alignment.center,
-            padding: EdgeInsets.only(top: 65,left: 26,right: 26),
+            padding: const EdgeInsets.only(top: 65,left: 26,right: 26),
             child: Column(
               children: [
                 Container(
                   alignment: Alignment.center,
-                  child: Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.color_text,fontFamily:"s_asset/font/raleway/raleway_semibold.ttf",fontSize: 20,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
+                  child: const Text(MyString.Select_Delivery_Method,style: TextStyle(color: MyColors.color_text,fontFamily:"s_asset/font/raleway/raleway_semibold.ttf",fontSize: 20,fontWeight: FontWeight.w600,letterSpacing: 0.4),),
                 ),
                 hSizedBox4,
             /*    Container(
@@ -215,18 +215,18 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
               onTap: (){
                 //Navigator.push(context, MaterialPageRoute(builder: (context)=>BankDepositDeliveryMethodScreen(MyString.bank_deposit)));
                 is_check = true;
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>DashSelectBankScreen2BankDeposit()));
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const DashSelectBankScreen2BankDeposit()));
               },
               child: Container(
 
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
                     border: Border.all(color: MyColors.color_text.withOpacity(0.2),width: 1.0),
                   ),
-                  padding: EdgeInsets.only(top:20,bottom:20,left:0,right: 4),
-                  margin: EdgeInsets.symmetric(vertical:10,horizontal: 60),
+                  padding: const EdgeInsets.only(top:20,bottom:20,left:0,right: 4),
+                  margin: const EdgeInsets.symmetric(vertical:10,horizontal: 60),
                   child: Container(
-                    margin: EdgeInsets.only(left:40),
+                    margin: const EdgeInsets.only(left:40),
                     child: Row(
                       children: [
                         SvgPicture.asset("a_assets/icons/bank.svg",height: 36,width: 36,),
@@ -234,16 +234,16 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(MyString.bank_deposit,style: TextStyle(color:MyColors.color_text,fontSize:16,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),),
+                            const Text(MyString.bank_deposit,style: TextStyle(color:MyColors.color_text,fontSize:16,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),),
                             hSizedBox,
                             Padding(
-                              padding:  EdgeInsets.only(top:10.0),
+                              padding:  const EdgeInsets.only(top:10.0),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text(totalFees.toString(),style: TextStyle(color: MyColors.color_text,fontSize:15,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w800,),),
-                                  Text(" USD",style: TextStyle(color: MyColors.color_text,fontSize:12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w600, ),)
+                                  Text(totalFees.toString(),style: const TextStyle(color: MyColors.color_text,fontSize:15,fontFamily: "s_asset/font/raleway/raleway_bold.ttf",fontWeight: FontWeight.w800,),),
+                                  const Text(" USD",style: TextStyle(color: MyColors.color_text,fontSize:12,fontFamily: "s_asset/font/raleway/raleway_medium.ttf",fontWeight: FontWeight.w600, ),)
                                 ],
                               ),
                             ),                    ],
@@ -261,13 +261,13 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
               child: Container(
 
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
                     border: Border.all(color: MyColors.color_text.withOpacity(0.2),width: 1.0),
                   ),
-                  padding: EdgeInsets.only(top:20,bottom:20,left:0,right: 4),
-                  margin: EdgeInsets.symmetric(vertical:10,horizontal: 60),
+                  padding: const EdgeInsets.only(top:20,bottom:20,left:0,right: 4),
+                  margin: const EdgeInsets.symmetric(vertical:10,horizontal: 60),
                   child: Container(
-                    margin: EdgeInsets.only(left:40),
+                    margin: const EdgeInsets.only(left:40),
                     child: Row(
                       children: [
                         SvgPicture.asset("s_asset/images/mobilemoney.svg",height: 36,width: 36,),
@@ -277,14 +277,14 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
 
                           children: [
                             Container(
-                                margin:EdgeInsets.only(left:10.0),
-                                child: Text(MyString.mobile_money,style: TextStyle(color:MyColors.color_text,fontSize:16,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),)),
+                                margin:const EdgeInsets.only(left:10.0),
+                                child: const Text(MyString.mobile_money,style: TextStyle(color:MyColors.color_text,fontSize:16,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/raleway/raleway_medium.ttf"),)),
                             hSizedBox,
                             Padding(
-                              padding:  EdgeInsets.only(top:10.0),
+                              padding:  const EdgeInsets.only(top:10.0),
                               child: Container(
-                                margin:EdgeInsets.only(left:10.0),
-                                child: Row(
+                                margin:const EdgeInsets.only(left:10.0),
+                                child: const Row(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
@@ -309,18 +309,18 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
               child: Container(
 
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(12)),
+                    borderRadius: const BorderRadius.all(Radius.circular(12)),
                     border: Border.all(color: MyColors.color_text.withOpacity(0.2),width: 1.0),
                   ),
-                  padding: EdgeInsets.only(top:20,bottom:20,left:0,right: 4),
-                  margin: EdgeInsets.symmetric(vertical:10,horizontal: 60),
+                  padding: const EdgeInsets.only(top:20,bottom:20,left:0,right: 4),
+                  margin: const EdgeInsets.symmetric(vertical:10,horizontal: 60),
                   child: Container(
-                    margin: EdgeInsets.only(left:40),
+                    margin: const EdgeInsets.only(left:40),
                     child: Row(
                       children: [
                         SvgPicture.asset("s_asset/images/cashpickup.svg",height: 36,width: 36,),
                         wSizedBox3,
-                        Column(
+                        const Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
 
                           children: [
@@ -345,7 +345,7 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
             hSizedBox6,
             Container(
               color: MyColors.whiteColor,
-              margin: EdgeInsets.only(left: 15,bottom: 20,right: 15),
+              margin: const EdgeInsets.only(left: 15,bottom: 20,right: 15),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -356,7 +356,7 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
                     },
                     child: Container(
                         decoration: BoxDecoration(
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                           ],
@@ -372,23 +372,23 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
                           //color: Colors.deepPurple.shade300,
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        padding:  EdgeInsets.only(left: 28, right: 28, bottom: 15,top: 15),
-                        margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
-                        child: Text(MyString.cancel,style: TextStyle(color: MyColors.lightblueColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)
+                        padding:  const EdgeInsets.only(left: 28, right: 28, bottom: 15,top: 15),
+                        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
+                        child: const Text(MyString.cancel,style: TextStyle(color: MyColors.lightblueColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)
                     ),
                   ),
                   GestureDetector(
                     onTap: (){
                       is_check?
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AddRecipientInfoScreen())):Utility.showFlutterToast( "Please Select Delivery Method");
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>const AddRecipientInfoScreen())):Utility.showFlutterToast( "Please Select Delivery Method");
                     },
                     child: Container(
                         decoration: BoxDecoration(
-                          boxShadow: [
+                          boxShadow: const [
                             BoxShadow(
                                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                           ],
-                          gradient: LinearGradient(
+                          gradient: const LinearGradient(
                             begin: Alignment.center,
                             end: Alignment.bottomCenter,
                             //  stops: [0.0, 1.0],
@@ -400,9 +400,9 @@ class _DashSelectDeliveryMethodScreenState extends State<DashSelectDeliveryMetho
                           //color: Colors.deepPurple.shade300,
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        padding:  EdgeInsets.only(left: 28, right: 28, bottom: 15,top: 15),
-                        margin: EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
-                        child: Text(MyString.Next,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)
+                        padding:  const EdgeInsets.only(left: 28, right: 28, bottom: 15,top: 15),
+                        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 0,top: 0.0),
+                        child: const Text(MyString.Next,style: TextStyle(color: MyColors.whiteColor,fontWeight:FontWeight.w600,fontSize:18,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)
                     ),
                   ),
                 ],

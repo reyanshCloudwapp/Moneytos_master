@@ -271,7 +271,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
       // color: MyColors.blackColor.withOpacity(0.30),
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
-      child: GFLoader(
+      child: const GFLoader(
           type: GFLoaderType.custom,
           child: Image(image: AssetImage("a_assets/logo/progress_image.png"),
           )),
@@ -293,13 +293,13 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
           ),
           Container(
             color: MyColors.whiteColor,
-            margin: EdgeInsets.symmetric( vertical: 26),
+            margin: const EdgeInsets.symmetric( vertical: 26),
             child: SingleChildScrollView(
               child: Column(
                 children: [
                   hSizedBox2,
                   Container(
-                    margin: EdgeInsets.symmetric(horizontal: 20, vertical: 4),
+                    margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 4),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: MyColors.primaryColor.withOpacity(0.02)),
@@ -316,7 +316,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
 
                   hSizedBox2,
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     alignment: Alignment.topLeft,
                     child: Text(
                       MyString.new_transfer_at,
@@ -330,7 +330,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                   hSizedBox,
                   Container(
                     alignment: Alignment.centerLeft,
-                    padding: EdgeInsets.symmetric(horizontal: 8),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
                     child:   SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
@@ -402,8 +402,8 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
 
 
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 20),
-                    margin: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+                    margin: const EdgeInsets.symmetric(horizontal: 20),
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: MyColors.primaryColor.withOpacity(0.02)),
@@ -419,13 +419,13 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                           children: [
                             Container(
                               alignment: Alignment.topLeft,
-                              child: Text(scheduleDetailResponse.data!.scheduledata!.senderSendMethod.toString()=="card"?"Card":"Bank",style: TextStyle(fontSize: 16,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/montserrat/Montserrat-Bold.otf",color: MyColors.blackColor),),
+                              child: Text(scheduleDetailResponse.data!.scheduledata!.senderSendMethod.toString()=="card"?"Card":"Bank",style: const TextStyle(fontSize: 16,fontWeight: FontWeight.w700,fontFamily: "s_asset/font/montserrat/Montserrat-Bold.otf",color: MyColors.blackColor),),
                             ),
 
                             hSizedBox,
                             Container(
                               alignment: Alignment.topLeft,
-                              child: Text(scheduleDetailResponse.data!.scheduledata!.senderSendMethod.toString()=="card"?"Card - ${scheduleDetailResponse.data!.scheduledata!.senderSendMethodLast4digit.toString()}":"Account - ${scheduleDetailResponse.data!.scheduledata!.senderSendMethodLast4digit.toString()}",style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/MontserratAlternates-Medium.otf",color: MyColors.blackColor),),
+                              child: Text(scheduleDetailResponse.data!.scheduledata!.senderSendMethod.toString()=="card"?"Card - ${scheduleDetailResponse.data!.scheduledata!.senderSendMethodLast4digit.toString()}":"Account - ${scheduleDetailResponse.data!.scheduledata!.senderSendMethodLast4digit.toString()}",style: const TextStyle(fontSize: 12,fontWeight: FontWeight.w500,fontFamily: "s_asset/font/montserrat/MontserratAlternates-Medium.otf",color: MyColors.blackColor),),
                             ),
                           ],
                         ),
@@ -439,7 +439,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                   /// alert strings................
 
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Text("All scheduled transfer will be processed at 4pm CST. Transfers scheduled after 4 pm CST will be processed the following day at 4pm CST.‏",
                        textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400,fontFamily: "s_asset/font/montserrat/MontserratAlternates-Medium.otf",color: MyColors.blackColor.withOpacity(0.70),letterSpacing: 0.7)),
@@ -465,7 +465,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                   hSizedBox2,
                   Container(
                     margin:
-                    EdgeInsets.fromLTRB(20, 0, 20, 0),
+                    const EdgeInsets.fromLTRB(20, 0, 20, 0),
                     child: Row(
                       children: [
                         GestureDetector(
@@ -473,8 +473,8 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                             // pincodeShowbottomsheet(context);
                           },
                           child: Container(
-                            margin: EdgeInsets.fromLTRB(24, 0, 0, 0),
-                            child: Text(
+                            margin: const EdgeInsets.fromLTRB(24, 0, 0, 0),
+                            child: const Text(
                               "Schedule Status",
                               style: TextStyle(
                                   color:
@@ -487,7 +487,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                             ),
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         Transform.scale(
                           scale: 0.8,
                           child: CupertinoSwitch(
@@ -552,10 +552,10 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                   hSizedBox2,
 
                   scheduleDetailResponse.data!.scheduledata!.isCancelled == 1?
-                      Text("Cancelled",style: TextStyle(color: MyColors.darkred),):
+                      const Text("Cancelled",style: TextStyle(color: MyColors.darkred),):
                   ElevatedButton(
                     style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                        padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                         foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                             RoundedRectangleBorder(
@@ -573,7 +573,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                     // shape: RoundedRectangleBorder(
                     //     borderRadius: BorderRadius.circular(10.0)),
                     // color: MyColors.darkbtncolor,
-                    child: Text(
+                    child: const Text(
                       "Cancel Schedule",
                       style: TextStyle(
                           fontSize: 15,
@@ -598,7 +598,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
 
   usercard() {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
      /* margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),*/
     /*  decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
@@ -618,12 +618,12 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                       fit: BoxFit.fill,
                       image: NetworkImage(
                         scheduleDetailResponse.data!.scheduledata!.recipientImage.toString(),),
-                      placeholder: AssetImage(
+                      placeholder: const AssetImage(
                           "a_assets/logo/progress_image.png"),
                       placeholderFit: BoxFit.scaleDown,
                       imageErrorBuilder:
                           (context, error, stackTrace) {
-                        return Container(alignment:Alignment.center,child: Text(scheduleDetailResponse.data!.scheduledata!.recipientName.toString()[0].toUpperCase(),style: TextStyle(
+                        return Container(alignment:Alignment.center,child: Text(scheduleDetailResponse.data!.scheduledata!.recipientName.toString()[0].toUpperCase(),style: const TextStyle(
                             color: MyColors.shedule_color,
                             fontSize: 14,
                             fontWeight: FontWeight.w700,
@@ -647,7 +647,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             scheduleDetailResponse.data!.scheduledata!.recipientName.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 15,
                                 fontFamily:
@@ -745,7 +745,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             scheduleDetailResponse.data!.scheduledata!.recipientRecivedAmount.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 14,
                                 fontFamily:
@@ -760,7 +760,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             scheduleDetailResponse.data!.scheduledata!.receivingCurrency.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 8,
                                 fontFamily:
@@ -799,7 +799,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                           alignment: Alignment.topLeft,
                           child: Text(
                             scheduleDetailResponse.data!.scheduledata!.trasnsferReason.toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 13.60,
                                 fontFamily:
@@ -824,7 +824,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
   deliveryMethid() {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 0),
      // margin: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
       // decoration: BoxDecoration(
       //     borderRadius: BorderRadius.circular(10),
@@ -859,7 +859,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         scheduleDetailResponse.data!.scheduledata!.senderSendMethod.toString()=="check"?'Bank Account' : scheduleDetailResponse.data!.scheduledata!.senderSendMethod.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             fontFamily:
@@ -903,7 +903,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         scheduleDetailResponse.data!.scheduledata!.recipientReceiveMethod.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w700,
                             fontFamily:
@@ -938,7 +938,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
   CalenderList(String date, String month,String CheckDate) {
     print("CheckDate>> "+CheckDate);
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 5,),
+      padding: const EdgeInsets.symmetric(horizontal: 5,),
       child: Material(
         elevation: 60,
        shadowColor: MyColors.lightblueColor.withOpacity(0.08),
@@ -952,7 +952,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
               borderRadius: BorderRadius.circular(50),
             color: MyColors.whiteColor,
           ),
-          padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 15),
           child: Column(
             children: [
               Text(date,style: TextStyle(color: MyColors.lightblueColor.withOpacity(0.50),fontWeight: FontWeight.w700,fontFamily: "s_asset/font/montserrat/Montserrat-Bold.otf",fontSize: 18),),
@@ -989,7 +989,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
           ]
         )
       ),
-      padding: EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
 
@@ -1014,7 +1014,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
 
                 Container(
                   alignment: Alignment.topLeft,
-                  child: Text(
+                  child: const Text(
                     MyString.depend_on_day_of_transfer,
                     style: TextStyle(
                         color: MyColors.blackColor,
@@ -1053,7 +1053,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         scheduleDetailResponse.data!.scheduledata!.sendAmount.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 14,
                             fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -1066,7 +1066,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         scheduleDetailResponse.data!.scheduledata!.sendingCurrency.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 8,
                             fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",
@@ -1105,7 +1105,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                       alignment: Alignment.topLeft,
                       child: Text(
                         scheduleDetailResponse.data!.scheduledata!.monyetosfee.toString(),
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 14,
                             fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -1116,7 +1116,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                     wSizedBox,
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text(
+                      child: const Text(
                         MyString.usd,
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -1144,9 +1144,9 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
           Container(
             height: 0.5,
             child: DottedBorder(
-              color: Color(0xffE9EDF2),
+              color: const Color(0xffE9EDF2),
               strokeWidth: 0.5,
-              dashPattern: [8, 4],
+              dashPattern: const [8, 4],
               child: Container(),
             ),
           ),
@@ -1176,7 +1176,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                         alignment: Alignment.topLeft,
                         child: Text(
                           (double.parse(scheduleDetailResponse.data!.scheduledata!.sendAmount.toString())+double.parse(scheduleDetailResponse.data!.scheduledata!.monyetosfee.toString())).toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.blackColor,
                               fontSize: 20,
                               fontFamily: "s_asset/font/raleway/raleway_extrabold.ttf",
@@ -1187,7 +1187,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                       wSizedBox,
                       Container(
                         alignment: Alignment.topLeft,
-                        child: Text(
+                        child: const Text(
                           MyString.usd,
                           style: TextStyle(
                               color: MyColors.blackColor,
@@ -1249,9 +1249,9 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+        contentPadding: const EdgeInsets.only(top: 10.0),
         content: Container(
           width: 300.0,
           child: SingleChildScrollView(
@@ -1263,19 +1263,19 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
 
 
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
 
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
 
 
 
 
-                        Text(
+                        const Text(
                           "Are you sure, you want to Cancel?",
                           style: TextStyle(
                               fontSize: 16,
@@ -1285,7 +1285,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                         ),
 
 
-                        SizedBox(height: 40,),
+                        const SizedBox(height: 40,),
 
                         Row(
                           children: [
@@ -1293,7 +1293,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                               flex:1,
                               child: ElevatedButton(
                                 style: ButtonStyle(
-                                    padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                    padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -1311,7 +1311,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                                 // shape: RoundedRectangleBorder(
                                 //     borderRadius: BorderRadius.circular(10.0)),
                                 // color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "No",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -1321,12 +1321,12 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             Expanded(
                               flex:1,
                               child: ElevatedButton(
                                 style: ButtonStyle(
-                                    padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                    padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -1348,7 +1348,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                                 // shape: RoundedRectangleBorder(
                                 //     borderRadius: BorderRadius.circular(10.0)),
                                 // color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "Yes",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -1361,7 +1361,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                           ],
                         ),
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                       ],
                     ),
                   ),),
@@ -1382,9 +1382,9 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
-        contentPadding: EdgeInsets.only(top: 10.0),
+        contentPadding: const EdgeInsets.only(top: 10.0),
         content: Container(
           width: 300.0,
           child: SingleChildScrollView(
@@ -1396,19 +1396,19 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
 
 
                 Container(
-                  margin: EdgeInsets.all(20),
+                  margin: const EdgeInsets.all(20),
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
 
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
 
 
 
 
-                        Text(
+                        const Text(
                           "Are you sure, you want to Delete?",
                           style: TextStyle(
                               fontSize: 16,
@@ -1418,7 +1418,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                         ),
 
 
-                        SizedBox(height: 40,),
+                        const SizedBox(height: 40,),
 
                         Row(
                           children: [
@@ -1426,7 +1426,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                               flex:1,
                               child: ElevatedButton(
                                 style: ButtonStyle(
-                                    padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                    padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -1444,7 +1444,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                                 // shape: RoundedRectangleBorder(
                                 //     borderRadius: BorderRadius.circular(10.0)),
                                 // color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "No",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -1454,12 +1454,12 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 10,),
+                            const SizedBox(width: 10,),
                             Expanded(
                               flex:1,
                               child: ElevatedButton(
                                 style: ButtonStyle(
-                                    padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
+                                    padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.fromLTRB(25.0, 12.0, 25.0, 12.0)),
                                     foregroundColor: MaterialStateProperty.all<Color>(MyColors.darkbtncolor),
                                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
@@ -1481,7 +1481,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                                 // shape: RoundedRectangleBorder(
                                 //     borderRadius: BorderRadius.circular(10.0)),
                                 // color: MyColors.darkbtncolor,
-                                child: Text(
+                                child: const Text(
                                   "Yes",
                                   style: TextStyle(
                                       fontSize: 15,
@@ -1494,7 +1494,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
                           ],
                         ),
 
-                        SizedBox(height: 10,),
+                        const SizedBox(height: 10,),
                       ],
                     ),
                   ),),

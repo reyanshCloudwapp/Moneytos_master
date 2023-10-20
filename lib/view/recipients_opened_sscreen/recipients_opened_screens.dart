@@ -1559,7 +1559,7 @@ class _RecipientsOpenedScreenState extends State<RecipientsOpenedScreen> {
                       )
                     : Container(),
                 document_status == "pending"
-                    ? Column(
+                    ? const Column(
                         children: [
                           Text(
                             "We will notify you as soon as you’re approved.",

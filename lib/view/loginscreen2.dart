@@ -214,12 +214,12 @@ class _LoginScreen2State extends State<LoginScreen2> {
     var size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: const Size.fromHeight(150),
         child: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
           backgroundColor: MyColors.light_primarycolor2,
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.color_03153B,
 
@@ -228,9 +228,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
             statusBarBrightness: Brightness.dark, // For iOS (dark icons)
           ),
           flexibleSpace: Container(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             alignment: Alignment.center,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: MyColors.color_03153B,
               image: DecorationImage(
                   image: AssetImage("s_asset/images/bgimage.png",),
@@ -240,7 +240,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
             child: Column(
               children: [
                 Container(
-                    margin: EdgeInsets.only(top: 50.0,left: 0.0),
+                    margin: const EdgeInsets.only(top: 50.0,left: 0.0),
                     child: Align(
                         alignment: Alignment.center,
                         child: SvgPicture.asset('a_assets/images/logo.svg',fit: BoxFit.cover,))),
@@ -256,7 +256,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
           children: [
             Container(
               height: size.height * 0.3,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 //color: MyColors.primaryColor,
                   image: DecorationImage(
                       image: AssetImage("s_asset/images/bgimage.png",),
@@ -280,7 +280,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
             Container(
 
               // color: MyColors.whiteColor,
-              margin: EdgeInsets.only(top: 5.0),
+              margin: const EdgeInsets.only(top: 5.0),
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               child: Material(
@@ -289,14 +289,14 @@ class _LoginScreen2State extends State<LoginScreen2> {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: Container(
-                  margin: EdgeInsets.only(top: 40.0,left: 20.0,right: 20.0),
+                  margin: const EdgeInsets.only(top: 40.0,left: 20.0,right: 20.0),
                   child: SingleChildScrollView(
                     child: Column(
 
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Align(
+                        const Align(
                             alignment: Alignment.center,
                             child: Text("Welcome Back",style: TextStyle(fontSize: 26,fontWeight: FontWeight.w500,color: MyColors.blackColor),)),
                         Column(
@@ -317,7 +317,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                         //is_phoneborder == true? MyColors.lightblueColor.withOpacity(0.90): MyColors.lightblueColor.withOpacity(0.03),
                                       ),
                                       borderRadius: BorderRadius.circular(15)),
-                                  margin:  EdgeInsets.fromLTRB(20.0, 42.0, 16.0, 0.0),
+                                  margin:  const EdgeInsets.fromLTRB(20.0, 42.0, 16.0, 0.0),
                                   child: Row(
                                     children: [
 
@@ -329,7 +329,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                         initialSelection: 'CA',
                                         // favorite: ['+91','IN'],
                                         showCountryOnly: false,
-                                        textStyle: TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w300),
+                                        textStyle: const TextStyle(color: MyColors.primaryColor,fontWeight: FontWeight.w300),
                                         showOnlyCountryWhenClosed: false,
                                         alignLeft: false,
                                         showFlag: false,
@@ -361,14 +361,14 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                             setState(() {
                                             });
                                           },
-                                          style: TextStyle(
+                                          style: const TextStyle(
 
                                               color:MyColors.blackColor,
                                               fontSize: 12,
                                               fontFamily: "s_asset/font/raleway/raleway_medium.ttf"
 
                                           ),
-                                          decoration: InputDecoration(
+                                          decoration: const InputDecoration(
                                               hintText: 'Phone Number',
                                               border: InputBorder.none,
                                               fillColor: MyColors.whiteColor,
@@ -391,9 +391,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 ),
 
                                 ismobileerror == true ?  Container(
-                                  margin:  EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
+                                  margin:  const EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
                                   alignment: Alignment.topLeft,
-                                  child: Text(mobileerror,style: TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
+                                  child: Text(mobileerror,style: const TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
                                     : Container()
 
                               ],
@@ -453,7 +453,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                       border: Border.all(color: passbordercolor,width: 1),
                                       borderRadius: BorderRadius.circular(15)),
                                   width: MediaQuery.of(context).size.width,
-                                  margin:  EdgeInsets.fromLTRB(20.0, 26.0, 16.0, 0.0),
+                                  margin:  const EdgeInsets.fromLTRB(20.0, 26.0, 16.0, 0.0),
 
                                   child: TextField(
                                     controller: passController,
@@ -467,7 +467,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                       passfillcolor = MyColors.lightblueColor.withOpacity(0.03);
                                       setState(() {});
                                     },
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color:MyColors.blackColor,
                                         fontSize: 12,
                                         fontWeight: FontWeight.w400,
@@ -490,11 +490,11 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                       hintText: 'Password',
                                       border: InputBorder.none,
                                       fillColor: MyColors.whiteColor,
-                                      contentPadding: EdgeInsets.symmetric(horizontal: 22,vertical: 15),
+                                      contentPadding: const EdgeInsets.symmetric(horizontal: 22,vertical: 15),
 
 
 
-                                      enabledBorder: OutlineInputBorder(
+                                      enabledBorder: const OutlineInputBorder(
 
 
                                         borderSide: BorderSide(width: 1, color:MyColors.color_FAFAFC),
@@ -510,9 +510,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                   ),
                                 ),
                                 ispasserror == true ?  Container(
-                                  margin:  EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
+                                  margin:  const EdgeInsets.fromLTRB(25.0, 5.0, 16.0, 0.0),
                                   alignment: Alignment.topLeft,
-                                  child: Text(passerror,style: TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
+                                  child: Text(passerror,style: const TextStyle(color: MyColors.red,fontSize: 12,fontFamily: "s_asset/font/raleway/raleway_semibold.ttf",fontWeight: FontWeight.w600),),)
                                     : Container()
                                 /*   new FlutterPwValidator(
                                     controller: passController,
@@ -535,7 +535,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                             ),
 
                             Padding(
-                              padding:  EdgeInsets.only(right: 18.0,top: 16.0),
+                              padding:  const EdgeInsets.only(right: 18.0,top: 16.0),
                               child: Align(
                                   alignment: Alignment.centerRight,
                                   child: GestureDetector(
@@ -543,16 +543,16 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                         Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPasswordScreen()));
 
                                       },
-                                      child: Text("Forgot Password !",style: TextStyle(color: MyColors.color_3F84E5,fontSize:14,fontWeight: FontWeight.w400,fontFamily: "a_assets/font/poppins_regular.ttf" ),))),
+                                      child: const Text("Forgot Password !",style: TextStyle(color: MyColors.color_3F84E5,fontSize:14,fontWeight: FontWeight.w400,fontFamily: "a_assets/font/poppins_regular.ttf" ),))),
                             ),
 
                             Padding(
-                              padding:  EdgeInsets.only(top:60.0),
+                              padding:  const EdgeInsets.only(top:60.0),
                               child: Align(
 
                                 alignment: Alignment.center,
                                 child: ElevatedButton(
-                                  child: Text('Log in'),
+                                  child: const Text('Log in'),
                                   onPressed: () {
                                     pass_focus.unfocus();
                                     mobilefocus.unfocus();
@@ -612,12 +612,12 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                   },
                                   style: ElevatedButton.styleFrom(
                                       primary: MyColors.lightblueColor,
-                                      padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                                      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 15),
 
-                                      shape: RoundedRectangleBorder(
+                                      shape: const RoundedRectangleBorder(
                                           borderRadius: BorderRadius.all(Radius.circular(13.0))
                                       ),
-                                      textStyle: TextStyle(
+                                      textStyle: const TextStyle(
                                           fontSize: 18,
                                           fontFamily: "s_asset/font/maven/mavenpro_bold.ttf",
                                           fontWeight: FontWeight.bold)),
@@ -625,10 +625,10 @@ class _LoginScreen2State extends State<LoginScreen2> {
                               ),
                             ),
 
-                            SizedBox(
+                            const SizedBox(
                               height: 80,
                             ),
-                            Align(
+                            const Align(
                                 alignment: Alignment.center,
                                 child: Text("Not Registered yet?",style: TextStyle(color: MyColors.color_text,fontSize:14,fontWeight: FontWeight.w400,fontFamily: "a_assets/font/poppins_regular.ttf" ),)),
 
@@ -641,7 +641,7 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                 },
                                 child: Container(
                                     decoration: BoxDecoration(
-                                      boxShadow: [
+                                      boxShadow: const [
                                         BoxShadow(
                                             color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
                                       ],
@@ -657,9 +657,9 @@ class _LoginScreen2State extends State<LoginScreen2> {
                                       //color: Colors.deepPurple.shade300,
                                       borderRadius: BorderRadius.circular(13),
                                     ),
-                                    padding:  EdgeInsets.only(left: 25, right: 25, bottom: 15,top: 15),
-                                    margin: EdgeInsets.only(left: 20, right: 20, bottom: 25,top: 24),
-                                    child: Text("Create an Account",style: TextStyle(color: MyColors.color_3F84E5,fontSize:16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)
+                                    padding:  const EdgeInsets.only(left: 25, right: 25, bottom: 15,top: 15),
+                                    margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25,top: 24),
+                                    child: const Text("Create an Account",style: TextStyle(color: MyColors.color_3F84E5,fontSize:16,fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),)
                                 ),
                               ),
                             ),

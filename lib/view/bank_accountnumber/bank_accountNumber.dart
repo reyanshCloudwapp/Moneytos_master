@@ -171,9 +171,9 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
     return Scaffold(
       backgroundColor: MyColors.whiteColor,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(50),
+        preferredSize: const Size.fromHeight(50),
         child: AppBar(
-          systemOverlayStyle: SystemUiOverlayStyle(
+          systemOverlayStyle: const SystemUiOverlayStyle(
             // Status bar color
             statusBarColor: MyColors.whiteColor,
             statusBarIconBrightness: Brightness.dark,
@@ -185,8 +185,8 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
           backgroundColor: MyColors.whiteColor,
           centerTitle: true,
           title: Container(
-              margin: EdgeInsets.only(top: 20),
-              child: Text(
+              margin: const EdgeInsets.only(top: 20),
+              child: const Text(
                 MyString.bank_account_number,
                 style: TextStyle(
                     color: MyColors.blackColor,
@@ -197,7 +197,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
         ),
       ),
       bottomNavigationBar: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         color: MyColors.whiteColor,
         height: 80,
         child: Row(
@@ -304,7 +304,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                     },
                     child: Container(
                       width: double.infinity,
-                      margin: EdgeInsets.fromLTRB(
+                      margin: const EdgeInsets.fromLTRB(
                           20.0, 0.0, 20.0, 0.0),
                       decoration: BoxDecoration(
                         color: MyColors.color_93B9EE
@@ -312,7 +312,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                         border: Border.all(
                             color: MyColors
                                 .color_gray_transparent),
-                        borderRadius: BorderRadius.all(
+                        borderRadius: const BorderRadius.all(
                             Radius.circular(12.0)),
                       ),
                       child: TextFormField(
@@ -325,7 +325,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                         textInputAction:
                         TextInputAction.done,
 
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: MyColors.blackColor,
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
@@ -350,7 +350,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
                           // fillColor: MyColors.color_gray_transparent,
                           contentPadding:
-                          EdgeInsets.symmetric(
+                          const EdgeInsets.symmetric(
                               horizontal: 16,
                               vertical: 12),
                         ),
@@ -363,12 +363,12 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                     String search_value = niumroutingcodetypeList[0].value!;
                     String payout_method = "LOCAL";
                     searchbanknamebyifscApi(context, country_isoCode2, search_key, search_value, destcountryCurrency_isoCode3, payout_method, search_key);
-                  }, child: Container(margin: EdgeInsets.only(right: 23,top: 10), alignment:Alignment.centerRight, child: Text("Validate",style: TextStyle(color: MyColors.lightblueColor),))),
+                  }, child: Container(margin: const EdgeInsets.only(right: 23,top: 10), alignment:Alignment.centerRight, child: const Text("Validate",style: TextStyle(color: MyColors.lightblueColor),))),
                   hSizedBox3,
                 ],
               ):
               ListView.builder(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 shrinkWrap: true,
                   // padding: const EdgeInsets.all(8),
                   itemCount: niumroutingcodetypeList.length,
@@ -377,7 +377,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                       children: [
                         Container(
                           width: double.infinity,
-                          margin: EdgeInsets.fromLTRB(
+                          margin: const EdgeInsets.fromLTRB(
                               20.0, 0.0, 20.0, 0.0),
                           decoration: BoxDecoration(
                             color: MyColors.color_93B9EE
@@ -385,7 +385,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                             border: Border.all(
                                 color: MyColors
                                     .color_gray_transparent),
-                            borderRadius: BorderRadius.all(
+                            borderRadius: const BorderRadius.all(
                                 Radius.circular(12.0)),
                           ),
                           child: TextFormField(
@@ -423,7 +423,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                               setState(() {});
                             },
 
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: MyColors.blackColor,
                                 fontSize: 12,
                                 fontWeight: FontWeight.w400,
@@ -448,7 +448,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
                               // fillColor: MyColors.color_gray_transparent,
                               contentPadding:
-                              EdgeInsets.symmetric(
+                              const EdgeInsets.symmetric(
                                   horizontal: 16,
                                   vertical: 12),
                             ),
@@ -460,7 +460,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                           String search_value = niumroutingcodetypeList[index].value!;
                           String payout_method = "LOCAL";
                           searchbanknamebyifscApi(context, country_isoCode2, search_key, search_value, destcountryCurrency_isoCode3, payout_method, search_key);
-                        }, child: Container(margin: EdgeInsets.only(right: 23,top: 10), alignment:Alignment.centerRight, child: Text("Validate",style: TextStyle(color: MyColors.lightblueColor),))):Container(),
+                        }, child: Container(margin: const EdgeInsets.only(right: 23,top: 10), alignment:Alignment.centerRight, child: const Text("Validate",style: TextStyle(color: MyColors.lightblueColor),))):Container(),
                         hSizedBox3,
                       ],
                     );
@@ -471,14 +471,14 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
               banklistModel.bankName.toString()=="null"?Container():
               partnerPaymentMethod=="mfs" || partnerPaymentMethod=="juba"?
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 height: 55,
                 width: double.infinity,
-                margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                 decoration: BoxDecoration(
                   color: MyColors.color_93B9EE.withOpacity(0.1),
                   border: Border.all(color: MyColors.color_gray_transparent),
-                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                  borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                 ),
                 child: DropdownButtonHideUnderline(
                   child: StatefulBuilder(
@@ -488,7 +488,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                         child: DropdownButton2<Banklist>(
                           isExpanded: true,
                           value: banklistModel,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.blackColor,
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
@@ -531,14 +531,14 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
               jubaBanklistModel.bankName.toString()=="null"?Container():
               partnerPaymentMethod=="juba"?
               Container(
-                padding: EdgeInsets.symmetric(horizontal: 15),
+                padding: const EdgeInsets.symmetric(horizontal: 15),
                 height: 55,
                 width: double.infinity,
-                margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+                margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
                 decoration: BoxDecoration(
                   color: MyColors.color_93B9EE.withOpacity(0.1),
                   border: Border.all(color: MyColors.color_gray_transparent),
-                  borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                  borderRadius: const BorderRadius.all(Radius.circular(12.0)),
                 ),
                 child: DropdownButtonHideUnderline(
                   child: StatefulBuilder(
@@ -548,7 +548,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                         child: DropdownButton2<JubaBanklist>(
                           isExpanded: true,
                           value: jubaBanklistModel,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: MyColors.blackColor,
                               fontSize: 12,
                               fontWeight: FontWeight.w400,
@@ -593,7 +593,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                 hSizedBox3,
                 Container(
                   width: double.infinity,
-                  margin: EdgeInsets.fromLTRB(
+                  margin: const EdgeInsets.fromLTRB(
                       20.0, 0.0, 20.0, 0.0),
                   decoration: BoxDecoration(
                     color: MyColors.color_93B9EE
@@ -601,7 +601,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                     border: Border.all(
                         color: MyColors
                             .color_gray_transparent),
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                         Radius.circular(12.0)),
                   ),
                   child: TextFormField(
@@ -622,7 +622,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                       setState(() {});
                     },
 
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: MyColors.blackColor,
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
@@ -647,7 +647,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
                       // fillColor: MyColors.color_gray_transparent,
                       contentPadding:
-                      EdgeInsets.symmetric(
+                      const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 12),
                     ),
@@ -661,7 +661,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
               hSizedBox3,
               Container(
                 width: double.infinity,
-                margin: EdgeInsets.fromLTRB(
+                margin: const EdgeInsets.fromLTRB(
                     20.0, 0.0, 20.0, 0.0),
                 decoration: BoxDecoration(
                   color: MyColors.color_93B9EE
@@ -669,7 +669,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                   border: Border.all(
                       color: MyColors
                           .color_gray_transparent),
-                  borderRadius: BorderRadius.all(
+                  borderRadius: const BorderRadius.all(
                       Radius.circular(12.0)),
                 ),
                 child: TextFormField(
@@ -689,7 +689,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                     setState(() {});
                   },
 
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: MyColors.blackColor,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
@@ -714,11 +714,11 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
                     // fillColor: MyColors.color_gray_transparent,
                     contentPadding:
-                    EdgeInsets.symmetric(
+                    const EdgeInsets.symmetric(
                         horizontal: 16,
                         vertical: 12),
                   ),
-                  keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
+                  keyboardType: const TextInputType.numberWithOptions(signed: true,decimal: false),
                 ),
               ),
 
@@ -731,7 +731,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                   },
                   child: Container(
                     width: double.infinity,
-                    margin: EdgeInsets.fromLTRB(
+                    margin: const EdgeInsets.fromLTRB(
                         20.0, 0.0, 20.0, 0.0),
                     decoration: BoxDecoration(
                       color: MyColors.color_93B9EE
@@ -739,7 +739,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                       border: Border.all(
                           color: MyColors
                               .color_gray_transparent),
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                           Radius.circular(12.0)),
                     ),
                     child: TextFormField(
@@ -760,7 +760,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                         setState(() {});
                       },
 
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: MyColors.blackColor,
                           fontSize: 12,
                           fontWeight: FontWeight.w400,
@@ -785,11 +785,11 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
                         // fillColor: MyColors.color_gray_transparent,
                         contentPadding:
-                        EdgeInsets.symmetric(
+                        const EdgeInsets.symmetric(
                             horizontal: 16,
                             vertical: 12),
                       ),
-                      keyboardType: TextInputType.numberWithOptions(signed: true,decimal: false),
+                      keyboardType: const TextInputType.numberWithOptions(signed: true,decimal: false),
                     ),
                   ),
                 ),
@@ -800,7 +800,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                 hSizedBox3,
                 Container(
                   width: double.infinity,
-                  margin: EdgeInsets.fromLTRB(
+                  margin: const EdgeInsets.fromLTRB(
                       20.0, 0.0, 20.0, 0.0),
                   decoration: BoxDecoration(
                     color: MyColors.color_93B9EE
@@ -808,7 +808,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                     border: Border.all(
                         color: MyColors
                             .color_gray_transparent),
-                    borderRadius: BorderRadius.all(
+                    borderRadius: const BorderRadius.all(
                         Radius.circular(12.0)),
                   ),
                   child: TextFormField(
@@ -828,7 +828,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                       setState(() {});
                     },
 
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: MyColors.blackColor,
                         fontSize: 12,
                         fontWeight: FontWeight.w400,
@@ -853,7 +853,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
                       // fillColor: MyColors.color_gray_transparent,
                       contentPadding:
-                      EdgeInsets.symmetric(
+                      const EdgeInsets.symmetric(
                           horizontal: 16,
                           vertical: 12),
                     ),
@@ -864,7 +864,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
               ],):
               Container(),
 
-              SizedBox(height: 100,)
+              const SizedBox(height: 100,)
               /*  IBAN(),
              hSizedBox2,
              hSizedBox1,
@@ -891,7 +891,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(20))),
         content: Container(
           width: 300.0,
@@ -909,7 +909,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      Text(
+                      const Text(
                         "Select Bank Account Type",
                         style: TextStyle(
                             color: MyColors.blackColor,
@@ -921,7 +921,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
                       ListView.builder(
                           shrinkWrap: true,
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: listtype.length,
                           itemBuilder: (BuildContext context, int index) {
                             return InkWell(
@@ -932,11 +932,11 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                                 });
                                 },
                               child: Container(
-                                padding: EdgeInsets.only(top: 20),
+                                padding: const EdgeInsets.only(top: 20),
                                 child: Row(
                                   children: [
-                                    Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
-                                    SizedBox(width: 10,),
+                                    const Icon(Icons.radio_button_off_sharp,color: MyColors.primaryColor,),
+                                    const SizedBox(width: 10,),
                                     Expanded(child: Text('${listtype[index]}')),
                                   ],
                                 ),
@@ -945,7 +945,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                           }
                       ),
 
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                     ],
                   ),),
 
@@ -975,16 +975,16 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
         cursorColor: MyColors.primaryColor,
         decoration: InputDecoration(
           fillColor: MyColors.blueColor.withOpacity(0.40),
-          border: OutlineInputBorder(
+          border: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          focusedBorder: OutlineInputBorder(
+          focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(color: MyColors.whiteColor)),
-          contentPadding: EdgeInsets.symmetric(horizontal: 15),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 15),
           hintText: MyString.iban_code,
           suffixIcon: Padding(
-            padding: EdgeInsets.all(12),
+            padding: const EdgeInsets.all(12),
             child: SvgPicture.asset(
               "a_assets/icons/paste.svg",
               height: 15,
@@ -1011,9 +1011,9 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
       //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
       child: Container(
-          padding: EdgeInsets.only(left: 10,right: 10),
+          padding: const EdgeInsets.only(left: 10,right: 10),
           decoration: BoxDecoration(
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                   color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
             ],
@@ -1029,11 +1029,11 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
             //color: Colors.deepPurple.shade300,
             borderRadius: BorderRadius.circular(10),
           ),
-          margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
+          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
           child: Center(
               child: Text(
             text,
-            style: TextStyle(
+            style: const TextStyle(
                 color: MyColors.whiteColor,
                 fontSize: 17,
                 fontFamily: "s_asset/font/raleway/raleway_bold.ttf"),
@@ -1106,7 +1106,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                   BankAccountOptionsModel optionmodel =
                       BankAccountOptionsModel.fromJson(element);
                   optionBanklist.add(optionmodel);
-                  slect_bank_type = optionBanklist.length > 0 ?   optionBanklist[0].id.toString() : "" ;
+                  slect_bank_type = optionBanklist.isNotEmpty ?   optionBanklist[0].id.toString() : "" ;
                   print("optionmodel ${slect_bank_type}");
                 });
               }
@@ -1230,16 +1230,16 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
   dropd(String name, BankAccountNumberFieldSetsModel model, int index) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15,vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 15,vertical: 16),
       // height: 55,
       width: double.infinity,
-      margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+      margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
       decoration: BoxDecoration(
         color: MyColors.color_93B9EE.withOpacity(0.1),
         border: Border.all(color: MyColors.color_gray_transparent),
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
       ),
-      child:Text("",style: TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),)
+      child:const Text("",style: TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),)
 
       /*DropdownButtonHideUnderline(
         child: StatefulBuilder(
@@ -1284,14 +1284,14 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
   addressstatedropd(
       String name, BankAccountNumberFieldSetsModel model, int index) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       height: 55,
       width: double.infinity,
-      margin: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
+      margin: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0),
       decoration: BoxDecoration(
         color: MyColors.color_93B9EE.withOpacity(0.1),
         border: Border.all(color: MyColors.color_gray_transparent),
-        borderRadius: BorderRadius.all(Radius.circular(12.0)),
+        borderRadius: const BorderRadius.all(Radius.circular(12.0)),
       ),
       child: DropdownButtonHideUnderline(
         child: StatefulBuilder(
@@ -1301,15 +1301,15 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
               child: DropdownButton2(
                 isExpanded: true,
                 value: selectedCategory2,
-                style: TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),
+                style: const TextStyle(color: MyColors.blackColor,fontSize: 13,fontWeight: FontWeight.w600,fontFamily:"s_asset/font/raleway/raleway_bold.ttf"),
                 items: optionBanklist.map((BankAccountOptionsModel model) {
                   return new DropdownMenuItem<String>(
                       value: model.id.toString(),
                       child: new Text(model.name.toString()));
                 }).toList(),
                 hint: Text(
-                  "${optionBanklist.length > 0 ? optionBanklist[0].name.toString() : ""}",
-                  style: TextStyle(
+                  "${optionBanklist.isNotEmpty ? optionBanklist[0].name.toString() : ""}",
+                  style: const TextStyle(
                       color: MyColors.blackColor,
                       fontSize: 13,
                       fontWeight: FontWeight.w600),
@@ -1412,9 +1412,9 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
       List<dynamic> jsonResponse = convert.jsonDecode(response.body);
       if (response.statusCode == 200) {
         // Utility.showFlutterToast( jsonResponse['message']);
-        jsonResponse.length>0?
+        jsonResponse.isNotEmpty?
         bankNameController.text = jsonResponse[0]["bank_name"].toString():
-        Utility.showFlutterToast("Invalid IFSC");;
+        Utility.showFlutterToast("Invalid IFSC");
         setState(() {
 
         });
@@ -1454,9 +1454,9 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
     if (jsonResponse['status'] == true) {
       mfsbanklistBycountryiso2Response = await MfsbanklistBycountryiso2Response.fromJson(jsonResponse);
-      banklistModel = mfsbanklistBycountryiso2Response.data!.banklist!.length >0 ? mfsbanklistBycountryiso2Response.data!.banklist![0]:new Banklist();
-      selectedMFSBankName = mfsbanklistBycountryiso2Response.data!.banklist!.length >0 ? mfsbanklistBycountryiso2Response.data!.banklist![0].bankName.toString():"";
-      selectedMFSBankCode = mfsbanklistBycountryiso2Response.data!.banklist!.length >0 ? mfsbanklistBycountryiso2Response.data!.banklist![0].mfsBankCode.toString():"";
+      banklistModel = mfsbanklistBycountryiso2Response.data!.banklist!.isNotEmpty ? mfsbanklistBycountryiso2Response.data!.banklist![0]:new Banklist();
+      selectedMFSBankName = mfsbanklistBycountryiso2Response.data!.banklist!.isNotEmpty ? mfsbanklistBycountryiso2Response.data!.banklist![0].bankName.toString():"";
+      selectedMFSBankCode = mfsbanklistBycountryiso2Response.data!.banklist!.isNotEmpty ? mfsbanklistBycountryiso2Response.data!.banklist![0].mfsBankCode.toString():"";
 
       // Utility.ProgressloadingDialog(context, false);
 
@@ -1494,9 +1494,9 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
 
     if (jsonResponse['status'] == true) {
       jubabanklistBycountryiso2Response = await JubabanklistBycountryiso2Response.fromJson(jsonResponse);
-      jubaBanklistModel = jubabanklistBycountryiso2Response.data!.banklist!.length >0 ? jubabanklistBycountryiso2Response.data!.banklist![0]:new JubaBanklist();
-      selectedMFSBankName = jubabanklistBycountryiso2Response.data!.banklist!.length >0 ? jubabanklistBycountryiso2Response.data!.banklist![0].bankName.toString():"";
-      selectedMFSBankCode = jubabanklistBycountryiso2Response.data!.banklist!.length >0 ? jubabanklistBycountryiso2Response.data!.banklist![0].jubaNominatedCode.toString():"";
+      jubaBanklistModel = jubabanklistBycountryiso2Response.data!.banklist!.isNotEmpty ? jubabanklistBycountryiso2Response.data!.banklist![0]:new JubaBanklist();
+      selectedMFSBankName = jubabanklistBycountryiso2Response.data!.banklist!.isNotEmpty ? jubabanklistBycountryiso2Response.data!.banklist![0].bankName.toString():"";
+      selectedMFSBankCode = jubabanklistBycountryiso2Response.data!.banklist!.isNotEmpty ? jubabanklistBycountryiso2Response.data!.banklist![0].jubaNominatedCode.toString():"";
 
       // Utility.ProgressloadingDialog(context, false);
 
@@ -1612,7 +1612,7 @@ Custombtn(String text, double height, double width, BuildContext context) {
     //  padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height / 6,vertical:MediaQuery.of(context).size.width / 8 ),
     child: Container(
         decoration: BoxDecoration(
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.white, offset: Offset(0, 4), blurRadius: 5.0)
           ],
@@ -1628,11 +1628,11 @@ Custombtn(String text, double height, double width, BuildContext context) {
           //color: Colors.deepPurple.shade300,
           borderRadius: BorderRadius.circular(10),
         ),
-        margin: EdgeInsets.only(left: 20, right: 20, bottom: 25),
+        margin: const EdgeInsets.only(left: 20, right: 20, bottom: 25),
         child: Center(
             child: Text(
           text,
-          style: TextStyle(
+          style: const TextStyle(
               color: MyColors.lightblueColor,
               fontSize: 17,
               fontWeight: FontWeight.w600),
