@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "612846089571",
+    "project_id": "moneytos-e92b4",
+    "storage_bucket": "moneytos-e92b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612846089571:android:643e2facb275be32d38f56",
+        "android_client_info": {
+          "package_name": "com.cwx.moneytos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612846089571-rg3ffml9o5f00foc062odcdf5vt255ap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cwx.moneytos",
+            "certificate_hash": "238c035040800c68833cb10fcb3bba35d5767d69"
+          }
+        },
+        {
+          "client_id": "612846089571-0ba48h40g5boeokk32u0htvrnp8saiq6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUZU655UwguNxj-OpO0wBCs0Sm_qawtPA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612846089571-0ba48h40g5boeokk32u0htvrnp8saiq6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

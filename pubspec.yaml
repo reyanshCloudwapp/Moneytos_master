@@ -1,0 +1,218 @@
+name: moneytos
+description: A new Flutter project.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.  
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+version: 1.0.3+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  flutter_svg: any
+  fl_chart: ^0.55.1
+  persistent_bottom_nav_bar: ^4.0.0
+  flutter_otp_text_field: ^1.1.1
+  pin_code_fields: ^7.4.0
+  otp_text_field: ^1.1.3
+  country_code_picker: ^2.0.2
+  fluttertoast: ^8.0.8
+  shared_preferences: ^2.0.15
+  toggle_switch: ^2.0.1
+  flutter_slidable: ^2.0.0
+  dotted_border: ^2.0.0+2
+  flutter_calendar_carousel: any
+  device_info_plus: ^3.0.1
+  intl: ^0.17.0
+  sizer: ^2.0.15
+  http: ^0.13.4
+  firebase_core: ^2.4.1
+  firebase_messaging: ^14.2.1
+  flutter_local_notifications: ^9.9.1
+  flutter_pw_validator: ^1.4.2
+  pretty_http_logger: ^0.2.1
+  image_picker: any
+  getwidget: ^3.0.1
+  path_provider: ^2.0.11
+  keyboard_actions: ^4.0.1
+  local_auth: ^2.1.2
+  notification_permissions: ^0.6.1
+  webviewx: ^0.2.1
+  page_transition: ^2.0.9
+  screenshot: ^2.1.0
+  pdf: ^3.8.4
+  flutter_share: ^2.0.0
+  flutter_inappwebview:
+  permission_handler:
+  shimmer: ^2.0.0-nullsafety.0
+  dart_ipify: ^1.1.1
+  upgrader: ^4.8.1
+  url_launcher: ^6.1.11
+  provider: ^5.0.0
+  dropdown_button2: ^1.4.0
+
+
+dependency_overrides:
+  modal_bottom_sheet:
+    git:
+      url: https://github.com/danReynolds/modal_bottom_sheet.git
+      path: modal_bottom_sheet
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add a_assets to your application, add an a_assets section, like this:
+  assets:
+    - a_assets/images/
+    - a_assets/images/onboarding_img/
+    - a_assets/logo/
+    - a_assets/icons/
+    - a_assets/icons/recipent_icon/
+    - a_assets/icons/choose_doc/
+    - a_assets/icons/bottombar_icon/
+    - s_asset/images/
+    - s_asset/font/
+    - s_asset/font/maven/
+    - s_asset/font/montserrat/
+    - s_asset/font/raleway/
+    - s_asset/font/circularstd/
+  #   - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding a_assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Montserrat
+      fonts:
+        - asset: s_asset/font/montserrat/Montserrat-Black.otf
+        - asset: s_asset/font/montserrat/Montserrat-BlackItalic.otf
+        - asset: s_asset/font/montserrat/Montserrat-Bold.otf
+        - asset: s_asset/font/montserrat/Montserrat-BoldItalic.otf
+        - asset: s_asset/font/montserrat/Montserrat-ExtraBold.otf
+        - asset: s_asset/font/montserrat/Montserrat-ExtraBoldItalic.otf
+        - asset: s_asset/font/montserrat/Montserrat-ExtraLight.otf
+        - asset: s_asset/font/montserrat/Montserrat-ExtraLightItalic.otf
+        - asset: s_asset/font/montserrat/Montserrat-Italic.otf
+        - asset: s_asset/font/montserrat/Montserrat-Light.otf
+        - asset: s_asset/font/montserrat/Montserrat-LightItalic.otf
+        - asset: s_asset/font/montserrat/Montserrat-Medium.otf
+        - asset: s_asset/font/montserrat/Montserrat-MediumItalic.otf
+        - asset: s_asset/font/montserrat/Montserrat-Regular.otf
+        - asset: s_asset/font/montserrat/Montserrat-SemiBold.otf
+        - asset: s_asset/font/montserrat/Montserrat-SemiBoldItalic.otf
+        - asset: s_asset/font/montserrat/Montserrat-Thin.otf
+        - asset: s_asset/font/montserrat/Montserrat-ThinItalic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-Black.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-BlackItalic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-Bold.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-BoldItalic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-ExtraBold.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-ExtraBoldItalic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-ExtraLight.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-ExtraLightItalic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-Italic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-Light.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-LightItalic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-Medium.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-MediumItalic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-Regular.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-SemiBold.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-SemiBoldItalic.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-Thin.otf
+        - asset: s_asset/font/montserrat/MontserratAlternates-ThinItalic.otf
+
+
+
+    - family: Raleway
+      fonts:
+        - asset: s_asset/font/raleway/raleway_black.ttf
+        - asset: s_asset/font/raleway/raleway_blackItalic.ttf
+        - asset: s_asset/font/raleway/raleway_bold.ttf
+        - asset: s_asset/font/raleway/raleway_boldItalic.ttf
+        - asset: s_asset/font/raleway/raleway_extrabold.ttf
+        - asset: s_asset/font/raleway/raleway_extraboldItalic.ttf
+        - asset: s_asset/font/raleway/raleway_extralight.ttf
+        - asset: s_asset/font/raleway/raleway_extralightItalic.ttf
+        - asset: s_asset/font/raleway/raleway_italic.ttf
+        - asset: s_asset/font/raleway/raleway_light.ttf
+        - asset: s_asset/font/raleway/raleway_lightItalic.ttf
+        - asset: s_asset/font/raleway/raleway_medium.ttf
+        - asset: s_asset/font/raleway/raleway_mediumItalic.ttf
+        - asset: s_asset/font/raleway/raleway_regular.ttf
+        - asset: s_asset/font/raleway/raleway_semibold.ttf
+        - asset: s_asset/font/raleway/raleway_semiboldItalic.ttf
+        - asset: s_asset/font/raleway/raleway_thin.ttf
+        - asset: s_asset/font/raleway/raleway_thinItalic.ttf
+
+
+
+    - family: MavenPro
+      fonts:
+        - asset: s_asset/font/maven/mavenpro_black.ttf
+        - asset: s_asset/font/maven/mavenpro_bold.ttf
+        - asset: s_asset/font/maven/MavenPro-Medium.ttf
+        - asset: s_asset/font/maven/MavenPro-Regular.ttf
+        - asset: s_asset/font/maven/MavenPro-SemiBold.ttf
+
+    - family: circularstd
+      fonts:
+        - asset: s_asset/font/circularstd/circular_std_medium.ttf
+
+
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

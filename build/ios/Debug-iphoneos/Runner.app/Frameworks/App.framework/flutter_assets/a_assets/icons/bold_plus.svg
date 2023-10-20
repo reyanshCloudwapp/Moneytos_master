@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29">
+  <g id="Iconly_Bold_Plus" data-name="Iconly/Bold/Plus" transform="translate(0.5 0.5)">
+    <g id="Plus" transform="translate(0 0)">
+      <path id="Plus-2" data-name="Plus" d="M20.538,28H7.462a7.489,7.489,0,0,1-5.521-1.951A7.5,7.5,0,0,1,0,20.538V7.462A7.5,7.5,0,0,1,1.941,1.941,7.5,7.5,0,0,1,7.462,0H20.524a7.521,7.521,0,0,1,5.523,1.941A7.483,7.483,0,0,1,28,7.462V20.538C28,25.28,25.28,28,20.538,28ZM8.862,12.824A1.147,1.147,0,0,0,7.7,13.986a1.174,1.174,0,0,0,1.162,1.176h3.963v3.963a1.162,1.162,0,0,0,2.323,0V15.162h3.977a1.169,1.169,0,0,0,0-2.337H15.148V8.876a1.162,1.162,0,1,0-2.323,0v3.949Z" transform="translate(0 0)" fill="#fff" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
