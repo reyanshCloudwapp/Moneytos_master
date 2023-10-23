@@ -28,8 +28,8 @@ class _SheduledTransferScreenState extends State<SheduledTransferScreen> {
   DateTime _targetStartDateTime = DateTime.now();
   String is_date_select = 'start_date';
 
-  DateTime _currentEndDate = DateTime.now();
-  DateTime _currentEndDate2 = DateTime.now();
+  DateTime currentEndDate = DateTime.now();
+  DateTime currentEndDate2 = DateTime.now();
   String _currentEndMonth = DateFormat.yMMM().format(DateTime.now());
   DateTime _targetEndDateTime = DateTime.now();
 
@@ -254,13 +254,13 @@ class _SheduledTransferScreenState extends State<SheduledTransferScreen> {
     _calendarCarouselEndDate = CalendarCarousel<Event>(
       //todayBorderColor: Colors.green,
       onDayPressed: (DateTime date, List<Event> events) {
-        setState(() => _currentEndDate2 = date);
+        setState(() => currentEndDate2 = date);
         for (var event in events) {
           debugPrint(event.title);
         }
-        end_date = Utility.DatefomatToTimezoneDate(_currentEndDate2.toString());
+        end_date = Utility.DatefomatToTimezoneDate(currentEndDate2.toString());
         selected_end_date =
-            Utility.DatefomatToScheduleDate(_currentEndDate2.toString());
+            Utility.DatefomatToScheduleDate(currentEndDate2.toString());
       },
       // daysHaveCircularBorder: true,
       showOnlyCurrentMonthDate: false,
@@ -276,7 +276,7 @@ class _SheduledTransferScreenState extends State<SheduledTransferScreen> {
       markedDatesMap: _markedDateMap,
       weekdayTextStyle: const TextStyle(color: MyColors.greycolor),
       height: 420.0,
-      selectedDateTime: selected_end_date.isEmpty ? null : _currentEndDate2,
+      selectedDateTime: selected_end_date.isEmpty ? null : currentEndDate2,
       targetDateTime: _targetEndDateTime,
 
       customGridViewPhysics: const NeverScrollableScrollPhysics(),
@@ -295,8 +295,8 @@ class _SheduledTransferScreenState extends State<SheduledTransferScreen> {
       selectedDayTextStyle: const TextStyle(
         color: Colors.white,
       ),
-      minSelectedDate: _currentEndDate.add(const Duration(days: -1)),
-      maxSelectedDate: _currentEndDate.add(const Duration(days: 360)),
+      minSelectedDate: currentEndDate.add(const Duration(days: -1)),
+      maxSelectedDate: currentEndDate.add(const Duration(days: 360)),
       prevDaysTextStyle: const TextStyle(
         fontSize: 16,
         color: Colors.black38,
@@ -419,7 +419,7 @@ class _SheduledTransferScreenState extends State<SheduledTransferScreen> {
               } else if (selected_end_date.isEmpty) {
                 Utility.showFlutterToast('Select End Date');
               } else {
-                if (_currentStartDate2.isAfter(_currentEndDate2)) {
+                if (_currentStartDate2.isAfter(currentEndDate2)) {
                   Utility.showFlutterToast(
                     'End date cannot be lower than start date.',
                   );
