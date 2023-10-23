@@ -15,14 +15,14 @@ class SheduledTransferScreen extends StatefulWidget {
 class _SheduledTransferScreenState extends State<SheduledTransferScreen> {
   String statustext = MyString.once;
 
-  DateTime _currentDate = DateTime.now();
+  final DateTime _currentDate = DateTime.now();
   DateTime _currentDate2 = DateTime.now();
   String _currentMonth = DateFormat.yMMM().format(DateTime.now());
   DateTime _targetDateTime = DateTime.now();
   String Selected_Date = '';
   String start_date = 'Start Date', end_date = 'End Date';
   String selected_start_date = '', selected_end_date = '';
-  DateTime _currentStartDate = DateTime.now();
+  final DateTime _currentStartDate = DateTime.now();
   DateTime _currentStartDate2 = DateTime.now();
   String _currentStartMonth = DateFormat.yMMM().format(DateTime.now());
   DateTime _targetStartDateTime = DateTime.now();
@@ -49,7 +49,7 @@ class _SheduledTransferScreenState extends State<SheduledTransferScreen> {
     ),
   );
 
-  EventList<Event> _markedDateMap = EventList<Event>(
+  final EventList<Event> _markedDateMap = EventList<Event>(
     events: {
       DateTime(2020, 2, 10): [
         Event(
