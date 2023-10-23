@@ -29,36 +29,37 @@ class UserDataModel {
   String? stepsecstatus;
   int? free_transation;
 
-  UserDataModel(
-      {this.id,
-        this.name,
-        this.email,
-        this.mobileNumber,
-        this.countryCode,
-        this.address,
-        this.country,
-        this.state,
-        this.city,
-        this.isDelete,
-        this.emailVerified,
-        this.profileImage,
-        this.dob,
-        this.timezone,
-        this.language,
-        this.mobileVerify,
-        this.accountStatus,
-        this.documentStatus,
-        this.isPinEnabled,
-        this.is_face_enabled,
-        this.pin,
-        this.magicpay_customer_id,
-        this.createdAt,
-        this.updatedAt,
-        this.authToken,
-        this.unique_id,
-        this.referral_id,
-        this.stepsecstatus,
-        this.free_transation});
+  UserDataModel({
+    this.id,
+    this.name,
+    this.email,
+    this.mobileNumber,
+    this.countryCode,
+    this.address,
+    this.country,
+    this.state,
+    this.city,
+    this.isDelete,
+    this.emailVerified,
+    this.profileImage,
+    this.dob,
+    this.timezone,
+    this.language,
+    this.mobileVerify,
+    this.accountStatus,
+    this.documentStatus,
+    this.isPinEnabled,
+    this.is_face_enabled,
+    this.pin,
+    this.magicpay_customer_id,
+    this.createdAt,
+    this.updatedAt,
+    this.authToken,
+    this.unique_id,
+    this.referral_id,
+    this.stepsecstatus,
+    this.free_transation,
+  });
 
   UserDataModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -93,36 +94,36 @@ class UserDataModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['email'] = this.email;
-    data['mobile_number'] = this.mobileNumber;
-    data['country_code'] = this.countryCode;
-    data['address'] = this.address;
-    data['country'] = this.country;
-    data['state'] = this.state;
-    data['city'] = this.city;
-    data['is_delete'] = this.isDelete;
-    data['email_verified'] = this.emailVerified;
-    data['profileImage'] = this.profileImage;
-    data['dob'] = this.dob;
-    data['timezone'] = this.timezone;
-    data['language'] = this.language;
-    data['mobile_verify'] = this.mobileVerify;
-    data['account_status'] = this.accountStatus;
-    data['document_status'] = this.documentStatus;
-    data['is_pin_enabled'] = this.isPinEnabled;
-    data['is_face_enabled'] = this.is_face_enabled;
-    data['pin'] = this.pin;
-    data['magicpay_customer_id'] = this.magicpay_customer_id;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['auth_token'] = this.authToken;
-    data['unique_id'] = this.unique_id;
-    data['referral_id'] = this.referral_id;
-    data['stepsecstatus'] = this.stepsecstatus;
-    data['free_transation'] = this.free_transation;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['email'] = email;
+    data['mobile_number'] = mobileNumber;
+    data['country_code'] = countryCode;
+    data['address'] = address;
+    data['country'] = country;
+    data['state'] = state;
+    data['city'] = city;
+    data['is_delete'] = isDelete;
+    data['email_verified'] = emailVerified;
+    data['profileImage'] = profileImage;
+    data['dob'] = dob;
+    data['timezone'] = timezone;
+    data['language'] = language;
+    data['mobile_verify'] = mobileVerify;
+    data['account_status'] = accountStatus;
+    data['document_status'] = documentStatus;
+    data['is_pin_enabled'] = isPinEnabled;
+    data['is_face_enabled'] = is_face_enabled;
+    data['pin'] = pin;
+    data['magicpay_customer_id'] = magicpay_customer_id;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['auth_token'] = authToken;
+    data['unique_id'] = unique_id;
+    data['referral_id'] = referral_id;
+    data['stepsecstatus'] = stepsecstatus;
+    data['free_transation'] = free_transation;
     return data;
   }
 }

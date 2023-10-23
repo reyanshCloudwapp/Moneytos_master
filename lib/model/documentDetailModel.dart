@@ -12,19 +12,20 @@ class DocumentDataDetailModel {
   String? createdAt;
   String? updatedAt;
 
-  DocumentDataDetailModel(
-      {this.id,
-        this.userId,
-        this.documentType,
-        this.documentId,
-        this.ducumentFrontImage,
-        this.ducumentBackImage,
-        this.documentStatus,
-        this.ducumentStatusChangeAt,
-        this.rejectReason,
-        this.approvedBy,
-        this.createdAt,
-        this.updatedAt});
+  DocumentDataDetailModel({
+    this.id,
+    this.userId,
+    this.documentType,
+    this.documentId,
+    this.ducumentFrontImage,
+    this.ducumentBackImage,
+    this.documentStatus,
+    this.ducumentStatusChangeAt,
+    this.rejectReason,
+    this.approvedBy,
+    this.createdAt,
+    this.updatedAt,
+  });
 
   DocumentDataDetailModel.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -43,18 +44,18 @@ class DocumentDataDetailModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['id'] = this.id;
-    data['user_id'] = this.userId;
-    data['document_type'] = this.documentType;
-    data['document_id'] = this.documentId;
-    data['ducument_front_image'] = this.ducumentFrontImage;
-    data['ducument_back_image'] = this.ducumentBackImage;
-    data['document_status'] = this.documentStatus;
-    data['ducument_status_change_at'] = this.ducumentStatusChangeAt;
-    data['reject_reason'] = this.rejectReason;
-    data['approved_by'] = this.approvedBy;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    data['id'] = id;
+    data['user_id'] = userId;
+    data['document_type'] = documentType;
+    data['document_id'] = documentId;
+    data['ducument_front_image'] = ducumentFrontImage;
+    data['ducument_back_image'] = ducumentBackImage;
+    data['document_status'] = documentStatus;
+    data['ducument_status_change_at'] = ducumentStatusChangeAt;
+    data['reject_reason'] = rejectReason;
+    data['approved_by'] = approvedBy;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
     return data;
   }
 }

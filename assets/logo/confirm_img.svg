@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="120" viewBox="0 0 128 120">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#f8c63e"/>
+      <stop offset="1" stop-color="#fcb901"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_3982" data-name="Group 3982" transform="translate(0 -0.279)">
+    <circle id="Ellipse_529" data-name="Ellipse 529" cx="50" cy="50" r="50" transform="translate(13 19.279)" fill="url(#linear-gradient)"/>
+    <circle id="Ellipse_530" data-name="Ellipse 530" cx="5" cy="5" r="5" transform="translate(118 19.279)" fill="url(#linear-gradient)"/>
+    <ellipse id="Ellipse_531" data-name="Ellipse 531" cx="8" cy="7.5" rx="8" ry="7.5" transform="translate(0 0.279)" fill="url(#linear-gradient)"/>
+    <ellipse id="Ellipse_532" data-name="Ellipse 532" cx="3.5" cy="4" rx="3.5" ry="4" transform="translate(0 97.279)" fill="url(#linear-gradient)"/>
+    <ellipse id="Ellipse_533" data-name="Ellipse 533" cx="2" cy="1.5" rx="2" ry="1.5" transform="translate(112 117.279)" fill="url(#linear-gradient)"/>
+    <ellipse id="Ellipse_534" data-name="Ellipse 534" cx="2" cy="1.5" rx="2" ry="1.5" transform="translate(89 88.279)" fill="#fff"/>
+    <circle id="Ellipse_535" data-name="Ellipse 535" cx="3" cy="3" r="3" transform="translate(31 53.279)" fill="#fff"/>
+    <circle id="Ellipse_536" data-name="Ellipse 536" cx="1" cy="1" r="1" transform="translate(78 39.279)" fill="#fff"/>
+    <circle id="Ellipse_537" data-name="Ellipse 537" cx="1.5" cy="1.5" r="1.5" transform="translate(45 100.279)" fill="#fff"/>
+    <ellipse id="Ellipse_538" data-name="Ellipse 538" cx="0.5" cy="1" rx="0.5" ry="1" transform="translate(53 30.279)" fill="#fff"/>
+    <g id="Iconly_Bold_Danger" data-name="Iconly/Bold/Danger" transform="translate(59.579 51.747)">
+      <g id="Danger" transform="translate(0)">
+        <path id="Danger-2" data-name="Danger" d="M4.061,36.967A4.069,4.069,0,1,1,8.076,32.85,4.072,4.072,0,0,1,4.061,36.967Zm0-12.082A4.1,4.1,0,0,1,0,20.814V4.02a4.038,4.038,0,0,1,8.076,0V20.814A4.072,4.072,0,0,1,6.9,23.681,3.954,3.954,0,0,1,4.061,24.885Z" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

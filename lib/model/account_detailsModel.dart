@@ -6,13 +6,14 @@ class AccountsDetailModel {
   String? accountNumber;
   List<AccountDetailFieldsModel>? fields;
 
-  AccountsDetailModel(
-      {this.dstCurrencyIso3Code,
-        this.dstCountryIso3Code,
-        this.transferMethod,
-        this.recipientAccountId,
-        this.accountNumber,
-        this.fields});
+  AccountsDetailModel({
+    this.dstCurrencyIso3Code,
+    this.dstCountryIso3Code,
+    this.transferMethod,
+    this.recipientAccountId,
+    this.accountNumber,
+    this.fields,
+  });
 
   AccountsDetailModel.fromJson(Map<String, dynamic> json) {
     dstCurrencyIso3Code = json['dstCurrencyIso3Code'];
@@ -23,20 +24,20 @@ class AccountsDetailModel {
     if (json['fields'] != null) {
       fields = <AccountDetailFieldsModel>[];
       json['fields'].forEach((v) {
-        fields!.add(new AccountDetailFieldsModel.fromJson(v));
+        fields!.add(AccountDetailFieldsModel.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['dstCurrencyIso3Code'] = this.dstCurrencyIso3Code;
-    data['dstCountryIso3Code'] = this.dstCountryIso3Code;
-    data['transferMethod'] = this.transferMethod;
-    data['recipientAccountId'] = this.recipientAccountId;
-    data['accountNumber'] = this.accountNumber;
-    if (this.fields != null) {
-      data['fields'] = this.fields!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['dstCurrencyIso3Code'] = dstCurrencyIso3Code;
+    data['dstCountryIso3Code'] = dstCountryIso3Code;
+    data['transferMethod'] = transferMethod;
+    data['recipientAccountId'] = recipientAccountId;
+    data['accountNumber'] = accountNumber;
+    if (fields != null) {
+      data['fields'] = fields!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -58,11 +59,11 @@ class AccountDetailFieldsModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['type'] = this.type;
-    data['value'] = this.value;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['type'] = type;
+    data['value'] = value;
     return data;
   }
 }

@@ -11,15 +11,15 @@ class PurposeCodesResponse {
     if (json['data'] != null) {
       data = <PurposeData>[];
       json['data'].forEach((v) {
-        data!.add(new PurposeData.fromJson(v));
+        data!.add(PurposeData.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -40,18 +40,19 @@ class PurposeData {
   String? updatedAt;
   int? isShow;
 
-  PurposeData(
-      {this.id,
-        this.purposeCode,
-        this.purposeCodeDescription,
-        this.tradePurposeCode,
-        this.p2P,
-        this.remarks,
-        this.additionalDetails,
-        this.uPIPaymentSupported,
-        this.createdAt,
-        this.updatedAt,
-        this.isShow});
+  PurposeData({
+    this.id,
+    this.purposeCode,
+    this.purposeCodeDescription,
+    this.tradePurposeCode,
+    this.p2P,
+    this.remarks,
+    this.additionalDetails,
+    this.uPIPaymentSupported,
+    this.createdAt,
+    this.updatedAt,
+    this.isShow,
+  });
 
   PurposeData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -68,18 +69,18 @@ class PurposeData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['Purpose_Code'] = this.purposeCode;
-    data['Purpose_Code_Description'] = this.purposeCodeDescription;
-    data['Trade_Purpose_Code'] = this.tradePurposeCode;
-    data['P2P'] = this.p2P;
-    data['Remarks'] = this.remarks;
-    data['Additional_Details'] = this.additionalDetails;
-    data['UPI_Payment_Supported'] = this.uPIPaymentSupported;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
-    data['is_show'] = this.isShow;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['Purpose_Code'] = purposeCode;
+    data['Purpose_Code_Description'] = purposeCodeDescription;
+    data['Trade_Purpose_Code'] = tradePurposeCode;
+    data['P2P'] = p2P;
+    data['Remarks'] = remarks;
+    data['Additional_Details'] = additionalDetails;
+    data['UPI_Payment_Supported'] = uPIPaymentSupported;
+    data['created_at'] = createdAt;
+    data['updated_at'] = updatedAt;
+    data['is_show'] = isShow;
     return data;
   }
 }

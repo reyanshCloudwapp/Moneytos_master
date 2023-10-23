@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="322.27" height="201.7" viewBox="0 0 322.27 201.7">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#65a2f9"/>
+      <stop offset="1" stop-color="#3f84e5"/>
+    </linearGradient>
+  </defs>
+  <g id="face_ID" data-name="face ID" transform="translate(253.299 0.286)">
+    <path id="Subtraction_13" data-name="Subtraction 13" d="M20.339,21.924a.9.9,0,0,1-.931-.871v-7.47A11.968,11.968,0,0,0,7.351,1.734H.931A.9.9,0,0,1,0,.871.9.9,0,0,1,.931,0h6.42A13.77,13.77,0,0,1,21.27,13.583v7.47A.9.9,0,0,1,20.339,21.924Z" transform="translate(47.701 -0.286)" fill="url(#linear-gradient)"/>
+    <path id="Subtraction_12" data-name="Subtraction 12" d="M7.351,21.924H.931a.869.869,0,1,1,0-1.733h6.42A11.968,11.968,0,0,0,19.407,8.341V.871a.933.933,0,0,1,1.863,0v7.47A13.77,13.77,0,0,1,7.351,21.924Z" transform="translate(47.701 178.077)" fill="url(#linear-gradient)"/>
+    <path id="Subtraction_10" data-name="Subtraction 10" d="M.931,21.924A.9.9,0,0,1,0,21.053V13.571A13.752,13.752,0,0,1,13.883,0l6.568,0a.9.9,0,0,1,.931.871.9.9,0,0,1-.933.867l-6.566,0A11.949,11.949,0,0,0,1.865,13.571v7.482A.905.905,0,0,1,.931,21.924Z" transform="translate(-253.299 -0.286)" fill="url(#linear-gradient)"/>
+    <path id="Subtraction_11" data-name="Subtraction 11" d="M20.448,23.334h0v-1.41l-6.565,0A13.752,13.752,0,0,1,0,8.353V.871A.9.9,0,0,1,.931,0a.9.9,0,0,1,.934.871V8.353a11.951,11.951,0,0,0,12.018,11.83l6.568,0a.87.87,0,1,1,0,1.737Z" transform="translate(-253.299 178.08)" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

@@ -3,7 +3,11 @@ class ReasonForSendingFieldSetsModel {
   String? fieldSetName;
   List<ReasongforSendinItemFieldsModel>? fields;
 
-  ReasonForSendingFieldSetsModel({this.fieldSetId, this.fieldSetName, this.fields});
+  ReasonForSendingFieldSetsModel({
+    this.fieldSetId,
+    this.fieldSetName,
+    this.fields,
+  });
 
   ReasonForSendingFieldSetsModel.fromJson(Map<String, dynamic> json) {
     fieldSetId = json['fieldSetId'];
@@ -11,17 +15,17 @@ class ReasonForSendingFieldSetsModel {
     if (json['fields'] != null) {
       fields = <ReasongforSendinItemFieldsModel>[];
       json['fields'].forEach((v) {
-        fields!.add(new ReasongforSendinItemFieldsModel.fromJson(v));
+        fields!.add(ReasongforSendinItemFieldsModel.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['fieldSetId'] = this.fieldSetId;
-    data['fieldSetName'] = this.fieldSetName;
-    if (this.fields != null) {
-      data['fields'] = this.fields!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['fieldSetId'] = fieldSetId;
+    data['fieldSetName'] = fieldSetName;
+    if (fields != null) {
+      data['fields'] = fields!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -38,23 +42,24 @@ class ReasongforSendinItemFieldsModel {
   bool? isRequired;
   String? placeholderText;
 
-  ReasongforSendinItemFieldsModel(
-      {this.fieldType,
-        this.options,
-        this.minLength,
-        this.maxLength,
-        this.fieldId,
-        this.name,
-        this.hintText,
-        this.isRequired,
-        this.placeholderText});
+  ReasongforSendinItemFieldsModel({
+    this.fieldType,
+    this.options,
+    this.minLength,
+    this.maxLength,
+    this.fieldId,
+    this.name,
+    this.hintText,
+    this.isRequired,
+    this.placeholderText,
+  });
 
   ReasongforSendinItemFieldsModel.fromJson(Map<String, dynamic> json) {
     fieldType = json['fieldType'];
     if (json['options'] != null) {
       options = <ReasonforSendingOptionsModel>[];
       json['options'].forEach((v) {
-        options!.add(new ReasonforSendingOptionsModel.fromJson(v));
+        options!.add(ReasonforSendingOptionsModel.fromJson(v));
       });
     }
     minLength = json['minLength'];
@@ -67,18 +72,18 @@ class ReasongforSendinItemFieldsModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['fieldType'] = this.fieldType;
-    if (this.options != null) {
-      data['options'] = this.options!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['fieldType'] = fieldType;
+    if (options != null) {
+      data['options'] = options!.map((v) => v.toJson()).toList();
     }
-    data['minLength'] = this.minLength;
-    data['maxLength'] = this.maxLength;
-    data['fieldId'] = this.fieldId;
-    data['name'] = this.name;
-    data['hintText'] = this.hintText;
-    data['isRequired'] = this.isRequired;
-    data['placeholderText'] = this.placeholderText;
+    data['minLength'] = minLength;
+    data['maxLength'] = maxLength;
+    data['fieldId'] = fieldId;
+    data['name'] = name;
+    data['hintText'] = hintText;
+    data['isRequired'] = isRequired;
+    data['placeholderText'] = placeholderText;
     return data;
   }
 }
@@ -95,9 +100,9 @@ class ReasonforSendingOptionsModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
     return data;
   }
 }

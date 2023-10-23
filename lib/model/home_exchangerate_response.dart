@@ -11,15 +11,15 @@ class HomeExchangerateResponse {
     if (json['data'] != null) {
       data = <ExchangeRateData>[];
       json['data'].forEach((v) {
-        data!.add(new ExchangeRateData.fromJson(v));
+        data!.add(ExchangeRateData.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }
@@ -33,7 +33,12 @@ class ExchangeRateData {
   String? currency;
   int? totalTransactions;
 
-  ExchangeRateData({this.iso3, this.totalRate, this.currency, this.totalTransactions});
+  ExchangeRateData({
+    this.iso3,
+    this.totalRate,
+    this.currency,
+    this.totalTransactions,
+  });
 
   ExchangeRateData.fromJson(Map<String, dynamic> json) {
     iso3 = json['iso3'];
@@ -43,11 +48,11 @@ class ExchangeRateData {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['iso3'] = this.iso3;
-    data['total_rate'] = this.totalRate;
-    data['currency'] = this.currency;
-    data['total_transactions'] = this.totalTransactions;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['iso3'] = iso3;
+    data['total_rate'] = totalRate;
+    data['currency'] = currency;
+    data['total_transactions'] = totalTransactions;
     return data;
   }
 }

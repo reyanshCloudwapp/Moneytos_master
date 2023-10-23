@@ -1,43 +1,36 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
 import 'package:moneytos/main.dart';
 import 'package:moneytos/model/account_detailsModel.dart';
 import 'package:moneytos/model/reasonforSendingModel.dart';
 import 'package:moneytos/model/usermodel.dart';
 import 'package:moneytos/model/userprefences.dart';
-import 'package:moneytos/s_Api/s_utils/Utility.dart';
+import 'package:moneytos/screens/changepasswordscreen/changepasswordscreen.dart';
+import 'package:moneytos/screens/dash_settingscreen/setting_changePass/setting_changePassword.dart';
+import 'package:moneytos/screens/home/s_home/selectdeliverymethod/selectdeliverymethod.dart';
+import 'package:moneytos/screens/loginscreen/dashboard_LoginScreen.dart';
+import 'package:moneytos/screens/loginscreen/foregot_otpScreen.dart';
+import 'package:moneytos/screens/loginscreen2.dart';
+import 'package:moneytos/screens/otpverifyscreen/LoginOtpVerifyScreen.dart';
+import 'package:moneytos/screens/otpverifyscreen/otpverifyscreen.dart';
 import 'package:moneytos/services/Apiservices.dart';
-import 'package:moneytos/view/dashboardScreen/dashboard.dart';
-import 'package:moneytos/view/loginscreen/dashboard_LoginScreen.dart';
-import 'package:moneytos/view/loginscreen/foregot_otpScreen.dart';
-import 'package:moneytos/view/loginscreen/loginscreen.dart';
-import 'package:moneytos/view/loginscreen2.dart';
-import 'dart:convert' as convert;
-
-import 'package:moneytos/view/otpverifyscreen/otpverifyscreen.dart';
+import 'package:moneytos/services/s_Api/s_utils/Utility.dart';
+import 'package:moneytos/utils/constance/customLoader/customLoader.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:pretty_http_logger/pretty_http_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../constance/customLoader/customLoader.dart';
 import '../model/RecipientFiealdModel.dart';
 import '../model/chart_Model.dart';
 import '../model/documentDetailModel.dart';
-import '../view/changepasswordscreen/changepasswordscreen.dart';
-import '../view/dash_settingscreen/setting_changePass/setting_changePassword.dart';
-import '../view/dash_settingscreen/setting_vaerification_screen.dart';
-import '../view/dash_settingscreen/setting_verification_successfully_screen.dart';
-import '../view/home/s_home/selectdeliverymethod/selectdeliverymethod.dart';
-import '../view/otpverifyscreen/LoginOtpVerifyScreen.dart';
 
 class Webservices {
   static Future<void> submitContactNumber(
     BuildContext context,
-    String mobile_number,
-    String country_code,
+    String mobileNumber,
+    String countryCode,
     String name,
     String lastname,
     String password,
@@ -52,29 +45,42 @@ class Webservices {
     // var token = p.getString("token");
     // String email
     var request = {};
-    request['mobile_number'] = mobile_number;
-    request['country_code'] = country_code.replaceAll("+", "");
+    request['mobile_number'] = mobileNumber;
+    request['country_code'] = countryCode.replaceAll('+', '');
 
     // otpo
-    print("request ${request}");
+    debugPrint('request $request');
 
-    var response = await http.post(Uri.parse(Apiservices.submitContactNumber),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-CLIENT": "e0271afd8a3b8257af70deacee4",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    var response = await http.post(
+      Uri.parse(Apiservices.submitContactNumber),
+      body: jsonEncode(request),
+      headers: {
+        'X-CLIENT': 'e0271afd8a3b8257af70deacee4',
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (_) => OtpVerifyScreen(name, lastname, password, email,
-                  mobile_number, country_code, country, city, referralCode)));
+        context,
+        MaterialPageRoute(
+          builder: (_) => OtpVerifyScreen(
+            name,
+            lastname,
+            password,
+            email,
+            mobileNumber,
+            countryCode,
+            country,
+            city,
+            referralCode,
+          ),
+        ),
+      );
     } else {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       Utility.dialogError(context, jsonResponse['message']);
@@ -84,61 +90,66 @@ class Webservices {
   }
 
   static Future<void> verifyOtpWithRegister(
-      BuildContext context,
-      String mobile_number,
-      String country_code,
-      String otp,
-      String name,
-      String lastname,
-      String email,
-      String password,
-      String country,
-      String city,
-      String device_type,
-      String device_id,
-      String fcm_token,
-      String referralCode) async {
+    BuildContext context,
+    String mobileNumber,
+    String countryCode,
+    String otp,
+    String name,
+    String lastname,
+    String email,
+    String password,
+    String country,
+    String city,
+    String deviceType,
+    String deviceId,
+    String fcmToken,
+    String referralCode,
+  ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     //  SharedPreferences p = await SharedPreferences.getInstance();
     // var token = p.getString("token");
     // String email
     var request = {};
-    request['mobile_number'] = mobile_number;
-    request['country_code'] = country_code.replaceAll("+", "");
+    request['mobile_number'] = mobileNumber;
+    request['country_code'] = countryCode.replaceAll('+', '');
     request['otp'] = otp;
-    request['name'] = name + " " + lastname;
+    request['name'] = '$name $lastname';
     request['email'] = email;
     request['password'] = password;
     request['country'] = country;
     request['state'] = city;
-    request['language'] = "en";
-    request['timezone'] = "Asia/Kolkata";
-    request['device_type'] = device_type;
-    request['device_id'] = device_id;
-    request['fcm_token'] = fcm_token;
+    request['language'] = 'en';
+    request['timezone'] = 'Asia/Kolkata';
+    request['device_type'] = deviceType;
+    request['device_id'] = deviceId;
+    request['fcm_token'] = fcmToken;
     if (referralCode.isNotEmpty) {
       request['referral_id'] = referralCode;
     }
 
     // otpo
-    print("request ${request}");
+    debugPrint('request $request');
 
-    var response = await http.post(Uri.parse(Apiservices.verifyOtpWithRegister),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-CLIENT": "e0271afd8a3b8257af70deacee4",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    var response = await http.post(
+      Uri.parse(Apiservices.verifyOtpWithRegister),
+      body: jsonEncode(request),
+      headers: {
+        'X-CLIENT': 'e0271afd8a3b8257af70deacee4',
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       CustomLoader.ProgressloadingDialog(context, false);
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (context) => LoginScreen2()));
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen2()),
+      );
     } else {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       CustomLoader.ProgressloadingDialog(context, false);
@@ -149,58 +160,62 @@ class Webservices {
   }
 
   static Future<void> loginRequest(
-      BuildContext context,
-      String mobile_number,
-      String country_code,
-      String password,
-      //String timezone,
-      String device_type,
-      String device_id,
-      String fcm_token,
-      String ipaddress) async {
+    BuildContext context,
+    String mobileNumber,
+    String countryCode,
+    String password,
+    //String timezone,
+    String deviceType,
+    String deviceId,
+    String fcmToken,
+    String ipaddress,
+  ) async {
     CustomLoader.ProgressloadingDialog(context, true);
-    print("Countrycode...${country_code}");
+    debugPrint('Countrycode...$countryCode');
     SharedPreferences p = await SharedPreferences.getInstance();
-    var token = p.getString("token");
 
     var request = {};
 
-    request['mobile_number'] = mobile_number;
-    request['country_code'] = country_code.replaceAll("+", "");
+    request['mobile_number'] = mobileNumber;
+    request['country_code'] = countryCode.replaceAll('+', '');
     request['password'] = password;
-    request['timezone'] = "Asia/Kolkata";
-    request['device_type'] = device_type;
-    request['device_id'] = device_id;
-    request['fcm_token'] = fcm_token;
+    request['timezone'] = 'Asia/Kolkata';
+    request['device_type'] = deviceType;
+    request['device_id'] = deviceId;
+    request['fcm_token'] = fcmToken;
     request['client_ip'] = ipaddress;
 
     // otpo
-    // print("request ${request}");
-    // print("request url ${Apiservices.login}");
-    HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
-      HttpLogger(logLevel: LogLevel.BODY),
-    ]);
-    var response = await http.post(Uri.parse(Apiservices.sendLoginOtp),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-CLIENT": "e0271afd8a3b8257af70deacee4",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    // debugPrint("request ${request}");
+    // debugPrint("request url ${Apiservices.login}");
+    HttpWithMiddleware http = HttpWithMiddleware.build(
+      middlewares: [
+        HttpLogger(logLevel: LogLevel.BODY),
+      ],
+    );
+    var response = await http.post(
+      Uri.parse(Apiservices.sendLoginOtp),
+      body: jsonEncode(request),
+      headers: {
+        'X-CLIENT': 'e0271afd8a3b8257af70deacee4',
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
-      print("dfhdfjhdf");
+      debugPrint('dfhdfjhdf');
       // var userdata = jsonResponse['data'];
-      // print("userdata ${userdata}");
+      // debugPrint("userdata ${userdata}");
       // var users = userdata['userData'];
-      // print("user....${users['auth_token']}");
+      // debugPrint("user....${users['auth_token']}");
       // UserDataModel authuser = UserDataModel.fromJson(users);
-      // print("authuser...${authuser}");
-      // print("user... ${authuser.id}");
-      // print("user... ${authuser.authToken}");
+      // debugPrint("authuser...${authuser}");
+      // debugPrint("user... ${authuser.id}");
+      // debugPrint("user... ${authuser.authToken}");
       //    // p.setBool("login", true);
       // p.setString("auth", authuser.authToken.toString());
       // p.setString("userid", authuser.id.toString());
@@ -223,13 +238,14 @@ class Webservices {
         MaterialPageRoute(
           builder: (BuildContext context) {
             return LoginOtpVerifyScreen(
-                mobile_number,
-                country_code.replaceAll("+", ""),
-                password,
-                device_type,
-                device_id,
-                fcm_token,
-                ipaddress);
+              mobileNumber,
+              countryCode.replaceAll('+', ''),
+              password,
+              deviceType,
+              deviceId,
+              fcmToken,
+              ipaddress,
+            );
           },
         ),
       );
@@ -248,28 +264,30 @@ class Webservices {
   ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
-    var userid = p.getString("userid");
-    var auth = p.getString("auth");
+    var userid = p.getString('userid');
+    var auth = p.getString('auth');
     var request = {};
-    print("request ${request}");
-    print("userid ${userid}");
-    print("auth ${auth}");
+    debugPrint('request $request');
+    debugPrint('userid $userid');
+    debugPrint('auth $auth');
 
-    var response = await http.post(Uri.parse(Apiservices.logout),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-AUTHTOKEN": "${p.getString("auth")}",
-          "X-USERID": "${p.getString("userid")}",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
+    var response = await http.post(
+      Uri.parse(Apiservices.logout),
+      body: jsonEncode(request),
+      headers: {
+        'X-AUTHTOKEN': "${p.getString("auth")}",
+        'X-USERID': "${p.getString("userid")}",
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
 
-    print(response.body);
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
-      p.setBool("login", false);
+      p.setBool('login', false);
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       CustomLoader.ProgressloadingDialog(context, false);
       // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -277,7 +295,7 @@ class Webservices {
 
       pushNewScreen(
         context,
-        screen: DashboardLoginScreen(),
+        screen: const DashboardLoginScreen(),
         withNavBar: false,
       );
 
@@ -286,7 +304,7 @@ class Webservices {
       Utility.showFlutterToast(jsonResponse['message']);
       // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       // sharedPreferences.clear();
-      p.setBool("login", false);
+      p.setBool('login', false);
       CustomLoader.ProgressloadingDialog(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
@@ -294,28 +312,32 @@ class Webservices {
   }
 
   static Future<void> profileRequest(
-      BuildContext context, List<UserDataModel> userlist) async {
+    BuildContext context,
+    List<UserDataModel> userlist,
+  ) async {
 //    CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
-    var userid = p.getString("userid");
-    print("auth ${p.getString("auth")}");
+    var userid = p.getString('userid');
+    debugPrint("auth ${p.getString("auth")}");
 
     var request = {};
 
-    print("request ${request}");
+    debugPrint('request $request');
 
-    var response = await http.post(Uri.parse(Apiservices.profile),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-AUTHTOKEN": "${p.getString("auth")}",
-          "X-USERID": "${p.getString("userid")}",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    var response = await http.post(
+      Uri.parse(Apiservices.profile),
+      body: jsonEncode(request),
+      headers: {
+        'X-AUTHTOKEN': "${p.getString("auth")}",
+        'X-USERID': "${p.getString("userid")}",
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       // p.setBool("login", true);
 
@@ -323,20 +345,21 @@ class Webservices {
       var userresponse = userdata['userData'];
 
       UserDataModel authuser = UserDataModel.fromJson(userresponse);
-      print("user... ${authuser.id}");
+      debugPrint('user... ${authuser.id}');
 
-      p.setString("auth...>>>>>>>>", authuser.authToken.toString());
-      p.setString("customer_id", authuser.magicpay_customer_id.toString());
-      print("user...>>>>>>>>> ${authuser.authToken.toString()}");
-      print(
-          "customer_id...>>>>>>>>> ${authuser.magicpay_customer_id.toString()}");
+      p.setString('auth...>>>>>>>>', authuser.authToken.toString());
+      p.setString('customer_id', authuser.magicpay_customer_id.toString());
+      debugPrint('user...>>>>>>>>> ${authuser.authToken.toString()}');
+      debugPrint(
+        'customer_id...>>>>>>>>> ${authuser.magicpay_customer_id.toString()}',
+      );
 
-      p.setString("userid", authuser.id.toString());
+      p.setString('userid', authuser.id.toString());
 
       UserPreferences().saveUser(authuser);
 
       userlist.add(authuser);
-      print("user...${userlist[0].name}");
+      debugPrint('user...${userlist[0].name}');
 
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       // CustomLoader.ProgressloadingDialog(context, true);
@@ -355,12 +378,12 @@ class Webservices {
     var userid = p.getString("userid");
     var auth = p.getString("auth");
     var request = {};
-    print("request ${request}");
-    print("userid ${userid}");
-    print("auth ${auth}");
+    debugPrint("request ${request}");
+    debugPrint("userid ${userid}");
+    debugPrint("auth ${auth}");
 
     var response = await http.post(Uri.parse(Apiservices.logout),
-        body: convert.jsonEncode(request),
+        body: jsonEncode(request),
         headers: {
           "X-AUTHTOKEN": "${p.getString("auth")}",
           "X-USERID": "${p.getString("userid")}",
@@ -368,10 +391,10 @@ class Webservices {
           "accept": "application/json"
         });
 
-    print(response.body);
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse);
     if (jsonResponse['status'] == true) {
       p.setBool("login", false);
       Fluttertoast.showToast(msg: jsonResponse['message']);
@@ -399,24 +422,24 @@ class Webservices {
    // CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var userid = p.getString("userid");
-    print("auth ${p.getString("auth")}");
+    debugPrint("auth ${p.getString("auth")}");
 
     var request = {};
 
-    print("request ${request}");
+    debugPrint("request ${request}");
 
     var response = await http.post(Uri.parse(Apiservices.profile),
-        body: convert.jsonEncode(request),
+        body: jsonEncode(request),
         headers: {
           "X-AUTHTOKEN": "${p.getString("auth")}",
           "X-USERID": "${p.getString("userid")}",
           "content-type": "application/json",
           "accept": "application/json"
         });
-    print(response.body);
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse);
     if (jsonResponse['status'] == true) {
       p.setBool("login", false);
 
@@ -425,15 +448,15 @@ class Webservices {
       var userresponse = userdata['userData'];
 
       UserDataModel authuser = UserDataModel.fromJson(userresponse);
-      print("user... ${authuser.id}");
+      debugPrint("user... ${authuser.id}");
       p.setString("auth", authuser.authToken.toString());
-      print("user... ${authuser.authToken.toString()}");
+      debugPrint("user... ${authuser.authToken.toString()}");
       p.setString("userid", authuser.id.toString());
 
       UserPreferences().saveUser(authuser);
 
       userlist.add(authuser);
-      print("user...${userlist[0].name}");
+      debugPrint("user...${userlist[0].name}");
 
       Fluttertoast.showToast(msg: jsonResponse['message']);
      // CustomLoader.ProgressloadingDialog(context, true);
@@ -446,33 +469,39 @@ class Webservices {
   }*/
 
   static Future<void> forgotPasswordRequest(
-      BuildContext context, String mobile_number, String country_code) async {
+    BuildContext context,
+    String mobileNumber,
+    String countryCode,
+  ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     var request = {};
-    request['mobile_number'] = mobile_number;
-    request['country_code'] = country_code.replaceAll("+", "");
+    request['mobile_number'] = mobileNumber;
+    request['country_code'] = countryCode.replaceAll('+', '');
 
     // otpo
-    print("request ${request}");
+    debugPrint('request $request');
 
-    var response = await http.post(Uri.parse(Apiservices.forgotPassword),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-CLIENT": "e0271afd8a3b8257af70deacee4",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    var response = await http.post(
+      Uri.parse(Apiservices.forgotPassword),
+      body: jsonEncode(request),
+      headers: {
+        'X-CLIENT': 'e0271afd8a3b8257af70deacee4',
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       CustomLoader.ProgressloadingDialog(context, false);
       Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (_) =>
-                  ForgotOtpVerifyScreen(mobile_number, country_code)));
+        context,
+        MaterialPageRoute(
+          builder: (_) => ForgotOtpVerifyScreen(mobileNumber, countryCode),
+        ),
+      );
     } else {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       CustomLoader.ProgressloadingDialog(context, false);
@@ -481,36 +510,42 @@ class Webservices {
     return;
   }
 
-  static Future<void> verifyForgotPasswordOtpRequest(BuildContext context,
-      String mobile_number, String country_code, String otp) async {
+  static Future<void> verifyForgotPasswordOtpRequest(
+    BuildContext context,
+    String mobileNumber,
+    String countryCode,
+    String otp,
+  ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     var request = {};
-    request['mobile_number'] = mobile_number;
-    request['country_code'] = country_code.replaceAll("+", "");
+    request['mobile_number'] = mobileNumber;
+    request['country_code'] = countryCode.replaceAll('+', '');
     request['otp'] = otp;
 
     // otpo
-    print("request ${request}");
+    debugPrint('request $request');
 
     var response = await http.post(
-        Uri.parse(Apiservices.verifyForgotPasswordOtp),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-CLIENT": "e0271afd8a3b8257af70deacee4",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+      Uri.parse(Apiservices.verifyForgotPasswordOtp),
+      body: jsonEncode(request),
+      headers: {
+        'X-CLIENT': 'e0271afd8a3b8257af70deacee4',
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       CustomLoader.ProgressloadingDialog(context, false);
       Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-              builder: (_) =>
-                  ChangePasswordScreen(mobile_number, country_code, otp)));
+        context,
+        MaterialPageRoute(
+          builder: (_) => ChangePasswordScreen(mobileNumber, countryCode, otp),
+        ),
+      );
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
       CustomLoader.ProgressloadingDialog(context, false);
@@ -520,38 +555,43 @@ class Webservices {
   }
 
   static Future<void> resetPasswordRequest(
-      BuildContext context,
-      String mobile_number,
-      String country_code,
-      String otp,
-      String new_password,
-      String confirm_password) async {
+    BuildContext context,
+    String mobileNumber,
+    String countryCode,
+    String otp,
+    String newPassword,
+    String confirmPassword,
+  ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     var request = {};
-    request['mobile_number'] = mobile_number;
-    request['country_code'] = country_code.replaceAll("+", "");
+    request['mobile_number'] = mobileNumber;
+    request['country_code'] = countryCode.replaceAll('+', '');
     request['otp'] = otp;
-    request['new_password'] = new_password;
-    request['confirm_password'] = confirm_password;
+    request['new_password'] = newPassword;
+    request['confirm_password'] = confirmPassword;
 
     // otpo
-    print("request ${request}");
+    debugPrint('request $request');
 
-    var response = await http.post(Uri.parse(Apiservices.resetPassword),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-CLIENT": "e0271afd8a3b8257af70deacee4",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    var response = await http.post(
+      Uri.parse(Apiservices.resetPassword),
+      body: jsonEncode(request),
+      headers: {
+        'X-CLIENT': 'e0271afd8a3b8257af70deacee4',
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       CustomLoader.ProgressloadingDialog(context, false);
       Navigator.pushReplacement(
-          context, MaterialPageRoute(builder: (_) => LoginScreen2()));
+        context,
+        MaterialPageRoute(builder: (_) => const LoginScreen2()),
+      );
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
       CustomLoader.ProgressloadingDialog(context, false);
@@ -562,38 +602,40 @@ class Webservices {
 
   static Future<void> changepasswordRequest(
     BuildContext context,
-    String old_password,
-    String new_password,
-    String confirm_password,
+    String oldPassword,
+    String newPassword,
+    String confirmPassword,
   ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
-    var userid = p.getString("userid");
-    var auth = p.getString("auth");
+    var userid = p.getString('userid');
+    var auth = p.getString('auth');
     var request = {};
-    print("request ${request}");
-    print("userid ${userid}");
-    print("auth ${auth}");
+    debugPrint('request $request');
+    debugPrint('userid $userid');
+    debugPrint('auth $auth');
 
-    request['old_password'] = old_password;
-    request['new_password'] = new_password;
-    request['confirm_password'] = confirm_password;
+    request['old_password'] = oldPassword;
+    request['new_password'] = newPassword;
+    request['confirm_password'] = confirmPassword;
 
     // otpo
-    print("request ${request}");
+    debugPrint('request $request');
 
-    var response = await http.post(Uri.parse(Apiservices.changepassword),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-AUTHTOKEN": "${p.getString("auth")}",
-          "X-USERID": "${p.getString("userid")}",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    var response = await http.post(
+      Uri.parse(Apiservices.changepassword),
+      body: jsonEncode(request),
+      headers: {
+        'X-AUTHTOKEN': "${p.getString("auth")}",
+        'X-USERID': "${p.getString("userid")}",
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       CustomLoader.ProgressloadingDialog(context, false);
@@ -612,29 +654,31 @@ class Webservices {
   ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
-    var userid = p.getString("userid");
-    var auth = p.getString("auth");
+    var userid = p.getString('userid');
+    var auth = p.getString('auth');
     var request = {};
-    print("request ${request}");
-    print("userid ${userid}");
-    print("auth ${auth}");
+    debugPrint('request $request');
+    debugPrint('userid $userid');
+    debugPrint('auth $auth');
 
     request['pin'] = pin;
 
-    print("request ${request}");
+    debugPrint('request $request');
 
-    var response = await http.post(Uri.parse(Apiservices.setpin),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-AUTHTOKEN": "${p.getString("auth")}",
-          "X-USERID": "${p.getString("userid")}",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    var response = await http.post(
+      Uri.parse(Apiservices.setpin),
+      body: jsonEncode(request),
+      headers: {
+        'X-AUTHTOKEN': "${p.getString("auth")}",
+        'X-USERID': "${p.getString("userid")}",
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       CustomLoader.ProgressloadingDialog(context, false);
       confirfationDialog(context);
@@ -648,45 +692,53 @@ class Webservices {
 
   static Future<void> uploadDocumentsRequest(
     BuildContext context,
-    String document_type,
-    String document_id,
-    String ducument_front_image,
-    String ducument_back_image,
+    String documentType,
+    String documentId,
+    String ducumentFrontImage,
+    String ducumentBackImage,
   ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences pre = await SharedPreferences.getInstance();
 
     try {
-      print('route is ${Apiservices.uploadDocuments}');
+      debugPrint('route is ${Apiservices.uploadDocuments}');
       var request =
           http.MultipartRequest('POST', Uri.parse(Apiservices.uploadDocuments));
-      if (context != null && document_type != null && document_id != null) {
-        ducument_front_image == ""
+      if (context != null && documentType != null && documentId != null) {
+        ducumentFrontImage == ''
             ? null
-            : request.files.add(await http.MultipartFile.fromPath(
-                'ducument_front_image', ducument_front_image));
+            : request.files.add(
+                await http.MultipartFile.fromPath(
+                  'ducument_front_image',
+                  ducumentFrontImage,
+                ),
+              );
 
-        request.files.add(await http.MultipartFile.fromPath(
-            'ducument_back_image', ducument_back_image));
-        request.fields['document_type'] = document_type;
-        request.fields['document_id'] = document_id;
+        request.files.add(
+          await http.MultipartFile.fromPath(
+            'ducument_back_image',
+            ducumentBackImage,
+          ),
+        );
+        request.fields['document_type'] = documentType;
+        request.fields['document_id'] = documentId;
       }
 
       Map<String, String> headers = {
-        "X-AUTHTOKEN": "${pre.getString("auth")}",
-        "X-USERID": "${pre.getString("userid")}",
-        "content-type": "application/json",
-        "accept": "application/json"
+        'X-AUTHTOKEN': "${pre.getString("auth")}",
+        'X-USERID': "${pre.getString("userid")}",
+        'content-type': 'application/json',
+        'accept': 'application/json'
       };
 
-      print('the request is :${headers}');
-      print(request.fields);
-      print(request.files);
+      debugPrint('the request is :$headers');
+      debugPrint(request.fields as String?);
+      debugPrint(request.files as String?);
       request.headers.addAll(headers);
       var response = await request.send();
-      response.stream.transform(convert.utf8.decoder).listen((event) {
-        Map map = convert.jsonDecode(event);
-        if (map["status"] == true) {
+      response.stream.transform(utf8.decoder).listen((event) {
+        Map map = jsonDecode(event);
+        if (map['status'] == true) {
           //  Navigator.push(context, MaterialPageRoute(builder: (_) => SettingVerificationSuccessfullyScreen()));
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('Document Added Successfully')),
@@ -696,8 +748,8 @@ class Webservices {
 
           /// SUCCESS
         } else {
-          print(map);
-          print('error');
+          debugPrint(map as String?);
+          debugPrint('error');
           CustomLoader.ProgressloadingDialog(context, false);
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('error')),
@@ -708,46 +760,49 @@ class Webservices {
       });
     } catch (e) {
       ///EXCEPTION
-      print('error: $e');
+      debugPrint('error: $e');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('error: $e')),
       );
     }
   }
 
-  static Future<void> DocumentDetailRequest(BuildContext context,
-      List<DocumentDataDetailModel> documentdetaillist) async {
-    print("uploadstatus2356457834..}");
+  static Future<void> DocumentDetailRequest(
+    BuildContext context,
+    List<DocumentDataDetailModel> documentdetaillist,
+  ) async {
+    debugPrint('uploadstatus2356457834..}');
     SharedPreferences p = await SharedPreferences.getInstance();
-    print("auth ${p.getString("auth")}");
+    debugPrint("auth ${p.getString("auth")}");
 
     var request = {};
 
-    print("request ${request}");
+    debugPrint('request $request');
 
     var response = await http.post(
-        Uri.parse(Apiservices.uploadedDocumentDetail),
-        body: convert.jsonEncode(request),
-        headers: {
-          "X-AUTHTOKEN": "${p.getString("auth")}",
-          "X-USERID": "${p.getString("userid")}",
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+      Uri.parse(Apiservices.uploadedDocumentDetail),
+      body: jsonEncode(request),
+      headers: {
+        'X-AUTHTOKEN': "${p.getString("auth")}",
+        'X-USERID': "${p.getString("userid")}",
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       var docdata = jsonResponse['data'];
       if (docdata != null) {
         var pdoclist = docdata['DocumentData'];
-        print("document list..." + pdoclist.toString());
+        debugPrint('document list...$pdoclist');
         if (pdoclist != null) {
           DocumentDataDetailModel documentdetailModel =
               DocumentDataDetailModel.fromJson(pdoclist);
           documentdetaillist.add(documentdetailModel);
-          print("promooooo${documentdetaillist[0].rejectReason}");
+          debugPrint('promooooo${documentdetaillist[0].rejectReason}');
           // Fluttertoast.showToast(msg: jsonResponse['message']);
           CustomLoader.ProgressloadingDialog2(context, false);
         }
@@ -760,76 +815,83 @@ class Webservices {
   }
 
   static Future<void> RecipientFieldRequest(
-      BuildContext context,
-      List<FieldSetsModel> fieldsetlist,
-      List<RecipientFieldsModel> recipientfieldsetlist,
-      List<Options> optionlist) async {
+    BuildContext context,
+    List<FieldSetsModel> fieldsetlist,
+    List<RecipientFieldsModel> recipientfieldsetlist,
+    List<Options> optionlist,
+  ) async {
     //CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
-    var userid = p.getString("userid");
-    print("auth_tocken....${p.getString('auth_Token')}");
-    print("country_isoCode3....${p.getString("country_isoCode3")}");
-    print(
-        "country_Currency_isoCode3....${p.getString("country_Currency_isoCode3")}");
-    print("url...." +
-        "https://sandbox-api.readyremit.com/v1/recipient-fields?recipientType=PERSON&dstCountryIso3Code=${p.getString("country_isoCode3")}&dstCurrencyIso3Code=${p.getString("country_Currency_isoCode3")}&transferMethod=BANK_ACCOUNT");
+    var userid = p.getString('userid');
+    debugPrint("auth_tocken....${p.getString('auth_Token')}");
+    debugPrint("country_isoCode3....${p.getString("country_isoCode3")}");
+    debugPrint(
+      "country_Currency_isoCode3....${p.getString("country_Currency_isoCode3")}",
+    );
+    debugPrint(
+      'url....'
+      "https://sandbox-api.readyremit.com/v1/recipient-fields?recipientType=PERSON&dstCountryIso3Code=${p.getString("country_isoCode3")}&dstCurrencyIso3Code=${p.getString("country_Currency_isoCode3")}&transferMethod=BANK_ACCOUNT",
+    );
 
     var request = {};
 
-    print("request ${request}");
+    debugPrint('request $request');
 
     var response = await http.get(
-        Uri.parse(
-            "https://sandbox-api.readyremit.com/v1/recipient-fields?recipientType=PERSON&dstCountryIso3Code=${p.getString("country_isoCode3")}&dstCurrencyIso3Code=${p.getString("country_Currency_isoCode3")}&transferMethod=BANK_ACCOUNT"),
-        //body: convert.jsonEncode(request),
+      Uri.parse(
+        "https://sandbox-api.readyremit.com/v1/recipient-fields?recipientType=PERSON&dstCountryIso3Code=${p.getString("country_isoCode3")}&dstCurrencyIso3Code=${p.getString("country_Currency_isoCode3")}&transferMethod=BANK_ACCOUNT",
+      ),
+      //body: jsonEncode(request),
 
-        headers: {
-          // "Token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImlyUmg0cHJQSGxfdm5KSm15dVdrcyJ9.eyJpc3MiOiJodHRwczovL3JlYWR5cmVtaXQudXMuYXV0aDAuY29tLyIsInN1YiI6IjhpODZuajNxbWJXM3JGV3paeVZkcFJ1ZEowWG14QWFUQGNsaWVudHMiLCJhdWQiOiJodHRwczovL3NhbmRib3gtYXBpLnJlYWR5cmVtaXQuY29tIiwiaWF0IjoxNjYzNTY3OTA3LCJleHAiOjE2NjM2NTQzMDcsImF6cCI6IjhpODZuajNxbWJXM3JGV3paeVZkcFJ1ZEowWG14QWFUIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.krBMI3Up6o4djlRU7ZRzJFV_aMu6-UyWu1g-Jqt3XT7thLBkzeMEpUXOXCRVg8k57stpcNkSVgsKYmHBUEHDjNKLngfGX864TiGgkwcUB1GLCU1B306P6R2R_9nbG5EzKmBjxmPnGf-xWy2wBSm3x7T7pz9gp0NfFFx9njtfSkNmWVTIHdeplauhMtCIFk2u13x2VyqrLv_-GNCvUe5QBz1OTgDDaPhUBp4MWkqBPdHaxH6SeymZ5DanCAUt6GzTJU-hBJ9MW6y4Iv9fw1wr1vsB9CT5eEQ2oMaLGKTXwPPEgl-YqeLixFRtON51c7zQbXa49gNYScBObM7zi9dUCA",
-          //"X-USERID": "${p.getString("userid")}",
-          "content-type": "application/json",
-          "accept": "application/json",
-          'Authorization': 'Bearer ${p.getString('auth_Token')}',
-        });
-    print(response.body);
+      headers: {
+        // "Token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImlyUmg0cHJQSGxfdm5KSm15dVdrcyJ9.eyJpc3MiOiJodHRwczovL3JlYWR5cmVtaXQudXMuYXV0aDAuY29tLyIsInN1YiI6IjhpODZuajNxbWJXM3JGV3paeVZkcFJ1ZEowWG14QWFUQGNsaWVudHMiLCJhdWQiOiJodHRwczovL3NhbmRib3gtYXBpLnJlYWR5cmVtaXQuY29tIiwiaWF0IjoxNjYzNTY3OTA3LCJleHAiOjE2NjM2NTQzMDcsImF6cCI6IjhpODZuajNxbWJXM3JGV3paeVZkcFJ1ZEowWG14QWFUIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.krBMI3Up6o4djlRU7ZRzJFV_aMu6-UyWu1g-Jqt3XT7thLBkzeMEpUXOXCRVg8k57stpcNkSVgsKYmHBUEHDjNKLngfGX864TiGgkwcUB1GLCU1B306P6R2R_9nbG5EzKmBjxmPnGf-xWy2wBSm3x7T7pz9gp0NfFFx9njtfSkNmWVTIHdeplauhMtCIFk2u13x2VyqrLv_-GNCvUe5QBz1OTgDDaPhUBp4MWkqBPdHaxH6SeymZ5DanCAUt6GzTJU-hBJ9MW6y4Iv9fw1wr1vsB9CT5eEQ2oMaLGKTXwPPEgl-YqeLixFRtON51c7zQbXa49gNYScBObM7zi9dUCA",
+        //"X-USERID": "${p.getString("userid")}",
+        'content-type': 'application/json',
+        'accept': 'application/json',
+        'Authorization': 'Bearer ${p.getString('auth_Token')}',
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
 
     var dataresponse = jsonResponse['fieldSets'];
-    print("dataresponse${dataresponse}");
+    debugPrint('dataresponse$dataresponse');
     if (dataresponse != null) {
-      //  print("size >>>"+dataresponse.length);
+      //  debugPrint("size >>>"+dataresponse.length);
       dataresponse.forEach((element) {
         FieldSetsModel fieldstateModel = FieldSetsModel.fromJson(element);
         fieldsetlist.add(fieldstateModel);
-        print("fieldSetId${fieldsetlist[0].fieldSetId}");
+        debugPrint('fieldSetId${fieldsetlist[0].fieldSetId}');
         var fieldresponse = element['fields'];
-        print("fields.....${fieldresponse}");
+        debugPrint('fields.....$fieldresponse');
 
         if (fieldresponse != null) {
           fieldresponse.forEach((element1) {
-            print("element...${element1['isRequired']}");
+            debugPrint("element...${element1['isRequired']}");
 
             //  if(element1['isRequired'] == true){
 
             RecipientFieldsModel recipientfieldstateModel =
                 RecipientFieldsModel.fromJson(element1);
             if (recipientfieldstateModel.isRequired == true ||
-                recipientfieldstateModel.fieldId == "PHONE_NUMBER") {
+                recipientfieldstateModel.fieldId == 'PHONE_NUMBER') {
               recipientfieldsetlist.add(recipientfieldstateModel);
-              print(
-                  "is_required...recipientfieldsetlist${recipientfieldsetlist.length}");
+              debugPrint(
+                'is_required...recipientfieldsetlist${recipientfieldsetlist.length}',
+              );
             }
 
             /*       if(element1['fieldType'] == "DROPDOWN" ) {
                 var optiondata = element1['options'];
-                print("options...${optiondata}");
+                debugPrint("options...${optiondata}");
 
                 if (optiondata != null) {
                   optiondata.forEach((element2) {
                     Options optionmodel = Options.fromJson(element2);
                     optionlist.add(optionmodel);
-                    print("optionmodel ${recipientfieldsetlist[0].name}");
+                    debugPrint("optionmodel ${recipientfieldsetlist[0].name}");
                   });
                 }
 
@@ -846,139 +908,150 @@ class Webservices {
   }
 
   static Future<void> AddRecipientFieldRequest(
-      BuildContext context, var field, String profileimg) async {
+    BuildContext context,
+    var field,
+    String profileimg,
+  ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
-    print("auth_tocken....${p.getString('auth_Token')}");
+    debugPrint("auth_tocken....${p.getString('auth_Token')}");
 
     var request = {};
 
-    request['UserType'] = "PERSON";
+    request['UserType'] = 'PERSON';
     request['dstCountryIso3Code'] = "${p.getString("country_isoCode3")}";
     request['dstCurrencyIso3Code'] =
         "${p.getString("country_Currency_isoCode3")}";
-    request['transferMethod'] = "BANK_ACCOUNT";
-    request['SenderId'] = "23cab527-e802-4e49-8cc1-78e5c5c8e8df";
-    request['accountNumber'] = "333000333";
+    request['transferMethod'] = 'BANK_ACCOUNT';
+    request['SenderId'] = '23cab527-e802-4e49-8cc1-78e5c5c8e8df';
+    request['accountNumber'] = '333000333';
     request['fields'] = field;
 
     // otpo
-    print("request ${request}");
+    debugPrint('request $request');
 
-    var response = await http.post(Uri.parse(Apiservices.addrecipientfield),
-        body: convert.jsonEncode(request),
-        headers: {
-          'Authorization': 'Bearer ${p.getString('auth_Token')}',
-          "content-type": "application/json",
-          "accept": "application/json"
-        });
-    print(response.body);
+    var response = await http.post(
+      Uri.parse(Apiservices.addrecipientfield),
+      body: jsonEncode(request),
+      headers: {
+        'Authorization': 'Bearer ${p.getString('auth_Token')}',
+        'content-type': 'application/json',
+        'accept': 'application/json'
+      },
+    );
+    debugPrint(response.body);
 
     if (response.statusCode == 201) {
-      Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-      print("bdjkdshjgh" + jsonResponse.toString());
+      Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+      debugPrint('bdjkdshjgh$jsonResponse');
 
       String firstname = jsonResponse['firstName'].toString();
       String lastname = jsonResponse['lastName'].toString();
       String message = jsonResponse['message'].toString();
       String recipientId = jsonResponse['recipientId'].toString();
       String senderId = jsonResponse['senderId'].toString();
-      print("recipientId...${recipientId}");
-      p.setString("recipientId", recipientId);
-      p.setString("senderId", senderId);
-      p.setString("firstName", firstname);
-      p.setString("lastname", lastname);
+      debugPrint('recipientId...$recipientId');
+      p.setString('recipientId', recipientId);
+      p.setString('senderId', senderId);
+      p.setString('firstName', firstname);
+      p.setString('lastname', lastname);
 
-      print("recipientId22...${p.getString("recipientId")}");
+      debugPrint("recipientId22...${p.getString("recipientId")}");
       /* message == "" || message.isEmpty || message == ""? null:*/
-      String phone_number = "", phone_code = "";
+      String phoneNumber = '', phoneCode = '';
       // List<dynamic> fieldsList = json.decode(jsonResponse['fields']);
-      var fieldsList = jsonResponse["fields"];
+      var fieldsList = jsonResponse['fields'];
       for (int i = 0; i < fieldsList.length; i++) {
-        print("fields response>>>> " + fieldsList[i]["id"]);
-        if (fieldsList[i]["id"] == "PHONE_NUMBER") {
-          phone_number = fieldsList[i]["value"]["number"].toString();
-          phone_code = fieldsList[i]["value"]["countryPhoneCode"].toString();
+        debugPrint("fields response>>>> ${fieldsList[i]["id"]}");
+        if (fieldsList[i]['id'] == 'PHONE_NUMBER') {
+          phoneNumber = fieldsList[i]['value']['number'].toString();
+          phoneCode = fieldsList[i]['value']['countryPhoneCode'].toString();
         }
       }
       createRecipient2Request(
-          context,
-          firstname,
-          lastname,
-          profileimg,
-          "${p.getString("country_isoCode3")}",
-          recipientId,
-          phone_code,
-          phone_number);
+        context,
+        firstname,
+        lastname,
+        profileimg,
+        "${p.getString("country_isoCode3")}",
+        recipientId,
+        phoneCode,
+        phoneNumber,
+      );
 
       CustomLoader.ProgressloadingDialog(context, false);
     } else {
       List<dynamic> errorres = json.decode(response.body);
-      Utility.showFlutterToast(errorres[0]["message"]);
+      Utility.showFlutterToast(errorres[0]['message']);
       CustomLoader.ProgressloadingDialog(context, false);
     }
     return;
   }
 
   static Future<void> createRecipient2Request(
-      BuildContext context,
-      String first_name,
-      String last_name,
-      String profile_img,
-      String countryIso3Code,
-      String recipentId,
-      String phonecode,
-      String phone_number) async {
+    BuildContext context,
+    String firstName,
+    String lastName,
+    String profileImg,
+    String countryIso3Code,
+    String recipentId,
+    String phonecode,
+    String phoneNumber,
+  ) async {
     CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences pre = await SharedPreferences.getInstance();
     try {
-      pre.setString("u_first_name", first_name);
-      pre.setString("u_last_name", last_name);
-      pre.setString("u_phone_number", phone_number);
-      pre.setString("u_profile_img", profile_img);
-      print('route is ${Apiservices.createRecipient}');
+      pre.setString('u_first_name', firstName);
+      pre.setString('u_last_name', lastName);
+      pre.setString('u_phone_number', phoneNumber);
+      pre.setString('u_profile_img', profileImg);
+      debugPrint('route is ${Apiservices.createRecipient}');
       var request =
           http.MultipartRequest('POST', Uri.parse(Apiservices.createRecipient));
-      if (context != null && first_name != null && last_name != null) {
-        profile_img == ""
+      if (context != null && firstName != null && lastName != null) {
+        profileImg == ''
             ? null
             : request.files.add(
-                await http.MultipartFile.fromPath('profileImage', profile_img));
-        request.fields['first_name'] = first_name;
-        request.fields['last_name'] = last_name;
+                await http.MultipartFile.fromPath('profileImage', profileImg),
+              );
+        request.fields['first_name'] = firstName;
+        request.fields['last_name'] = lastName;
         request.fields['countryIso3Code'] = countryIso3Code;
         request.fields['country_name'] = "${pre.getString("country_Name")}";
         request.fields['recipientId'] = recipentId;
         request.fields['phonecode'] = phonecode;
-        request.fields['phone_number'] = phone_number;
+        request.fields['phone_number'] = phoneNumber;
       }
 
       Map<String, String> headers = {
-        "X-AUTHTOKEN": "${pre.getString("auth")}",
-        "X-AUTHTOKEN": "${pre.getString("auth")}",
-        "X-USERID": "${pre.getString("userid")}",
-        "content-type": "application/json",
-        "accept": "application/json"
+        'X-AUTHTOKEN': "${pre.getString("auth")}",
+        'X-USERID': "${pre.getString("userid")}",
+        'content-type': 'application/json',
+        'accept': 'application/json'
       };
 
-      print('the request is :');
-      print(request.fields);
-      print(request.files);
+      debugPrint('the request is :');
+      debugPrint(request.fields as String?);
+      debugPrint(request.files as String?);
       request.headers.addAll(headers);
       var response = await request.send();
 
-      response.stream.transform(convert.utf8.decoder).listen((event) {
-        Map map = convert.jsonDecode(event);
-        print("create response>>>> " + map.toString());
-        if (map["status"] == true) {
+      response.stream.transform(utf8.decoder).listen((event) {
+        Map map = jsonDecode(event);
+        debugPrint('create response>>>> $map');
+        if (map['status'] == true) {
           CustomLoader.ProgressloadingDialog(context, false);
           pre.setString(
-              "recpi_id", map['data']['recipient_server_id'].toString());
+            'recpi_id',
+            map['data']['recipient_server_id'].toString(),
+          );
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                  builder: (context) => SelectDeliveryMethodScreen()));
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SelectDeliveryMethodScreen(),
+            ),
+          );
 
           // ScaffoldMessenger.of(context).showSnackBar(
           //   SnackBar(content: Text('Create Recipient Successfully')),
@@ -986,8 +1059,8 @@ class Webservices {
 
           /// SUCCESS
         } else {
-          print(map);
-          print('error');
+          debugPrint(map as String?);
+          debugPrint('error');
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('error')),
           );
@@ -998,7 +1071,7 @@ class Webservices {
       });
     } catch (e) {
       ///EXCEPTION
-      print('error: $e');
+      debugPrint('error: $e');
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('error: $e')),
       );
@@ -1006,35 +1079,40 @@ class Webservices {
   }
 
   static Future<void> AccountDetailsRequest(
-      BuildContext context,
-      List<AccountsDetailModel> accountdetaillist,
-      List<AccountDetailFieldsModel> accountdetailfieldsetlist,
-      String receipent_id) async {
+    BuildContext context,
+    List<AccountsDetailModel> accountdetaillist,
+    List<AccountDetailFieldsModel> accountdetailfieldsetlist,
+    String receipentId,
+  ) async {
     SharedPreferences p = await SharedPreferences.getInstance();
-    var userid = p.getString("userid");
-    print("auth_tocken....${p.getString('auth_Token')}");
+    var userid = p.getString('userid');
+    debugPrint("auth_tocken....${p.getString('auth_Token')}");
 
     var request = {};
 
-    print(
-        "request ${Apiservices.accountDetailapi + receipent_id + "/accounts"}");
-    HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
-      HttpLogger(logLevel: LogLevel.BODY),
-    ]);
+    debugPrint(
+      "request ${"${Apiservices.accountDetailapi}$receipentId/accounts"}",
+    );
+    HttpWithMiddleware http = HttpWithMiddleware.build(
+      middlewares: [
+        HttpLogger(logLevel: LogLevel.BODY),
+      ],
+    );
     var response = await http.get(
-        Uri.parse(Apiservices.accountDetailapi + receipent_id + "/accounts"),
-        headers: {
-          "content-type": "application/json",
-          "accept": "application/json",
-          'Authorization': 'Bearer ${p.getString('auth_Token')}',
-        });
-    print("fbsdhfbshifgbhjsfbhsbfg>>>>> " + response.body);
+      Uri.parse('${Apiservices.accountDetailapi}$receipentId/accounts'),
+      headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json',
+        'Authorization': 'Bearer ${p.getString('auth_Token')}',
+      },
+    );
+    debugPrint('fbsdhfbshifgbhjsfbhsbfg>>>>> ${response.body}');
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
 
     var dataresponse = jsonResponse['accounts'];
-    print("dataresponse${dataresponse}");
+    debugPrint('dataresponse$dataresponse');
     if (dataresponse != null) {
       dataresponse.forEach((element) {
         AccountsDetailModel accountModel =
@@ -1042,18 +1120,18 @@ class Webservices {
         accountdetaillist.add(accountModel);
 
         var fieldresponse = element['fields'];
-        print("fields.....${fieldresponse}");
+        debugPrint('fields.....$fieldresponse');
         if (fieldresponse != null) {
           fieldresponse.forEach((element1) {
             AccountDetailFieldsModel accountfieldstateModel =
                 AccountDetailFieldsModel.fromJson(element1);
             accountdetailfieldsetlist.add(accountfieldstateModel);
 
-            print("element...${accountdetailfieldsetlist.length}");
+            debugPrint('element...${accountdetailfieldsetlist.length}');
 
-            if (element1['fieldType'] == "DROPDOWN") {
+            if (element1['fieldType'] == 'DROPDOWN') {
               var optiondata = element1['options'];
-              print("options...${optiondata}");
+              debugPrint('options...$optiondata');
               // CustomLoader.ProgressloadingDialog(context, false);
             } else {
               //  CustomLoader.ProgressloadingDialog(context, false);
@@ -1068,57 +1146,63 @@ class Webservices {
   }
 
   static Future<void> AccountDetailsitemRequest(
-      BuildContext context,
-      List<AccountsDetailModel> accountdetaillist,
-      List<AccountDetailFieldsModel> accountdetailfieldsetlist,
-      String recipientid,
-      String recipient_account_id) async {
+    BuildContext context,
+    List<AccountsDetailModel> accountdetaillist,
+    List<AccountDetailFieldsModel> accountdetailfieldsetlist,
+    String recipientid,
+    String recipientAccountId,
+  ) async {
     // CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
-    print("auth_tocken....${p.getString('auth_Token')}");
+    debugPrint("auth_tocken....${p.getString('auth_Token')}");
 
     var request = {};
 
-    print("request ${request}");
+    debugPrint('request $request');
 
-    HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
-      HttpLogger(logLevel: LogLevel.BODY),
-    ]);
+    HttpWithMiddleware http = HttpWithMiddleware.build(
+      middlewares: [
+        HttpLogger(logLevel: LogLevel.BODY),
+      ],
+    );
 
     var response = await http.get(
-        Uri.parse(
-            "https://sandbox-api.readyremit.com/v1/recipients/${recipientid}/accounts/${recipient_account_id}"),
-        headers: {
-          "content-type": "application/json",
-          "accept": "application/json",
-          'Authorization': 'Bearer ${p.getString('auth_Token')}',
-        });
-    print(response.body);
+      Uri.parse(
+        'https://sandbox-api.readyremit.com/v1/recipients/$recipientid/accounts/$recipientAccountId',
+      ),
+      headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json',
+        'Authorization': 'Bearer ${p.getString('auth_Token')}',
+      },
+    );
+    debugPrint(response.body);
 
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print("BankdetailResponse>>>" + jsonResponse.toString());
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint('BankdetailResponse>>>$jsonResponse');
 
-    p.setString("BankdetailResponse", response.body);
+    p.setString('BankdetailResponse', response.body);
     /* var dataresponse = jsonResponse['accounts'];
-    print("iotem${dataresponse}");
+    debugPrint("iotem${dataresponse}");
     if(dataresponse != null) {
       dataresponse.forEach((element) {*/
     AccountsDetailModel accountModel =
         AccountsDetailModel.fromJson(jsonResponse);
     accountdetaillist.add(accountModel);
 
-    print("account detail model>>> " +
-        accountdetaillist[0].recipientAccountId.toString());
+    debugPrint(
+      'account detail model>>> ${accountdetaillist[0].recipientAccountId}',
+    );
 
     var fieldresponse = jsonResponse['fields'];
-    print("itemfields.....${fieldresponse}");
+    debugPrint('itemfields.....$fieldresponse');
     if (fieldresponse != null) {
       fieldresponse.forEach((element) {
         AccountDetailFieldsModel accountfieldstateModel =
             AccountDetailFieldsModel.fromJson(element);
         accountdetailfieldsetlist.add(accountfieldstateModel);
 
-        print("element...${accountdetailfieldsetlist.length}");
+        debugPrint('element...${accountdetailfieldsetlist.length}');
       });
     }
     //  });
@@ -1131,34 +1215,37 @@ class Webservices {
   }
 
   static Future<void> ReasonForsendingRequest(
-      BuildContext context,
-      List<ReasonForSendingFieldSetsModel> reasonforlist,
-      List<ReasongforSendinItemFieldsModel> reasongforSendinItemFieldslist,
-      List<ReasonforSendingOptionsModel> optionlistt) async {
+    BuildContext context,
+    List<ReasonForSendingFieldSetsModel> reasonforlist,
+    List<ReasongforSendinItemFieldsModel> reasongforSendinItemFieldslist,
+    List<ReasonforSendingOptionsModel> optionlistt,
+  ) async {
     // CustomLoader.ProgressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
-    print("auth_tocken....${p.getString('auth_Token')}");
+    debugPrint("auth_tocken....${p.getString('auth_Token')}");
 
     var request = {};
 
-    print("request ${request}");
+    debugPrint('request $request');
 
     var response = await http.get(
-        Uri.parse(
-            "https://sandbox-api.readyremit.com/v1/transfer-fields?recipientType=PERSON&dstCountryIso3Code=${p.getString("country_isoCode3")}&dstCurrencyIso3Code=${p.getString("country_Currency_isoCode3")}&transferMethod=BANK_ACCOUNT"),
-        headers: {
-          "content-type": "application/json",
-          "accept": "application/json",
-          'Authorization': 'Bearer ${p.getString('auth_Token')}',
-        });
+      Uri.parse(
+        "https://sandbox-api.readyremit.com/v1/transfer-fields?recipientType=PERSON&dstCountryIso3Code=${p.getString("country_isoCode3")}&dstCurrencyIso3Code=${p.getString("country_Currency_isoCode3")}&transferMethod=BANK_ACCOUNT",
+      ),
+      headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json',
+        'Authorization': 'Bearer ${p.getString('auth_Token')}',
+      },
+    );
 
-    print(response.body);
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    debugPrint(response.body);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
 
     var fieldSetsdata = jsonResponse['fieldSets'];
     if (fieldSetsdata != null) {
-      print("fieldSetsdata....${fieldSetsdata}");
+      debugPrint('fieldSetsdata....$fieldSetsdata');
 
       fieldSetsdata.forEach((element) {
         ReasonForSendingFieldSetsModel reasonModel =
@@ -1167,7 +1254,7 @@ class Webservices {
 
         var fieldlist = element['fields'];
         if (fieldlist != null) {
-          print("fieldlist....${fieldSetsdata}");
+          debugPrint('fieldlist....$fieldSetsdata');
 
           fieldlist.forEach((e) {
             ReasongforSendinItemFieldsModel reasonforModel =
@@ -1176,14 +1263,14 @@ class Webservices {
             var optionlist = e['options'];
 
             if (optionlist != null) {
-              print("options..${optionlist}");
+              debugPrint('options..$optionlist');
 
               optionlist.forEach((ele) {
                 ReasonforSendingOptionsModel elementModel =
                     ReasonforSendingOptionsModel.fromJson(ele);
                 optionlistt.add(elementModel);
 
-                print("options2..${optionlist}");
+                debugPrint('options2..$optionlist');
               });
             }
           });
@@ -1197,43 +1284,47 @@ class Webservices {
   }
 
   static Future<void> ChartRecipientRequest(
-      BuildContext context,
-      List<ChartDataModel> chartdatalist,
-      List<ChartRecipientDataModel> ChartRecipientDatlist,
-      List<TxnGraphDataModel> txnGraphDatalist,
-      String year) async {
+    BuildContext context,
+    List<ChartDataModel> chartdatalist,
+    List<ChartRecipientDataModel> ChartRecipientDatlist,
+    List<TxnGraphDataModel> txnGraphDatalist,
+    String year,
+  ) async {
     SharedPreferences p = await SharedPreferences.getInstance();
-    print("dgsfgejf${p.getString("auth")}");
+    debugPrint("dgsfgejf${p.getString("auth")}");
 
     var request = {};
 
-    print("chartrequest ${request}");
-    HttpWithMiddleware http = HttpWithMiddleware.build(middlewares: [
-      HttpLogger(logLevel: LogLevel.BODY),
-    ]);
+    debugPrint('chartrequest $request');
+    HttpWithMiddleware http = HttpWithMiddleware.build(
+      middlewares: [
+        HttpLogger(logLevel: LogLevel.BODY),
+      ],
+    );
     var response = await http.get(
-        Uri.parse(Apiservices.chartRecipientapi + "?year=" + year),
-        headers: {
-          "content-type": "application/json",
-          "accept": "application/json",
-          "X-AUTHTOKEN": "${p.getString("auth")}",
-          "X-USERID": "${p.getString("userid")}",
-        });
+      Uri.parse('${Apiservices.chartRecipientapi}?year=$year'),
+      headers: {
+        'content-type': 'application/json',
+        'accept': 'application/json',
+        'X-AUTHTOKEN': "${p.getString("auth")}",
+        'X-USERID': "${p.getString("userid")}",
+      },
+    );
 
-    print(response.body);
-    Map<String, dynamic> jsonResponse = convert.jsonDecode(response.body);
-    print(jsonResponse);
+    debugPrint(response.body);
+    Map<String, dynamic> jsonResponse = jsonDecode(response.body);
+    debugPrint(jsonResponse.toString());
 
     var chartresponse = jsonResponse['data'];
     if (chartresponse != null) {
-      print("chart....${chartresponse}");
+      debugPrint('chart....$chartresponse');
 
       ChartDataModel chartModel = ChartDataModel.fromJson(chartresponse);
       chartdatalist.add(chartModel);
 
       var chartrecipientresponse = chartresponse['recipientData'];
       if (chartrecipientresponse != null) {
-        print("chart.. chart....${chartrecipientresponse}");
+        debugPrint('chart.. chart....$chartrecipientresponse');
 
         ChartRecipientDatlist.clear();
         chartrecipientresponse.forEach((e) {
@@ -1245,7 +1336,7 @@ class Webservices {
 
       var graphdata = chartresponse['TxnGraphData'];
       if (graphdata != null) {
-        print("TxnGraphData ${graphdata}");
+        debugPrint('TxnGraphData $graphdata');
         txnGraphDatalist.clear();
         graphdata.forEach((ele) {
           TxnGraphDataModel chartRecipientDataModel =
@@ -1253,8 +1344,8 @@ class Webservices {
           txnGraphDatalist.add(chartRecipientDataModel);
         });
 
-        print("chartRecipientDataModel...${ChartRecipientDatlist.length}");
-        print("TxnGraphData>>>>>>...${txnGraphDatalist.length}");
+        debugPrint('chartRecipientDataModel...${ChartRecipientDatlist.length}');
+        debugPrint('TxnGraphData>>>>>>...${txnGraphDatalist.length}');
       }
     } else {}
     return;

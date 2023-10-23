@@ -6,16 +6,14 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
-import 'package:moneytos/constance/myStrings/myString.dart';
-import 'package:moneytos/s_Api/AllApi/ApiService.dart';
-import 'package:moneytos/s_Api/s_utils/Utility.dart';
-import 'package:moneytos/s_Api/s_utils/timer_change_notifier.dart';
+import 'package:moneytos/screens/dashboardScreen/dashboard.dart';
+import 'package:moneytos/screens/loginscreen/loginscreen.dart';
+import 'package:moneytos/screens/onBoardingScreen/onboardingScreen.dart';
+import 'package:moneytos/services/s_Api/AllApi/ApiService.dart';
+import 'package:moneytos/services/s_Api/s_utils/timer_change_notifier.dart';
 import 'package:moneytos/services/webservices.dart';
-import 'package:moneytos/view/dashboardScreen/dashboard.dart';
-import 'package:moneytos/view/home/s_home/reasonforsendingpaymethod/reasonforsendingpaymethod.dart';
-import 'package:moneytos/view/loginscreen/loginscreen.dart';
-import 'package:moneytos/view/onBoardingScreen/onboardingScreen.dart';
+import 'package:moneytos/utils/constance/myColors/mycolor.dart';
+import 'package:moneytos/utils/constance/myStrings/myString.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sizer/sizer.dart';
@@ -37,7 +35,7 @@ bool doc_load = false;
 ///
 
 final GlobalKey<NavigatorState> navigatorKey =
-    GlobalKey(debugLabel: "Main Navigator");
+    GlobalKey(debugLabel: 'Main Navigator');
 
 Future<void> onBackgroundMessage(RemoteMessage message) async {
   await Firebase.initializeApp();
@@ -54,11 +52,11 @@ Future<void> onBackgroundMessage(RemoteMessage message) async {
   // Or do other work.
 }
 
-String messageTitle = "Empty";
-String notificationAlert = "alert";
+String messageTitle = 'Empty';
+String notificationAlert = 'alert';
 FirebaseMessaging messaging = FirebaseMessaging.instance;
 FlutterLocalNotificationsPlugin? fltNotification;
-String fcmtoken = "";
+String fcmtoken = '';
 
 class FCM {
   final _firebaseMessaging = FirebaseMessaging.instance;
@@ -71,8 +69,8 @@ class FCM {
     FirebaseMessaging.onBackgroundMessage(onBackgroundMessage);
     FirebaseMessaging.onMessage.listen(
       (message) async {
-        print("message...${message}");
-        AllApiService.isNotification = "1";
+        debugPrint('message...$message');
+        AllApiService.isNotification = '1';
         if (message.data.containsKey('data')) {
           // Handle data message
           streamCtlr.sink.add(message.data['data']);
@@ -92,19 +90,18 @@ class FCM {
           sound: true,
         );
 
-        notificationTitle.isNotEmpty || notificationTitle != ''
-            ? null
-            : null;
+        notificationTitle.isNotEmpty || notificationTitle != '' ? null : null;
         FirebaseMessaging.instance.getInitialMessage().then((value) {
-          print('getInitialMessage data: ${message.data}');
+          debugPrint('getInitialMessage data: ${message.data}');
 
           //_serialiseAndNavigate(message);
         });
       },
     );
     // With this token you can test it easily on your phone
-    final token =
-        _firebaseMessaging.getToken().then((value) => print('Token: $value'));
+    final token = _firebaseMessaging
+        .getToken()
+        .then((value) => debugPrint('Token: $value'));
 
     await FirebaseMessaging.instance
         .setForegroundNotificationPresentationOptions(
@@ -133,8 +130,9 @@ class FCM {
     /// openapp
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print(
-          'A new onMessageOpenedApp event was published!... ${message.notification!.title!}');
+      debugPrint(
+        'A new onMessageOpenedApp event was published!... ${message.notification!.title!}',
+      );
 
       /* message.notification!.title! == "Kobi Ifrach" ?
       navigatorKey.currentState!.push(
@@ -160,7 +158,7 @@ Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   // If you're going to use other Firebase services in the background, such as Firestore,
   // make sure you call `initializeApp` before using other Firebase services.
   await Firebase.initializeApp();
-  print('Handling a background message ${message.messageId}');
+  debugPrint('Handling a background message ${message.messageId}');
 }
 
 const AndroidNotificationChannel channel = AndroidNotificationChannel(
@@ -172,14 +170,14 @@ final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
 void initMessaging() async {
-  var androiInit = const AndroidInitializationSettings("@mipmap/ic_launcher");
+  var androiInit = const AndroidInitializationSettings('@mipmap/ic_launcher');
   var iosInit = const IOSInitializationSettings();
   var initSetting = InitializationSettings(android: androiInit, iOS: iosInit);
   fltNotification = FlutterLocalNotificationsPlugin();
   fltNotification!.initialize(initSetting);
   var androidDetails = const AndroidNotificationDetails(
     '1',
-    "channelName",
+    'channelName',
   );
   var iosDetails = const IOSNotificationDetails();
   var generalNotificationDetails =
@@ -188,8 +186,12 @@ void initMessaging() async {
     RemoteNotification? notification = message.notification;
     AndroidNotification? android = message.notification?.android;
     if (notification != null && android != null) {
-      fltNotification!.show(notification.hashCode, notification.title,
-          notification.body, generalNotificationDetails);
+      fltNotification!.show(
+        notification.hashCode,
+        notification.title,
+        notification.body,
+        generalNotificationDetails,
+      );
     }
   });
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
@@ -202,9 +204,9 @@ void initMessaging() async {
 void pushFCMtoken() async {
   String? token = await messaging.getToken();
   fcmtoken = token.toString();
-  print("fcmtoken>>>>" + fcmtoken.toString());
+  debugPrint('fcmtoken>>>>$fcmtoken');
   SharedPreferences preferences = await SharedPreferences.getInstance();
-  preferences.setString("fcmtoken", fcmtoken.toString());
+  preferences.setString('fcmtoken', fcmtoken.toString());
 
   initMessaging();
 //you will get token here in the console
@@ -223,14 +225,14 @@ void main() async {
       statusBarIconBrightness: Brightness.light,
       systemNavigationBarIconBrightness: Brightness.light,
       systemStatusBarContrastEnforced: true,
-      statusBarBrightness:
-          Brightness.dark, // ios         dark >white<   , light>black<
+      statusBarBrightness: Brightness.dark,
+      // ios         dark >white<   , light>black<
       statusBarColor: MyColors.light_primarycolor2, // status bar color
     ),
   );
   SharedPreferences preferences = await SharedPreferences.getInstance();
-  initScreen = await preferences.getInt('initScreen');
-  islogin = await preferences.getBool('login');
+  initScreen = preferences.getInt('initScreen');
+  islogin = preferences.getBool('login');
   await preferences.setInt('initScreen', 1); //if already shown -> 1 else 0
   runApp(
     // const MyApp(),
@@ -250,8 +252,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   _changeData(String msg) => setState(() => notificationData = msg);
+
   _changeBody(String msg) => setState(() => notificationBody = msg);
+
   _changeTitle(String msg) => setState(() => notificationTitle = msg);
+
   @override
   void initState() {
     super.initState();
@@ -280,7 +285,7 @@ class _MyAppState extends State<MyApp> {
               color: Colors.blue,
               // TODO add a proper drawable resource to android, for now using
               //      one that already exists in example app.
-              icon: "@mipmap/ic_launcher",
+              icon: '@mipmap/ic_launcher',
             ),
           ),
         );
@@ -297,6 +302,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   late String token;
+
   getToken() async {
     token = (await FirebaseMessaging.instance.getToken())!;
   }
@@ -314,7 +320,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     return Sizer(
       builder: (context, orientation, deviceType) {
         return MaterialApp(
@@ -334,13 +339,15 @@ class _MyAppState extends State<MyApp> {
           ),
           builder: (context, widget) {
             return ScrollConfiguration(
-                behavior: const ScrollBehaviorModified(), child: widget!);
+              behavior: const ScrollBehaviorModified(),
+              child: widget!,
+            );
           },
           home: initScreen == 0 || initScreen == null
               ? const OnBoardingPage()
               : islogin == true
-                  ? DashboardScreen()
-                  : LoginScreenPage(),
+                  ? const DashboardScreen()
+                  : const LoginScreenPage(),
           // home: ReasonForSendingPaymethod() ,
         );
       },
@@ -395,7 +402,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
           ],
         ),
@@ -568,41 +575,47 @@ String notificationData = '';
 
 void showLoader(BuildContext context) {
   showDialog(
-      context: context,
-      builder: (BuildContext context) => new AlertDialog(
-            title: new Text(notificationTitle),
-            content: Wrap(
-              children: [
-                new Text(notificationData),
-                new Text(notificationBody),
-              ],
-            ),
-            actions: <Widget>[
-              Container(
-                width: 200,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10), color: Colors.red),
-                child: new IconButton(
-                    icon: const Text(
-                      "Done",
-                      style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15),
-                    ),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    }),
+    context: context,
+    builder: (BuildContext context) => AlertDialog(
+      title: Text(notificationTitle),
+      content: Wrap(
+        children: [
+          Text(notificationData),
+          Text(notificationBody),
+        ],
+      ),
+      actions: <Widget>[
+        Container(
+          width: 200,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Colors.red,
+          ),
+          child: IconButton(
+            icon: const Text(
+              'Done',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+                fontSize: 15,
               ),
-              const SizedBox(
-                width: 30,
-              )
-            ],
-          ));
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+        ),
+        const SizedBox(
+          width: 30,
+        )
+      ],
+    ),
+  );
 }
 
 class ScrollBehaviorModified extends ScrollBehavior {
   const ScrollBehaviorModified();
+
   @override
   ScrollPhysics getScrollPhysics(BuildContext context) {
     switch (getPlatform(context)) {
@@ -610,7 +623,8 @@ class ScrollBehaviorModified extends ScrollBehavior {
       case TargetPlatform.macOS:
       case TargetPlatform.android:
         return const AlwaysScrollableScrollPhysics(
-            parent: ClampingScrollPhysics());
+          parent: ClampingScrollPhysics(),
+        );
       case TargetPlatform.fuchsia:
       case TargetPlatform.linux:
       case TargetPlatform.windows:

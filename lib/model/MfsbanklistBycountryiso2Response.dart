@@ -8,13 +8,13 @@ class MfsbanklistBycountryiso2Response {
   MfsbanklistBycountryiso2Response.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -31,15 +31,15 @@ class Data {
     if (json['banklist'] != null) {
       banklist = <Banklist>[];
       json['banklist'].forEach((v) {
-        banklist!.add(new Banklist.fromJson(v));
+        banklist!.add(Banklist.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.banklist != null) {
-      data['banklist'] = this.banklist!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (banklist != null) {
+      data['banklist'] = banklist!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -54,14 +54,15 @@ class Banklist {
   String? iban;
   String? mfsBankCode;
 
-  Banklist(
-      {this.bankName,
-        this.bic,
-        this.countryCode,
-        this.currencyCode,
-        this.domBankCode,
-        this.iban,
-        this.mfsBankCode});
+  Banklist({
+    this.bankName,
+    this.bic,
+    this.countryCode,
+    this.currencyCode,
+    this.domBankCode,
+    this.iban,
+    this.mfsBankCode,
+  });
 
   Banklist.fromJson(Map<String, dynamic> json) {
     bankName = json['bank_name'];
@@ -74,14 +75,14 @@ class Banklist {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['bank_name'] = this.bankName;
-    data['bic'] = this.bic;
-    data['country_code'] = this.countryCode;
-    data['currency_code'] = this.currencyCode;
-    data['dom_bank_code'] = this.domBankCode;
-    data['iban'] = this.iban;
-    data['mfs_bank_code'] = this.mfsBankCode;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['bank_name'] = bankName;
+    data['bic'] = bic;
+    data['country_code'] = countryCode;
+    data['currency_code'] = currencyCode;
+    data['dom_bank_code'] = domBankCode;
+    data['iban'] = iban;
+    data['mfs_bank_code'] = mfsBankCode;
     return data;
   }
 }

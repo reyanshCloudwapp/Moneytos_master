@@ -9,6 +9,31 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
+analyzer:
+
+  errors:
+    avoid_print: error
+    prefer_single_quotes: error
+    require_trailing_commas: error
+    avoid_unnecessary_containers: error
+    curly_braces_in_flow_control_structures: error
+    deprecated_consistency: error
+    null_check_on_nullable_type_parameter: error
+    prefer_const_declarations: error
+    prefer_is_empty: error
+    sort_child_properties_last: error
+    unawaited_futures: error
+    unnecessary_new: error
+    library_prefixes: error
+    always_declare_return_types: error
+    await_only_futures: error
+    comment_references: error
+#    non_constant_identifier_names: error
+#    file_names: error
+#    package_names: error
+#    use_build_context_synchronously: error
+
+
 linter:
   # The lint rules applied to this project can be customized in the
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
@@ -22,8 +47,9 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    avoid_print: false  # Uncomment to disable the `avoid_print` rule
+    prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    require_trailing_commas: true
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

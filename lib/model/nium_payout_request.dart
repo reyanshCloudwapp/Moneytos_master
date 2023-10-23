@@ -22,28 +22,29 @@ class NiumPayoutsRequest {
   String? swiftFeePayer;
   String? documentReference;
 
-  NiumPayoutsRequest(
-      {this.requestId,
-        this.transactionNumber,
-        this.destinationAccount,
-        this.destinationCurrency,
-        this.localConversionCurrency,
-        this.statementNarrative,
-        this.originalRemitterFi,
-        this.sourceAccount,
-        this.feePayer,
-        this.beneficiary,
-        this.remitter,
-        this.additionalInfo,
-        this.routingCodeType1,
-        this.routingCodeValue1,
-        this.routingCodeType2,
-        this.routingCodeValue2,
-        this.routingCodeType3,
-        this.routingCodeValue3,
-        this.payoutMethod,
-        this.swiftFeePayer,
-        this.documentReference});
+  NiumPayoutsRequest({
+    this.requestId,
+    this.transactionNumber,
+    this.destinationAccount,
+    this.destinationCurrency,
+    this.localConversionCurrency,
+    this.statementNarrative,
+    this.originalRemitterFi,
+    this.sourceAccount,
+    this.feePayer,
+    this.beneficiary,
+    this.remitter,
+    this.additionalInfo,
+    this.routingCodeType1,
+    this.routingCodeValue1,
+    this.routingCodeType2,
+    this.routingCodeValue2,
+    this.routingCodeType3,
+    this.routingCodeValue3,
+    this.payoutMethod,
+    this.swiftFeePayer,
+    this.documentReference,
+  });
 
   NiumPayoutsRequest.fromJson(Map<String, dynamic> json) {
     requestId = json['request_id'];
@@ -56,13 +57,12 @@ class NiumPayoutsRequest {
     sourceAccount = json['source_account'];
     feePayer = json['fee_payer'];
     beneficiary = json['beneficiary'] != null
-        ? new Beneficiary.fromJson(json['beneficiary'])
+        ? Beneficiary.fromJson(json['beneficiary'])
         : null;
-    remitter = json['remitter'] != null
-        ? new Remitter.fromJson(json['remitter'])
-        : null;
+    remitter =
+        json['remitter'] != null ? Remitter.fromJson(json['remitter']) : null;
     additionalInfo = json['additional_info'] != null
-        ? new AdditionalInfo.fromJson(json['additional_info'])
+        ? AdditionalInfo.fromJson(json['additional_info'])
         : null;
     routingCodeType1 = json['routing_code_type_1'];
     routingCodeValue1 = json['routing_code_value_1'];
@@ -76,34 +76,34 @@ class NiumPayoutsRequest {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['request_id'] = this.requestId;
-    data['transaction_number'] = this.transactionNumber;
-    data['destination_amount'] = this.destinationAccount;
-    data['destination_currency'] = this.destinationCurrency;
-    data['local_conversion_currency'] = this.localConversionCurrency;
-    data['statement_narrative'] = this.statementNarrative;
-    data['original_remitter_fi'] = this.originalRemitterFi;
-    data['source_account'] = this.sourceAccount;
-    data['fee_payer'] = this.feePayer;
-    if (this.beneficiary != null) {
-      data['beneficiary'] = this.beneficiary!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['request_id'] = requestId;
+    data['transaction_number'] = transactionNumber;
+    data['destination_amount'] = destinationAccount;
+    data['destination_currency'] = destinationCurrency;
+    data['local_conversion_currency'] = localConversionCurrency;
+    data['statement_narrative'] = statementNarrative;
+    data['original_remitter_fi'] = originalRemitterFi;
+    data['source_account'] = sourceAccount;
+    data['fee_payer'] = feePayer;
+    if (beneficiary != null) {
+      data['beneficiary'] = beneficiary!.toJson();
     }
-    if (this.remitter != null) {
-      data['remitter'] = this.remitter!.toJson();
+    if (remitter != null) {
+      data['remitter'] = remitter!.toJson();
     }
-    if (this.additionalInfo != null) {
-      data['additional_info'] = this.additionalInfo!.toJson();
+    if (additionalInfo != null) {
+      data['additional_info'] = additionalInfo!.toJson();
     }
-    data['routing_code_type_1'] = this.routingCodeType1;
-    data['routing_code_value_1'] = this.routingCodeValue1;
-    data['routing_code_type_2'] = this.routingCodeType2;
-    data['routing_code_value_2'] = this.routingCodeValue2;
-    data['routing_code_type_3'] = this.routingCodeType3;
-    data['routing_code_value_3'] = this.routingCodeValue3;
-    data['payout_method'] = this.payoutMethod;
-    data['swift_fee_payer'] = this.swiftFeePayer;
-    data['document_reference'] = this.documentReference;
+    data['routing_code_type_1'] = routingCodeType1;
+    data['routing_code_value_1'] = routingCodeValue1;
+    data['routing_code_type_2'] = routingCodeType2;
+    data['routing_code_value_2'] = routingCodeValue2;
+    data['routing_code_type_3'] = routingCodeType3;
+    data['routing_code_value_3'] = routingCodeValue3;
+    data['payout_method'] = payoutMethod;
+    data['swift_fee_payer'] = swiftFeePayer;
+    data['document_reference'] = documentReference;
     return data;
   }
 }
@@ -128,25 +128,26 @@ class Beneficiary {
   String? contactCountryCode;
   String? nameLocalLanguage;
 
-  Beneficiary(
-      {this.name,
-        this.address,
-        this.city,
-        this.countryCode,
-        this.email,
-        this.accountType,
-        this.contactNumber,
-        this.state,
-        this.postcode,
-        this.accountNumber,
-        this.bankAccountType,
-        this.bankName,
-        this.bankCode,
-        this.relationship,
-        this.accountIdentifierType,
-        this.accountIdentifierValue,
-        this.contactCountryCode,
-        this.nameLocalLanguage});
+  Beneficiary({
+    this.name,
+    this.address,
+    this.city,
+    this.countryCode,
+    this.email,
+    this.accountType,
+    this.contactNumber,
+    this.state,
+    this.postcode,
+    this.accountNumber,
+    this.bankAccountType,
+    this.bankName,
+    this.bankCode,
+    this.relationship,
+    this.accountIdentifierType,
+    this.accountIdentifierValue,
+    this.contactCountryCode,
+    this.nameLocalLanguage,
+  });
 
   Beneficiary.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -170,25 +171,25 @@ class Beneficiary {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['address'] = this.address;
-    data['city'] = this.city;
-    data['country_code'] = this.countryCode;
-    data['email'] = this.email;
-    data['account_type'] = this.accountType;
-    data['contact_number'] = this.contactNumber;
-    data['state'] = this.state;
-    data['postcode'] = this.postcode;
-    data['account_number'] = this.accountNumber;
-    data['bank_account_type'] = this.bankAccountType;
-    data['bank_name'] = this.bankName;
-    data['bank_code'] = this.bankCode;
-    data['relationship'] = this.relationship;
-    data['account_identifier_type'] = this.accountIdentifierType;
-    data['account_identifier_value'] = this.accountIdentifierValue;
-    data['contact_country_code'] = this.contactCountryCode;
-    data['name_local_language'] = this.nameLocalLanguage;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['address'] = address;
+    data['city'] = city;
+    data['country_code'] = countryCode;
+    data['email'] = email;
+    data['account_type'] = accountType;
+    data['contact_number'] = contactNumber;
+    data['state'] = state;
+    data['postcode'] = postcode;
+    data['account_number'] = accountNumber;
+    data['bank_account_type'] = bankAccountType;
+    data['bank_name'] = bankName;
+    data['bank_code'] = bankCode;
+    data['relationship'] = relationship;
+    data['account_identifier_type'] = accountIdentifierType;
+    data['account_identifier_value'] = accountIdentifierValue;
+    data['contact_country_code'] = contactCountryCode;
+    data['name_local_language'] = nameLocalLanguage;
     return data;
   }
 }
@@ -214,26 +215,27 @@ class Remitter {
   String? nationality;
   String? occupation;
 
-  Remitter(
-      {this.name,
-        this.givenName,
-        this.accountType,
-        this.bankAccountNumber,
-        this.identificationType,
-        this.identificationNumber,
-        this.countryCode,
-        this.address,
-        this.purposeCode,
-        this.sourceOfIncome,
-        this.contactNumber,
-        this.dob,
-        this.city,
-        this.postcode,
-        this.state,
-        this.sourceOfFunds,
-        this.placeOfBirth,
-        this.nationality,
-        this.occupation});
+  Remitter({
+    this.name,
+    this.givenName,
+    this.accountType,
+    this.bankAccountNumber,
+    this.identificationType,
+    this.identificationNumber,
+    this.countryCode,
+    this.address,
+    this.purposeCode,
+    this.sourceOfIncome,
+    this.contactNumber,
+    this.dob,
+    this.city,
+    this.postcode,
+    this.state,
+    this.sourceOfFunds,
+    this.placeOfBirth,
+    this.nationality,
+    this.occupation,
+  });
 
   Remitter.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -258,30 +260,29 @@ class Remitter {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['given_name'] = this.givenName;
-    data['account_type'] = this.accountType;
-    data['bank_account_number'] = this.bankAccountNumber;
-    data['identification_type'] = this.identificationType;
-    data['identification_number'] = this.identificationNumber;
-    data['country_code'] = this.countryCode;
-    data['address'] = this.address;
-    data['purpose_code'] = this.purposeCode;
-    data['source_of_income'] = this.sourceOfIncome;
-    data['contact_number'] = this.contactNumber;
-    data['dob'] = this.dob;
-    data['city'] = this.city;
-    data['postcode'] = this.postcode;
-    data['state'] = this.state;
-    data['source_of_funds'] = this.sourceOfFunds;
-    data['place_of_birth'] = this.placeOfBirth;
-    data['nationality'] = this.nationality;
-    data['occupation'] = this.occupation;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['given_name'] = givenName;
+    data['account_type'] = accountType;
+    data['bank_account_number'] = bankAccountNumber;
+    data['identification_type'] = identificationType;
+    data['identification_number'] = identificationNumber;
+    data['country_code'] = countryCode;
+    data['address'] = address;
+    data['purpose_code'] = purposeCode;
+    data['source_of_income'] = sourceOfIncome;
+    data['contact_number'] = contactNumber;
+    data['dob'] = dob;
+    data['city'] = city;
+    data['postcode'] = postcode;
+    data['state'] = state;
+    data['source_of_funds'] = sourceOfFunds;
+    data['place_of_birth'] = placeOfBirth;
+    data['nationality'] = nationality;
+    data['occupation'] = occupation;
     return data;
   }
 }
-
 
 class AdditionalInfo {
   String? tradeOrderId;
@@ -296,18 +297,19 @@ class AdditionalInfo {
   String? cashPickup;
   String? tradePlatformName;
 
-  AdditionalInfo(
-      {this.tradeOrderId,
-        this.tradeTime,
-        this.tradeCurrency,
-        this.tradeAmount,
-        this.tradeName,
-        this.tradeCount,
-        this.goodsCarrier,
-        this.serviceDetail,
-        this.serviceTime,
-        this.cashPickup,
-        this.tradePlatformName});
+  AdditionalInfo({
+    this.tradeOrderId,
+    this.tradeTime,
+    this.tradeCurrency,
+    this.tradeAmount,
+    this.tradeName,
+    this.tradeCount,
+    this.goodsCarrier,
+    this.serviceDetail,
+    this.serviceTime,
+    this.cashPickup,
+    this.tradePlatformName,
+  });
 
   AdditionalInfo.fromJson(Map<String, dynamic> json) {
     tradeOrderId = json['trade_order_id'];
@@ -324,18 +326,18 @@ class AdditionalInfo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['trade_order_id'] = this.tradeOrderId;
-    data['trade_time'] = this.tradeTime;
-    data['trade_currency'] = this.tradeCurrency;
-    data['trade_amount'] = this.tradeAmount;
-    data['trade_name'] = this.tradeName;
-    data['trade_count'] = this.tradeCount;
-    data['goods_carrier'] = this.goodsCarrier;
-    data['service_detail'] = this.serviceDetail;
-    data['service_time'] = this.serviceTime;
-    data['cash_pickup'] = this.cashPickup;
-    data['trade_platform_name'] = this.tradePlatformName;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['trade_order_id'] = tradeOrderId;
+    data['trade_time'] = tradeTime;
+    data['trade_currency'] = tradeCurrency;
+    data['trade_amount'] = tradeAmount;
+    data['trade_name'] = tradeName;
+    data['trade_count'] = tradeCount;
+    data['goods_carrier'] = goodsCarrier;
+    data['service_detail'] = serviceDetail;
+    data['service_time'] = serviceTime;
+    data['cash_pickup'] = cashPickup;
+    data['trade_platform_name'] = tradePlatformName;
     return data;
   }
 }

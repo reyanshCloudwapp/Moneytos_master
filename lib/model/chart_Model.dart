@@ -1,6 +1,6 @@
 class ChartDataModel {
   String? totalSendAmount;
- List<TxnGraphDataModel>? txnGraphData;
+  List<TxnGraphDataModel>? txnGraphData;
   List<ChartRecipientDataModel>? recipientData;
 
   ChartDataModel({this.totalSendAmount, this.recipientData});
@@ -10,26 +10,25 @@ class ChartDataModel {
     if (json['TxnGraphData'] != null) {
       txnGraphData = <TxnGraphDataModel>[];
       json['TxnGraphData'].forEach((v) {
-        txnGraphData!.add(new TxnGraphDataModel.fromJson(v));
+        txnGraphData!.add(TxnGraphDataModel.fromJson(v));
       });
     }
     if (json['recipientData'] != null) {
       recipientData = <ChartRecipientDataModel>[];
       json['recipientData'].forEach((v) {
-        recipientData!.add(new ChartRecipientDataModel.fromJson(v));
+        recipientData!.add(ChartRecipientDataModel.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['totalSendAmount'] = this.totalSendAmount;
-    if (this.txnGraphData != null) {
-      data['TxnGraphData'] = this.txnGraphData!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['totalSendAmount'] = totalSendAmount;
+    if (txnGraphData != null) {
+      data['TxnGraphData'] = txnGraphData!.map((v) => v.toJson()).toList();
     }
-    if (this.recipientData != null) {
-      data['recipientData'] =
-          this.recipientData!.map((v) => v.toJson()).toList();
+    if (recipientData != null) {
+      data['recipientData'] = recipientData!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -40,7 +39,11 @@ class ChartRecipientDataModel {
   String? profileImage;
   String? totalSendAmount;
 
-  ChartRecipientDataModel({this.recipientName, this.profileImage, this.totalSendAmount});
+  ChartRecipientDataModel({
+    this.recipientName,
+    this.profileImage,
+    this.totalSendAmount,
+  });
 
   ChartRecipientDataModel.fromJson(Map<String, dynamic> json) {
     recipientName = json['recipient_name'];
@@ -49,10 +52,10 @@ class ChartRecipientDataModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['recipient_name'] = this.recipientName;
-    data['profileImage'] = this.profileImage;
-    data['total_send_amount'] = this.totalSendAmount;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['recipient_name'] = recipientName;
+    data['profileImage'] = profileImage;
+    data['total_send_amount'] = totalSendAmount;
     return data;
   }
 }
@@ -69,9 +72,9 @@ class TxnGraphDataModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['total_send_amount'] = this.totalSendAmount;
-    data['month'] = this.month;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['total_send_amount'] = totalSendAmount;
+    data['month'] = month;
     return data;
   }
 }

@@ -8,13 +8,13 @@ class LocationResponse {
   LocationResponse.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['status'] = this.status;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['status'] = status;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -31,15 +31,15 @@ class Data {
     if (json['locationdata'] != null) {
       locationdata = <Locationdata>[];
       json['locationdata'].forEach((v) {
-        locationdata!.add(new Locationdata.fromJson(v));
+        locationdata!.add(Locationdata.fromJson(v));
       });
     }
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.locationdata != null) {
-      data['locationdata'] = this.locationdata!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    if (locationdata != null) {
+      data['locationdata'] = locationdata!.map((v) => v.toJson()).toList();
     }
     return data;
   }
@@ -58,18 +58,19 @@ class Locationdata {
   String? contactPerson;
   String? email;
 
-  Locationdata(
-      {this.agentCode,
-        this.agentName,
-        this.cityCode,
-        this.countryCode,
-        this.address,
-        this.countryName,
-        this.cityName,
-        this.telephone,
-        this.mobile,
-        this.contactPerson,
-        this.email});
+  Locationdata({
+    this.agentCode,
+    this.agentName,
+    this.cityCode,
+    this.countryCode,
+    this.address,
+    this.countryName,
+    this.cityName,
+    this.telephone,
+    this.mobile,
+    this.contactPerson,
+    this.email,
+  });
 
   Locationdata.fromJson(Map<String, dynamic> json) {
     agentCode = json['AgentCode'];
@@ -86,18 +87,18 @@ class Locationdata {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['AgentCode'] = this.agentCode;
-    data['AgentName'] = this.agentName;
-    data['CityCode'] = this.cityCode;
-    data['CountryCode'] = this.countryCode;
-    data['Address'] = this.address;
-    data['CountryName'] = this.countryName;
-    data['CityName'] = this.cityName;
-    data['Telephone'] = this.telephone;
-    data['Mobile'] = this.mobile;
-    data['ContactPerson'] = this.contactPerson;
-    data['Email'] = this.email;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['AgentCode'] = agentCode;
+    data['AgentName'] = agentName;
+    data['CityCode'] = cityCode;
+    data['CountryCode'] = countryCode;
+    data['Address'] = address;
+    data['CountryName'] = countryName;
+    data['CityName'] = cityName;
+    data['Telephone'] = telephone;
+    data['Mobile'] = mobile;
+    data['ContactPerson'] = contactPerson;
+    data['Email'] = email;
     return data;
   }
 }
