@@ -21,7 +21,7 @@ class _Setting_VerificationState extends State<Setting_Verification> {
   getprofiledata() async {
     userlist.clear();
     await Webservices.profileRequest(context, userlist);
-    debugPrint(userlist.length as String?);
+    debugPrint(userlist.length.toString());
     // passport_type = (userlist.length > 0 ? "${userlist[0].documentStatus == null || userlist[0].documentStatus.toString().isEmpty? "": userlist[0].documentStatus}" : "");
     actual_status = (userlist.isNotEmpty
         ? "${userlist[0].documentStatus == null || userlist[0].documentStatus.toString().isEmpty ? "" : userlist[0].documentStatus}"

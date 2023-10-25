@@ -17,7 +17,7 @@ import 'package:moneytos/screens/otpverifyscreen/LoginOtpVerifyScreen.dart';
 import 'package:moneytos/screens/otpverifyscreen/otpverifyscreen.dart';
 import 'package:moneytos/services/Apiservices.dart';
 import 'package:moneytos/services/s_Api/s_utils/Utility.dart';
-import 'package:moneytos/utils/constance/customLoader/customLoader.dart';
+import 'package:moneytos/utils/constance/customLoader/custom_loader.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:pretty_http_logger/pretty_http_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -105,7 +105,7 @@ class Webservices {
     String fcmToken,
     String referralCode,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     //  SharedPreferences p = await SharedPreferences.getInstance();
     // var token = p.getString("token");
     // String email
@@ -145,14 +145,14 @@ class Webservices {
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen2()),
       );
     } else {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Utility.dialogError(context, jsonResponse['message']);
       //  show_custom_toast(msg: "Register Failed");
     }
@@ -170,7 +170,7 @@ class Webservices {
     String fcmToken,
     String ipaddress,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     debugPrint('Countrycode...$countryCode');
     SharedPreferences p = await SharedPreferences.getInstance();
 
@@ -223,7 +223,7 @@ class Webservices {
       // p.setString("emailVerified", authuser.emailVerified.toString());
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       // p.getString("emailVerified") == "1" ?
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => DashboardScreen()));
       // Navigator.of(context, rootNavigator: true)
       //     .pushAndRemoveUntil(
@@ -252,7 +252,7 @@ class Webservices {
     } else {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
 
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Utility.dialogError(context, jsonResponse['message']);
       //  show_custom_toast(msg: "Register Failed");
     }
@@ -262,7 +262,7 @@ class Webservices {
   static Future<void> logoutRequest(
     BuildContext context,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var userid = p.getString('userid');
     var auth = p.getString('auth');
@@ -289,7 +289,7 @@ class Webservices {
     if (jsonResponse['status'] == true) {
       p.setBool('login', false);
       // Fluttertoast.showToast(msg: jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       // sharedPreferences.clear();
 
@@ -305,7 +305,7 @@ class Webservices {
       // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       // sharedPreferences.clear();
       p.setBool('login', false);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
     return;
@@ -473,7 +473,7 @@ class Webservices {
     String mobileNumber,
     String countryCode,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     var request = {};
     request['mobile_number'] = mobileNumber;
     request['country_code'] = countryCode.replaceAll('+', '');
@@ -495,7 +495,7 @@ class Webservices {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -504,7 +504,7 @@ class Webservices {
       );
     } else {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Utility.dialogError(context, jsonResponse['message']);
     }
     return;
@@ -516,7 +516,7 @@ class Webservices {
     String countryCode,
     String otp,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     var request = {};
     request['mobile_number'] = mobileNumber;
     request['country_code'] = countryCode.replaceAll('+', '');
@@ -539,7 +539,7 @@ class Webservices {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
@@ -548,7 +548,7 @@ class Webservices {
       );
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
     return;
@@ -562,7 +562,7 @@ class Webservices {
     String newPassword,
     String confirmPassword,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     var request = {};
     request['mobile_number'] = mobileNumber;
     request['country_code'] = countryCode.replaceAll('+', '');
@@ -587,14 +587,14 @@ class Webservices {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => const LoginScreen2()),
       );
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
     return;
@@ -606,7 +606,7 @@ class Webservices {
     String newPassword,
     String confirmPassword,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var userid = p.getString('userid');
     var auth = p.getString('auth');
@@ -638,11 +638,11 @@ class Webservices {
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Navigator.pop(context);
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
     return;
@@ -652,7 +652,7 @@ class Webservices {
     BuildContext context,
     String pin,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var userid = p.getString('userid');
     var auth = p.getString('auth');
@@ -680,11 +680,11 @@ class Webservices {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       confirfationDialog(context);
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
     return;
@@ -697,7 +697,7 @@ class Webservices {
     String ducumentFrontImage,
     String ducumentBackImage,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences pre = await SharedPreferences.getInstance();
 
     try {
@@ -732,8 +732,8 @@ class Webservices {
       };
 
       debugPrint('the request is :$headers');
-      debugPrint(request.fields as String?);
-      debugPrint(request.files as String?);
+      debugPrint(request.fields.toString());
+      debugPrint(request.files.toString());
       request.headers.addAll(headers);
       var response = await request.send();
       response.stream.transform(utf8.decoder).listen((event) {
@@ -744,13 +744,13 @@ class Webservices {
             const SnackBar(content: Text('Document Added Successfully')),
           );
           DocumentDetailRequest(context, documentdetaillist);
-          CustomLoader.ProgressloadingDialog(context, false);
+          CustomLoader.progressloadingDialog(context, false);
 
           /// SUCCESS
         } else {
-          debugPrint(map as String?);
+          debugPrint(map.toString());
           debugPrint('error');
-          CustomLoader.ProgressloadingDialog(context, false);
+          CustomLoader.progressloadingDialog(context, false);
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('error')),
           );
@@ -804,12 +804,12 @@ class Webservices {
           documentdetaillist.add(documentdetailModel);
           debugPrint('promooooo${documentdetaillist[0].rejectReason}');
           // Fluttertoast.showToast(msg: jsonResponse['message']);
-          CustomLoader.ProgressloadingDialog2(context, false);
+          CustomLoader.progressloadingDialog2(context, false);
         }
       }
     } else {
       //  Fluttertoast.showToast(msg: jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog2(context, false);
+      CustomLoader.progressloadingDialog2(context, false);
     }
     return;
   }
@@ -912,7 +912,7 @@ class Webservices {
     var field,
     String profileimg,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     debugPrint("auth_tocken....${p.getString('auth_Token')}");
@@ -980,11 +980,11 @@ class Webservices {
         phoneNumber,
       );
 
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
     } else {
       List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast(errorres[0]['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
     }
     return;
   }
@@ -999,7 +999,7 @@ class Webservices {
     String phonecode,
     String phoneNumber,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences pre = await SharedPreferences.getInstance();
     try {
       pre.setString('u_first_name', firstName);
@@ -1032,8 +1032,8 @@ class Webservices {
       };
 
       debugPrint('the request is :');
-      debugPrint(request.fields as String?);
-      debugPrint(request.files as String?);
+      debugPrint(request.fields.toString());
+      debugPrint(request.files.toString());
       request.headers.addAll(headers);
       var response = await request.send();
 
@@ -1041,7 +1041,7 @@ class Webservices {
         Map map = jsonDecode(event);
         debugPrint('create response>>>> $map');
         if (map['status'] == true) {
-          CustomLoader.ProgressloadingDialog(context, false);
+          CustomLoader.progressloadingDialog(context, false);
           pre.setString(
             'recpi_id',
             map['data']['recipient_server_id'].toString(),
@@ -1059,12 +1059,12 @@ class Webservices {
 
           /// SUCCESS
         } else {
-          debugPrint(map as String?);
+          debugPrint(map.toString());
           debugPrint('error');
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(content: Text('error')),
           );
-          CustomLoader.ProgressloadingDialog(context, false);
+          CustomLoader.progressloadingDialog(context, false);
 
           /// FAIL
         }

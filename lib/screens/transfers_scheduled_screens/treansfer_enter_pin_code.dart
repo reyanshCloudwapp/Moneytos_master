@@ -365,7 +365,7 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
   }
 
   Future<void> chkpinRequest(BuildContext context, String chkPin) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var request = {};
     request['pin'] = chkPin;
@@ -391,14 +391,14 @@ class _TransferPinCodeScreenState extends State<TransferPinCodeScreen> {
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       // Fluttertoast.showToast(msg: jsonResponse["message"]);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       // confirfationDialog(context);
       alert = 'Good luck';
       Navigator.pop(context);
       widget.Oncallback();
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       //  show_custom_toast(msg: "Register Failed");
       alert = 'Incorrect please try again';
       pinEntered = '';

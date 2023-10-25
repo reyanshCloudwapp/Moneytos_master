@@ -1857,7 +1857,7 @@ class _RecipientsOpenedScreenState extends State<RecipientsOpenedScreen> {
     String recipientId,
     String recipient_account_id,
   ) async {
-    CustomLoader.ProgressloadingDialog5(context, true);
+    CustomLoader.progressloadingDialog5(context, true);
     setState(() {
       load = true;
     });
@@ -1901,14 +1901,14 @@ class _RecipientsOpenedScreenState extends State<RecipientsOpenedScreen> {
       /* message == "" || message.isEmpty || message == ""? null:*/
       //  createRecipient2Request(context, firstname, lastname, profileimg, "${p.getString("country_isoCode3")}",recipientId);
 
-      CustomLoader.ProgressloadingDialog5(context, false);
+      CustomLoader.progressloadingDialog5(context, false);
       getaccountdetailApi();
     } else {
       is_delete = false;
       setState(() {});
       // List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog5(context, false);
+      CustomLoader.progressloadingDialog5(context, false);
       getaccountdetailApi();
     }
 

@@ -1944,7 +1944,7 @@ class _NewSelectRecipientHomeDetailScreenState
     var field,
     String profileimg,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     debugPrint("auth_tocken....${p.getString('auth_Token')}");
@@ -1997,7 +1997,7 @@ class _NewSelectRecipientHomeDetailScreenState
       debugPrint("recipientId22...${p.getString("recipientId")}");
       /* message == "" || message.isEmpty || message == ""? null:*/
       p.setString('recipientId', recipientId);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
 
       is_country = 'select_bankdetail';
 
@@ -2005,7 +2005,7 @@ class _NewSelectRecipientHomeDetailScreenState
     } else {
       List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast(errorres[0]['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       setState(() {});
     }
     return;
@@ -4293,7 +4293,7 @@ class _NewSelectRecipientHomeDetailScreenState
     String recipientId,
     String recipientAccountId,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     // setState((){
     //   load = true;
     // });
@@ -4337,13 +4337,13 @@ class _NewSelectRecipientHomeDetailScreenState
       //  createRecipient2Request(context, firstname, lastname, profileimg, "${p.getString("country_isoCode3")}",recipientId);
 
       Navigator.pop(context);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       getaccountdetailApi();
     } else {
       setState(() {});
       List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast(errorres[0]['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       getaccountdetailApi();
     }
     Update();
@@ -4602,7 +4602,7 @@ class _NewSelectRecipientHomeDetailScreenState
   }
 
   Future<void> feesbuyapi(BuildContext context, String countryIso3) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userid = sharedPreferences.getString('userid');
     var auth = sharedPreferences.getString('auth');
@@ -4638,7 +4638,7 @@ class _NewSelectRecipientHomeDetailScreenState
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       // referlistResponse = await ReferlistResponse.fromJson(jsonResponse);
 
       debugPrint("money tos fees>>> ${jsonResponse['data']['monyetosfee']}");
@@ -4728,7 +4728,7 @@ class _NewSelectRecipientHomeDetailScreenState
 
       setState(() {});
     } else {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       setState(() {});
     }
     return;
@@ -4738,7 +4738,7 @@ class _NewSelectRecipientHomeDetailScreenState
     BuildContext context,
   ) async {
     // Utility.ProgressloadingDialog(context, true);
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
 
     load = true;
     setState(() {});
@@ -4761,7 +4761,7 @@ class _NewSelectRecipientHomeDetailScreenState
         'X-CLIENT': AllApiService.x_client,
       },
     );
-    CustomLoader.ProgressloadingDialog6(context, false);
+    CustomLoader.progressloadingDialog6(context, false);
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {

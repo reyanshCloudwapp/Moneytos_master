@@ -508,7 +508,7 @@ class _ForgotOtpVerifyScreenState extends State<ForgotOtpVerifyScreen> {
     String mobileNumber,
     String countryCode,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     var request = {};
     request['mobile_number'] = mobileNumber;
     request['country_code'] = countryCode.replaceAll('+', '');
@@ -537,10 +537,10 @@ class _ForgotOtpVerifyScreenState extends State<ForgotOtpVerifyScreen> {
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
     }
     return;
   }

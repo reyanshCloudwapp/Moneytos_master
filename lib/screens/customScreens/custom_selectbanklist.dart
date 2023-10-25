@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moneytos/utils/constance/myColors/mycolor.dart';
+import 'package:moneytos/utils/constance/myColors/my_color.dart';
 
 class CustomSelectBankList extends StatelessWidget {
   final String title, img;

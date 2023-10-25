@@ -434,7 +434,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
     String secCode,
     String accountNumber,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['name'] = name;
@@ -462,7 +462,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
     );
 
     if (response.statusCode == 200) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> if$jsonResponse');
       Navigator.pushReplacement(
@@ -475,7 +475,7 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
         ),
       );
     } else {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> else$jsonResponse');
       Utility.showFlutterToast(jsonResponse['message'].toString());

@@ -512,7 +512,7 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
     //  SharedPreferences p = await SharedPreferences.getInstance();
     // var token = p.getString("token");
     // String email
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     var request = {};
     request['mobile_number'] = widget.mobileno;
     request['country_code'] = widget.countrycode.replaceAll('+', '');
@@ -538,7 +538,7 @@ class _OtpVerifyScreenState extends State<OtpVerifyScreen> {
 
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
     debugPrint(jsonResponse.toString());
-    CustomLoader.ProgressloadingDialog(context, false);
+    CustomLoader.progressloadingDialog(context, false);
     if (jsonResponse['status'] == true) {
       Utility.showFlutterToast(jsonResponse['message']);
     } else {

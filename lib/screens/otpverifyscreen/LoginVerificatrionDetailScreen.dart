@@ -963,7 +963,7 @@ class _LoginVerificatrionDetailScreenState
     String ZipCode,
     String SourceOfIncome,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var userid = p.getString('userid');
     var auth = p.getString('auth');
@@ -998,7 +998,7 @@ class _LoginVerificatrionDetailScreenState
     if (jsonResponse['status'] == true) {
       p.setBool('login', true);
       // Fluttertoast.showToast(msg: jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       // sharedPreferences.clear();
 
@@ -1030,7 +1030,7 @@ class _LoginVerificatrionDetailScreenState
       // SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
       // sharedPreferences.clear();
       p.setBool('login', false);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
     return;
@@ -1039,7 +1039,7 @@ class _LoginVerificatrionDetailScreenState
   Future<void> accountSettingApi(
     BuildContext context,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     var userid = p.getString('userid');
@@ -1111,11 +1111,11 @@ class _LoginVerificatrionDetailScreenState
             accountSettingResponse.data!.userData!.sourceOfIncome!.toString();
       }
 
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       setState(() {});
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
 
       setState(() {});
     }

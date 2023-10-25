@@ -37,11 +37,10 @@ class _HomeHistoryScreenState extends State<HomeHistoryScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
-    scrollcontroller.addListener(pagination);
     WidgetsBinding.instance
         .addPostFrameCallback((_) => latesttransferApi(context, 1));
+    super.initState();
+    scrollcontroller.addListener(pagination);
   }
 
   @override
@@ -492,10 +491,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:moneytos/constance/customLoader/customLoader.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
-import 'package:moneytos/constance/myStrings/myString.dart';
-import 'package:moneytos/constance/sizedbox/sizedBox.dart';
+import 'package:moneytos/constance/customLoader/custom_loader.dart';
+import 'package:moneytos/constance/myColors/my_color.dart';
+import 'package:moneytos/constance/myStrings/my_string.dart';
+import 'package:moneytos/constance/sizedbox/sized_box.dart';
 import 'package:moneytos/model/customlists/customLists.dart';
 import 'package:pretty_http_logger/pretty_http_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';

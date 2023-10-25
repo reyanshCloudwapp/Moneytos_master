@@ -497,7 +497,7 @@ class _SelectOperatorScreenState extends State<SelectOperatorScreen> {
     BuildContext context,
   ) async {
     // Utility.ProgressloadingDialog(context, true);
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
 
     load = true;
     setState(() {});
@@ -518,7 +518,7 @@ class _SelectOperatorScreenState extends State<SelectOperatorScreen> {
         'X-CLIENT': AllApiService.x_client,
       },
     );
-    CustomLoader.ProgressloadingDialog6(context, false);
+    CustomLoader.progressloadingDialog6(context, false);
 
     load = false;
     setState(() {});

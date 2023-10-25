@@ -270,12 +270,12 @@ class _SettingVerificationSuccessfullyScreenState
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
-import 'package:moneytos/constance/myStrings/myString.dart';
+import 'package:moneytos/constance/myColors/my_color.dart';
+import 'package:moneytos/constance/myStrings/my_string.dart';
 import 'package:moneytos/services/webservices.dart';
 import 'package:moneytos/view/dash_settingscreen/setting_account_verifiedDialogScreen.dart';
 
-import '../../constance/sizedbox/sizedBox.dart';
+import '../../constance/sizedbox/sized_box.dart';
 import '../../model/documentDetailModel.dart';
 
 

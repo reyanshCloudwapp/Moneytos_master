@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:moneytos/utils/constance/myColors/mycolor.dart';
-import 'package:moneytos/utils/constance/sizedbox/sizedBox.dart';
+import 'package:moneytos/utils/constance/myColors/my_color.dart';
+import 'package:moneytos/utils/constance/sizedbox/sized_box.dart';
 
 class CustomTextFields extends StatelessWidget {
   final String text, hinttext, errortext;

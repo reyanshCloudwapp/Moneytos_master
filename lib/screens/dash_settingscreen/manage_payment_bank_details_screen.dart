@@ -427,7 +427,7 @@ class _ManagePaymentBankDetailsScreenState
     String secCode,
     String accountNumber,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['name'] = name;
@@ -455,14 +455,14 @@ class _ManagePaymentBankDetailsScreenState
     );
 
     if (response.statusCode == 200) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> if$jsonResponse');
       // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ManageSelectPaymentMethodScreen(selectedMethodScreen: 0,)));
       widget.oncallBack();
       Navigator.pop(context);
     } else {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> else$jsonResponse');
       Utility.showFlutterToast(jsonResponse['message'].toString());

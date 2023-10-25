@@ -497,7 +497,7 @@ class _ReferSendMoneyScreenState extends State<ReferSendMoneyScreen> {
   Future<void> referral_listapi(
     BuildContext context,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userid = sharedPreferences.getString('userid');
     var auth = sharedPreferences.getString('auth');
@@ -527,12 +527,12 @@ class _ReferSendMoneyScreenState extends State<ReferSendMoneyScreen> {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       referlistResponse = ReferlistResponse.fromJson(jsonResponse);
 
       setState(() {});
     } else {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       setState(() {});
     }
     return;

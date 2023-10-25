@@ -192,7 +192,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
     String address,
     String zipcode,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences pre = await SharedPreferences.getInstance();
     try {
       var request = http.MultipartRequest(
@@ -220,8 +220,8 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
       };
 
       debugPrint('the request is :');
-      debugPrint(request.fields as String?);
-      debugPrint(request.files as String?);
+      debugPrint(request.fields.toString());
+      debugPrint(request.files.toString());
       request.headers.addAll(headers);
       var response = await request.send();
 
@@ -229,7 +229,7 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
         Map map = jsonDecode(event);
         debugPrint('create response>>>> $map');
         if (map['status'] == true) {
-          CustomLoader.ProgressloadingDialog6(context, false);
+          CustomLoader.progressloadingDialog6(context, false);
           // Navigator.pop(context);
           // this.widget.Oncallback();
           Navigator.of(context, rootNavigator: true).pushAndRemoveUntil(
@@ -246,9 +246,9 @@ class _EditAccountSettingScreenState extends State<EditAccountSettingScreen> {
 
           /// SUCCESS
         } else {
-          debugPrint(map as String?);
+          debugPrint(map.toString());
 
-          CustomLoader.ProgressloadingDialog6(context, false);
+          CustomLoader.progressloadingDialog6(context, false);
           setState(() {});
 
           /// FAIL

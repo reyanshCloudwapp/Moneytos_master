@@ -1,4 +1,4 @@
-import 'package:moneytos/utils/constance/myStrings/myString.dart';
+import 'package:moneytos/utils/constance/myStrings/my_string.dart';
 
 class CustomList {
   static List<String> titlelist = [

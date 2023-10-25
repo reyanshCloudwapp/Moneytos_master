@@ -1507,7 +1507,7 @@ class _SelectDeliveryAddMethodScreenState
     String recipientId,
     String recipient_account_id,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     // setState((){
     //   load = true;
     // });
@@ -1552,14 +1552,14 @@ class _SelectDeliveryAddMethodScreenState
       //  createRecipient2Request(context, firstname, lastname, profileimg, "${p.getString("country_isoCode3")}",recipientId);
 
       Navigator.pop(context);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       // getaccountdetailApi();
       recipientBankAccountsapi(context);
     } else {
       setState(() {});
       List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast(errorres[0]['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
     }
 
     setState(() {});
@@ -1701,10 +1701,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:getwidget/components/loader/gf_loader.dart';
 import 'package:getwidget/types/gf_loader_type.dart';
-import 'package:moneytos/constance/customLoader/customLoader.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
-import 'package:moneytos/constance/myStrings/myString.dart';
-import 'package:moneytos/constance/sizedbox/sizedBox.dart';
+import 'package:moneytos/constance/customLoader/custom_loader.dart';
+import 'package:moneytos/constance/myColors/my_color.dart';
+import 'package:moneytos/constance/myStrings/my_string.dart';
+import 'package:moneytos/constance/sizedbox/sized_box.dart';
 import 'package:moneytos/model/account_detailsModel.dart';
 import 'package:moneytos/services/webservices.dart';
 import 'package:moneytos/view/addrecipientinfoscreen/select_oprator_screen.dart';

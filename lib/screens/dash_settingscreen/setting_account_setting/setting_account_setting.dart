@@ -562,7 +562,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
   Future<void> accountSettingApi(
     BuildContext context,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     var userid = p.getString('userid');
@@ -595,11 +595,11 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
       accountSettingResponse = AccountSettingResponse.fromJson(jsonResponse);
       // Fluttertoast.showToast(msg: jsonResponse['message']);
 
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       setState(() {});
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
 
       setState(() {});
     }
@@ -755,7 +755,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
   }
 
   Future<void> delete_userapi(BuildContext context) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     debugPrint("auth_tocken....${p.getString('auth_Token')}");
@@ -784,7 +784,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
       Utility.showFlutterToast('Delete Successfully');
       // ignore: use_build_context_synchronously
       Navigator.of(context, rootNavigator: true).pop(context);
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
 
       pushNewScreen(
         context,
@@ -795,7 +795,7 @@ class _Setting_Account_settingState extends State<Setting_Account_setting> {
       // List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast('Invalid Request');
       Navigator.of(context, rootNavigator: true).pop(context);
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       // CustomLoader.ProgressloadingDialog(context, false);
     }
     return;

@@ -2372,8 +2372,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
-import 'package:moneytos/constance/sizedbox/sizedBox.dart';
+import 'package:moneytos/constance/myColors/my_color.dart';
+import 'package:moneytos/constance/sizedbox/sized_box.dart';
 import 'package:moneytos/view/createaccount/createaccountscreen.dart';
 import 'package:moneytos/view/loginscreen2.dart';
 

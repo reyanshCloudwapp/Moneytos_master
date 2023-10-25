@@ -5,7 +5,7 @@ import 'package:getwidget/components/loader/gf_loader.dart';
 import 'package:getwidget/types/gf_loader_type.dart';
 import 'package:intl/intl.dart';
 import 'package:moneytos/model/pak_code.dart';
-import 'package:moneytos/utils/constance/myColors/mycolor.dart';
+import 'package:moneytos/utils/constance/myColors/my_color.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 

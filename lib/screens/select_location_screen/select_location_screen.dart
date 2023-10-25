@@ -489,7 +489,7 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
     BuildContext context,
   ) async {
     // Utility.ProgressloadingDialog(context, true);
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
 
     load = true;
     setState(() {});
@@ -512,7 +512,7 @@ class _SelectLocationScreenState extends State<SelectLocationScreen> {
         'X-CLIENT': AllApiService.x_client,
       },
     );
-    CustomLoader.ProgressloadingDialog6(context, false);
+    CustomLoader.progressloadingDialog6(context, false);
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {

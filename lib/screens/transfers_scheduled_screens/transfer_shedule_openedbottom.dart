@@ -56,7 +56,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     dateList = days;
     dateList.add(endDate);
 
-    debugPrint(days as String?);
+    debugPrint(days.toString());
 
     setState(() {});
 
@@ -86,7 +86,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
       }
     }
 
-    debugPrint(days as String?);
+    debugPrint(days.toString());
 
     setState(() {});
 
@@ -179,7 +179,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
       }
     }
 
-    debugPrint(days as String?);
+    debugPrint(days.toString());
 
     setState(() {});
 
@@ -1338,7 +1338,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     BuildContext context,
     schedule_id,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     var request = {};
@@ -1365,12 +1365,12 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       scheduleDetailResponse.data!.scheduledata!.scheduleStatus =
           isSwitched_pin ? 'ON' : 'OFF';
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
     setState(() {});
@@ -1685,7 +1685,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     BuildContext context,
     String schedule_id,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['schedule_id'] = schedule_id;
@@ -1710,7 +1710,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       Navigator.of(context, rootNavigator: true).pop(context);
       Navigator.pop(context);
       widget.Oncallback();
@@ -1725,7 +1725,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
 
       setState(() {});
     } else {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       Utility.showFlutterToast(jsonResponse['message']);
       setState(() {});
     }
@@ -1840,7 +1840,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     BuildContext context,
     String schedule_id,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['schedule_id'] = schedule_id;
@@ -1865,7 +1865,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       Navigator.of(context, rootNavigator: true).pop(context);
       Navigator.pop(context);
       widget.Oncallback();
@@ -1880,7 +1880,7 @@ class _TransferSheduleBottomState extends State<TransferSheduleBottom> {
 
       setState(() {});
     } else {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       Navigator.of(context, rootNavigator: true).pop(context);
       Utility.showFlutterToast(jsonResponse['message']);
       setState(() {});

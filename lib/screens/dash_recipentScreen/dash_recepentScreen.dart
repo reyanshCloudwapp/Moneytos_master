@@ -52,14 +52,22 @@ class _RecipentScreenState extends State<RecipentScreen> {
   @override
   void initState() {
     // TODO: implement initState
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Future.wait([
+        prefData(),
+        addedAllRecipientsApi(context),
+        latesttransferApi(context),
+      ]);
+    });
     super.initState();
-    prefData();
-    WidgetsBinding.instance
-        .addPostFrameCallback((_) => addedAllRecipientsApi(context));
-    latesttransferApi(context);
+
+    // prefData();
+    // WidgetsBinding.instance
+    //     .addPostFrameCallback((_) => addedAllRecipientsApi(context));
+    // latesttransferApi(context);
   }
 
-  prefData() async {
+  Future prefData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     state_verified = sharedPreferences.getBool('state_verified')!;
     doucument_status = sharedPreferences.getString('document_status')!;
@@ -1221,7 +1229,7 @@ class _RecipentScreenState extends State<RecipentScreen> {
     BuildContext context,
     String recipientServerId,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var request = {};
     request['recipient_server_id'] = recipientServerId;
@@ -1243,13 +1251,13 @@ class _RecipentScreenState extends State<RecipentScreen> {
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       Utility.showFlutterToast(jsonResponse['message']);
       WidgetsBinding.instance
           .addPostFrameCallback((_) => addedAllRecipientsApi(context));
     } else {
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       //  show_custom_toast(msg: "Register Failed");
     }
     return;
@@ -1260,7 +1268,7 @@ class _RecipentScreenState extends State<RecipentScreen> {
     String recipientId,
     String recipientServerId,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     debugPrint("auth_tocken....${p.getString('auth_Token')}");
@@ -1290,13 +1298,13 @@ class _RecipentScreenState extends State<RecipentScreen> {
     debugPrint(response.body);
 
     if (response.statusCode == 200) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       // deleteRecipientapi(context,recipientServerId);
     } else {
       // List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast('Invalid Request');
       Navigator.of(context, rootNavigator: true).pop(context);
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       // CustomLoader.ProgressloadingDialog(context, false);
     }
     return;
@@ -1306,7 +1314,7 @@ class _RecipentScreenState extends State<RecipentScreen> {
     BuildContext context,
     String recipientServerId,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     debugPrint("auth_tocken....${p.getString('auth_Token')}");
@@ -1334,7 +1342,7 @@ class _RecipentScreenState extends State<RecipentScreen> {
     if (response.statusCode == 200) {
       Utility.showFlutterToast('Delete Successfully');
       Navigator.of(context, rootNavigator: true).pop(context);
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
 
       WidgetsBinding.instance
           .addPostFrameCallback((_) => addedAllRecipientsApi(context));
@@ -1621,9 +1629,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
-import 'package:moneytos/constance/myStrings/myString.dart';
-import 'package:moneytos/constance/sizedbox/sizedBox.dart';
+import 'package:moneytos/constance/myColors/my_color.dart';
+import 'package:moneytos/constance/myStrings/my_string.dart';
+import 'package:moneytos/constance/sizedbox/sized_box.dart';
 import 'package:moneytos/model/customlists/customLists.dart';
 import 'package:moneytos/view/recipients_opened_sscreen/recipients_opened_screens.dart';
 import 'package:moneytos/view/resonforsendingscreen/reasonforsendingscreen.dart';
@@ -1632,7 +1640,7 @@ import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
 import 'package:pretty_http_logger/pretty_http_logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../add_new_recipients_dashboard/dash_select_recipentCountry.dart';
-import '../../constance/customLoader/customLoader.dart';
+import '../../constance/customLoader/custom_loader.dart';
 import '../../s_Api/AllApi/ApiService.dart';
 import '../../s_Api/S_ApiResponse/AllAddedRecipientsListResponse.dart';
 import '../../s_Api/S_ApiResponse/LatestTransferResponse.dart';

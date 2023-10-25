@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:dart_ipify/dart_ipify.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:moneytos/screens/dash_recipentScreen/select_recipient_screen/select_new_recipient_screen.dart';
 import 'package:moneytos/screens/home_history/transfer_bottomsheet.dart';
 import 'package:moneytos/screens/notificationScreen/home_notificationScreen.dart';
@@ -36,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late Timer _timer;
   int _currentPage = 0;
   int _numberOfPages = 5;
-  bool _isVisible = true;
+  bool isVisible = true;
 
   bool _enabled = true;
 
@@ -57,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
   bool is_load = false;
   String site_schedule_status = '';
 
-  prefData() async {
+  Future prefData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     doucument_status = sharedPreferences.getString('document_status')!;
     state_verified = sharedPreferences.getBool('state_verified')!;
@@ -70,17 +71,28 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     // TODO: implement initState
+    mainNotitification();
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      Future.wait([
+        chkStateStatusByIpApi(context),
+        getprofiledata(),
+        clearAllTransactionValue(),
+        prefData(),
+        commonsettingApi(context),
+        getPermissionStatus(),
+      ]);
+    });
     super.initState();
 
     // WidgetsBinding.instance.addPostFrameCallback((_) =>getTokenApi(context));
-    chkStateStatusByIpApi(context);
-    mainNotitification();
-    clearAllTransactionValue();
-    prefData();
-    commonsettingApi(context);
-    setState(() {});
-
-    getPermissionStatus();
+    // chkStateStatusByIpApi(context);
+    // mainNotitification();
+    // clearAllTransactionValue();
+    // prefData();
+    // commonsettingApi(context);
+    // setState(() {});
+    //
+    // getPermissionStatus();
   }
 
   Future<void> commonsettingApi(BuildContext context) async {
@@ -170,7 +182,7 @@ class _HomeScreenState extends State<HomeScreen> {
     setState(() {});
   }
 
-  getPermissionStatus() async {
+  Future getPermissionStatus() async {
     await Permission.camera.request();
     await Permission.storage.request();
     await Permission.microphone.request();
@@ -1127,11 +1139,11 @@ class _HomeScreenState extends State<HomeScreen> {
     return;
   }
 
-  getprofiledata() async {
+  Future getprofiledata() async {
     userlist.clear();
 
     await profileRequest(context, userlist);
-    debugPrint(userlist.length as String?);
+    debugPrint(userlist.length.toString());
 
     // CustomLoader.ProgressloadingDialog6(context, false);
 
@@ -1806,7 +1818,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return;
   }
 
-  clearAllTransactionValue() async {
+  Future clearAllTransactionValue() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     sharedPreferences.setString('dstCurrencyIso3Code', '');
     sharedPreferences.setString('dstCountryIso3Code', '').toString();
@@ -1846,10 +1858,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:getwidget/components/loader/gf_loader.dart';
 import 'package:getwidget/types/gf_loader_type.dart';
-import 'package:moneytos/constance/customLoader/customLoader.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
-import 'package:moneytos/constance/myStrings/myString.dart';
-import 'package:moneytos/constance/sizedbox/sizedBox.dart';
+import 'package:moneytos/constance/customLoader/custom_loader.dart';
+import 'package:moneytos/constance/myColors/my_color.dart';
+import 'package:moneytos/constance/myStrings/my_string.dart';
+import 'package:moneytos/constance/sizedbox/sized_box.dart';
 import 'package:moneytos/customScreens/customHomecardui.dart';
 import 'package:moneytos/model/customlists/customLists.dart';
 import 'package:moneytos/s_Api/AllApi/ApiService.dart';

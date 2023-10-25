@@ -440,7 +440,7 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
     String account_number,
     String payment_method_id,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['name'] = name;
@@ -469,13 +469,13 @@ class _EditBankDetailsScreenState extends State<EditBankDetailsScreen> {
     );
 
     if (response.statusCode == 200) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> if$jsonResponse');
       widget.oncallBack();
       Navigator.pop(context);
     } else {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> else$jsonResponse');
       Utility.showFlutterToast(jsonResponse['message'].toString());

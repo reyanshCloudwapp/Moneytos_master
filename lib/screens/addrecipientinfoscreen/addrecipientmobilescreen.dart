@@ -466,7 +466,7 @@ class _AddRecipientMobileScreenState extends State<AddRecipientMobileScreen> {
 
   // FieldSetsModel model
   Future<void> addRecipientMobileApi(BuildContext context) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['recipient_id'] = recipient_id;
@@ -504,14 +504,14 @@ class _AddRecipientMobileScreenState extends State<AddRecipientMobileScreen> {
 
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> else$jsonResponse');
       Utility.showFlutterToast(jsonResponse['message'].toString());
       widget.Oncallback!();
       Navigator.pop(context);
     } else {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Utility.showFlutterToast(jsonResponse['message'].toString());
       debugPrint('jsonResponse>>> if$jsonResponse');
       // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ManageSelectPaymentMethodScreen(selectedMethodScreen: 1,)));

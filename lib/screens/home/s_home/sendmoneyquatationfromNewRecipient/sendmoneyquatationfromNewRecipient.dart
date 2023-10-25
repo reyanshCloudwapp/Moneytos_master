@@ -1222,7 +1222,7 @@ class _SendMoneyQuotationFromNewRecipientState
   }
 
   Future<void> feesbuyapi(BuildContext context, String countryIso3) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userid = sharedPreferences.getString('userid');
     var auth = sharedPreferences.getString('auth');
@@ -1258,7 +1258,7 @@ class _SendMoneyQuotationFromNewRecipientState
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       // referlistResponse = await ReferlistResponse.fromJson(jsonResponse);
 
       debugPrint("money tos fees>>> ${jsonResponse['data']['monyetosfee']}");
@@ -1300,7 +1300,7 @@ class _SendMoneyQuotationFromNewRecipientState
       // sharedPreferences.setString("monyetosfee", moneytos.toString());
       setState(() {});
     } else {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       setState(() {});
     }
     return;

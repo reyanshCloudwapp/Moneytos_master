@@ -80,7 +80,7 @@ class _Setting_homeState extends State<Setting_home> {
       load = true;
     });
     await Webservices.profileRequest(context, userlist);
-    debugPrint(userlist.length as String?);
+    debugPrint(userlist.length.toString());
 
     setState(() {
       load = false;
@@ -260,6 +260,7 @@ class _Setting_homeState extends State<Setting_home> {
                             child: Image(
                               image: AssetImage(
                                 'assets/logo/progress_image.png',
+                                // 'assets/logo/progress_image_gif.gif',
                               ),
                             ),
                           ),
@@ -1282,7 +1283,7 @@ class _Setting_homeState extends State<Setting_home> {
   }
 
   Future<void> paymentmethodsRequest(BuildContext context) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
 
@@ -1305,7 +1306,7 @@ class _Setting_homeState extends State<Setting_home> {
     );
 
     if (response.statusCode == 200) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       // Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       // debugPrint("nsklvnsf>> "+jsonResponse.toString());
       List<dynamic> viewdebitcardlist = json.decode(response.body);
@@ -1329,7 +1330,7 @@ class _Setting_homeState extends State<Setting_home> {
               withNavBar: false,
             );
     } else {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       pushNewScreen(
         context,
         screen: const ManagePaymentMethodScreen(isMfs: false),

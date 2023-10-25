@@ -1127,7 +1127,7 @@ class _ScheduledSelectPaymentMethodScreenState
     BuildContext context,
     String payment_method_id,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['payment_method_id'] = payment_method_id;

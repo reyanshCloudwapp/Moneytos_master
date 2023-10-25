@@ -1217,7 +1217,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
     String bankAccountNum,
     String recipientId,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     debugPrint("auth_tocken....${p.getString('auth_Token')}");
@@ -1262,7 +1262,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
       /* message == "" || message.isEmpty || message == ""? null:*/
       //  createRecipient2Request(context, firstname, lastname, profileimg, "${p.getString("country_isoCode3")}",recipientId);
 
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -1272,7 +1272,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
     } else {
       List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast(errorres[0]['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
     }
     return;
   }
@@ -1442,7 +1442,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
                 onChanged: (value) {
                   setState(() {
                     model.fields![index].valueAcc = value.toString();
-                    debugPrint(value as String?);
+                    debugPrint(value.toString());
                     selectedCategory2 = value.toString();
                     slect_bank_type = selectedCategory2.toString();
                     debugPrint('value $selectedCategory2');
@@ -1684,7 +1684,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
     String bankName,
     String accountHolder,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     debugPrint("auth_tocken....${p.getString('auth_Token')}");
@@ -1766,7 +1766,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
       /* message == "" || message.isEmpty || message == ""? null:*/
       //  createRecipient2Request(context, firstname, lastname, profileimg, "${p.getString("country_isoCode3")}",recipientId);
 
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       // p.getString("partnerPaymentMethod").toString()=="mfs"?
       Navigator.push(
         context,
@@ -1787,7 +1787,7 @@ class _BankAccountNumberState extends State<BankAccountNumber> {
       // List<dynamic> errorres = json.decode(response.body);
       ischeck = false;
       Utility.showFlutterToast(jsonResponse['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       setState(() {});
     }
     return;

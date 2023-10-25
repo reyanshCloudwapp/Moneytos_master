@@ -1250,7 +1250,7 @@ class _SelectPaymentMethodScreenState extends State<SelectPaymentMethodScreen> {
     BuildContext context,
     String paymentMethodId,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['payment_method_id'] = paymentMethodId;

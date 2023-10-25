@@ -186,7 +186,7 @@ class _ScheduledFaceAndTouchScreenState
       canCheckBiometrics = await auth.canCheckBiometrics;
     } on PlatformException catch (e) {
       canCheckBiometrics = false;
-      debugPrint(e as String?);
+      debugPrint(e.toString());
     }
     if (!mounted) {
       return;
@@ -203,7 +203,7 @@ class _ScheduledFaceAndTouchScreenState
       availableBiometrics = await auth.getAvailableBiometrics();
     } on PlatformException catch (e) {
       availableBiometrics = <BiometricType>[];
-      debugPrint(e as String?);
+      debugPrint(e.toString());
     }
     if (!mounted) {
       return;
@@ -231,7 +231,7 @@ class _ScheduledFaceAndTouchScreenState
         _isAuthenticating = false;
       });
     } on PlatformException catch (e) {
-      debugPrint(e as String?);
+      debugPrint(e.toString());
       setState(() {
         _isAuthenticating = false;
         _authorized = 'Error - ${e.message}';
@@ -271,7 +271,7 @@ class _ScheduledFaceAndTouchScreenState
         _authorized = 'Authenticating';
       });
     } on PlatformException catch (e) {
-      debugPrint(e as String?);
+      debugPrint(e.toString());
       setState(() {
         _isAuthenticating = false;
         _authorized = 'Error - ${e.message}';

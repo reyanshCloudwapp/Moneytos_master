@@ -955,7 +955,7 @@ class _EditSheduledTransferScreenState
     String schedule_type,
     String schedule_exp_date,
   ) async {
-    CustomLoader.ProgressloadingDialog6(context, true);
+    CustomLoader.progressloadingDialog6(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['schedule_date'] = schedule_date;
@@ -983,7 +983,7 @@ class _EditSheduledTransferScreenState
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       // Fluttertoast.showToast(msg: jsonResponse['message']);
 
       // Navigator.pop(context);
@@ -993,7 +993,7 @@ class _EditSheduledTransferScreenState
 
       setState(() {});
     } else {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       Utility.showFlutterToast(jsonResponse['message']);
       setState(() {});
     }

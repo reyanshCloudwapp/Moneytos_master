@@ -194,7 +194,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
       canCheckBiometrics = await auth.canCheckBiometrics;
     } on PlatformException catch (e) {
       canCheckBiometrics = false;
-      debugPrint(e as String?);
+      debugPrint(e.toString());
     }
     if (!mounted) {
       return;
@@ -211,7 +211,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
       availableBiometrics = await auth.getAvailableBiometrics();
     } on PlatformException catch (e) {
       availableBiometrics = <BiometricType>[];
-      debugPrint(e as String?);
+      debugPrint(e.toString());
     }
     if (!mounted) {
       return;
@@ -239,7 +239,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
         _isAuthenticating = false;
       });
     } on PlatformException catch (e) {
-      debugPrint(e as String?);
+      debugPrint(e.toString());
       setState(() {
         _isAuthenticating = false;
         _authorized = 'Error - ${e.message}';
@@ -280,7 +280,7 @@ class _FaceAndTouchScreenState extends State<FaceAndTouchScreen> {
         _authorized = 'Authenticating';
       });
     } on PlatformException catch (e) {
-      debugPrint(e as String?);
+      debugPrint(e.toString());
       setState(() {
         _isAuthenticating = false;
         _authorized = 'Error - ${e.message}';

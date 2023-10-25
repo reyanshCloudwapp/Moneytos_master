@@ -491,7 +491,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
     int expiry_year,
     String card,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['avs_address'] = avs_address;
@@ -522,7 +522,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
     );
 
     if (response.statusCode == 200) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> if$jsonResponse');
       Navigator.pushReplacement(
@@ -535,7 +535,7 @@ class _ScheduledDebitCardScreenState extends State<ScheduledDebitCardScreen> {
         ),
       );
     } else {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> else$jsonResponse');
       Utility.showFlutterToast(jsonResponse['error_details'].toString());

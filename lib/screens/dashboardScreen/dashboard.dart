@@ -1,5 +1,6 @@
 import 'package:dart_ipify/dart_ipify.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:intl/intl.dart';
 import 'package:moneytos/screens/chartscreen/chart_screens.dart';
 import 'package:moneytos/screens/dash_recipentScreen/dash_recepentScreen.dart';
@@ -141,12 +142,20 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    super.initState();
-    chkStateStatusByIpApi(context);
-    getprofiledata();
-    pageset();
     controller = PersistentTabController(initialIndex: pageindex);
-    setState(() {});
+    pageset();
+    SchedulerBinding.instance.addPostFrameCallback((_) {
+      Future.wait([
+        chkStateStatusByIpApi(context),
+        getprofiledata(),
+      ]);
+    });
+    super.initState();
+    // chkStateStatusByIpApi(context);
+    // getprofiledata();
+    // pageset();
+    // controller = PersistentTabController(initialIndex: pageindex);
+    // setState(() {});
   }
 
   pageset() {
@@ -538,10 +547,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
     ];
   }
 
-  getprofiledata() async {
+  Future getprofiledata() async {
     userlist.clear();
     await profileRequest(context, userlist);
-    debugPrint(userlist.length as String?);
+    debugPrint(userlist.length.toString());
 
     // CustomLoader.ProgressloadingDialog6(context, false);
 
@@ -934,8 +943,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
-import 'package:moneytos/constance/myStrings/myString.dart';
+import 'package:moneytos/constance/myColors/my_color.dart';
+import 'package:moneytos/constance/myStrings/my_string.dart';
 import 'package:moneytos/view/chartscreen/chart_screens.dart';
 import 'package:moneytos/view/dash_recipentScreen/dash_recepentScreen.dart';
 import 'package:moneytos/view/dash_settingscreen/dash_settingScreen.dart';

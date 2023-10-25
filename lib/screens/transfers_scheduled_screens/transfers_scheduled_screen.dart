@@ -574,7 +574,7 @@ class _TransferSheduledScreenState extends State<TransferSheduledScreen> {
     userlist.clear();
 
     await Webservices.profileRequest(context, userlist);
-    debugPrint(userlist.length as String?);
+    debugPrint(userlist.length.toString());
 
     doucument_status =
         userlist.isNotEmpty ? userlist[0].documentStatus.toString() : '';

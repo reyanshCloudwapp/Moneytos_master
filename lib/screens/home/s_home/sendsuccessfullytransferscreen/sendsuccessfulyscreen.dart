@@ -475,7 +475,7 @@ class _SendSuccessfullyTransferScreenState
   }
 
   Future<void> txnDetailapi(BuildContext context) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userid = sharedPreferences.getString('userid');
     var auth = sharedPreferences.getString('auth');
@@ -503,7 +503,7 @@ class _SendSuccessfullyTransferScreenState
     );
 
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
-    CustomLoader.ProgressloadingDialog(context, false);
+    CustomLoader.progressloadingDialog(context, false);
     if (jsonResponse['status'] == true) {
       // txnDetailResponse = TxnDetailResponse.fromJson(jsonResponse);
       // txn_status = txnDetailResponse.data!.readyremitStatus.toString();

@@ -1860,7 +1860,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:moneytos/constance/myColors/mycolor.dart';
+import 'package:moneytos/constance/myColors/my_color.dart';
 import 'package:moneytos/services/webservices.dart';
 import 'package:moneytos/view/otpverifyscreen/otpverifyscreen.dart';
 import 'package:shared_preferences/shared_preferences.dart';

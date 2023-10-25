@@ -1145,7 +1145,7 @@ class _AddRecipientInfoScreenState extends State<AddRecipientInfoScreen> {
     String city,
     String postalcode,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences pre = await SharedPreferences.getInstance();
     try {
       pre.setString('u_first_name', first_name);
@@ -1196,8 +1196,8 @@ class _AddRecipientInfoScreenState extends State<AddRecipientInfoScreen> {
       };
 
       debugPrint('the request is :');
-      debugPrint(request.fields as String?);
-      debugPrint(request.files as String?);
+      debugPrint(request.fields.toString());
+      debugPrint(request.files.toString());
       request.headers.addAll(headers);
       var response = await request.send();
 
@@ -1206,7 +1206,7 @@ class _AddRecipientInfoScreenState extends State<AddRecipientInfoScreen> {
         debugPrint('create response>>>> $event');
         debugPrint('isMfsMobileMoney >>>> $isMfsMobileMoney');
         if (map['status'] == true) {
-          CustomLoader.ProgressloadingDialog(context, false);
+          CustomLoader.progressloadingDialog(context, false);
           pre.setString(
             'recpi_id',
             map['data']['recipient_server_id'].toString(),
@@ -1251,12 +1251,12 @@ class _AddRecipientInfoScreenState extends State<AddRecipientInfoScreen> {
 
           /// SUCCESS
         } else {
-          debugPrint(map as String?);
+          debugPrint(map.toString());
           debugPrint('error');
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(map['message'])),
           );
-          CustomLoader.ProgressloadingDialog(context, false);
+          CustomLoader.progressloadingDialog(context, false);
 
           /// FAIL
         }

@@ -371,7 +371,7 @@ class _LoginOtpVerifyScreenState extends State<LoginOtpVerifyScreen> {
   Future<void> resendOTP(
     BuildContext context,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     debugPrint("Countrycode...${widget.CountryCode.replaceAll("+", "")}");
     SharedPreferences p = await SharedPreferences.getInstance();
     var token = p.getString('token');
@@ -403,10 +403,10 @@ class _LoginOtpVerifyScreenState extends State<LoginOtpVerifyScreen> {
     debugPrint(jsonResponse.toString());
     if (jsonResponse['status'] == true) {
       debugPrint('dfhdfjhdf');
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Utility.showFlutterToast(jsonResponse['message']);
     } else {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Utility.dialogError(context, jsonResponse['message']);
     }
     return;
@@ -415,7 +415,7 @@ class _LoginOtpVerifyScreenState extends State<LoginOtpVerifyScreen> {
   Future<void> OTPVerifyRequest(
     BuildContext context,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
     var token = p.getString('token');
 
@@ -469,7 +469,7 @@ class _LoginOtpVerifyScreenState extends State<LoginOtpVerifyScreen> {
       p.setString('emailVerified', authuser.emailVerified.toString());
       // Fluttertoast.showToast(msg: jsonResponse['message']);
       // p.getString("emailVerified") == "1" ?
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => DashboardScreen()));
       // if(authuser.stepsecstatus=="1"){
       //   Navigator.of(context, rootNavigator: true)
@@ -504,7 +504,7 @@ class _LoginOtpVerifyScreenState extends State<LoginOtpVerifyScreen> {
     } else {
       // Fluttertoast.showToast(msg: jsonResponse['message']);
 
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Utility.dialogError(context, jsonResponse['message']);
       //  show_custom_toast(msg: "Register Failed");
     }

@@ -637,7 +637,7 @@ class _EditDebitCardScreenState extends State<EditDebitCardScreen> {
     String card,
     String cardCCV,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var request = {};
     request['avs_address'] = avsAddress;
@@ -668,7 +668,7 @@ class _EditDebitCardScreenState extends State<EditDebitCardScreen> {
     );
 
     if (response.statusCode == 200) {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       if (jsonResponse['status'] == false) {
         Map<String, dynamic> jsonResponse = jsonDecode(response.body);
@@ -680,7 +680,7 @@ class _EditDebitCardScreenState extends State<EditDebitCardScreen> {
         Navigator.pop(context);
       }
     } else {
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       Map<String, dynamic> jsonResponse = jsonDecode(response.body);
       debugPrint('jsonResponse>>> else$jsonResponse');
       Utility.showFlutterToast(jsonResponse['message'].toString());

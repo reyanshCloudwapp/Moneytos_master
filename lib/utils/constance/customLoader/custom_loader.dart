@@ -12,7 +12,7 @@ class CustomLoader {
     );
   }
 
-  static ProgressloadingDialog(BuildContext context, bool status) {
+  static progressloadingDialog(BuildContext context, bool status) {
     if (status) {
       showDialog(
         context: context,
@@ -37,7 +37,7 @@ class CustomLoader {
     }
   }
 
-  static ProgressloadingDialog2(BuildContext context, bool status) {
+  static progressloadingDialog2(BuildContext context, bool status) {
     if (status) {
       showDialog(
         context: context,
@@ -62,7 +62,7 @@ class CustomLoader {
     }
   }
 
-  static ProgressloadingDialog4(BuildContext context) {
+  static progressloadingDialog4(BuildContext context) {
     return Container(
       color: Colors.white.withOpacity(0.30),
       child: const Center(
@@ -76,7 +76,7 @@ class CustomLoader {
     );
   }
 
-  static ProgressloadingDialog5(BuildContext context, bool status) {
+  static progressloadingDialog5(BuildContext context, bool status) {
     if (status) {
       return Container(
         color: Colors.white.withOpacity(0.30),
@@ -94,7 +94,7 @@ class CustomLoader {
     }
   }
 
-  static ProgressloadingDialog6(BuildContext context, bool status) {
+  static progressloadingDialog6(BuildContext context, bool status) {
     if (status) {
       showDialog(
         context: context,

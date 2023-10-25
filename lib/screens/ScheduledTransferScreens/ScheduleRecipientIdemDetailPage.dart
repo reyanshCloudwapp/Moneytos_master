@@ -1830,7 +1830,7 @@ class _ScheduleRecipientDetailScreenState
     var field,
     String profileimg,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences p = await SharedPreferences.getInstance();
 
     debugPrint("auth_tocken....${p.getString('auth_Token')}");
@@ -1883,7 +1883,7 @@ class _ScheduleRecipientDetailScreenState
       debugPrint("recipientId22...${p.getString("recipientId")}");
       /* message == "" || message.isEmpty || message == ""? null:*/
       p.setString('recipientId', recipientId);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
 
       is_country = 'select_bankdetail';
 
@@ -1891,7 +1891,7 @@ class _ScheduleRecipientDetailScreenState
     } else {
       List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast(errorres[0]['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       setState(() {});
     }
     return;
@@ -3460,7 +3460,7 @@ class _ScheduleRecipientDetailScreenState
     String recipientId,
     String recipientAccountId,
   ) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     // setState((){
     //   load = true;
     // });
@@ -3505,13 +3505,13 @@ class _ScheduleRecipientDetailScreenState
       //  createRecipient2Request(context, firstname, lastname, profileimg, "${p.getString("country_isoCode3")}",recipientId);
 
       Navigator.pop(context);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
       getaccountdetailApi();
     } else {
       setState(() {});
       List<dynamic> errorres = json.decode(response.body);
       Utility.showFlutterToast(errorres[0]['message']);
-      CustomLoader.ProgressloadingDialog(context, false);
+      CustomLoader.progressloadingDialog(context, false);
     }
 
     setState(() {});
@@ -3883,7 +3883,7 @@ class _ScheduleRecipientDetailScreenState
   }
 
   Future<void> feesbuyapi(BuildContext context, String countryIso3) async {
-    CustomLoader.ProgressloadingDialog(context, true);
+    CustomLoader.progressloadingDialog(context, true);
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     var userid = sharedPreferences.getString('userid');
     var auth = sharedPreferences.getString('auth');
@@ -3919,7 +3919,7 @@ class _ScheduleRecipientDetailScreenState
     Map<String, dynamic> jsonResponse = jsonDecode(response.body);
 
     if (jsonResponse['status'] == true) {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       // referlistResponse = await ReferlistResponse.fromJson(jsonResponse);
 
       debugPrint("money tos fees>>> ${jsonResponse['data']['monyetosfee']}");
@@ -3947,7 +3947,7 @@ class _ScheduleRecipientDetailScreenState
       // sharedPreferences.setString("monyetosfee", moneytos.toString());
       setState(() {});
     } else {
-      CustomLoader.ProgressloadingDialog6(context, false);
+      CustomLoader.progressloadingDialog6(context, false);
       setState(() {});
     }
     return;
